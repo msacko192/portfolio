@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --encre:    #14181A;
+  --craie:    #F5F4F1;
+  --pierre:   #EAE8E3;
+  --graphite: #6E7377;
+  --pin:      #0E5C4A;
+  --rule:     #DCDAD4;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--craie);
+    color: var(--encre);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(14, 92, 74, 0.12);
+    color: var(--encre);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--pin);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
