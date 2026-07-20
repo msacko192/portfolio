@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { SectionDivider } from './SectionMeta'
-import { ease } from '../lib/motion'
+import { textReveal, textLine, fadeUp } from '../lib/motion'
 
 function validate(data) {
   const errors = {}
@@ -15,11 +14,11 @@ function validate(data) {
 
 function Field({ label, id, type = 'text', required, rows, placeholder, error }) {
   const base =
-    'w-full bg-white/5 border border-white/20 text-craie placeholder-graphite rounded px-4 py-3 font-inter text-sm focus:outline-none focus:border-pin transition-colors'
+    'w-full bg-white/5 border border-white/15 text-white placeholder-white/30 rounded-2xl px-4 py-3 font-inter text-sm focus:outline-none focus:border-secondary transition-colors'
 
   return (
     <div>
-      <label htmlFor={id} className="block label text-craie/70 mb-1.5">
+      <label htmlFor={id} className="block label text-white/60 mb-1.5">
         {label}{required && ' *'}
       </label>
       {rows ? (
@@ -36,6 +35,11 @@ export default function Contact() {
   const [status, setStatus] = useState('idle')
   const [errors, setErrors] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
+
+  const leftRef = useRef(null)
+  const leftInView = useInView(leftRef, { once: true, margin: '-80px 0px' })
+  const rightRef = useRef(null)
+  const rightInView = useInView(rightRef, { once: true, margin: '-80px 0px' })
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -64,65 +68,42 @@ export default function Contact() {
   const { fields } = content.contact
 
   return (
-    <section id="contact" className="bg-encre pb-20 md:pb-28">
-      <SectionDivider />
-      <div className="mx-auto max-w-6xl px-6 pt-14 md:pt-20">
+    <section id="contact" className="bg-primary py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, ease }}
+            ref={leftRef}
+            variants={textReveal()}
+            initial="hidden"
+            animate={leftInView ? 'show' : 'hidden'}
           >
-            <h2 className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-craie mb-4 text-balance">
+            <motion.h2 variants={textLine} className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-white mb-4 text-balance">
               {content.contact.title}
-            </h2>
-            <p className="font-inter text-graphite leading-relaxed text-pretty max-w-[52ch]">
+            </motion.h2>
+            <motion.p variants={textLine} className="font-inter text-white/60 leading-relaxed text-pretty max-w-[52ch]">
               {content.contact.body}
-            </p>
+            </motion.p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.12, duration: 0.45, ease }}
+            ref={rightRef}
+            variants={fadeUp}
+            initial="hidden"
+            animate={rightInView ? 'show' : 'hidden'}
           >
             {status === 'success' ? (
-              <div className="bg-pin/10 border border-pin/30 rounded-lg p-6">
-                <p className="font-inter text-craie leading-relaxed">{content.contact.success}</p>
+              <div className="bg-secondary/10 border border-secondary/30 rounded-2xl p-6">
+                <p className="font-inter text-white leading-relaxed">{content.contact.success}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <Field
-                    label={fields.nom}
-                    id="nom"
-                    required
-                    placeholder="Jean Dupont"
-                    error={errors.nom}
-                  />
-                  <Field
-                    label={fields.entreprise}
-                    id="entreprise"
-                    placeholder="Votre entreprise"
-                  />
+                  <Field label={fields.nom} id="nom" required placeholder="Jean Dupont" error={errors.nom} />
+                  <Field label={fields.entreprise} id="entreprise" placeholder="Votre entreprise" />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <Field
-                    label={fields.email}
-                    id="email"
-                    type="email"
-                    required
-                    placeholder="jean@exemple.fr"
-                    error={errors.email}
-                  />
-                  <Field
-                    label={fields.telephone}
-                    id="telephone"
-                    type="tel"
-                    placeholder="06 00 00 00 00"
-                  />
+                  <Field label={fields.email} id="email" type="email" required placeholder="jean@exemple.fr" error={errors.email} />
+                  <Field label={fields.telephone} id="telephone" type="tel" placeholder="06 00 00 00 00" />
                 </div>
                 <Field
                   label={fields.besoin}
@@ -132,22 +113,20 @@ export default function Contact() {
                   placeholder="Décrivez brièvement votre besoin ou le processus que vous souhaitez améliorer…"
                   error={errors.besoin}
                 />
-
                 {status === 'error' && (
                   <p className="font-inter text-sm text-red-400">{errorMessage}</p>
                 )}
-
                 <div className="mt-2">
-                  <button
+                  <motion.button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full sm:w-auto bg-pin text-craie font-inter font-medium text-sm px-8 py-3 rounded hover:bg-pin/80 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                    whileTap={status !== 'loading' ? { scale: 0.97 } : {}}
+                    className="w-full sm:w-auto bg-secondary text-white font-inter font-medium text-sm px-8 py-3 rounded-2xl hover:bg-secondary/90 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 hover:scale-[1.01]"
                   >
                     {status === 'loading' ? 'Envoi…' : content.contact.cta}
-                  </button>
+                  </motion.button>
                 </div>
-
-                <p className="font-inter text-xs text-graphite leading-relaxed mt-1">
+                <p className="font-inter text-xs text-white/40 leading-relaxed mt-1">
                   {content.contact.rgpd}
                 </p>
               </form>

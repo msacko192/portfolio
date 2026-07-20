@@ -1,0 +1,130 @@
+/* ── will-change : posé avant l'animation, retiré via JS après ── */
+.hero-eyebrow,
+.hero-title .hero-line,
+.hero-lede,
+.hero-cta-block,
+.node-item,
+.node-hub {
+  will-change: opacity, transform;
+}
+.node-track {
+  will-change: opacity;
+}
+
+/* ── Texte en cascade ─────────────────────────────────────────────── */
+.hero-eyebrow {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: heroRise .6s .1s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.hero-title .hero-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroRise .7s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-title .hero-line:nth-child(1) { animation-delay: .18s; }
+.hero-title .hero-line:nth-child(2) { animation-delay: .30s; }
+.hero-title .hero-line:nth-child(3) { animation-delay: .42s; }
+
+.hero-lede {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroRise .7s .56s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.hero-cta-block {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroRise .7s .70s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+@keyframes heroRise { to { opacity: 1; transform: translateY(0); } }
+
+/* ══════════════════════════════════════════════════════════════════
+   NODE GRAPH — convergence de vos outils vers l'application
+══════════════════════════════════════════════════════════════════ */
+
+/* Nœuds sources (cercle + icône + label) */
+.node-item {
+  opacity: 0;
+  transform: translateY(5px);
+  animation: heroRise .45s var(--nd, 0s) cubic-bezier(.22,1,.36,1) forwards;
+}
+
+/* Lignes de fond pointillées */
+.node-track {
+  opacity: 0;
+  animation: nodeTrackIn .5s var(--nd, 0s) forwards;
+}
+@keyframes nodeTrackIn { to { opacity: 1; } }
+
+/* Flux animés — apparaissent puis coulent en boucle vers le hub */
+.node-flow {
+  stroke-dashoffset: 0;
+  opacity: 0;
+  will-change: stroke-dashoffset, opacity;
+  animation-name: nodeAppear, nodeFlow;
+  animation-duration: .3s, 1.8s;
+  animation-timing-function: ease, linear;
+  animation-fill-mode: forwards, none;
+  animation-iteration-count: 1, infinite;
+  animation-delay: var(--nd, 0s), calc(var(--nd, 0s) + .3s);
+}
+@keyframes nodeAppear { to { opacity: 0.75; } }
+@keyframes nodeFlow   { to { stroke-dashoffset: -23; } }
+
+/* Hub central — pop avec légère élasticité */
+.node-hub {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.72);
+  animation: nodePop .65s 1.05s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+@keyframes nodePop { to { opacity: 1; transform: scale(1); } }
+
+/* Anneau de pulse autour du hub */
+.node-hub-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hubRing 2.8s 1.55s ease-in-out infinite;
+}
+@keyframes hubRing {
+  0%, 100% { opacity: 0.05; transform: scale(1); }
+  50%       { opacity: 0.12; transform: scale(1.10); }
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .hero-title .hero-line,
+  .hero-lede,
+  .hero-cta-block,
+  .node-item,
+  .node-hub {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  .node-track {
+    opacity: 1 !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  .node-flow {
+    opacity: 0.75 !important;
+    animation: none !important;
+    will-change: auto !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  .node-hub-ring {
+    opacity: 0.08 !important;
+    animation: none !important;
+  }
+}

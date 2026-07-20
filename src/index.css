@@ -3,38 +3,39 @@
 @tailwind utilities;
 
 :root {
-  --encre:    #14181A;
-  --craie:    #F5F4F1;
-  --pierre:   #EAE8E3;
-  --graphite: #6E7377;
-  --pin:      #0E5C4A;
-  --rule:     #DCDAD4;
+  --primary:   #0F172A;
+  --secondary: #2563EB;
+  --success:   #22C55E;
+  --warning:   #F59E0B;
+  --section:   #F8FAFC;
+  --border:    #E5E7EB;
+  --text:      #111827;
+  --muted:     #6B7280;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    background-color: var(--craie);
-    color: var(--encre);
+    background-color: #ffffff;
+    color: var(--text);
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: rgba(14, 92, 74, 0.12);
-    color: var(--encre);
+    background-color: rgba(37, 99, 235, 0.12);
+    color: var(--text);
   }
 
   :focus-visible {
-    outline: 2px solid var(--pin);
+    outline: 2px solid var(--secondary);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 }
+
 
 @layer utilities {
   .label {

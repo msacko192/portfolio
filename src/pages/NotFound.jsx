@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { BRAND } from '../data/content'
+import { textReveal, textLine } from '../lib/motion'
 
 export default function NotFound() {
   return (
@@ -15,21 +17,33 @@ export default function NotFound() {
         </div>
       </header>
       <main className="flex-1 flex items-center justify-center px-6">
-        <div className="text-center">
-          <p className="label text-graphite/50 mb-6">404</p>
-          <h1 className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-encre mb-4 text-balance">
-            Page introuvable
-          </h1>
-          <p className="font-inter text-graphite mb-10 text-pretty">
-            La page que vous cherchez n'existe pas ou a été déplacée.
-          </p>
-          <Link
-            to="/"
-            className="bg-pin text-craie font-inter font-medium text-sm px-6 py-3 rounded hover:bg-encre transition-colors"
+        <motion.div
+          variants={textReveal()}
+          initial="hidden"
+          animate="show"
+          className="text-center"
+        >
+          <motion.p variants={textLine} className="label text-graphite/50 mb-6">404</motion.p>
+          <motion.h1
+            variants={textLine}
+            className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-encre mb-4 text-balance"
           >
-            Retour à l'accueil
-          </Link>
-        </div>
+            Page introuvable
+          </motion.h1>
+          <motion.p variants={textLine} className="font-inter text-graphite mb-10 text-pretty">
+            La page que vous cherchez n'existe pas ou a été déplacée.
+          </motion.p>
+          <motion.div variants={textLine}>
+            <motion.div whileTap={{ scale: 0.97 }} style={{ display: 'inline-block' }}>
+              <Link
+                to="/"
+                className="bg-pin text-craie font-inter font-medium text-sm px-6 py-3 rounded hover:bg-encre transition-colors"
+              >
+                Retour à l'accueil
+              </Link>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </main>
     </div>
   )

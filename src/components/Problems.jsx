@@ -1,42 +1,57 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { SectionDivider, SectionNumber } from './SectionMeta'
-import { ease } from '../lib/motion'
+import { SectionNumber } from './SectionMeta'
+import { textReveal, textLine, stagger, cardItem, hoverLift } from '../lib/motion'
+import { AnimatedTitle } from '../animations/components'
 
 export default function Problems() {
+  const headRef = useRef(null)
+  const headInView = useInView(headRef, { once: true, margin: '-80px 0px' })
+  const gridRef = useRef(null)
+  const gridInView = useInView(gridRef, { once: true, margin: '-80px 0px' })
+
   return (
-    <section className="bg-pierre pb-20 md:pb-28">
-      <SectionDivider />
-      <div className="mx-auto max-w-6xl px-6 pt-14 md:pt-20">
-        <SectionNumber index={1} label="Le problème" />
-        <motion.h2
-          initial={{ opacity: 0, y: -8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, ease }}
-          className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-encre mb-12 text-balance"
+    <section className="bg-section py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <motion.div
+          ref={headRef}
+          variants={textReveal()}
+          initial="hidden"
+          animate={headInView ? 'show' : 'hidden'}
+        >
+          <motion.div variants={textLine}><SectionNumber index={1} label="Le problème" /></motion.div>
+        </motion.div>
+        <AnimatedTitle
+          as="h2"
+          className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary text-balance mb-12"
+          delay={0.05}
         >
           {content.problems.title}
-        </motion.h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        </AnimatedTitle>
+        <motion.div
+          ref={gridRef}
+          variants={stagger()}
+          initial="hidden"
+          animate={gridInView ? 'show' : 'hidden'}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
+        >
           {content.problems.cards.map((card, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: i * 0.05, duration: 0.45, ease }}
-              className="bg-craie border border-rule rounded-lg p-6"
+              variants={cardItem}
+              whileHover={hoverLift}
+              className="bg-white border border-border rounded-2xl p-6 shadow-card cursor-default"
             >
-              <h3 className="font-archivo font-bold text-lg tracking-display text-encre mb-2 text-balance">
+              <h3 className="font-archivo font-bold text-lg tracking-display text-primary mb-2 text-balance">
                 {card.title}
               </h3>
-              <p className="font-inter text-graphite text-sm leading-relaxed text-pretty">
+              <p className="font-inter text-muted text-sm leading-relaxed text-pretty">
                 {card.body}
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

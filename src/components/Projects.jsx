@@ -1,107 +1,74 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { SectionDivider, SectionNumber } from './SectionMeta'
-import { ease } from '../lib/motion'
+import { SectionNumber } from './SectionMeta'
+import { textReveal, textLine, stagger, cardItem } from '../lib/motion'
+import { AnimatedTitle } from '../animations/components'
+import { ProjectSchema } from './ProjectSchemas'
 
-const LABEL_STYLES = {
-  mission: 'border-rule text-graphite',
-  product: 'border-pin/40 text-pin',
-}
-
-function Thumbnail({ item, index }) {
-  const isFeatured = item.featured
-
+function Thumbnail({ item }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ delay: Math.min(index * 0.07, 0.25), duration: 0.45, ease }}
-      className={isFeatured ? 'md:col-span-2' : ''}
-    >
+    <motion.div variants={cardItem} whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeOut' } }} className="h-full">
       <Link
         to={`/projets/${item.slug}`}
-        className="group block bg-craie border border-rule rounded-lg overflow-hidden relative focus-visible:ring-2 focus-visible:ring-pin focus-visible:ring-offset-2 cursor-pointer"
+        className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-border shadow-card hover:shadow-card-md hover:border-secondary/30 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
         aria-label={item.title}
       >
-        {/* Image / cadre pierre */}
-        <div
-          className={`w-full bg-pierre transition-colors duration-300 group-hover:bg-rule ${
-            isFeatured ? 'aspect-[3/1]' : 'aspect-video'
-          }`}
-          aria-hidden="true"
-        />
-
-        {/* Contenu vignette */}
-        <div className={`p-5 ${isFeatured ? 'md:p-8' : ''}`}>
-          {/* Labels */}
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className={`label border rounded px-2 py-0.5 ${LABEL_STYLES[item.labelType]}`}>
-              {item.label}
-            </span>
-            {item.status === 'in_development' && (
-              <span className="label text-graphite border border-dashed border-graphite/50 rounded px-2 py-0.5">
-                En développement
-              </span>
-            )}
-          </div>
-
-          {/* Titre */}
-          <h3
-            className={`font-archivo font-bold tracking-display text-encre leading-snug text-balance group-hover:text-pin transition-colors duration-200 ${
-              isFeatured ? 'text-xl md:text-2xl mb-3' : 'text-lg mb-3'
-            }`}
-          >
+        <div className="border-b border-border shrink-0">
+          <ProjectSchema slug={item.slug} />
+        </div>
+        <div className="p-5 flex flex-col flex-1">
+          <h3 className="font-archivo font-bold text-lg tracking-display text-primary leading-snug text-balance mb-3 group-hover:text-secondary transition-colors duration-200">
             {item.title}
           </h3>
-
-          {/* Résultat — une ligne */}
-          {item.result && (
-            <p className="font-inter text-sm text-graphite leading-relaxed">
-              {item.result}
-            </p>
-          )}
-
-          {/* Affordance */}
-          <div className="mt-4 flex items-center gap-1.5">
-            <span className="font-inter text-xs text-pin/0 group-hover:text-pin transition-colors duration-200 translate-x-0 group-hover:translate-x-0.5 transition-transform">
-              Voir le projet →
-            </span>
-          </div>
+          <p className="font-inter text-sm text-muted leading-relaxed flex-1">
+            {item.result || item.delivered.slice(0, 100) + '…'}
+          </p>
+          <p className="font-inter text-xs text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-200 mt-4">
+            Voir le projet →
+          </p>
         </div>
-
-        {/* Filet pin bas — se trace de gauche à droite au survol */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-0.5 bg-pin scale-x-0 group-hover:scale-x-100 origin-left motion-reduce:transition-none transition-transform duration-300"
-          aria-hidden="true"
-          style={{ transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)' }}
-        />
       </Link>
     </motion.div>
   )
 }
 
 export default function Projects() {
+  const headRef = useRef(null)
+  const headInView = useInView(headRef, { once: true, margin: '-80px 0px' })
+  const gridRef = useRef(null)
+  const gridInView = useInView(gridRef, { once: true, margin: '-80px 0px' })
+
   return (
-    <section id="realisations" className="bg-craie pb-20 md:pb-28">
-      <SectionDivider />
-      <div className="mx-auto max-w-6xl px-6 pt-14 md:pt-20">
-        <SectionNumber index={4} label="Les réalisations" />
-        <motion.h2
-          initial={{ opacity: 0, y: -8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, ease }}
-          className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-encre mb-12 text-balance"
+    <section id="realisations" className="bg-white py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <motion.div
+          ref={headRef}
+          variants={textReveal()}
+          initial="hidden"
+          animate={headInView ? 'show' : 'hidden'}
+        >
+          <motion.div variants={textLine}><SectionNumber index={4} label="Les réalisations" /></motion.div>
+        </motion.div>
+        <AnimatedTitle
+          as="h2"
+          className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary text-balance mb-12"
+          delay={0.05}
         >
           {content.projects.title}
-        </motion.h2>
-        <div className="grid md:grid-cols-2 gap-6 [grid-auto-flow:dense]">
-          {content.projects.items.map((item, i) => (
-            <Thumbnail key={item.id} item={item} index={i} />
+        </AnimatedTitle>
+        <motion.div
+          ref={gridRef}
+          variants={stagger()}
+          initial="hidden"
+          animate={gridInView ? 'show' : 'hidden'}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch"
+        >
+          {content.projects.items.map((item) => (
+            <Thumbnail key={item.id} item={item} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
