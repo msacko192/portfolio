@@ -1,22 +1,18 @@
-import 'dotenv/config'
 import { Hono } from 'hono'
-import { serve } from '@hono/node-server'
 import { cors } from 'hono/cors'
 
 const app = new Hono()
 
-const allowedOrigins = process.env.FRONTEND_URL
-  ? process.env.FRONTEND_URL.split(',').map(o => o.trim())
-  : ['http://localhost:5173']
-
-app.use(
-  '/api/*',
-  cors({
-    origin: allowedOrigins,
+app.use('/api/*', async (c, next) => {
+  const origins = c.env.FRONTEND_URL
+    ? c.env.FRONTEND_URL.split(',').map((o) => o.trim())
+    : ['http://localhost:5173']
+  return cors({
+    origin: origins,
     allowMethods: ['POST', 'OPTIONS'],
     allowHeaders: ['Content-Type'],
-  })
-)
+  })(c, next)
+})
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -141,7 +137,7 @@ app.post('/api/contact', async (c) => {
     return c.json({ error: 'Adresse email invalide' }, 400)
   }
 
-  const apiKey = process.env.RESEND_API_KEY
+  const apiKey = c.env.RESEND_API_KEY
   if (!apiKey) {
     console.error('RESEND_API_KEY manquante')
     return c.json({ error: 'Configuration serveur manquante' }, 500)
@@ -171,9 +167,4 @@ app.post('/api/contact', async (c) => {
   return c.json({ ok: true })
 })
 
-// ── Server ────────────────────────────────────────────────────────────────────
-
-const port = Number(process.env.PORT ?? 3001)
-serve({ fetch: app.fetch, port }, () => {
-  console.log(`DJEXA server → http://localhost:${port}`)
-})
+export default app

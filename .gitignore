@@ -1,0 +1,32 @@
+# Dépendances
+node_modules/
+
+# Builds
+dist/
+client/dist/
+*.zip
+
+# Environnement — NE JAMAIS committer
+.env
+.env.local
+.env.production
+.dev.vars
+
+# Wrangler
+.wrangler/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Système
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Fichiers temporaires
+*.tmp
+*.bak
