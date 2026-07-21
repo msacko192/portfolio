@@ -141,6 +141,24 @@ const projectRoutes = content.projects.items.map((p) => ({
 
 const routes = [
   {
+    path: '/mentions-legales',
+    title: 'Mentions légales — DJEXA',
+    description: 'Mentions légales du site djexa.fr — éditeur, hébergement, propriété intellectuelle et responsabilité.',
+    canonical: `${SITE_URL}/mentions-legales`,
+    changefreq: 'yearly',
+    priority: '0.2',
+    jsonLd: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Mentions légales — DJEXA' },
+  },
+  {
+    path: '/politique-de-confidentialite',
+    title: 'Politique de confidentialité — DJEXA',
+    description: 'Politique de confidentialité et protection des données personnelles du site djexa.fr, conformément au RGPD.',
+    canonical: `${SITE_URL}/politique-de-confidentialite`,
+    changefreq: 'yearly',
+    priority: '0.2',
+    jsonLd: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Politique de confidentialité — DJEXA' },
+  },
+  {
     path: '/confirmation',
     title: 'Message envoyé — DJEXA',
     description: 'Votre message a bien été reçu. Nous vous répondrons dans les 48 heures ouvrées.',

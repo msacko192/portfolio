@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { services } from '../data/services'
-import { textReveal, textLine, fadeUp, stagger, cardItem, hoverLift } from '../lib/motion'
+import { textReveal, textLine, vFadeUp, stagger, cardItem, hoverLift } from '../lib/motion'
 import Breadcrumb from '../components/Breadcrumb'
 
 function FAQItem({ q, a }) {
@@ -226,7 +226,7 @@ export default function ServicePage() {
       <section className="bg-primary py-20">
         <div ref={ctaRef} className="mx-auto max-w-4xl px-6">
           <motion.div
-            variants={fadeUp}
+            variants={vFadeUp}
             initial="hidden"
             animate={ctaInView ? 'show' : 'hidden'}
             className="text-center"

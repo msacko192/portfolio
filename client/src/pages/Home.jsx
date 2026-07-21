@@ -1,24 +1,26 @@
 import Hero from '../components/Hero'
+import TrustPhrase from '../components/TrustPhrase'
 import Problems from '../components/Problems'
-import Solution from '../components/Solution'
-import BeforeAfter from '../components/BeforeAfter'
+import SoftwareShowcase from '../components/SoftwareShowcase'
 import Projects from '../components/Projects'
-import Pricing from '../components/Pricing'
 import Method from '../components/Method'
-import BlogPreview from '../components/BlogPreview'
+import WhyCustom from '../components/WhyCustom'
+import FAQ from '../components/FAQ'
+import CTAFinal from '../components/CTAFinal'
 import Contact from '../components/Contact'
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <TrustPhrase />
       <Problems />
-      <Solution />
-      <BeforeAfter />
+      <SoftwareShowcase />
       <Projects />
-      <Pricing />
       <Method />
-      <BlogPreview />
+      <WhyCustom />
+      <FAQ />
+      <CTAFinal />
       <Contact />
     </main>
   )

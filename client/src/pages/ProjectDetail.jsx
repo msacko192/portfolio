@@ -1,11 +1,28 @@
+import { useRef } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { textReveal, textLine, stagger, fadeUp } from '../lib/motion'
-import { FadeIn } from '../animations/components'
+import { stagger, cardItem } from '../lib/motion'
 import { ProjectSchema } from '../components/ProjectSchemas'
 
+const ease = [0.22, 1, 0.36, 1]
 const TOTAL = content.projects.items.length
+
+function Section({ label, children }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px 0px' })
+  return (
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, ease }}
+    >
+      <p className="label text-muted/60 mb-4">{label}</p>
+      {children}
+    </motion.section>
+  )
+}
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -30,103 +47,162 @@ export default function ProjectDetail() {
 
       <div className="mx-auto max-w-4xl px-6 pt-20 pb-28 md:pt-28 md:pb-36">
 
-        {/* Fil éditorial */}
+        {/* Counter + Back */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="flex items-center gap-2.5 mb-10"
-          aria-hidden="true"
+          transition={{ duration: 0.4, ease }}
+          className="flex items-center justify-between mb-10"
         >
-          <span className="label text-muted/60">Réalisation {position} / {total}</span>
+          <Link
+            to="/"
+            className="font-inter text-sm text-muted hover:text-secondary transition-colors duration-200 flex items-center gap-1.5"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M11 7H3M6 4l-3 3 3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Réalisations
+          </Link>
+          <span className="label text-muted/40">{position} / {total}</span>
         </motion.div>
 
-        {/* En-tête */}
+        {/* Header */}
         <motion.div
-          variants={textReveal()}
-          initial="hidden"
-          animate="show"
-          className="mb-10"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease, delay: 0.1 }}
+          className="mb-12"
         >
-          <motion.p variants={textLine} className="label text-muted mb-2">{item.sector}</motion.p>
-          <motion.h1
-            variants={textLine}
-            className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary mb-3 leading-snug text-balance"
+          <p className="label text-secondary mb-3">{item.sector}</p>
+          <h1
+            className="font-archivo font-black text-primary tracking-display leading-[1.06] text-balance mb-3"
+            style={{ fontSize: 'clamp(1.875rem, 4vw, 3rem)' }}
           >
             {item.title}
-          </motion.h1>
-          <motion.p variants={textLine} className="label text-muted/50">{item.period}</motion.p>
+          </h1>
+          <p className="label text-muted/50">{item.period}</p>
         </motion.div>
 
-        {/* Schéma SVG */}
-        <motion.div
-          className="my-10 border border-border rounded-2xl overflow-hidden"
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-        >
-          <ProjectSchema slug={item.slug} />
-        </motion.div>
+        <div className="flex flex-col gap-12">
 
-        {/* Corps — chaque section apparaît en séquence au scroll */}
-        <motion.div
-          variants={stagger(0.1)}
-          initial="hidden"
-          animate="show"
-          className="flex flex-col gap-12"
-        >
+          {/* Contexte */}
+          {item.context && (
+            <Section label="Contexte">
+              <p className="font-inter text-primary leading-relaxed text-pretty text-lg">
+                {item.context}
+              </p>
+            </Section>
+          )}
+
+          <div className="h-px bg-border" />
+
           {/* Le problème */}
-          <motion.section variants={fadeUp} aria-labelledby="section-problem">
-            <p id="section-problem" className="label text-muted/60 mb-3">Le problème</p>
-            <p className="font-inter text-text leading-relaxed text-pretty text-lg">
+          <Section label="Le problème">
+            <p className="font-inter text-primary leading-relaxed text-pretty text-lg">
               {item.problem}
             </p>
-          </motion.section>
+          </Section>
 
-          <motion.div variants={fadeUp} className="h-px bg-rule" />
+          <div className="h-px bg-border" />
 
-          {/* Ce qui a été mis en place */}
-          <motion.section variants={fadeUp} aria-labelledby="section-delivered">
-            <p id="section-delivered" className="label text-muted/60 mb-3">Ce qui a été mis en place</p>
-            <p className="font-inter text-text/80 leading-relaxed text-pretty text-lg">
+          {/* La solution */}
+          <Section label="Ce qui a été mis en place">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-40px 0px' }}
+              transition={{ duration: 0.6, ease, delay: 0.1 }}
+              className="mb-6 border border-border rounded-2xl overflow-hidden"
+            >
+              <ProjectSchema slug={item.slug} />
+            </motion.div>
+            <p className="font-inter text-muted leading-relaxed text-pretty text-lg">
               {item.delivered}
             </p>
-          </motion.section>
+          </Section>
+
+          {/* Fonctionnalités */}
+          {item.fonctionnalites && item.fonctionnalites.length > 0 && (
+            <>
+              <div className="h-px bg-border" />
+              <Section label="Fonctionnalités clés">
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {item.fonctionnalites.map((feat, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="w-5 h-5 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3 text-secondary" aria-hidden="true">
+                          <path d="M2 6l2.5 2.5L10 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      <span className="font-inter text-primary text-sm leading-relaxed">{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+            </>
+          )}
 
           {/* Résultat */}
           {item.result && (
             <>
-              <motion.div variants={fadeUp} className="h-px bg-rule" />
-              <motion.section variants={fadeUp} aria-labelledby="section-result">
-                <p id="section-result" className="label text-muted/60 mb-3">Le résultat</p>
-                <p className="font-inter font-medium text-secondary leading-relaxed text-lg">
+              <div className="h-px bg-border" />
+              <Section label="Le résultat">
+                <p
+                  className="font-archivo font-black text-secondary tracking-tight leading-[1.12] text-balance"
+                  style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}
+                >
                   {item.result}
                 </p>
-              </motion.section>
+              </Section>
             </>
           )}
 
-          {/* Note contexte */}
+          {/* Note */}
           {item.note && (
             <motion.div
-              variants={fadeUp}
-              className="bg-secondary/8 border-l-2 border-secondary pl-4 py-3 rounded-r-lg"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px 0px' }}
+              transition={{ duration: 0.5, ease }}
+              className="bg-secondary/6 border-l-2 border-secondary pl-4 py-3 rounded-r-xl"
             >
-              <p className="font-inter text-sm text-text leading-relaxed text-pretty">{item.note}</p>
+              <p className="font-inter text-sm text-primary leading-relaxed text-pretty">{item.note}</p>
             </motion.div>
           )}
 
-          {/* CTA de fin */}
+          {/* Technologies */}
+          {item.technologies && (
+            <>
+              <div className="h-px bg-border" />
+              <Section label="Technologies">
+                <div className="flex flex-wrap gap-2">
+                  {item.technologies.map((tech, i) => (
+                    <span key={i} className="bg-section border border-border rounded-full px-3 py-1 font-inter text-sm text-muted">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </Section>
+            </>
+          )}
+
+          {/* CTA */}
           <motion.div
-            variants={fadeUp}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px 0px' }}
+            transition={{ duration: 0.5, ease }}
             className="pt-4 border-t border-border flex flex-col sm:flex-row items-start sm:items-center gap-6"
           >
             <motion.a
               href="/#contact"
               whileTap={{ scale: 0.97 }}
-              className="bg-secondary text-white font-inter font-medium text-sm px-6 py-3 rounded-2xl hover:bg-secondary/90 hover:scale-[1.02] transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-secondary text-white font-inter font-medium text-sm px-6 py-3 rounded-xl hover:bg-secondary/90 hover:scale-[1.02] transition-all duration-200"
             >
-              Un projet similaire ? En discuter
+              Un projet similaire ? Parlons-en
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </motion.a>
             <Link
               to="/"
@@ -135,7 +211,8 @@ export default function ProjectDetail() {
               ← Toutes les réalisations
             </Link>
           </motion.div>
-        </motion.div>
+
+        </div>
       </div>
 
       <script

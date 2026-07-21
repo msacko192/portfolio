@@ -1,21 +1,21 @@
 export const posts = [
   {
     slug: 'pourquoi-excel-ralentit-les-pme',
-    title: 'Pourquoi Excel ralentit les PME (et ce que vous pouvez faire)',
+    title: 'Pourquoi Excel ralentit votre entreprise (et ce que vous pouvez faire)',
     date: '2026-06-15',
     readTime: 6,
     category: 'Outils & productivité',
     excerpt:
-      "Excel est l'outil par défaut de millions de PME françaises. Et pourtant, il est souvent la principale source de perte de temps dans les équipes — pas parce qu'il est mauvais, mais parce qu'il est utilisé pour des tâches pour lesquelles il n'a pas été conçu.",
+      "Excel est l'outil par défaut de millions d'entreprises françaises. Et pourtant, il est souvent la principale source de perte de temps dans les équipes — pas parce qu'il est mauvais, mais parce qu'il est utilisé pour des tâches pour lesquelles il n'a pas été conçu.",
     content: [
       {
         type: 'intro',
-        text: "Excel est l'outil par défaut de millions de PME françaises. Flexible, accessible, connu de tous. Et pourtant, dans beaucoup d'entreprises, il est devenu la principale source de perte de temps. Pas parce qu'Excel est mauvais — c'est un outil remarquable pour ce qu'il fait. Mais parce qu'il est utilisé pour des choses pour lesquelles il n'a pas été conçu.",
+        text: "Excel est l'outil par défaut de millions d'entreprises françaises. Flexible, accessible, connu de tous. Et pourtant, dans beaucoup d'entreprises, il est devenu la principale source de perte de temps. Pas parce qu'Excel est mauvais — c'est un outil remarquable pour ce qu'il fait. Mais parce qu'il est utilisé pour des choses pour lesquelles il n'a pas été conçu.",
       },
       {
         type: 'h2',
         title: 'Le problème des fichiers qui ne sont jamais vraiment partagés',
-        text: "Quand plusieurs personnes travaillent sur le même fichier, la question se pose rapidement : qui a la \"bonne\" version ? La V4_FINALE.xlsx ? La V4_FINALE_OK_2.xlsx envoyée hier soir ? Les modifications d'une personne n'arrivent pas chez les autres en temps réel. Des heures de travail peuvent se chevaucher, voire s'annuler. La simple question \"tu as la dernière version ?\" résume à elle seule un problème d'organisation que beaucoup de PME subissent chaque semaine.",
+        text: "Quand plusieurs personnes travaillent sur le même fichier, la question se pose rapidement : qui a la \"bonne\" version ? La V4_FINALE.xlsx ? La V4_FINALE_OK_2.xlsx envoyée hier soir ? Les modifications d'une personne n'arrivent pas chez les autres en temps réel. Des heures de travail peuvent se chevaucher, voire s'annuler. La simple question \"tu as la dernière version ?\" résume à elle seule un problème d'organisation que beaucoup d'entreprises subissent chaque semaine.",
       },
       {
         type: 'h2',
@@ -96,11 +96,11 @@ export const posts = [
     readTime: 8,
     category: 'Budget & investissement',
     excerpt:
-      "C'est la question que tout dirigeant de PME se pose avant de se lancer. Voici ce qui détermine vraiment le prix d'une application métier sur mesure, les fourchettes réelles, et comment évaluer si l'investissement est rentable pour vous.",
+      "C'est la question que tout dirigeant d'entreprises se pose avant de se lancer. Voici ce qui détermine vraiment le prix d'une application métier sur mesure, les fourchettes réelles, et comment évaluer si l'investissement est rentable pour vous.",
     content: [
       {
         type: 'intro',
-        text: "\"Combien ça coûte ?\" C'est souvent la première question que les dirigeants de PME posent quand ils envisagent de développer une application sur mesure. Et c'est une question légitime — personne ne veut se retrouver avec une facture surprise au bout de six mois. Voici une réponse honnête sur ce qui détermine le prix, et comment évaluer si l'investissement est rentable pour votre situation.",
+        text: "\"Combien ça coûte ?\" C'est souvent la première question que les dirigeants d'entreprises posent quand ils envisagent de développer une application sur mesure. Et c'est une question légitime — personne ne veut se retrouver avec une facture surprise au bout de six mois. Voici une réponse honnête sur ce qui détermine le prix, et comment évaluer si l'investissement est rentable pour votre situation.",
       },
       {
         type: 'h2',
@@ -136,25 +136,25 @@ export const posts = [
 
   {
     slug: 'erp-ou-logiciel-sur-mesure',
-    title: 'ERP ou logiciel sur mesure : que choisir pour votre PME ?',
+    title: 'ERP ou logiciel sur mesure : que choisir pour votre entreprise ?',
     date: '2026-07-08',
     readTime: 7,
     category: 'Stratégie & choix',
     excerpt:
-      "Odoo, SAP, Sage... le marché des ERP est immense. Alors pourquoi certaines PME font-elles le choix de développer leur propre logiciel plutôt que d'adopter une solution existante ? Ce n'est pas toujours la bonne décision. Voici comment la prendre avec discernement.",
+      "Odoo, SAP, Sage... le marché des ERP est immense. Alors pourquoi certaines entreprises font-elles le choix de développer leur propre logiciel plutôt que d'adopter une solution existante ? Ce n'est pas toujours la bonne décision. Voici comment la prendre avec discernement.",
     content: [
       {
         type: 'intro',
-        text: "Odoo, SAP Business One, Sage 100, Cegid... le marché des ERP est immense et bien établi. Alors pourquoi certaines PME font-elles le choix de développer leur propre logiciel de gestion plutôt que d'adopter une solution existante ? Ce n'est pas toujours la bonne décision. Et ce guide n'a pas pour vocation de vous convaincre du sur mesure — mais de vous aider à choisir ce qui est vraiment adapté à votre situation.",
+        text: "Odoo, SAP Business One, Sage 100, Cegid... le marché des ERP est immense et bien établi. Alors pourquoi certaines entreprises font-elles le choix de développer leur propre logiciel de gestion plutôt que d'adopter une solution existante ? Ce n'est pas toujours la bonne décision. Et ce guide n'a pas pour vocation de vous convaincre du sur mesure — mais de vous aider à choisir ce qui est vraiment adapté à votre situation.",
       },
       {
         type: 'h2',
         title: 'Ce que font bien les ERP du marché',
-        text: "Les ERP standard couvrent des processus largement partagés par des milliers d'entreprises : comptabilité générale, gestion des stocks, facturation, gestion des commandes. Ils bénéficient d'années de développement, de mises à jour régulières incluses dans l'abonnement, d'une documentation abondante et d'une communauté d'utilisateurs. Le déploiement sur les fonctionnalités standards est rapide. Pour une PME dont les processus ne sortent pas de l'ordinaire, ils peuvent être parfaitement adaptés.",
+        text: "Les ERP standard couvrent des processus largement partagés par des milliers d'entreprises : comptabilité générale, gestion des stocks, facturation, gestion des commandes. Ils bénéficient d'années de développement, de mises à jour régulières incluses dans l'abonnement, d'une documentation abondante et d'une communauté d'utilisateurs. Le déploiement sur les fonctionnalités standards est rapide. Pour une entreprise dont les processus ne sortent pas de l'ordinaire, ils peuvent être parfaitement adaptés.",
       },
       {
         type: 'h2',
-        title: 'Les limites des ERP standard pour certaines PME',
+        title: 'Les limites des ERP standard pour certaines entreprises',
         text: "Le problème apparaît quand votre activité a une logique qui sort des processus standards. Les ERP sont conçus pour s'adapter à des milliers de cas différents — ce qui signifie qu'ils imposent leur structure à votre activité, pas l'inverse. Le paramétrage peut compenser partiellement cette rigidité, mais il a ses limites. Les modules supplémentaires coûtent souvent plus cher que prévu. Et l'interface, conçue pour être générale, est rarement épurée : vos équipes se retrouvent face à des dizaines d'options dont elles n'utilisent qu'une fraction.",
       },
       {
@@ -186,11 +186,11 @@ export const posts = [
     readTime: 5,
     category: 'Outils & productivité',
     excerpt:
-      "Beaucoup de dirigeants de PME pensent que créer son propre logiciel, c'est réservé aux grandes entreprises. Voici 5 signaux concrets qui indiquent qu'un outil sur mesure serait rentable pour vous dès aujourd'hui.",
+      "Beaucoup de dirigeants d'entreprises pensent que créer son propre logiciel, c'est réservé aux grandes entreprises. Voici 5 signaux concrets qui indiquent qu'un outil sur mesure serait rentable pour vous dès aujourd'hui.",
     content: [
       {
         type: 'intro',
-        text: "Créer son propre logiciel, beaucoup de dirigeants de PME pensent que c'est réservé aux grandes entreprises avec des budgets informatiques conséquents. Ce n'est pas le cas — et cette idée fait manquer à beaucoup d'entreprises un levier de productivité significatif. Voici 5 signaux concrets qui indiquent qu'un outil sur mesure serait rentable pour votre situation.",
+        text: "Créer son propre logiciel, beaucoup de dirigeants d'entreprises pensent que c'est réservé aux grandes entreprises avec des budgets informatiques conséquents. Ce n'est pas le cas — et cette idée fait manquer à beaucoup d'entreprises un levier de productivité significatif. Voici 5 signaux concrets qui indiquent qu'un outil sur mesure serait rentable pour votre situation.",
       },
       {
         type: 'numbered',

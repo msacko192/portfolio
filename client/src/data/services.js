@@ -2,9 +2,9 @@ export const services = [
   {
     slug: 'applications-metier',
     meta: {
-      title: 'Applications métier sur mesure pour PME | DJEXA',
+      title: 'Applications métier sur mesure | DJEXA',
       description:
-        "Studio spécialisé en applications métier sur mesure pour les PME. ERP, CRM, portail client, gestion de chantier — des logiciels pensés autour de votre façon de travailler.",
+        "Studio spécialisé en applications métier sur mesure. ERP, CRM, portail client, gestion de chantier — des logiciels pensés autour de votre façon de travailler.",
     },
     hero: {
       eyebrow: 'Applications métier',
@@ -16,7 +16,7 @@ export const services = [
     intro: {
       title: 'Ce que nous développons',
       body:
-        "Nous aidons les PME à remplacer les fichiers Excel, les saisies manuelles et les outils dispersés par une application unique, fiable et adaptée à leur métier. Chaque projet part de votre réalité terrain, pas d'un cahier des charges standard.",
+        "Nous aidons les entreprises à remplacer les fichiers Excel, les saisies manuelles et les outils dispersés par une application unique, fiable et adaptée à leur métier. Chaque projet part de votre réalité terrain, pas d'un cahier des charges standard.",
     },
     services: [
       { slug: 'erp-sur-mesure', title: 'ERP sur mesure', icon: '⚙️', body: "Un système de gestion intégré calqué sur vos processus réels : achats, stocks, production, facturation." },
@@ -32,7 +32,7 @@ export const services = [
         a: "Un logiciel du marché est conçu pour des milliers d'entreprises différentes. Il impose sa logique à votre activité. Une application sur mesure est construite autour de vos processus existants — vous n'avez rien à adapter.",
       },
       {
-        q: "Est-ce accessible pour une PME avec un budget limité ?",
+        q: "Est-ce accessible avec un budget limité ?",
         a: "Oui, à condition de commencer par un périmètre bien ciblé. Un MVP (version initiale utile et utilisable) se développe en 4 à 12 semaines. On part de là et on améliore en continu, selon vos retours et votre budget.",
       },
       {
@@ -44,10 +44,11 @@ export const services = [
 
   {
     slug: 'erp-sur-mesure',
+    benefit: 'Centralisez toute votre activité',
     meta: {
-      title: 'ERP sur mesure pour PME | DJEXA',
+      title: 'ERP sur mesure | DJEXA',
       description:
-        "ERP sur mesure pour PME — un système de gestion intégré conçu autour de vos processus réels, pas des fonctionnalités génériques d'un éditeur. Studio indépendant, délais maîtrisés.",
+        "ERP sur mesure — un système de gestion intégré conçu autour de vos processus réels, pas des fonctionnalités génériques d'un éditeur. Studio indépendant, délais maîtrisés.",
     },
     hero: {
       eyebrow: 'ERP sur mesure',
@@ -116,8 +117,9 @@ export const services = [
 
   {
     slug: 'portail-client',
+    benefit: 'Donnez un accès direct à vos clients',
     meta: {
-      title: 'Portail client sur mesure pour PME | DJEXA',
+      title: 'Portail client sur mesure | DJEXA',
       description:
         "Donnez à vos clients un espace en ligne pour suivre leurs commandes, accéder aux documents et communiquer avec vos équipes. Moins d'appels, plus de satisfaction client.",
     },
@@ -184,16 +186,17 @@ export const services = [
 
   {
     slug: 'automatisation-processus',
+    benefit: 'Supprimez les tâches répétitives',
     meta: {
-      title: 'Automatisation des processus métier pour PME | DJEXA',
+      title: 'Automatisation des processus métier | DJEXA',
       description:
-        "Éliminez les tâches manuelles répétitives dans votre PME — saisies en double, relances manuelles, transferts d'information — et concentrez vos équipes sur ce qui a de la valeur.",
+        "Éliminez les tâches manuelles répétitives — saisies en double, relances manuelles, transferts d'information — et concentrez vos équipes sur ce qui a de la valeur.",
     },
     hero: {
       eyebrow: 'Automatisation',
       title: 'Automatisez ce qui vous fait perdre du temps',
       subtitle:
-        "Dans beaucoup de PME, des personnes qualifiées passent des heures chaque semaine à des tâches qui pourraient s'exécuter toutes seules. Ce temps-là a un coût.",
+        "Dans beaucoup d'entreprises, des personnes qualifiées passent des heures chaque semaine à des tâches qui pourraient s'exécuter toutes seules. Ce temps-là a un coût.",
       cta: 'Discuter de votre projet',
     },
     problems: {
@@ -252,6 +255,7 @@ export const services = [
 
   {
     slug: 'gestion-chantier',
+    benefit: 'Pilotez vos chantiers en temps réel',
     meta: {
       title: 'Logiciel de gestion de chantier sur mesure | DJEXA',
       description:
@@ -320,6 +324,7 @@ export const services = [
 
   {
     slug: 'gestion-intervention',
+    benefit: 'Gérez vos interventions sans friction',
     meta: {
       title: 'Logiciel de gestion des interventions sur mesure | DJEXA',
       description:
@@ -388,10 +393,11 @@ export const services = [
 
   {
     slug: 'crm-sur-mesure',
+    benefit: 'Gérez vos relations clients efficacement',
     meta: {
-      title: 'CRM sur mesure pour PME | DJEXA',
+      title: 'CRM sur mesure | DJEXA',
       description:
-        "CRM sur mesure pour PME — pipeline commercial adapté à votre cycle de vente, relances automatisées, suivi des prospects et clients, sans la complexité de Salesforce ou HubSpot.",
+        "CRM sur mesure — pipeline commercial adapté à votre cycle de vente, relances automatisées, suivi des prospects et clients, sans la complexité de Salesforce ou HubSpot.",
     },
     hero: {
       eyebrow: 'CRM sur mesure',
@@ -457,7 +463,7 @@ export const services = [
   {
     slug: 'logiciel-btp',
     meta: {
-      title: 'Logiciel BTP sur mesure pour PME du bâtiment | DJEXA',
+      title: 'Logiciel BTP sur mesure | DJEXA',
       description:
         "Logiciel BTP sur mesure — gestion de chantier, suivi des interventions, facturation à l'avancement, gestion sous-traitants. Conçu pour les entreprises du bâtiment et travaux publics.",
     },
@@ -509,7 +515,7 @@ export const services = [
     faq: [
       {
         q: "Fonctionne-t-il pour les artisans ou seulement les grandes entreprises ?",
-        a: "Il est conçu pour les PME BTP de 5 à 100 personnes. Plus simple et moins cher qu'un ERP de grande entreprise, mais complet sur ce qui compte pour le bâtiment.",
+        a: "Il est conçu pour les entreprises BTP de toutes tailles. Plus simple et moins cher qu'un ERP générique, mais complet sur ce qui compte pour le bâtiment.",
       },
       {
         q: "Peut-on gérer les agréments et qualifications (RGE, etc.) ?",

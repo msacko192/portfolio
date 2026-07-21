@@ -132,7 +132,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="font-archivo font-bold text-xl tracking-tight text-primary hover:text-secondary transition-colors duration-200 shrink-0"
+            className="font-archivo font-black text-xl tracking-tight text-primary hover:text-secondary transition-colors duration-200 shrink-0"
           >
             {BRAND}<span className="text-secondary">.</span>
           </Link>
@@ -188,7 +188,7 @@ export default function Navbar() {
             <motion.a
               href={contactHref}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-primary/90 hover:scale-[1.02] transition-all duration-200 shrink-0"
+              className="inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-secondary hover:scale-[1.02] transition-all duration-200 shrink-0"
             >
               {content.nav.cta}
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

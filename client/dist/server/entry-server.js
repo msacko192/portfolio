@@ -17,52 +17,27 @@ const content = {
   },
   problems: {
     title: "Les outils standards ne correspondent pas toujours à votre façon de travailler.",
-    subtitle: "Voici les signaux que nous entendons le plus souvent dans les PME.",
+    subtitle: "Voici les signaux que nous entendons le plus souvent dans les entreprises.",
     cards: [
       {
         title: "Informations dispersées",
-        body: "Vos données sont éparpillées dans des fichiers Excel et des emails. Impossible d'avoir une vue claire."
+        body: "Vos données sont éparpillées dans des fichiers Excel et des emails. Impossible d'avoir une vue claire.",
+        solution: "Une seule source de vérité — toutes vos données centralisées dans un outil unique."
       },
       {
         title: "Tâches manuelles",
-        body: "Vos équipes recopient des informations d'un outil à l'autre. Du temps perdu, des erreurs inévitables."
+        body: "Vos équipes recopient des informations d'un outil à l'autre. Du temps perdu, des erreurs inévitables.",
+        solution: "Des processus automatisés — votre équipe se concentre sur ce qui compte vraiment."
       },
       {
         title: "Manque de visibilité",
-        body: "Vous pilotez votre activité sans tableau de bord fiable. Chaque décision se prend dans le flou."
+        body: "Vous pilotez votre activité sans tableau de bord fiable. Chaque décision se prend dans le flou.",
+        solution: "Des tableaux de bord temps réel — pilotez avec des chiffres fiables à tout moment."
       },
       {
         title: "Logiciels inadaptés",
-        body: "Les solutions du marché vous obligent à adapter vos processus. C'est l'outil qui devrait s'adapter, pas vous."
-      }
-    ]
-  },
-  pricing: {
-    title: "On commence par une journée. Vous décidez ensuite.",
-    plans: [
-      {
-        name: "La journée d'audit",
-        tag: "Pour commencer",
-        marker: "Le point de départ",
-        cta: "En discuter",
-        body: "Nous passons une journée dans vos process. Vous repartez avec un document : ce qui vous coûte du temps, ce qui est automatisable, ce que ça coûterait, dans quel ordre. Déduit de la suite si on continue.",
-        featured: false
-      },
-      {
-        name: "La régie",
-        tag: "La formule",
-        marker: "L'accompagnement continu",
-        cta: "Voir si ça correspond",
-        body: "Un jour par semaine réservé, en continu. Évolutions, intégrations, corrections. Votre développeur, sans recrutement ni engagement annuel. Engagement au trimestre.",
-        featured: true
-      },
-      {
-        name: "Le module cadré",
-        tag: "Périmètre précis",
-        marker: "Un besoin précis",
-        cta: "En discuter",
-        body: "Un périmètre précis, une date. Une intégration, un export automatisé, un écran qui manque. Trois à cinq jours.",
-        featured: false
+        body: "Les solutions du marché vous obligent à adapter vos processus. C'est l'outil qui devrait s'adapter, pas vous.",
+        solution: "Un outil pensé pour vous — qui s'adapte à vos méthodes, pas l'inverse."
       }
     ]
   },
@@ -75,10 +50,19 @@ const content = {
         title: "Facturation électronique",
         sector: "Cabinets comptables",
         period: "2025–2026",
+        context: "Les cabinets comptables français faisaient face à une obligation légale imminente : être prêts pour la facturation électronique avant le 1er septembre 2026. Aucun outil du marché ne correspondait à leur organisation multi-cabinet.",
         problem: "Un groupe de cabinets comptables devait être prêt pour l'obligation de facturation électronique avant le 1er septembre 2026. Aucun outil du marché ne correspondait à leur organisation.",
         delivered: "L'application émet, envoie et archive les factures électroniques via la plateforme officielle retenue par le cabinet. Elle couvre tout le cycle : création de la facture, envoi, suivi de réception, archivage. Mise en service en sept mois, de la conception à la mise en production.",
         result: "En production avant l'échéance du 1er septembre 2026.",
         note: "La réception de factures électroniques devient obligatoire le 1er septembre 2026 pour toutes les entreprises assujetties à la TVA, l'émission en septembre 2027 pour les TPE/PME. Quasiment aucun prestataire indépendant ne peut écrire « déjà livré en production ».",
+        fonctionnalites: [
+          "Émission de factures électroniques via PDP agréée",
+          "Suivi de réception et archivage légal automatique",
+          "Interface dédiée par cabinet et collaborateur",
+          "Notifications automatiques aux étapes clés",
+          "Export conforme Factur-X / UBL 2.1",
+          "Tableau de bord de traitement en temps réel"
+        ],
         technologies: ["React", "Hono", "Cloudflare"],
         featured: true
       },
@@ -88,9 +72,18 @@ const content = {
         title: "Suivi de production",
         sector: "Merchandising / PLV",
         period: "2024",
+        context: "Une agence de PLV gérait des dizaines de projets simultanément pour des clients comme Renault, LVMH ou Décathlon, sans aucune visibilité partagée sur l'avancement des productions.",
         problem: "Le suivi des projets PLV se gérait par email et tableur. Ni l'équipe ni les clients n'avaient de visibilité claire sur l'état d'avancement de chaque commande.",
         delivered: "Chaque client dispose d'un espace en ligne dédié où il consulte l'avancement de ses commandes en temps réel. L'équipe interne met à jour les étapes au fil de la production, les clients reçoivent une notification automatique à chaque progression, et le responsable pilote l'ensemble depuis un tableau de bord.",
         result: "Visibilité totale sur l'avancement des projets, communication client simplifiée.",
+        fonctionnalites: [
+          "Espace client dédié par compte avec accès sécurisé",
+          "Suivi Kanban par étape de production",
+          "Notifications automatiques à chaque avancement",
+          "Upload de bons de livraison et visuels",
+          "Tableau de bord pilotage pour l'équipe interne",
+          "Historique complet des échanges par projet"
+        ],
         technologies: ["React", "Node.js", "PostgreSQL"],
         featured: false
       },
@@ -98,11 +91,20 @@ const content = {
         id: 3,
         slug: "erp-administratif",
         title: "ERP administratif et financier",
-        sector: "PME de services",
+        sector: "Entreprise de services",
         period: "2024",
+        context: "Une entreprise de services gérait ses devis, factures, relevés bancaires et fichiers clients dans quatre outils différents sans aucun lien entre eux, ce qui rendait toute vision globale impossible.",
         problem: "Devis, factures, relevés bancaires, clients et fournisseurs étaient gérés dans des outils séparés. Impossible d'avoir une vision globale de l'activité sans compiler plusieurs fichiers.",
         delivered: "Un seul outil pour établir les devis, émettre les factures, consulter les mouvements bancaires et catégoriser les dépenses. Les transactions bancaires se synchronisent automatiquement. Clients, fournisseurs et catalogue produits sont gérés au même endroit.",
         result: "Gestion administrative centralisée, tâches manuelles supprimées.",
+        fonctionnalites: [
+          "Devis et factures générés en quelques clics",
+          "Synchronisation bancaire automatique",
+          "Catégorisation des dépenses",
+          "Gestion clients et fournisseurs centralisée",
+          "Catalogue produits et services",
+          "Rapports financiers mensuels automatiques"
+        ],
         technologies: ["React", "Hono", "PostgreSQL"],
         featured: false
       },
@@ -112,9 +114,18 @@ const content = {
         title: "Application de gestion pour cabinet comptable",
         sector: "Cabinets comptables",
         period: "2023",
+        context: "Un cabinet comptable avec plusieurs collaborateurs utilisait un logiciel vieillissant devenu impossible à maintenir sans risquer de bloquer toute l'activité lors des périodes fiscales critiques.",
         problem: "Le logiciel de gestion du cabinet était devenu difficile à faire évoluer. Chaque modification prenait du temps et risquait de casser ce qui fonctionnait déjà.",
         delivered: "Le logiciel a été entièrement reconstruit sans interrompre l'activité du cabinet. Les collaborateurs ont continué à travailler normalement pendant toute la durée du projet. Le résultat est un outil plus rapide, plus fiable, et beaucoup plus facile à faire évoluer.",
         result: "Outil modernisé sans interruption de service, évolutions désormais rapides et sans risque.",
+        fonctionnalites: [
+          "Gestion des dossiers clients par collaborateur",
+          "Suivi des missions et échéances fiscales",
+          "Alertes de délais (FEC, liasse, bilan)",
+          "Partage de documents sécurisé",
+          "Tableau de bord d'avancement des dossiers",
+          "Migration progressive sans interruption de service"
+        ],
         technologies: ["React", "Hono", "PostgreSQL"],
         featured: false
       },
@@ -124,36 +135,60 @@ const content = {
         title: "Suivi de chantier BTP",
         sector: "BTP",
         period: "2025",
+        context: "Une entreprise BTP gérant plusieurs chantiers simultanés perdait le contrôle de ses plannings, de ses équipes terrain et de sa relation client faute d'un outil centralisé.",
         problem: "Le planning des équipes, les comptes-rendus terrain, les documents de chantier et les échanges clients se géraient par téléphone et fichiers partagés. Aucune vision consolidée d'un chantier à l'autre.",
         delivered: "L'application centralise le planning des équipes, le suivi d'avancement par chantier, les documents, les photos terrain et les échanges avec les clients. Chaque chef de chantier dispose d'une vue sur ses interventions en cours.",
         result: "Pilotage de plusieurs chantiers simultanés depuis une seule interface.",
+        fonctionnalites: [
+          "Planning équipes accessible depuis le terrain",
+          "Rapports journaliers avec photos géolocalisées",
+          "Suivi d'avancement par chantier",
+          "Documents et plans centralisés",
+          "Espace client de suivi des travaux",
+          "Vue d'ensemble multi-chantiers pour la direction"
+        ],
         technologies: ["React", "Hono", "Cloudflare"],
         featured: false
       }
     ]
   },
   method: {
-    title: "Une méthode rodée",
+    title: "De la première discussion au déploiement, sans surprise.",
     steps: [
       {
         number: "01",
-        title: "Comprendre votre activité",
-        body: "Avant d'écrire une ligne de code, nous passons du temps à comprendre comment vous travaillez, ce qui fonctionne et ce qui bloque."
+        title: "Découverte",
+        body: "Nous comprenons votre métier, vos processus réels et ce qui bloque aujourd'hui."
       },
       {
         number: "02",
-        title: "Identifier les gains possibles",
-        body: "Nous cartographions ce qui vous coûte du temps, ce qui est automatisable et ce que ça représente concrètement."
+        title: "Conception",
+        body: "Architecture technique et maquettes fonctionnelles. Vous validez avant qu'on code."
       },
       {
         number: "03",
-        title: "Développer votre solution",
-        body: "Nous construisons une application qui s'adapte à vos processus, pas l'inverse. Simple, rapide, efficace."
+        title: "Prototype",
+        body: "Un premier écran interactif. Vous testez, vous corrigez — c'est le moment d'affiner."
       },
       {
         number: "04",
-        title: "Vous accompagner après livraison",
-        body: "La relation ne s'arrête pas à la mise en production. Nous restons disponibles pour les évolutions."
+        title: "Développement",
+        body: "Construction incrémentale avec livraisons régulières. Vous voyez l'outil prendre forme."
+      },
+      {
+        number: "05",
+        title: "Tests",
+        body: "Validation métier avec vos équipes sur des cas réels. Rien n'est livré sans avoir été testé."
+      },
+      {
+        number: "06",
+        title: "Déploiement",
+        body: "Mise en production accompagnée. Nous restons disponibles le jour J et après."
+      },
+      {
+        number: "07",
+        title: "Évolutions",
+        body: "L'outil grandit avec votre entreprise. Chaque amélioration part de vos retours terrain."
       }
     ]
   },
@@ -171,23 +206,49 @@ const content = {
     },
     error: "Une erreur s'est produite. Réessayez ou contactez-nous directement."
   },
-  beforeAfter: {
-    title: "Ce qui change, concrètement.",
-    before: [
-      "Des fichiers Excel qui circulent par email",
-      "Des informations recopiées d'un outil à l'autre",
-      "Des relances par WhatsApp et par téléphone",
-      "Personne ne sait où en est vraiment un dossier"
-    ],
-    after: [
-      "Une seule application, une seule source de vérité",
-      "Les données saisies une fois, réutilisées partout",
-      "Des notifications automatiques, plus de relances manuelles",
-      "Chaque dossier suivi en temps réel, par tous"
+  comparison: {
+    title: "Excel, logiciel standard, ou application sur mesure ?",
+    columns: ["Fichiers Excel", "Logiciel standard", "Application sur mesure"],
+    highlight: 2,
+    rows: [
+      { criteria: "Coût de départ", values: ["Faible", "Moyen (abonnement)", "Investissement ponctuel"] },
+      { criteria: "Adapté à VOS process", values: ["Non, vous vous adaptez", "Partiellement", "Oui, pensé pour vous"] },
+      { criteria: "Évolue avec vous", values: ["Non", "Selon l'éditeur", "Oui, quand vous voulez"] },
+      { criteria: "Risque d'erreur", values: ["Élevé (ressaisies)", "Moyen", "Faible (une seule source)"] },
+      { criteria: "Vous en êtes maître", values: ["Oui mais fragile", "Non (dépendance éditeur)", "Oui"] }
     ]
   },
+  faq: [
+    {
+      q: "Combien coûte une application sur mesure ?",
+      a: "Un premier module ciblé se développe entre 8 000 et 25 000 €. Le périmètre détermine le prix — pas l'envie de facturer plus. Nous vous donnons une estimation honnête dès le premier échange."
+    },
+    {
+      q: "En combien de temps le logiciel sera prêt ?",
+      a: "Vous avez une première version utilisable en 4 à 10 semaines. Nous travaillons par itérations courtes — vous voyez l'avancement chaque semaine."
+    },
+    {
+      q: "Qui reste propriétaire du code ?",
+      a: "Vous. Dès le premier commit. Le code source vous appartient intégralement et est hébergé sur votre propre dépôt."
+    },
+    {
+      q: "Que se passe-t-il si vous n'êtes plus disponibles ?",
+      a: "Votre code est hébergé sur votre propre dépôt GitHub. N'importe quel développeur peut reprendre le projet sans blocage."
+    },
+    {
+      q: "Faut-il une connaissance technique pour valider ?",
+      a: "Non. Nos livrables sont toujours des interfaces testables, pas des spécifications techniques. Vous testez comme un utilisateur, pas comme un développeur."
+    },
+    {
+      q: "Peut-on faire évoluer l'application après la livraison ?",
+      a: "C'est exactement l'intérêt du sur-mesure. Pas de dépendance à un éditeur — l'outil évolue quand vous en avez besoin."
+    },
+    {
+      q: "Peut-on commencer par un seul module ?",
+      a: "Oui. C'est même notre recommandation. Commencer par un périmètre ciblé permet de valider rapidement et d'itérer en fonction des retours réels."
+    }
+  ],
   footer: {
-    tagline: "Votre entreprise est unique. Votre logiciel devrait l'être aussi.",
     legal: `© ${(/* @__PURE__ */ new Date()).getFullYear()} ${BRAND}. Tous droits réservés.`
   }
 };
@@ -313,7 +374,7 @@ function Navbar() {
             Link,
             {
               to: "/",
-              className: "font-archivo font-bold text-xl tracking-tight text-primary hover:text-secondary transition-colors duration-200 shrink-0",
+              className: "font-archivo font-black text-xl tracking-tight text-primary hover:text-secondary transition-colors duration-200 shrink-0",
               children: [
                 BRAND,
                 /* @__PURE__ */ jsx("span", { className: "text-secondary", children: "." })
@@ -376,7 +437,7 @@ function Navbar() {
             {
               href: contactHref,
               whileTap: { scale: 0.97 },
-              className: "inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-primary/90 hover:scale-[1.02] transition-all duration-200 shrink-0",
+              className: "inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-secondary hover:scale-[1.02] transition-all duration-200 shrink-0",
               children: [
                 content.nav.cta,
                 /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
@@ -484,46 +545,12 @@ function Navbar() {
     )
   ] });
 }
-const ease$4 = [0.22, 1, 0.36, 1];
-const fadeUp$1 = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: ease$4 } }
-};
-const stagger = (delay = 0) => ({
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
-});
-const textReveal = (delay = 0) => ({
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
-});
-const wordReveal = (delay = 0) => ({
-  hidden: {},
-  show: { transition: { staggerChildren: 0.055, delayChildren: delay } }
-});
-const cardItem = {
-  hidden: { opacity: 0, y: 40, scale: 0.97 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.65, ease: ease$4 } }
-};
-const textLine = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: ease$4 } }
-};
-const wordItem = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: ease$4 } }
-};
-const popIn = {
-  hidden: { opacity: 0, scale: 0.7 },
-  show: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] } }
-};
-const hoverLift = { y: -6, transition: { duration: 0.2, ease: "easeOut" } };
 const services = [
   {
     slug: "applications-metier",
     meta: {
-      title: "Applications métier sur mesure pour PME | DJEXA",
-      description: "Studio spécialisé en applications métier sur mesure pour les PME. ERP, CRM, portail client, gestion de chantier — des logiciels pensés autour de votre façon de travailler."
+      title: "Applications métier sur mesure | DJEXA",
+      description: "Studio spécialisé en applications métier sur mesure. ERP, CRM, portail client, gestion de chantier — des logiciels pensés autour de votre façon de travailler."
     },
     hero: {
       eyebrow: "Applications métier",
@@ -533,7 +560,7 @@ const services = [
     },
     intro: {
       title: "Ce que nous développons",
-      body: "Nous aidons les PME à remplacer les fichiers Excel, les saisies manuelles et les outils dispersés par une application unique, fiable et adaptée à leur métier. Chaque projet part de votre réalité terrain, pas d'un cahier des charges standard."
+      body: "Nous aidons les entreprises à remplacer les fichiers Excel, les saisies manuelles et les outils dispersés par une application unique, fiable et adaptée à leur métier. Chaque projet part de votre réalité terrain, pas d'un cahier des charges standard."
     },
     services: [
       { slug: "erp-sur-mesure", title: "ERP sur mesure", icon: "⚙️", body: "Un système de gestion intégré calqué sur vos processus réels : achats, stocks, production, facturation." },
@@ -549,7 +576,7 @@ const services = [
         a: "Un logiciel du marché est conçu pour des milliers d'entreprises différentes. Il impose sa logique à votre activité. Une application sur mesure est construite autour de vos processus existants — vous n'avez rien à adapter."
       },
       {
-        q: "Est-ce accessible pour une PME avec un budget limité ?",
+        q: "Est-ce accessible avec un budget limité ?",
         a: "Oui, à condition de commencer par un périmètre bien ciblé. Un MVP (version initiale utile et utilisable) se développe en 4 à 12 semaines. On part de là et on améliore en continu, selon vos retours et votre budget."
       },
       {
@@ -560,9 +587,10 @@ const services = [
   },
   {
     slug: "erp-sur-mesure",
+    benefit: "Centralisez toute votre activité",
     meta: {
-      title: "ERP sur mesure pour PME | DJEXA",
-      description: "ERP sur mesure pour PME — un système de gestion intégré conçu autour de vos processus réels, pas des fonctionnalités génériques d'un éditeur. Studio indépendant, délais maîtrisés."
+      title: "ERP sur mesure | DJEXA",
+      description: "ERP sur mesure — un système de gestion intégré conçu autour de vos processus réels, pas des fonctionnalités génériques d'un éditeur. Studio indépendant, délais maîtrisés."
     },
     hero: {
       eyebrow: "ERP sur mesure",
@@ -629,8 +657,9 @@ const services = [
   },
   {
     slug: "portail-client",
+    benefit: "Donnez un accès direct à vos clients",
     meta: {
-      title: "Portail client sur mesure pour PME | DJEXA",
+      title: "Portail client sur mesure | DJEXA",
       description: "Donnez à vos clients un espace en ligne pour suivre leurs commandes, accéder aux documents et communiquer avec vos équipes. Moins d'appels, plus de satisfaction client."
     },
     hero: {
@@ -694,14 +723,15 @@ const services = [
   },
   {
     slug: "automatisation-processus",
+    benefit: "Supprimez les tâches répétitives",
     meta: {
-      title: "Automatisation des processus métier pour PME | DJEXA",
-      description: "Éliminez les tâches manuelles répétitives dans votre PME — saisies en double, relances manuelles, transferts d'information — et concentrez vos équipes sur ce qui a de la valeur."
+      title: "Automatisation des processus métier | DJEXA",
+      description: "Éliminez les tâches manuelles répétitives — saisies en double, relances manuelles, transferts d'information — et concentrez vos équipes sur ce qui a de la valeur."
     },
     hero: {
       eyebrow: "Automatisation",
       title: "Automatisez ce qui vous fait perdre du temps",
-      subtitle: "Dans beaucoup de PME, des personnes qualifiées passent des heures chaque semaine à des tâches qui pourraient s'exécuter toutes seules. Ce temps-là a un coût.",
+      subtitle: "Dans beaucoup d'entreprises, des personnes qualifiées passent des heures chaque semaine à des tâches qui pourraient s'exécuter toutes seules. Ce temps-là a un coût.",
       cta: "Discuter de votre projet"
     },
     problems: {
@@ -759,6 +789,7 @@ const services = [
   },
   {
     slug: "gestion-chantier",
+    benefit: "Pilotez vos chantiers en temps réel",
     meta: {
       title: "Logiciel de gestion de chantier sur mesure | DJEXA",
       description: "Application de gestion de chantier sur mesure pour entreprises BTP et artisans — planning partagé, rapports terrain numériques, suivi des travaux, documents chantier centralisés."
@@ -824,6 +855,7 @@ const services = [
   },
   {
     slug: "gestion-intervention",
+    benefit: "Gérez vos interventions sans friction",
     meta: {
       title: "Logiciel de gestion des interventions sur mesure | DJEXA",
       description: "Application de gestion des interventions terrain pour entreprises de maintenance, SAV et dépannage — planification, fiche numérique, signature client, rapport automatique."
@@ -889,9 +921,10 @@ const services = [
   },
   {
     slug: "crm-sur-mesure",
+    benefit: "Gérez vos relations clients efficacement",
     meta: {
-      title: "CRM sur mesure pour PME | DJEXA",
-      description: "CRM sur mesure pour PME — pipeline commercial adapté à votre cycle de vente, relances automatisées, suivi des prospects et clients, sans la complexité de Salesforce ou HubSpot."
+      title: "CRM sur mesure | DJEXA",
+      description: "CRM sur mesure — pipeline commercial adapté à votre cycle de vente, relances automatisées, suivi des prospects et clients, sans la complexité de Salesforce ou HubSpot."
     },
     hero: {
       eyebrow: "CRM sur mesure",
@@ -955,7 +988,7 @@ const services = [
   {
     slug: "logiciel-btp",
     meta: {
-      title: "Logiciel BTP sur mesure pour PME du bâtiment | DJEXA",
+      title: "Logiciel BTP sur mesure | DJEXA",
       description: "Logiciel BTP sur mesure — gestion de chantier, suivi des interventions, facturation à l'avancement, gestion sous-traitants. Conçu pour les entreprises du bâtiment et travaux publics."
     },
     hero: {
@@ -1005,7 +1038,7 @@ const services = [
     faq: [
       {
         q: "Fonctionne-t-il pour les artisans ou seulement les grandes entreprises ?",
-        a: "Il est conçu pour les PME BTP de 5 à 100 personnes. Plus simple et moins cher qu'un ERP de grande entreprise, mais complet sur ce qui compte pour le bâtiment."
+        a: "Il est conçu pour les entreprises BTP de toutes tailles. Plus simple et moins cher qu'un ERP générique, mais complet sur ce qui compte pour le bâtiment."
       },
       {
         q: "Peut-on gérer les agréments et qualifications (RGE, etc.) ?",
@@ -1148,51 +1181,21 @@ const services = [
     ]
   }
 ];
-const locations = [
-  {
-    city: "Paris",
-    slug: "paris",
-    region: "Île-de-France",
-    context: "L'Île-de-France concentre plus de 300 000 PME dans tous les secteurs — commerce, services, BTP, industrie. La concurrence y est forte, et l'efficacité opérationnelle est souvent le facteur différenciant."
-  },
-  {
-    city: "Lyon",
-    slug: "lyon",
-    region: "Auvergne-Rhône-Alpes",
-    context: "Lyon est le deuxième pôle économique français, avec un tissu dense de PME industrielles, de services aux entreprises et de négoce. La région Auvergne-Rhône-Alpes concentre des entreprises avec des besoins métiers souvent très spécifiques."
-  },
-  {
-    city: "Toulouse",
-    slug: "toulouse",
-    region: "Occitanie",
-    context: "Toulouse est le cœur de la filière aéronautique française, mais aussi un pôle de santé, de services numériques et d'agriculture. Les PME toulousaines ont des contraintes métiers distinctives qui méritent des outils adaptés."
-  },
-  {
-    city: "Bordeaux",
-    slug: "bordeaux",
-    region: "Nouvelle-Aquitaine",
-    context: "Bordeaux connaît une forte croissance économique depuis dix ans, avec des PME dans le négoce, le BTP, le tourisme et les services. La métropole bordelaise est devenue un terrain fertile pour les entreprises en développement."
-  },
-  {
-    city: "Marseille",
-    slug: "marseille",
-    region: "Provence-Alpes-Côte d'Azur",
-    context: "Marseille est un carrefour commercial avec des entreprises dans le transport, la logistique, les services et le BTP. La région PACA concentre des PME aux besoins variés, souvent confrontées à des défis de coordination et de visibilité opérationnelle."
-  }
-];
+const ease$d = [0.22, 1, 0.36, 1];
 const SERVICE_LINKS = services.filter((s) => s.slug !== "applications-metier").slice(0, 6).map((s) => ({ label: s.hero.eyebrow || s.meta.title, href: `/${s.slug}` }));
-const COMPANY_LINKS = [
-  { label: "Notre méthode", href: "/#methode" },
-  { label: "Réalisations", href: "/#realisations" },
-  { label: "Blog", href: "/blog" },
-  { label: "Toutes nos solutions", href: "/applications-metier" }
+const PROJECT_LINKS = [
+  { label: "Facturation électronique", href: "/projets/facturation-electronique" },
+  { label: "Suivi de production", href: "/projets/suivi-production" },
+  { label: "ERP administratif", href: "/projets/erp-administratif" },
+  { label: "Gestion cabinet", href: "/projets/gestion-cabinet-comptable" },
+  { label: "Suivi chantier BTP", href: "/projets/suivi-chantier-btp" }
 ];
-const BLOG_LINKS = [
-  { label: "Outils & productivité", href: "/blog/pourquoi-excel-ralentit-les-pme" },
-  { label: "BTP & chantier", href: "/blog/comment-digitaliser-entreprise-btp" },
-  { label: "Budget & coût", href: "/blog/combien-coute-application-metier" },
-  { label: "ERP ou sur mesure ?", href: "/blog/erp-ou-logiciel-sur-mesure" },
-  { label: "5 signes pour changer", href: "/blog/5-signes-creer-propre-logiciel" }
+const STUDIO_LINKS = [
+  { label: "Notre méthode", href: "/#methode" },
+  { label: "Blog", href: "/blog" },
+  { label: "Toutes nos solutions", href: "/applications-metier" },
+  { label: "Mentions légales", href: "/mentions-legales" },
+  { label: "Confidentialité", href: "/politique-de-confidentialite" }
 ];
 function FooterCol({ title, links }) {
   return /* @__PURE__ */ jsxs("div", { children: [
@@ -1215,21 +1218,25 @@ function FooterCol({ title, links }) {
   ] });
 }
 function Footer() {
+  const taglineRef = useRef(null);
+  const taglineInView = useInView(taglineRef, { once: true, margin: "-80px 0px" });
+  const colsRef = useRef(null);
+  const colsInView = useInView(colsRef, { once: true, margin: "-80px 0px" });
   return /* @__PURE__ */ jsxs("footer", { className: "bg-primary", children: [
     /* @__PURE__ */ jsx("div", { className: "border-b border-white/8", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6 py-16 md:py-20", children: /* @__PURE__ */ jsxs(
       motion.div,
       {
-        variants: fadeUp$1,
-        initial: "hidden",
-        whileInView: "show",
-        viewport: { once: true, amount: 0.3 },
+        ref: taglineRef,
+        initial: { opacity: 0, y: 24 },
+        animate: taglineInView ? { opacity: 1, y: 0 } : {},
+        transition: { duration: 0.7, ease: ease$d },
         className: "max-w-3xl",
         children: [
           /* @__PURE__ */ jsxs(
             "p",
             {
               className: "font-archivo font-black text-white tracking-display text-balance leading-[1.06]",
-              style: { fontSize: "clamp(1.75rem, 4vw, 3.25rem)" },
+              style: { fontSize: "clamp(2rem, 4vw, 3.5rem)" },
               children: [
                 "Votre entreprise est unique.",
                 /* @__PURE__ */ jsx("br", {}),
@@ -1264,13 +1271,13 @@ function Footer() {
     /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6 py-14 md:py-16", children: /* @__PURE__ */ jsxs(
       motion.div,
       {
-        variants: fadeUp$1,
-        initial: "hidden",
-        whileInView: "show",
-        viewport: { once: true, amount: 0.15 },
+        ref: colsRef,
+        initial: { opacity: 0, y: 16 },
+        animate: colsInView ? { opacity: 1, y: 0 } : {},
+        transition: { duration: 0.6, ease: ease$d, delay: 0.1 },
         className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-10",
         children: [
-          /* @__PURE__ */ jsxs("div", { className: "sm:col-span-2 lg:col-span-1", children: [
+          /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsxs(
               Link,
               {
@@ -1282,17 +1289,52 @@ function Footer() {
                 ]
               }
             ),
-            /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-white/45 leading-relaxed text-pretty max-w-[30ch]", children: content.footer.tagline })
+            /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-white/45 leading-relaxed text-pretty max-w-[28ch] mb-5", children: "Studio de développement logiciel sur mesure." }),
+            /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: "mailto:contact@djexa.fr",
+                className: "font-inter text-sm text-white/50 hover:text-white transition-colors duration-200 block mb-5",
+                children: "contact@djexa.fr"
+              }
+            ),
+            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3", children: [
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: "https://linkedin.com",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  "aria-label": "LinkedIn",
+                  className: "text-white/40 hover:text-white transition-colors duration-200",
+                  children: /* @__PURE__ */ jsx("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "currentColor", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" }) })
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                "a",
+                {
+                  href: "https://github.com",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  "aria-label": "GitHub",
+                  className: "text-white/40 hover:text-white transition-colors duration-200",
+                  children: /* @__PURE__ */ jsx("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "currentColor", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" }) })
+                }
+              )
+            ] })
           ] }),
           /* @__PURE__ */ jsx(FooterCol, { title: "Solutions", links: SERVICE_LINKS }),
-          /* @__PURE__ */ jsx(FooterCol, { title: "Ressources", links: BLOG_LINKS }),
-          /* @__PURE__ */ jsx(FooterCol, { title: "Studio", links: COMPANY_LINKS })
+          /* @__PURE__ */ jsx(FooterCol, { title: "Réalisations", links: PROJECT_LINKS }),
+          /* @__PURE__ */ jsx(FooterCol, { title: "Studio", links: STUDIO_LINKS })
         ]
       }
     ) }),
     /* @__PURE__ */ jsx("div", { className: "border-t border-white/8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3", children: [
       /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-white/25", children: content.footer.legal }),
-      /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-white/25", children: "Studio logiciel sur mesure — Paris, France" })
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-5", children: [
+        /* @__PURE__ */ jsx(Link, { to: "/mentions-legales", className: "font-inter text-xs text-white/25 hover:text-white/50 transition-colors duration-200", children: "Mentions légales" }),
+        /* @__PURE__ */ jsx(Link, { to: "/politique-de-confidentialite", className: "font-inter text-xs text-white/25 hover:text-white/50 transition-colors duration-200", children: "Confidentialité" })
+      ] })
     ] }) })
   ] });
 }
@@ -1314,33 +1356,87 @@ function Layout() {
     /* @__PURE__ */ jsx(Footer, {})
   ] });
 }
-const SIDEBAR = [
+const ease$c = [0.22, 1, 0.36, 1];
+const vFadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: ease$c } }
+};
+const stagger = (delay = 0) => ({
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
+});
+const textReveal = (delay = 0) => ({
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
+});
+const cardItem = {
+  hidden: { opacity: 0, y: 40, scale: 0.97 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.65, ease: ease$c } }
+};
+const textLine = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: ease$c } }
+};
+const hoverLift = { y: -6, transition: { duration: 0.2, ease: "easeOut" } };
+const f = (delay = 0, y = 18) => ({
+  initial: { opacity: 0, y },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }
+});
+const ease$b = [0.22, 1, 0.36, 1];
+const SIDEBAR_PRIMARY = [
   { id: "dashboard", label: "Dashboard", active: true, icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
   { id: "commandes", label: "Commandes", active: false, icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
   { id: "clients", label: "Clients", active: false, icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0" },
   { id: "produits", label: "Produits", active: false, icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10" },
-  { id: "rapports", label: "Rapports", active: false, icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" }
+  { id: "rapports", label: "Rapports", active: false, icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
+  { id: "projets", label: "Projets", active: false, icon: "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" },
+  { id: "equipe", label: "Équipe", active: false, icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" }
+];
+const SIDEBAR_SECONDARY = [
+  { id: "documents", label: "Documents", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" }
 ];
 const KPI = [
-  { value: "84 000€", label: "CA mensuel", trend: "+18%", up: true },
+  { value: "84k€", label: "CA mensuel", trend: "+18%", up: true },
   { value: "247", label: "Commandes", trend: "+12%", up: true },
-  { value: "98%", label: "Satisfaction", trend: "+2%", up: true }
-];
-const BARS = [
-  { h: 38 },
-  { h: 55 },
-  { h: 44 },
-  { h: 70 },
-  { h: 62 },
-  { h: 80 },
-  { h: 68 },
-  { h: 90 }
+  { value: "97%", label: "Livraisons", trend: "+2%", up: true },
+  { value: "4.9", label: "Note client", trend: "↑", up: true }
 ];
 const MONTHS = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû"];
+const CHART_POINTS = [
+  { x: 0, y: 37.2 },
+  { x: 34.3, y: 27 },
+  { x: 68.6, y: 33.6 },
+  { x: 102.9, y: 18 },
+  { x: 137.1, y: 22.8 },
+  { x: 171.4, y: 12 },
+  { x: 205.7, y: 19.2 },
+  { x: 240, y: 6 }
+];
+const CHART_LINE = "M 0,37.2 L 34.3,27 L 68.6,33.6 L 102.9,18 L 137.1,22.8 L 171.4,12 L 205.7,19.2 L 240,6";
+const CHART_AREA = "M 0,37.2 L 34.3,27 L 68.6,33.6 L 102.9,18 L 137.1,22.8 L 171.4,12 L 205.7,19.2 L 240,6 L 240,60 L 0,60 Z";
 const ROWS = [
-  { id: "#1847", client: "Dupont SA", amount: "1 240 €", status: "Livrée", ok: true },
-  { id: "#1846", client: "Martin & Co.", amount: "890 €", status: "En cours", ok: false },
-  { id: "#1845", client: "Leclerc SA", amount: "2 100 €", status: "Livrée", ok: true }
+  { id: "#1847", client: "Dupont SA", amount: "1 240 €", ok: true },
+  { id: "#1846", client: "Martin & Co.", amount: "890 €", ok: false },
+  { id: "#1845", client: "Leclerc SA", amount: "2 100 €", ok: true }
+];
+const ACTIVITY = [
+  { dot: "bg-secondary", text: "Martin a mis à jour #1849", time: "2min" },
+  { dot: "bg-success", text: "Nouvel utilisateur : Sophie D.", time: "8min" },
+  { dot: "bg-amber-400", text: "Rapport mensuel généré", time: "1h" }
+];
+const CALENDAR = [
+  { day: "Lun 14", event: "Réunion", color: "bg-secondary" },
+  { day: "Mar 15", event: "Audit", color: "bg-[#4F46E5]" },
+  { day: "Mer 16", event: null },
+  { day: "Jeu 17", event: "Demo", color: "bg-success" },
+  { day: "Ven 18", event: null }
+];
+const TEAM = [
+  { initial: "M", bg: "bg-secondary" },
+  { initial: "S", bg: "bg-[#4F46E5]" },
+  { initial: "T", bg: "bg-amber-500" },
+  { initial: "A", bg: "bg-success" }
 ];
 function NavIcon({ path }) {
   return /* @__PURE__ */ jsx(
@@ -1352,7 +1448,7 @@ function NavIcon({ path }) {
       strokeWidth: "1.8",
       strokeLinecap: "round",
       strokeLinejoin: "round",
-      className: "w-4 h-4 shrink-0",
+      className: "w-3.5 h-3.5 shrink-0",
       children: /* @__PURE__ */ jsx("path", { d: path })
     }
   );
@@ -1379,15 +1475,14 @@ function DashboardMockup() {
       clearTimeout(again);
     };
   }, [showNotif, notifLoop]);
-  const ease2 = [0.22, 1, 0.36, 1];
   return /* @__PURE__ */ jsxs(
     motion.div,
     {
       ref,
       initial: { opacity: 0, y: 28, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.65, ease: ease2 },
-      className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.06] bg-white select-none",
+      transition: { duration: 0.65, ease: ease$b },
+      className: "w-full rounded-2xl overflow-hidden shadow-card-lg ring-1 ring-black/[0.06] bg-white select-none",
       children: [
         /* @__PURE__ */ jsxs(
           motion.div,
@@ -1395,34 +1490,47 @@ function DashboardMockup() {
             initial: { opacity: 0 },
             animate: inView ? { opacity: 1 } : {},
             transition: { delay: 0.3, duration: 0.3 },
-            className: "bg-gray-50 border-b border-gray-100 px-4 py-2.5 flex items-center gap-3",
+            className: "bg-gray-50 border-b border-gray-100 px-3 py-2 flex items-center gap-3",
             children: [
               /* @__PURE__ */ jsxs("div", { className: "flex gap-[5px] shrink-0", children: [
                 /* @__PURE__ */ jsx("span", { className: "w-3 h-3 rounded-full bg-[#FF5F57]" }),
                 /* @__PURE__ */ jsx("span", { className: "w-3 h-3 rounded-full bg-[#FEBC2E]" }),
                 /* @__PURE__ */ jsx("span", { className: "w-3 h-3 rounded-full bg-[#28C840]" })
               ] }),
-              /* @__PURE__ */ jsx("div", { className: "flex-1 flex justify-center", children: /* @__PURE__ */ jsx("span", { className: "bg-white border border-gray-200/80 rounded-md px-4 py-1 text-xs text-gray-500 font-inter leading-none", children: "Gestion commerciale — Tableau de bord" }) }),
-              /* @__PURE__ */ jsx("div", { className: "w-10 shrink-0" })
+              /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5 bg-white border border-gray-200 rounded-lg px-2.5 py-1 w-36", children: [
+                /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 16 16", fill: "none", className: "w-2.5 h-2.5 text-gray-400 shrink-0", children: [
+                  /* @__PURE__ */ jsx("circle", { cx: "6.5", cy: "6.5", r: "4", stroke: "currentColor", strokeWidth: "1.4" }),
+                  /* @__PURE__ */ jsx("path", { d: "M14 14l-3-3", stroke: "currentColor", strokeWidth: "1.4", strokeLinecap: "round" })
+                ] }),
+                /* @__PURE__ */ jsx("span", { className: "font-inter leading-none text-gray-400", style: { fontSize: "10px" }, children: "Rechercher..." })
+              ] }),
+              /* @__PURE__ */ jsxs("div", { className: "ml-auto flex items-center gap-2.5", children: [
+                /* @__PURE__ */ jsxs("div", { className: "relative", children: [
+                  /* @__PURE__ */ jsx("svg", { viewBox: "0 0 20 20", fill: "none", className: "w-4 h-4 text-gray-500", children: /* @__PURE__ */ jsx("path", { d: "M10 2a6 6 0 00-6 6v1L2.5 11.5A1 1 0 003.5 13h13a1 1 0 001-1.5L16 9V8a6 6 0 00-6-6zM8.5 16.5a1.5 1.5 0 003 0", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round" }) }),
+                  /* @__PURE__ */ jsx("span", { className: "absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full flex items-center justify-center", children: /* @__PURE__ */ jsx("span", { className: "font-inter font-bold text-white leading-none", style: { fontSize: "7px" }, children: "2" }) })
+                ] }),
+                /* @__PURE__ */ jsx("div", { className: "w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsx("span", { className: "font-inter font-bold text-white leading-none", style: { fontSize: "8px" }, children: "JD" }) })
+              ] })
             ]
           }
         ),
-        /* @__PURE__ */ jsxs("div", { className: "flex", style: { height: "380px" }, children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex", style: { height: "440px" }, children: [
           /* @__PURE__ */ jsxs(
             motion.div,
             {
               initial: { opacity: 0 },
               animate: inView ? { opacity: 1 } : {},
               transition: { delay: 0.45, duration: 0.25 },
-              className: "bg-gray-50 border-r border-gray-100 w-44 shrink-0 flex flex-col py-3 gap-0.5",
+              className: "bg-gray-50 border-r border-gray-100 w-[132px] shrink-0 flex flex-col py-3 gap-0.5 overflow-hidden",
               children: [
-                SIDEBAR.map((item, i) => /* @__PURE__ */ jsxs(
+                SIDEBAR_PRIMARY.map((item, i) => /* @__PURE__ */ jsxs(
                   motion.div,
                   {
                     initial: { opacity: 0, x: -8 },
                     animate: inView ? { opacity: 1, x: 0 } : {},
-                    transition: { delay: 0.55 + i * 0.07, duration: 0.28, ease: ease2 },
-                    className: `mx-2 flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-inter font-medium cursor-default transition-colors ${item.active ? "bg-secondary/10 text-secondary" : "text-gray-500 hover:bg-gray-100"}`,
+                    transition: { delay: 0.55 + i * 0.06, duration: 0.28, ease: ease$b },
+                    className: `mx-2 flex items-center gap-2 px-2 py-1.5 rounded-lg font-inter font-medium cursor-default transition-colors ${item.active ? "bg-secondary/10 text-secondary" : "text-gray-500"}`,
+                    style: { fontSize: "11px" },
                     children: [
                       /* @__PURE__ */ jsx(NavIcon, { path: item.icon }),
                       item.label
@@ -1430,40 +1538,62 @@ function DashboardMockup() {
                   },
                   item.id
                 )),
-                /* @__PURE__ */ jsxs("div", { className: "mt-auto mx-2 flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-inter font-medium text-gray-400 cursor-default", children: [
-                  /* @__PURE__ */ jsxs(
-                    "svg",
-                    {
-                      viewBox: "0 0 24 24",
-                      fill: "none",
-                      stroke: "currentColor",
-                      strokeWidth: "1.8",
-                      strokeLinecap: "round",
-                      strokeLinejoin: "round",
-                      className: "w-4 h-4 shrink-0",
-                      children: [
-                        /* @__PURE__ */ jsx("path", { d: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" }),
-                        /* @__PURE__ */ jsx("path", { d: "M15 12a3 3 0 11-6 0 3 3 0 016 0z" })
-                      ]
-                    }
-                  ),
-                  "Paramètres"
+                /* @__PURE__ */ jsx("div", { className: "mx-4 my-1 h-px bg-gray-100" }),
+                SIDEBAR_SECONDARY.map((item, i) => /* @__PURE__ */ jsxs(
+                  motion.div,
+                  {
+                    initial: { opacity: 0, x: -8 },
+                    animate: inView ? { opacity: 1, x: 0 } : {},
+                    transition: { delay: 1 + i * 0.06, duration: 0.28, ease: ease$b },
+                    className: "mx-2 flex items-center gap-2 px-2 py-1.5 rounded-lg font-inter font-medium text-gray-400 cursor-default",
+                    style: { fontSize: "11px" },
+                    children: [
+                      /* @__PURE__ */ jsx(NavIcon, { path: item.icon }),
+                      item.label
+                    ]
+                  },
+                  item.id
+                )),
+                /* @__PURE__ */ jsxs("div", { className: "mt-auto flex flex-col gap-0.5", children: [
+                  /* @__PURE__ */ jsxs("div", { className: "mx-2 flex items-center gap-2 px-2 py-1.5 rounded-lg font-inter font-medium text-gray-400 cursor-default", style: { fontSize: "11px" }, children: [
+                    /* @__PURE__ */ jsxs(
+                      "svg",
+                      {
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "1.8",
+                        strokeLinecap: "round",
+                        strokeLinejoin: "round",
+                        className: "w-3.5 h-3.5 shrink-0",
+                        children: [
+                          /* @__PURE__ */ jsx("path", { d: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" }),
+                          /* @__PURE__ */ jsx("path", { d: "M15 12a3 3 0 11-6 0 3 3 0 016 0z" })
+                        ]
+                      }
+                    ),
+                    "Paramètres"
+                  ] }),
+                  /* @__PURE__ */ jsxs("div", { className: "mx-2 flex items-center gap-2 px-2 py-2 border-t border-gray-100 mt-0.5", children: [
+                    /* @__PURE__ */ jsx("div", { className: "w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsx("span", { className: "font-inter font-bold text-secondary", style: { fontSize: "7px" }, children: "JD" }) }),
+                    /* @__PURE__ */ jsx("span", { className: "font-inter text-gray-500 truncate", style: { fontSize: "11px" }, children: "Jean Dupont" })
+                  ] })
                 ] })
               ]
             }
           ),
-          /* @__PURE__ */ jsxs("div", { className: "flex-1 p-5 overflow-hidden relative", children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex-1 flex flex-col p-4 overflow-hidden relative", children: [
             /* @__PURE__ */ jsxs(
               motion.div,
               {
                 initial: { opacity: 0, y: -6 },
                 animate: inView ? { opacity: 1, y: 0 } : {},
-                transition: { delay: 0.5, duration: 0.3, ease: ease2 },
-                className: "flex items-center justify-between mb-4",
+                transition: { delay: 0.5, duration: 0.3, ease: ease$b },
+                className: "flex items-center justify-between mb-3 shrink-0",
                 children: [
                   /* @__PURE__ */ jsxs("div", { children: [
                     /* @__PURE__ */ jsx("h2", { className: "font-archivo font-bold text-sm text-primary tracking-tight", children: "Tableau de bord" }),
-                    /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mt-0.5", children: "Juillet 2026" })
+                    /* @__PURE__ */ jsx("p", { className: "font-inter text-muted", style: { fontSize: "10px" }, children: "Juillet 2026" })
                   ] }),
                   /* @__PURE__ */ jsx(
                     motion.div,
@@ -1471,43 +1601,78 @@ function DashboardMockup() {
                       initial: { opacity: 0, scale: 0.9 },
                       animate: inView ? { opacity: 1, scale: 1 } : {},
                       transition: { delay: 0.65, duration: 0.25 },
-                      className: "bg-secondary text-white font-inter text-xs font-medium px-3 py-1.5 rounded-lg cursor-default",
+                      className: "bg-secondary text-white font-inter font-medium px-2.5 py-1.5 rounded-lg cursor-default",
+                      style: { fontSize: "10px" },
                       children: "+ Nouvelle commande"
                     }
                   )
                 ]
               }
             ),
-            /* @__PURE__ */ jsx("div", { className: "grid grid-cols-3 gap-3 mb-4", children: KPI.map((k, i) => /* @__PURE__ */ jsxs(
+            /* @__PURE__ */ jsx("div", { className: "grid grid-cols-4 gap-2 mb-3 shrink-0", children: KPI.map((k, i) => /* @__PURE__ */ jsxs(
               motion.div,
               {
                 initial: { opacity: 0, y: 10 },
                 animate: inView ? { opacity: 1, y: 0 } : {},
-                transition: { delay: 0.9 + i * 0.1, duration: 0.35, ease: ease2 },
-                className: "bg-white border border-gray-100 rounded-xl p-3",
+                transition: { delay: 0.85 + i * 0.08, duration: 0.35, ease: ease$b },
+                className: "bg-white border border-gray-100 rounded-xl p-2.5",
                 children: [
-                  /* @__PURE__ */ jsx("p", { className: "font-archivo font-bold text-base text-primary leading-none", children: k.value }),
-                  /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mt-1 leading-none", children: k.label }),
-                  /* @__PURE__ */ jsx("p", { className: `font-inter text-xs font-medium mt-1.5 leading-none ${k.up ? "text-success" : "text-red-500"}`, children: k.trend })
+                  /* @__PURE__ */ jsx("p", { className: "font-archivo font-bold text-sm text-primary leading-none", children: k.value }),
+                  /* @__PURE__ */ jsx("p", { className: "font-inter text-muted mt-1 leading-none", style: { fontSize: "9px" }, children: k.label }),
+                  /* @__PURE__ */ jsx("p", { className: `font-inter font-medium mt-1 leading-none ${k.up ? "text-success" : "text-red-500"}`, style: { fontSize: "9px" }, children: k.trend })
                 ]
               },
               i
             )) }),
-            /* @__PURE__ */ jsxs("div", { className: "mb-4", children: [
-              /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mb-2 font-medium", children: "Chiffre d'affaires — 8 derniers mois" }),
-              /* @__PURE__ */ jsx("div", { className: "flex items-end gap-1.5", style: { height: "80px" }, children: BARS.map((bar, i) => /* @__PURE__ */ jsxs("div", { className: "flex-1 flex flex-col items-center gap-1", children: [
-                /* @__PURE__ */ jsx("div", { className: "w-full flex items-end justify-center", style: { height: "68px" }, children: /* @__PURE__ */ jsx(
-                  motion.div,
+            /* @__PURE__ */ jsxs("div", { className: "mb-3 shrink-0", children: [
+              /* @__PURE__ */ jsx("p", { className: "font-inter text-muted font-medium mb-1.5", style: { fontSize: "10px" }, children: "Chiffre d'affaires — 8 derniers mois" }),
+              /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 240 60", className: "w-full", style: { height: "56px" }, preserveAspectRatio: "none", children: [
+                /* @__PURE__ */ jsx("defs", { children: /* @__PURE__ */ jsxs("linearGradient", { id: "chartGrad", x1: "0", y1: "0", x2: "0", y2: "1", children: [
+                  /* @__PURE__ */ jsx("stop", { offset: "0%", stopColor: "#2563EB", stopOpacity: "0.12" }),
+                  /* @__PURE__ */ jsx("stop", { offset: "100%", stopColor: "#2563EB", stopOpacity: "0" })
+                ] }) }),
+                /* @__PURE__ */ jsx(
+                  motion.path,
                   {
-                    initial: { scaleY: 0 },
-                    animate: inView ? { scaleY: 1 } : {},
-                    transition: { delay: 1.3 + i * 0.05, duration: 0.4, ease: ease2 },
-                    style: { height: `${bar.h}%`, transformOrigin: "bottom" },
-                    className: `w-full rounded-sm ${i === 7 ? "bg-secondary" : "bg-secondary/25"}`
+                    d: CHART_AREA,
+                    fill: "url(#chartGrad)",
+                    initial: { opacity: 0 },
+                    animate: inView ? { opacity: 1 } : {},
+                    transition: { duration: 0.6, delay: 1.8 }
                   }
-                ) }),
-                /* @__PURE__ */ jsx("span", { className: "font-inter text-[9px] text-gray-300 tabular leading-none", children: MONTHS[i] })
-              ] }, i)) })
+                ),
+                /* @__PURE__ */ jsx(
+                  motion.path,
+                  {
+                    d: CHART_LINE,
+                    fill: "none",
+                    stroke: "#2563EB",
+                    strokeWidth: "1.5",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    initial: { pathLength: 0, opacity: 0 },
+                    animate: inView ? { pathLength: 1, opacity: 1 } : {},
+                    transition: {
+                      pathLength: { duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 1.3 },
+                      opacity: { duration: 0.3, delay: 1.3 }
+                    }
+                  }
+                ),
+                CHART_POINTS.map((pt, i) => /* @__PURE__ */ jsx(
+                  motion.circle,
+                  {
+                    cx: pt.x,
+                    cy: pt.y,
+                    r: "2",
+                    fill: "#2563EB",
+                    initial: { scale: 0, opacity: 0 },
+                    animate: inView ? { scale: 1, opacity: 1 } : {},
+                    transition: { duration: 0.2, delay: 1.5 + i * 0.07 }
+                  },
+                  i
+                ))
+              ] }),
+              /* @__PURE__ */ jsx("div", { className: "flex items-center mt-0.5", children: MONTHS.map((m, i) => /* @__PURE__ */ jsx("span", { className: "flex-1 text-center font-inter text-gray-300 tabular leading-none", style: { fontSize: "8px" }, children: m }, i)) })
             ] }),
             /* @__PURE__ */ jsxs(
               motion.div,
@@ -1515,128 +1680,278 @@ function DashboardMockup() {
                 initial: { opacity: 0 },
                 animate: inView ? { opacity: 1 } : {},
                 transition: { delay: 1.6, duration: 0.2 },
-                className: "border-t border-gray-100 pt-3",
+                className: "border-t border-gray-100 pt-2.5 flex gap-3 flex-1 min-h-0 overflow-hidden",
                 children: [
-                  /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between mb-2", children: [
-                    /* @__PURE__ */ jsx("p", { className: "font-inter text-xs font-semibold text-primary", children: "Dernières commandes" }),
-                    /* @__PURE__ */ jsx("span", { className: "font-inter text-xs text-secondary cursor-default", children: "Voir tout →" })
+                  /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", children: [
+                    /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between mb-2", children: [
+                      /* @__PURE__ */ jsx("p", { className: "font-inter font-semibold text-primary", style: { fontSize: "10px" }, children: "Dernières commandes" }),
+                      /* @__PURE__ */ jsx("span", { className: "font-inter text-secondary cursor-default", style: { fontSize: "10px" }, children: "Voir tout →" })
+                    ] }),
+                    /* @__PURE__ */ jsx("div", { className: "flex flex-col", children: ROWS.map((row, i) => /* @__PURE__ */ jsxs(
+                      motion.div,
+                      {
+                        initial: { opacity: 0, x: -6 },
+                        animate: inView ? { opacity: 1, x: 0 } : {},
+                        transition: { delay: 1.75 + i * 0.07, duration: 0.25, ease: ease$b },
+                        className: `flex items-center gap-2 py-1.5 font-inter ${i < ROWS.length - 1 ? "border-b border-gray-50" : ""}`,
+                        style: { fontSize: "10px" },
+                        children: [
+                          /* @__PURE__ */ jsx("span", { className: "text-muted w-9 shrink-0 tabular", children: row.id }),
+                          /* @__PURE__ */ jsx("span", { className: "text-primary font-medium flex-1 min-w-0 truncate", children: row.client }),
+                          /* @__PURE__ */ jsx("span", { className: "text-muted tabular shrink-0", children: row.amount }),
+                          /* @__PURE__ */ jsx("span", { className: `shrink-0 px-1.5 py-0.5 rounded-full font-medium ${row.ok ? "bg-success/10 text-success" : "bg-amber-50 text-amber-600"}`, style: { fontSize: "8px" }, children: row.ok ? "Livrée" : "En cours" })
+                        ]
+                      },
+                      i
+                    )) })
                   ] }),
-                  /* @__PURE__ */ jsx("div", { className: "flex flex-col gap-0", children: ROWS.map((row, i) => /* @__PURE__ */ jsxs(
-                    motion.div,
-                    {
-                      initial: { opacity: 0, x: -8 },
-                      animate: inView ? { opacity: 1, x: 0 } : {},
-                      transition: { delay: 1.75 + i * 0.08, duration: 0.3, ease: ease2 },
-                      className: `flex items-center gap-3 py-1.5 text-xs font-inter ${i < ROWS.length - 1 ? "border-b border-gray-50" : ""}`,
-                      children: [
-                        /* @__PURE__ */ jsx("span", { className: "text-muted w-10 shrink-0 tabular", children: row.id }),
-                        /* @__PURE__ */ jsx("span", { className: "text-primary font-medium flex-1 min-w-0 truncate", children: row.client }),
-                        /* @__PURE__ */ jsx("span", { className: "text-muted tabular shrink-0", children: row.amount }),
-                        /* @__PURE__ */ jsx("span", { className: `shrink-0 px-2 py-0.5 rounded-full text-[10px] font-medium ${row.ok ? "bg-success/10 text-success" : "bg-amber-50 text-amber-600"}`, children: row.status })
-                      ]
-                    },
-                    i
-                  )) })
+                  /* @__PURE__ */ jsxs("div", { className: "w-[38%] border-l border-gray-100 pl-3 min-w-0", children: [
+                    /* @__PURE__ */ jsx("p", { className: "font-inter font-semibold text-primary mb-2", style: { fontSize: "10px" }, children: "Activité" }),
+                    /* @__PURE__ */ jsx("div", { className: "flex flex-col gap-2.5", children: ACTIVITY.map((act, i) => /* @__PURE__ */ jsxs(
+                      motion.div,
+                      {
+                        initial: { opacity: 0 },
+                        animate: inView ? { opacity: 1 } : {},
+                        transition: { delay: 1.85 + i * 0.1, duration: 0.25 },
+                        className: "flex items-start gap-1.5",
+                        children: [
+                          /* @__PURE__ */ jsx("div", { className: `w-1.5 h-1.5 rounded-full mt-1 shrink-0 ${act.dot}` }),
+                          /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
+                            /* @__PURE__ */ jsx("p", { className: "font-inter text-primary leading-tight truncate", style: { fontSize: "9px" }, children: act.text }),
+                            /* @__PURE__ */ jsxs("p", { className: "font-inter text-gray-300 mt-0.5", style: { fontSize: "8px" }, children: [
+                              "il y a ",
+                              act.time
+                            ] })
+                          ] })
+                        ]
+                      },
+                      i
+                    )) })
+                  ] })
                 ]
               }
             ),
             /* @__PURE__ */ jsx(AnimatePresence, { children: showNotif && /* @__PURE__ */ jsxs(
               motion.div,
               {
-                initial: { x: 60, opacity: 0 },
-                animate: { x: 0, opacity: 1 },
-                exit: { x: 60, opacity: 0 },
-                transition: { duration: 0.32, ease: ease2 },
-                className: "absolute top-4 right-4 bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.10)] rounded-xl p-3 flex items-start gap-2.5 max-w-[196px]",
+                initial: { opacity: 0, scale: 0.92, y: -4 },
+                animate: { opacity: 1, scale: 1, y: 0 },
+                exit: { opacity: 0, scale: 0.92, y: -4 },
+                transition: { duration: 0.28, ease: ease$b },
+                className: "absolute top-4 right-4 bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.10)] rounded-xl p-3 flex items-start gap-2.5 max-w-[168px]",
                 children: [
                   /* @__PURE__ */ jsx("span", { className: "w-6 h-6 rounded-full bg-success/15 flex items-center justify-center shrink-0 mt-0.5", children: /* @__PURE__ */ jsx("svg", { viewBox: "0 0 16 16", fill: "none", className: "w-3.5 h-3.5 text-success", children: /* @__PURE__ */ jsx("path", { d: "M3 8l3.5 3.5L13 4", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }),
                   /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
                     /* @__PURE__ */ jsx("p", { className: "font-inter font-semibold text-xs text-primary leading-tight", children: "Commande créée" }),
                     /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mt-0.5 leading-tight", children: "#1848 — Moreau & Fils" }),
-                    /* @__PURE__ */ jsx("p", { className: "font-inter text-[10px] text-gray-300 mt-1", children: "il y a quelques secondes" })
+                    /* @__PURE__ */ jsx("p", { className: "font-inter text-gray-300 mt-1", style: { fontSize: "9px" }, children: "il y a quelques secondes" })
                   ] })
                 ]
               }
             ) })
-          ] })
+          ] }),
+          /* @__PURE__ */ jsxs(
+            motion.div,
+            {
+              initial: { opacity: 0 },
+              animate: inView ? { opacity: 1 } : {},
+              transition: { delay: 0.8, duration: 0.3 },
+              className: "w-[112px] shrink-0 border-l border-gray-100 bg-gray-50/50 py-3 px-2.5 flex flex-col gap-3 overflow-hidden",
+              children: [
+                /* @__PURE__ */ jsxs("div", { children: [
+                  /* @__PURE__ */ jsx("p", { className: "font-inter font-semibold uppercase tracking-wide text-gray-400 mb-2", style: { fontSize: "8px", letterSpacing: "0.1em" }, children: "Agenda" }),
+                  /* @__PURE__ */ jsx("div", { className: "flex flex-col gap-1.5", children: CALENDAR.map((entry, i) => /* @__PURE__ */ jsxs(
+                    motion.div,
+                    {
+                      initial: { opacity: 0, x: 8 },
+                      animate: inView ? { opacity: 1, x: 0 } : {},
+                      transition: { delay: 1 + i * 0.07, duration: 0.22, ease: ease$b },
+                      className: "flex items-center gap-1.5",
+                      children: [
+                        /* @__PURE__ */ jsx("span", { className: "font-inter text-gray-400 w-11 shrink-0 leading-none", style: { fontSize: "9px" }, children: entry.day }),
+                        entry.event ? /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1 min-w-0", children: [
+                          /* @__PURE__ */ jsx("span", { className: `w-1.5 h-1.5 rounded-full shrink-0 ${entry.color}` }),
+                          /* @__PURE__ */ jsx("span", { className: "font-inter text-primary truncate leading-none", style: { fontSize: "9px" }, children: entry.event })
+                        ] }) : /* @__PURE__ */ jsx("span", { className: "font-inter text-gray-200 leading-none", style: { fontSize: "9px" }, children: "—" })
+                      ]
+                    },
+                    i
+                  )) })
+                ] }),
+                /* @__PURE__ */ jsx("div", { className: "h-px bg-gray-100" }),
+                /* @__PURE__ */ jsxs("div", { children: [
+                  /* @__PURE__ */ jsx("p", { className: "font-inter font-semibold uppercase tracking-wide text-gray-400 mb-2", style: { fontSize: "8px", letterSpacing: "0.1em" }, children: "Équipe" }),
+                  /* @__PURE__ */ jsxs("div", { className: "flex items-center", children: [
+                    /* @__PURE__ */ jsx("div", { className: "flex -space-x-1.5", children: TEAM.map((member, i) => /* @__PURE__ */ jsx(
+                      motion.div,
+                      {
+                        initial: { scale: 0 },
+                        animate: inView ? { scale: 1 } : {},
+                        transition: { delay: 1.4 + i * 0.07, duration: 0.2, ease: [0.34, 1.56, 0.64, 1] },
+                        className: `w-5 h-5 rounded-full ${member.bg} flex items-center justify-center ring-1 ring-white font-inter font-bold text-white`,
+                        style: { fontSize: "7px" },
+                        children: member.initial
+                      },
+                      i
+                    )) }),
+                    /* @__PURE__ */ jsx(
+                      motion.span,
+                      {
+                        initial: { opacity: 0 },
+                        animate: inView ? { opacity: 1 } : {},
+                        transition: { delay: 1.7, duration: 0.2 },
+                        className: "ml-2 font-inter text-gray-400",
+                        style: { fontSize: "9px" },
+                        children: "+6"
+                      }
+                    )
+                  ] })
+                ] })
+              ]
+            }
+          )
         ] })
       ]
     }
   );
 }
-const ease$3 = [0.22, 1, 0.36, 1];
-function fadeUp(delay = 0) {
-  return {
-    initial: { opacity: 0, y: 18 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.65, ease: ease$3, delay }
-  };
-}
+const ease$a = [0.22, 1, 0.36, 1];
 function Hero() {
   const { hero } = content;
-  return /* @__PURE__ */ jsx("section", { className: "bg-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6", children: /* @__PURE__ */ jsxs("div", { className: "grid md:grid-cols-2 gap-12 lg:gap-20 items-center", children: [
-    /* @__PURE__ */ jsxs("div", { className: "max-w-xl", children: [
-      /* @__PURE__ */ jsxs(motion.div, { ...fadeUp(0.15), className: "inline-flex items-center gap-2 bg-secondary/8 border border-secondary/15 text-secondary text-xs font-inter font-medium px-4 py-1.5 rounded-full mb-8", children: [
-        /* @__PURE__ */ jsx("span", { className: "w-1.5 h-1.5 rounded-full bg-secondary shrink-0" }),
-        hero.badge
-      ] }),
-      /* @__PURE__ */ jsxs(
-        "h1",
+  return /* @__PURE__ */ jsxs("section", { className: "relative bg-white overflow-hidden min-h-[100svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-20", children: [
+    /* @__PURE__ */ jsxs("div", { "aria-hidden": "true", className: "pointer-events-none absolute inset-0 overflow-hidden", children: [
+      /* @__PURE__ */ jsx(
+        "div",
         {
-          className: "font-archivo font-black text-primary leading-[1.04] tracking-display mb-6",
-          style: { fontSize: "clamp(2.5rem, 5vw, 4.25rem)" },
-          children: [
-            /* @__PURE__ */ jsx(motion.span, { ...fadeUp(0.25), className: "block", children: "Votre entreprise" }),
-            /* @__PURE__ */ jsx(motion.span, { ...fadeUp(0.33), className: "block", children: "est unique." }),
-            /* @__PURE__ */ jsx(motion.span, { ...fadeUp(0.41), className: "block text-secondary", children: "Votre logiciel" }),
-            /* @__PURE__ */ jsx(motion.span, { ...fadeUp(0.49), className: "block text-secondary", children: "devrait l'être aussi." })
-          ]
+          className: "absolute inset-0",
+          style: {
+            background: "radial-gradient(ellipse 75% 65% at 78% 52%, rgba(37,99,235,0.065) 0%, transparent 70%)"
+          }
         }
       ),
       /* @__PURE__ */ jsx(
-        motion.p,
+        "div",
         {
-          ...fadeUp(0.6),
-          className: "font-inter text-muted leading-[1.75] mb-10 max-w-[42ch]",
-          style: { fontSize: "1.0625rem" },
-          children: hero.lede
+          className: "absolute inset-0 opacity-[0.28]",
+          style: {
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 0h40v1H0zM0 0v40h1V0' fill='%23E5E7EB'/%3E%3C/svg%3E")`,
+            backgroundRepeat: "repeat"
+          }
         }
-      ),
-      /* @__PURE__ */ jsxs(motion.div, { ...fadeUp(0.72), className: "flex flex-wrap gap-3", children: [
+      )
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "relative z-10 mx-auto max-w-7xl px-6 w-full", children: /* @__PURE__ */ jsxs("div", { className: "grid md:grid-cols-2 gap-12 lg:gap-16 items-center", children: [
+      /* @__PURE__ */ jsxs("div", { className: "max-w-xl", children: [
         /* @__PURE__ */ jsxs(
-          motion.a,
+          motion.div,
           {
-            href: "#contact",
-            whileTap: { scale: 0.97 },
-            className: "inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-6 py-3 rounded-xl hover:bg-primary/90 hover:scale-[1.02] transition-all duration-200",
+            ...f(0.1),
+            className: "inline-flex items-center gap-2 bg-secondary/8 border border-secondary/15 text-secondary text-xs font-inter font-medium px-4 py-1.5 rounded-full mb-8",
             children: [
-              hero.cta1,
-              /* @__PURE__ */ jsx("svg", { width: "13", height: "13", viewBox: "0 0 13 13", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2.5 6.5h8M7 2.5l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
+              /* @__PURE__ */ jsx("span", { className: "w-1.5 h-1.5 rounded-full bg-secondary shrink-0" }),
+              hero.badge
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxs(
+          "h1",
+          {
+            className: "font-archivo font-black leading-[1.05] tracking-display mb-7",
+            style: { fontSize: "clamp(2.5rem, 5vw + 0.5rem, 4.25rem)" },
+            children: [
+              /* @__PURE__ */ jsx(motion.span, { ...f(0.22), className: "block text-primary", children: "Votre entreprise est unique." }),
+              /* @__PURE__ */ jsx(motion.span, { ...f(0.34), className: "block text-secondary", children: "Votre logiciel devrait l'être aussi." })
             ]
           }
         ),
         /* @__PURE__ */ jsx(
-          motion.a,
+          motion.p,
           {
-            href: "#realisations",
-            whileTap: { scale: 0.97 },
-            className: "inline-flex items-center gap-2 bg-white text-primary border border-border font-inter font-medium text-sm px-6 py-3 rounded-xl hover:bg-section hover:scale-[1.02] transition-all duration-200",
-            children: hero.cta2
+            ...f(0.48),
+            className: "font-inter text-muted leading-[1.8] mb-10 max-w-[44ch] border-l-2 border-secondary/30 pl-4",
+            style: { fontSize: "1.0625rem" },
+            children: hero.lede
+          }
+        ),
+        /* @__PURE__ */ jsxs(motion.div, { ...f(0.6), className: "flex flex-wrap gap-3 mb-10", children: [
+          /* @__PURE__ */ jsxs(
+            motion.a,
+            {
+              href: "#contact",
+              whileTap: { scale: 0.97 },
+              className: "inline-flex items-center gap-2 bg-primary text-white font-inter font-semibold text-sm px-7 py-3.5 rounded-xl hover:bg-secondary transition-all duration-200",
+              children: [
+                hero.cta1,
+                /* @__PURE__ */ jsx("svg", { width: "13", height: "13", viewBox: "0 0 13 13", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2.5 6.5h8M7 2.5l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            motion.a,
+            {
+              href: "#realisations",
+              whileTap: { scale: 0.97 },
+              className: "inline-flex items-center gap-2 text-primary border border-border font-inter font-medium text-sm px-6 py-3.5 rounded-xl hover:bg-section hover:border-secondary/30 transition-all duration-200",
+              children: hero.cta2
+            }
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "hidden md:flex items-center justify-center", children: /* @__PURE__ */ jsxs("div", { className: "relative w-full", children: [
+        /* @__PURE__ */ jsx(
+          "div",
+          {
+            "aria-hidden": "true",
+            className: "absolute inset-0 -z-10",
+            style: {
+              background: "radial-gradient(ellipse 85% 70% at 50% 50%, rgba(37,99,235,0.09) 0%, transparent 70%)",
+              filter: "blur(32px)",
+              transform: "scale(1.15)"
+            }
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          motion.div,
+          {
+            initial: { opacity: 0, scale: 0.95, y: 16 },
+            animate: { opacity: 1, scale: 1, y: 0 },
+            transition: { duration: 0.8, ease: ease$a, delay: 0.5 },
+            className: "rounded-2xl overflow-hidden border border-border",
+            style: {
+              transform: "rotate(1deg) translateY(-4px)",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10)"
+            },
+            children: /* @__PURE__ */ jsx(DashboardMockup, {})
           }
         )
-      ] })
-    ] }),
-    /* @__PURE__ */ jsx("div", { className: "hidden md:block", children: /* @__PURE__ */ jsx(DashboardMockup, {}) })
-  ] }) }) });
+      ] }) })
+    ] }) })
+  ] });
 }
+const ITEMS = [
+  { icon: "20+", label: "Projets livrés" },
+  { icon: "100%", label: "Sur mesure" },
+  { icon: "©", label: "Vous restez propriétaire du code" }
+];
+function TrustPhrase() {
+  return /* @__PURE__ */ jsx("section", { className: "bg-section border-y border-border py-8", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6", children: /* @__PURE__ */ jsx("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-0 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-border w-full", children: ITEMS.map((item, i) => /* @__PURE__ */ jsxs(
+    motion.div,
+    {
+      ...f(0.1 + i * 0.1),
+      className: "flex items-center gap-3 px-8 py-4 sm:py-0 w-full sm:w-auto justify-center",
+      children: [
+        /* @__PURE__ */ jsx("span", { className: "font-archivo font-black text-secondary text-lg leading-none", children: item.icon }),
+        /* @__PURE__ */ jsx("span", { className: "font-inter text-sm text-muted", children: item.label })
+      ]
+    },
+    i
+  )) }) }) });
+}
+const ease$9 = [0.22, 1, 0.36, 1];
 const ICONS = [
-  // Informations dispersées — dossiers
   "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z",
-  // Tâches manuelles — flèches circulaires
   "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
-  // Manque de visibilité — œil barré
   "M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21",
-  // Logiciels inadaptés — puzzle
   "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
 ];
 function Problems() {
@@ -1651,7 +1966,7 @@ function Problems() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+          transition: { duration: 0.5, ease: ease$9 },
           className: "label text-secondary mb-4",
           children: "Le problème"
         }
@@ -1661,7 +1976,7 @@ function Problems() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 },
+          transition: { duration: 0.6, ease: ease$9, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
           children: content.problems.title
@@ -1672,7 +1987,7 @@ function Problems() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
+          transition: { duration: 0.5, ease: ease$9, delay: 0.2 },
           className: "font-inter text-muted mt-4 leading-relaxed",
           children: content.problems.subtitle
         }
@@ -1682,32 +1997,40 @@ function Problems() {
       motion.div,
       {
         ref: gridRef,
-        variants: stagger(),
+        variants: stagger(0.06),
         initial: "hidden",
         animate: gridInView ? "show" : "hidden",
-        className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-5",
+        className: "grid grid-cols-1 sm:grid-cols-2 gap-5",
         children: content.problems.cards.map((card, i) => /* @__PURE__ */ jsxs(
           motion.div,
           {
             variants: cardItem,
             whileHover: hoverLift,
-            className: "bg-white border border-border rounded-2xl p-6 shadow-card cursor-default group hover:border-secondary/25 hover:shadow-card-md transition-all duration-200",
+            className: "bg-white border border-border rounded-2xl p-6 shadow-card cursor-default hover:border-secondary/20 hover:shadow-card-md transition-all duration-200",
             children: [
-              /* @__PURE__ */ jsx("div", { className: "w-10 h-10 rounded-xl bg-secondary/8 flex items-center justify-center mb-4 group-hover:bg-secondary/12 transition-colors duration-200", children: /* @__PURE__ */ jsx(
-                "svg",
-                {
-                  viewBox: "0 0 24 24",
-                  fill: "none",
-                  stroke: "currentColor",
-                  strokeWidth: "1.7",
-                  strokeLinecap: "round",
-                  strokeLinejoin: "round",
-                  className: "w-5 h-5 text-secondary",
-                  children: /* @__PURE__ */ jsx("path", { d: ICONS[i] })
-                }
-              ) }),
-              /* @__PURE__ */ jsx("h3", { className: "font-archivo font-bold text-lg tracking-tight text-primary mb-2 text-balance leading-snug", children: card.title }),
-              /* @__PURE__ */ jsx("p", { className: "font-inter text-muted text-sm leading-relaxed text-pretty", children: card.body })
+              /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between mb-4", children: [
+                /* @__PURE__ */ jsx("div", { className: "w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsx(
+                  "svg",
+                  {
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    stroke: "currentColor",
+                    strokeWidth: "1.7",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    className: "w-5 h-5 text-red-400",
+                    children: /* @__PURE__ */ jsx("path", { d: ICONS[i] })
+                  }
+                ) }),
+                /* @__PURE__ */ jsx("span", { className: "label text-amber-600/70", style: { fontSize: "10px" }, children: "Problème" })
+              ] }),
+              /* @__PURE__ */ jsx("h3", { className: "font-archivo font-bold text-base tracking-tight text-primary mb-2 text-balance leading-snug", children: card.title }),
+              /* @__PURE__ */ jsx("p", { className: "font-inter text-muted text-sm leading-relaxed text-pretty mb-4", children: card.body }),
+              /* @__PURE__ */ jsx("div", { className: "h-px bg-border mb-4" }),
+              card.solution && /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsx("span", { className: "font-inter text-xs font-semibold text-secondary", children: "→ La solution :" }),
+                /* @__PURE__ */ jsx("p", { className: "font-inter text-sm font-medium text-primary mt-1.5 leading-snug text-balance", children: card.solution })
+              ] })
             ]
           },
           i
@@ -1716,209 +2039,7 @@ function Problems() {
     )
   ] }) });
 }
-const SERVICES$1 = [
-  {
-    slug: "erp-sur-mesure",
-    icon: "⚙️",
-    title: "ERP sur mesure",
-    body: "Un système de gestion intégré calqué sur vos processus réels : achats, stocks, production, facturation.",
-    featured: true
-  },
-  {
-    slug: "crm-sur-mesure",
-    icon: "📊",
-    title: "CRM sur mesure",
-    body: "Un CRM épuré, calqué sur votre cycle de vente réel, sans les fonctionnalités inutiles des grandes plateformes.",
-    featured: false
-  },
-  {
-    slug: "portail-client",
-    icon: "🔗",
-    title: "Portail client",
-    body: "Un espace en ligne où vos clients suivent leurs commandes et accèdent à leurs documents sans vous appeler.",
-    featured: false
-  },
-  {
-    slug: "automatisation-processus",
-    icon: "⚡",
-    title: "Automatisation",
-    body: "Éliminez les tâches manuelles répétitives : relances, transferts de données, alertes, rapports automatiques.",
-    featured: false
-  },
-  {
-    slug: "gestion-chantier",
-    icon: "🏗️",
-    title: "Gestion de chantier",
-    body: "Planning, rapports terrain, suivi des travaux — tout centralisé, accessible depuis le bureau ou le chantier.",
-    featured: false
-  },
-  {
-    slug: "gestion-intervention",
-    icon: "🔧",
-    title: "Gestion interventions",
-    body: "Planification, fiches d'intervention numérique, signature client et rapport auto-généré.",
-    featured: false
-  }
-];
-function Solution() {
-  const headRef = useRef(null);
-  const headInView = useInView(headRef, { once: true, margin: "-80px 0px" });
-  const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, { once: true, margin: "-80px 0px" });
-  return /* @__PURE__ */ jsx("section", { className: "bg-white py-24 md:py-32", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-6", children: [
-    /* @__PURE__ */ jsxs("div", { ref: headRef, className: "max-w-2xl mb-16", children: [
-      /* @__PURE__ */ jsx(
-        motion.p,
-        {
-          initial: { opacity: 0, y: 10 },
-          animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-          className: "label text-secondary mb-4",
-          children: "Nos solutions"
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        motion.h2,
-        {
-          initial: { opacity: 0, y: 14 },
-          animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 },
-          className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
-          style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
-          children: "Un logiciel pensé autour de votre entreprise"
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        motion.p,
-        {
-          initial: { opacity: 0, y: 10 },
-          animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
-          className: "font-inter text-muted mt-4 leading-relaxed text-pretty max-w-[62ch]",
-          children: "Chaque entreprise possède ses propres méthodes de travail. Nous concevons des applications adaptées à vos processus, pas l'inverse."
-        }
-      )
-    ] }),
-    /* @__PURE__ */ jsx(
-      motion.div,
-      {
-        ref: gridRef,
-        variants: stagger(0.07),
-        initial: "hidden",
-        animate: gridInView ? "show" : "hidden",
-        className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-5",
-        children: SERVICES$1.map((service) => /* @__PURE__ */ jsx(
-          motion.div,
-          {
-            variants: cardItem,
-            whileHover: hoverLift,
-            className: "h-full",
-            children: /* @__PURE__ */ jsxs(
-              Link,
-              {
-                to: `/${service.slug}`,
-                className: `group flex flex-col h-full rounded-2xl p-6 border transition-all duration-200 focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 ${service.featured ? "bg-primary border-primary text-white hover:bg-primary/95" : "bg-white border-border hover:border-secondary/30 hover:shadow-card-md"}`,
-                children: [
-                  /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between mb-5", children: [
-                    /* @__PURE__ */ jsx("span", { className: "text-2xl", children: service.icon }),
-                    /* @__PURE__ */ jsx(
-                      "svg",
-                      {
-                        viewBox: "0 0 16 16",
-                        fill: "none",
-                        className: `w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${service.featured ? "text-white" : "text-secondary"}`,
-                        children: /* @__PURE__ */ jsx("path", { d: "M3 8h10M9 4l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })
-                      }
-                    )
-                  ] }),
-                  /* @__PURE__ */ jsx("h3", { className: `font-archivo font-bold text-lg tracking-tight mb-2 leading-snug text-balance ${service.featured ? "text-white" : "text-primary group-hover:text-secondary transition-colors duration-200"}`, children: service.title }),
-                  /* @__PURE__ */ jsx("p", { className: `font-inter text-sm leading-relaxed text-pretty flex-1 ${service.featured ? "text-white/70" : "text-muted"}`, children: service.body }),
-                  /* @__PURE__ */ jsx("p", { className: `font-inter text-xs font-medium mt-5 ${service.featured ? "text-white/60" : "text-secondary"}`, children: "En savoir plus →" })
-                ]
-              }
-            )
-          },
-          service.slug
-        ))
-      }
-    ),
-    /* @__PURE__ */ jsx(
-      motion.div,
-      {
-        initial: { opacity: 0, y: 10 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, margin: "-60px 0px" },
-        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-        className: "text-center mt-12",
-        children: /* @__PURE__ */ jsxs(
-          Link,
-          {
-            to: "/applications-metier",
-            className: "inline-flex items-center gap-2 font-inter font-medium text-sm text-muted hover:text-primary border border-border rounded-xl px-5 py-2.5 hover:border-primary/30 transition-all duration-200",
-            children: [
-              "Toutes nos solutions",
-              /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.4", strokeLinecap: "round", strokeLinejoin: "round" }) })
-            ]
-          }
-        )
-      }
-    )
-  ] }) });
-}
-const ITEM_VARIANTS = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
-};
-function BeforeAfter() {
-  const { beforeAfter } = content;
-  const beforeRef = useRef(null);
-  const beforeInView = useInView(beforeRef, { once: true, margin: "-80px 0px" });
-  const afterRef = useRef(null);
-  const afterInView = useInView(afterRef, { once: true, margin: "-80px 0px" });
-  return /* @__PURE__ */ jsx("section", { className: "bg-white py-16 md:py-24", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-5xl px-6", children: [
-    /* @__PURE__ */ jsx("h2", { className: "font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary mb-10 text-balance", children: beforeAfter.title }),
-    /* @__PURE__ */ jsxs("div", { className: "grid md:grid-cols-[1fr_1px_1fr] gap-0", children: [
-      /* @__PURE__ */ jsxs("div", { ref: beforeRef, className: "bg-[#EAE8E3] rounded-2xl md:rounded-r-none md:rounded-l-2xl p-8 md:p-10", children: [
-        /* @__PURE__ */ jsx("p", { className: "font-inter text-xs font-semibold tracking-widest uppercase text-[#6E7377] mb-6", children: "Avant" }),
-        /* @__PURE__ */ jsx("ul", { className: "flex flex-col gap-4", children: beforeAfter.before.map((item, i) => /* @__PURE__ */ jsxs(
-          motion.li,
-          {
-            variants: ITEM_VARIANTS,
-            initial: "hidden",
-            animate: beforeInView ? "show" : "hidden",
-            transition: { duration: 0.4, ease: "easeOut", delay: i * 0.06 },
-            className: "flex items-start gap-3",
-            children: [
-              /* @__PURE__ */ jsx("span", { className: "mt-[5px] shrink-0 w-3 h-px bg-[#6E7377] inline-block" }),
-              /* @__PURE__ */ jsx("span", { className: "font-inter text-sm text-[#6E7377] leading-relaxed", children: item })
-            ]
-          },
-          i
-        )) })
-      ] }),
-      /* @__PURE__ */ jsx("div", { className: "hidden md:flex items-center justify-center", children: /* @__PURE__ */ jsx("div", { className: "w-px h-full bg-[#0E5C4A] opacity-30" }) }),
-      /* @__PURE__ */ jsxs("div", { ref: afterRef, className: "bg-white border border-[#DCDAD4] rounded-2xl md:rounded-l-none md:rounded-r-2xl p-8 md:p-10 mt-3 md:mt-0", children: [
-        /* @__PURE__ */ jsx("p", { className: "font-inter text-xs font-semibold tracking-widest uppercase text-[#0E5C4A] mb-6", children: "Après" }),
-        /* @__PURE__ */ jsx("ul", { className: "flex flex-col gap-4", children: beforeAfter.after.map((item, i) => /* @__PURE__ */ jsxs(
-          motion.li,
-          {
-            variants: ITEM_VARIANTS,
-            initial: "hidden",
-            animate: afterInView ? "show" : "hidden",
-            transition: { duration: 0.4, ease: "easeOut", delay: i * 0.06 },
-            className: "flex items-start gap-3",
-            children: [
-              /* @__PURE__ */ jsx("span", { className: "mt-[5px] shrink-0 w-1.5 h-1.5 rounded-full bg-[#0E5C4A] inline-block" }),
-              /* @__PURE__ */ jsx("span", { className: "font-inter text-sm text-primary leading-relaxed", children: item })
-            ]
-          },
-          i
-        )) })
-      ] })
-    ] })
-  ] }) });
-}
-const ease$2 = [0.22, 1, 0.36, 1];
+const ease$8 = [0.22, 1, 0.36, 1];
 function TitleBar({ label }) {
   return /* @__PURE__ */ jsxs("div", { className: "bg-gray-50 border-b border-gray-100 px-3 py-2 flex items-center gap-2.5 shrink-0", children: [
     /* @__PURE__ */ jsxs("div", { className: "flex gap-1.5 shrink-0", children: [
@@ -1959,7 +2080,7 @@ function SuiviProductionMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$2 },
+      transition: { duration: 0.6, ease: ease$8 },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -1990,7 +2111,7 @@ function SuiviProductionMockup() {
             {
               initial: { opacity: 0, y: 10 },
               animate: inView ? { opacity: 1, y: 0 } : {},
-              transition: { delay: 0.45 + ci * 0.1, duration: 0.35, ease: ease$2 },
+              transition: { delay: 0.45 + ci * 0.1, duration: 0.35, ease: ease$8 },
               className: "bg-white rounded-xl border border-gray-100 p-2.5 flex flex-col gap-2",
               children: [
                 /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between mb-0.5", children: [
@@ -2009,7 +2130,7 @@ function SuiviProductionMockup() {
                   {
                     initial: { opacity: 0, y: 6 },
                     animate: inView ? { opacity: 1, y: 0 } : {},
-                    transition: { delay: 0.6 + ci * 0.1 + i * 0.06, duration: 0.28, ease: ease$2 },
+                    transition: { delay: 0.6 + ci * 0.1 + i * 0.06, duration: 0.28, ease: ease$8 },
                     className: "bg-gray-50 border border-gray-100 rounded-lg p-2 flex items-start gap-1.5",
                     children: [
                       col.done && /* @__PURE__ */ jsx("span", { className: "mt-0.5 shrink-0", children: /* @__PURE__ */ jsx("svg", { viewBox: "0 0 12 12", fill: "none", className: "w-3 h-3", style: { color: col.color }, children: /* @__PURE__ */ jsx("path", { d: "M2 6l2.5 2.5L10 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }) }),
@@ -2041,7 +2162,7 @@ function FacturationMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$2 },
+      transition: { duration: 0.6, ease: ease$8 },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2059,7 +2180,7 @@ function FacturationMockup() {
             {
               initial: { opacity: 0, y: -8 },
               animate: inView ? { opacity: 1, y: 0 } : {},
-              transition: { delay: 0.35, duration: 0.35, ease: ease$2 },
+              transition: { delay: 0.35, duration: 0.35, ease: ease$8 },
               className: "flex items-start justify-between mb-5",
               children: [
                 /* @__PURE__ */ jsxs("div", { children: [
@@ -2083,7 +2204,7 @@ function FacturationMockup() {
               {
                 initial: { opacity: 0, x: -8 },
                 animate: inView ? { opacity: 1, x: 0 } : {},
-                transition: { delay: 0.55 + i * 0.1, duration: 0.3, ease: ease$2 },
+                transition: { delay: 0.55 + i * 0.1, duration: 0.3, ease: ease$8 },
                 className: "px-3 py-2 grid grid-cols-[1fr_auto] gap-2 border-t border-gray-100",
                 children: [
                   /* @__PURE__ */ jsx("span", { className: "font-inter text-[11px] text-primary", children: line.label }),
@@ -2112,7 +2233,7 @@ function FacturationMockup() {
               {
                 initial: { opacity: 0, scale: 0.8 },
                 animate: inView ? { opacity: 1, scale: 1 } : {},
-                transition: { delay: 0.9 + i * 0.18, duration: 0.3, ease: ease$2 },
+                transition: { delay: 0.9 + i * 0.18, duration: 0.3, ease: ease$8 },
                 className: `font-inter text-[10px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${i === 2 ? "bg-[#10B981]/12 text-[#10B981]" : i === 1 ? "bg-secondary/10 text-secondary" : "bg-gray-100 text-gray-400"}`,
                 children: step
               }
@@ -2153,7 +2274,7 @@ function ERPMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$2 },
+      transition: { duration: 0.6, ease: ease$8 },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2178,7 +2299,7 @@ function ERPMockup() {
                 {
                   initial: { opacity: 0, x: -6 },
                   animate: inView ? { opacity: 1, x: 0 } : {},
-                  transition: { delay: 0.48 + i * 0.07, duration: 0.25, ease: ease$2 },
+                  transition: { delay: 0.48 + i * 0.07, duration: 0.25, ease: ease$8 },
                   className: `mx-1.5 px-2 py-1.5 rounded-lg text-[10px] font-inter font-medium cursor-default mb-0.5 ${i === 0 ? "bg-secondary/10 text-secondary" : "text-gray-500"}`,
                   children: item
                 },
@@ -2192,7 +2313,7 @@ function ERPMockup() {
               {
                 initial: { opacity: 0, y: 8 },
                 animate: inView ? { opacity: 1, y: 0 } : {},
-                transition: { delay: 0.7 + i * 0.1, duration: 0.3, ease: ease$2 },
+                transition: { delay: 0.7 + i * 0.1, duration: 0.3, ease: ease$8 },
                 className: "bg-white border border-gray-100 rounded-xl p-2.5",
                 children: [
                   /* @__PURE__ */ jsx("p", { className: "font-archivo font-bold text-sm text-primary tabular-nums leading-tight", children: k.value }),
@@ -2216,7 +2337,7 @@ function ERPMockup() {
                     {
                       initial: { opacity: 0, x: -6 },
                       animate: inView ? { opacity: 1, x: 0 } : {},
-                      transition: { delay: 1.1 + i * 0.08, duration: 0.28, ease: ease$2 },
+                      transition: { delay: 1.1 + i * 0.08, duration: 0.28, ease: ease$8 },
                       className: `flex items-center justify-between py-1.5 text-[10px] font-inter ${i < ERP_TRANSACTIONS.length - 1 ? "border-b border-gray-50" : ""}`,
                       children: [
                         /* @__PURE__ */ jsx("span", { className: "text-gray-600 truncate mr-2", children: tx.label }),
@@ -2252,7 +2373,7 @@ function CabinetMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$2 },
+      transition: { duration: 0.6, ease: ease$8 },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2279,7 +2400,7 @@ function CabinetMockup() {
                   {
                     initial: { opacity: 0, x: -6 },
                     animate: inView ? { opacity: 1, x: 0 } : {},
-                    transition: { delay: 0.45 + i * 0.07, duration: 0.25, ease: ease$2 },
+                    transition: { delay: 0.45 + i * 0.07, duration: 0.25, ease: ease$8 },
                     className: `mx-1.5 px-2 py-1.5 rounded-lg text-[10px] font-inter cursor-default mb-0.5 ${i === 0 ? "bg-[#10B981]/10 text-[#10B981] font-semibold" : "text-gray-500 hover:bg-white"}`,
                     children: /* @__PURE__ */ jsxs("span", { className: "flex items-center gap-1.5", children: [
                       /* @__PURE__ */ jsx("span", { className: `w-1.5 h-1.5 rounded-full shrink-0 ${i === 0 ? "bg-[#10B981]" : "bg-gray-300"}` }),
@@ -2297,7 +2418,7 @@ function CabinetMockup() {
               {
                 initial: { opacity: 0, y: -6 },
                 animate: inView ? { opacity: 1, y: 0 } : {},
-                transition: { delay: 0.55, duration: 0.3, ease: ease$2 },
+                transition: { delay: 0.55, duration: 0.3, ease: ease$8 },
                 className: "flex items-start justify-between mb-4",
                 children: [
                   /* @__PURE__ */ jsxs("div", { children: [
@@ -2313,7 +2434,7 @@ function CabinetMockup() {
               {
                 initial: { opacity: 0, x: 10 },
                 animate: inView ? { opacity: 1, x: 0 } : {},
-                transition: { delay: 0.7 + i * 0.1, duration: 0.3, ease: ease$2 },
+                transition: { delay: 0.7 + i * 0.1, duration: 0.3, ease: ease$8 },
                 className: "flex items-center justify-between bg-gray-50 rounded-xl border border-gray-100 px-3 py-2.5",
                 children: [
                   /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
@@ -2365,7 +2486,7 @@ function ChantierMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$2 },
+      transition: { duration: 0.6, ease: ease$8 },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2383,7 +2504,7 @@ function ChantierMockup() {
             {
               initial: { opacity: 0, y: -6 },
               animate: inView ? { opacity: 1, y: 0 } : {},
-              transition: { delay: 0.35, duration: 0.3, ease: ease$2 },
+              transition: { delay: 0.35, duration: 0.3, ease: ease$8 },
               className: "flex items-start justify-between mb-4",
               children: [
                 /* @__PURE__ */ jsxs("div", { children: [
@@ -2399,7 +2520,7 @@ function ChantierMockup() {
             {
               initial: { scaleX: 0 },
               animate: inView ? { scaleX: 1 } : {},
-              transition: { delay: 0.5, duration: 0.9, ease: ease$2 },
+              transition: { delay: 0.5, duration: 0.9, ease: ease$8 },
               style: { transformOrigin: "left", width: "68%" },
               className: "h-full bg-[#C08A2E] rounded-full"
             }
@@ -2409,7 +2530,7 @@ function ChantierMockup() {
             {
               initial: { opacity: 0, y: 8 },
               animate: inView ? { opacity: 1, y: 0 } : {},
-              transition: { delay: 0.7 + i * 0.09, duration: 0.3, ease: ease$2 },
+              transition: { delay: 0.7 + i * 0.09, duration: 0.3, ease: ease$8 },
               className: "flex flex-col items-center gap-1.5",
               children: [
                 /* @__PURE__ */ jsx("div", { className: `w-7 h-7 rounded-full border-2 flex items-center justify-center ${step.done === true ? "bg-[#10B981]/15 border-[#10B981]" : step.done === null ? "bg-secondary/10 border-secondary" : "bg-gray-50 border-gray-200"}`, children: step.done === true ? /* @__PURE__ */ jsx("svg", { viewBox: "0 0 12 12", fill: "none", className: "w-3.5 h-3.5", style: { color: "#10B981" }, children: /* @__PURE__ */ jsx("path", { d: "M2 6l2.5 2.5L10 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }) : step.done === null ? /* @__PURE__ */ jsx("div", { className: "w-2 h-2 rounded-full bg-secondary" }) : /* @__PURE__ */ jsx("div", { className: "w-2 h-2 rounded-full bg-gray-300" }) }),
@@ -2426,7 +2547,7 @@ function ChantierMockup() {
                 {
                   initial: { opacity: 0, scale: 0.7 },
                   animate: inView ? { opacity: 1, scale: 1 } : {},
-                  transition: { delay: 1 + i * 0.07, duration: 0.25, ease: ease$2 },
+                  transition: { delay: 1 + i * 0.07, duration: 0.25, ease: ease$8 },
                   className: "w-6 h-6 rounded-full bg-[#C08A2E]/15 border border-white flex items-center justify-center font-inter text-[9px] font-bold text-[#C08A2E]",
                   children: initial
                 },
@@ -2465,7 +2586,152 @@ function ProjectMockup({ slug }) {
   const Component = mockups[slug];
   return Component ? /* @__PURE__ */ jsx(Component, {}) : null;
 }
-const ease$1 = [0.22, 1, 0.36, 1];
+const ease$7 = [0.22, 1, 0.36, 1];
+const TABS = [
+  {
+    label: "ERP sur mesure",
+    sector: "Gestion d'entreprise",
+    mockupSlug: "erp-administratif",
+    description: "Centralisez devis, factures, clients et dépenses dans un seul outil conçu autour de votre façon de travailler.",
+    benefits: ["Saisie unique, données partout", "Tableaux de bord en temps réel", "Aucun module inutile"],
+    href: "/erp-sur-mesure"
+  },
+  {
+    label: "Portail client",
+    sector: "Relation client",
+    mockupSlug: "gestion-cabinet-comptable",
+    description: "Donnez à vos clients un espace en ligne pour suivre leurs dossiers, accéder à leurs documents et communiquer avec vos équipes.",
+    benefits: ["Moins d'appels entrants", "Accès aux documents 24h/24", "Expérience client professionnelle"],
+    href: "/portail-client"
+  },
+  {
+    label: "Automatisation",
+    sector: "Productivité",
+    mockupSlug: "facturation-electronique",
+    description: "Supprimez les ressaisies, les relances manuelles et les transferts d'information entre outils.",
+    benefits: ["Zéro double saisie", "Relances automatiques", "Rapports générés automatiquement"],
+    href: "/automatisation-processus"
+  },
+  {
+    label: "Gestion de chantier",
+    sector: "BTP & Construction",
+    mockupSlug: "suivi-chantier-btp",
+    description: "Planification, rapports terrain, suivi des travaux — centralisés, accessibles depuis le bureau ou le chantier.",
+    benefits: ["Rapports terrain en temps réel", "Suivi des avancements", "Gestion sous-traitants"],
+    href: "/gestion-chantier"
+  },
+  {
+    label: "CRM sur mesure",
+    sector: "Commercial",
+    mockupSlug: "suivi-production",
+    description: "Pipeline commercial adapté à votre cycle de vente réel, sans les fonctionnalités inutiles des grandes plateformes.",
+    benefits: ["Pipeline adapté à votre cycle", "Relances commerciales automatisées", "Vue 360° de vos clients"],
+    href: "/crm-sur-mesure"
+  },
+  {
+    label: "Gestion des interventions",
+    sector: "Services terrain",
+    mockupSlug: null,
+    description: "Planification des techniciens, fiches d'intervention numériques et rapports auto-générés après chaque visite.",
+    benefits: ["Planning optimisé", "Signature client sur tablette", "Rapport d'intervention instantané"],
+    href: "/gestion-intervention"
+  }
+];
+function MockupPanel({ slug }) {
+  if (!slug) return /* @__PURE__ */ jsx(DashboardMockup, {});
+  return /* @__PURE__ */ jsx(ProjectMockup, { slug });
+}
+function SoftwareShowcase() {
+  const [active, setActive] = useState(0);
+  const headRef = useRef(null);
+  const headInView = useInView(headRef, { once: true, margin: "-80px 0px" });
+  const tab = TABS[active];
+  return /* @__PURE__ */ jsx("section", { className: "bg-white py-24 md:py-32 overflow-hidden", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-6", children: [
+    /* @__PURE__ */ jsxs("div", { ref: headRef, className: "text-center max-w-2xl mx-auto mb-12", children: [
+      /* @__PURE__ */ jsx(
+        motion.p,
+        {
+          initial: { opacity: 0, y: 10 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.5, ease: ease$7 },
+          className: "label text-secondary mb-4",
+          children: "Nos logiciels"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        motion.h2,
+        {
+          initial: { opacity: 0, y: 14 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.6, ease: ease$7, delay: 0.1 },
+          className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
+          style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
+          children: "Des interfaces conçues pour vos équipes, pas pour des démos."
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 12 },
+        animate: headInView ? { opacity: 1, y: 0 } : {},
+        transition: { duration: 0.5, ease: ease$7, delay: 0.2 },
+        className: "flex gap-1.5 flex-wrap justify-center mb-10",
+        children: TABS.map((t, i) => /* @__PURE__ */ jsx(
+          "button",
+          {
+            onClick: () => setActive(i),
+            className: `font-inter text-sm px-4 py-2 rounded-xl transition-all duration-200 ${active === i ? "bg-secondary text-white shadow-sm" : "bg-section text-muted hover:text-primary hover:bg-border/40"}`,
+            children: t.label
+          },
+          i
+        ))
+      }
+    ),
+    /* @__PURE__ */ jsx(AnimatePresence, { mode: "wait", children: /* @__PURE__ */ jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 16 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -8 },
+        transition: { duration: 0.4, ease: ease$7 },
+        className: "grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-12 items-center",
+        children: [
+          /* @__PURE__ */ jsx("div", { className: "rounded-2xl overflow-hidden border border-border shadow-card-md bg-white min-h-[360px]", children: /* @__PURE__ */ jsx(MockupPanel, { slug: tab.mockupSlug }) }),
+          /* @__PURE__ */ jsxs("div", { children: [
+            /* @__PURE__ */ jsx("span", { className: "label text-secondary mb-3 block", children: tab.sector }),
+            /* @__PURE__ */ jsx(
+              "h3",
+              {
+                className: "font-archivo font-black text-primary tracking-display leading-[1.1] text-balance mb-4",
+                style: { fontSize: "clamp(1.5rem, 2.5vw, 2rem)" },
+                children: tab.label
+              }
+            ),
+            /* @__PURE__ */ jsx("p", { className: "font-inter text-muted leading-relaxed text-pretty mb-6 max-w-[46ch]", children: tab.description }),
+            /* @__PURE__ */ jsx("ul", { className: "flex flex-col gap-2.5 mb-8", children: tab.benefits.map((b, i) => /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2.5", children: [
+              /* @__PURE__ */ jsx("svg", { viewBox: "0 0 16 16", fill: "none", className: "w-4 h-4 text-secondary shrink-0 mt-0.5", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M3 8l3.5 3.5L13 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }),
+              /* @__PURE__ */ jsx("span", { className: "font-inter text-sm text-primary", children: b })
+            ] }, i)) }),
+            /* @__PURE__ */ jsxs(
+              Link,
+              {
+                to: tab.href,
+                className: "inline-flex items-center gap-2 font-inter font-medium text-sm text-secondary hover:text-secondary/80 transition-colors duration-200",
+                children: [
+                  "En savoir plus",
+                  /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
+                ]
+              }
+            )
+          ] })
+        ]
+      },
+      active
+    ) })
+  ] }) });
+}
+const ease$6 = [0.22, 1, 0.36, 1];
 function CaseStudyRow({ item, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px 0px" });
@@ -2476,10 +2742,10 @@ function CaseStudyRow({ item, index }) {
       ref,
       initial: { opacity: 0, y: 24 },
       animate: inView ? { opacity: 1, y: 0 } : {},
-      transition: { duration: 0.65, ease: ease$1 },
+      transition: { duration: 0.65, ease: ease$6 },
       className: `grid md:grid-cols-2 gap-10 lg:gap-16 items-center py-14 ${index > 0 ? "border-t border-border" : ""} ${reversed ? "md:[direction:rtl]" : ""}`,
       children: [
-        /* @__PURE__ */ jsx("div", { className: `rounded-2xl overflow-hidden border border-border shadow-card-md bg-white ${reversed ? "[direction:ltr]" : ""}`, children: /* @__PURE__ */ jsx(ProjectMockup, { slug: item.slug }) }),
+        /* @__PURE__ */ jsx("div", { className: `rounded-2xl overflow-hidden border border-border shadow-card-md bg-white min-h-[320px] ${reversed ? "[direction:ltr]" : ""}`, children: /* @__PURE__ */ jsx(ProjectMockup, { slug: item.slug }) }),
         /* @__PURE__ */ jsxs("div", { className: reversed ? "[direction:ltr]" : "", children: [
           /* @__PURE__ */ jsx("p", { className: "label text-secondary mb-3", children: item.sector }),
           /* @__PURE__ */ jsx(
@@ -2490,13 +2756,18 @@ function CaseStudyRow({ item, index }) {
               children: item.title
             }
           ),
-          /* @__PURE__ */ jsx("p", { className: "font-inter text-muted leading-relaxed text-pretty mb-6 max-w-[52ch]", children: item.result }),
+          /* @__PURE__ */ jsx("p", { className: "font-inter text-muted leading-relaxed text-pretty mb-5 max-w-[52ch]", children: item.result }),
+          item.fonctionnalites && /* @__PURE__ */ jsx("ul", { className: "flex flex-col gap-1.5 mb-5", children: item.fonctionnalites.slice(0, 3).map((feat, i) => /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2 font-inter text-sm text-muted", children: [
+            /* @__PURE__ */ jsx("svg", { viewBox: "0 0 16 16", fill: "none", className: "w-4 h-4 text-success shrink-0 mt-0.5", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M3 8l3.5 3.5L13 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }),
+            feat
+          ] }, i)) }),
+          item.technologies && /* @__PURE__ */ jsx("div", { className: "flex flex-wrap gap-2 mb-5", children: item.technologies.slice(0, 3).map((tech, i) => /* @__PURE__ */ jsx("span", { className: "bg-section border border-border rounded-full px-2.5 py-0.5 font-inter text-xs text-muted", children: tech }, i)) }),
           /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4", children: [
             /* @__PURE__ */ jsxs(
               Link,
               {
                 to: `/projets/${item.slug}`,
-                className: "inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-primary/90 hover:scale-[1.02] transition-all duration-200",
+                className: "inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-secondary hover:scale-[1.02] transition-all duration-200",
                 children: [
                   "Voir le projet",
                   /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
@@ -2520,7 +2791,7 @@ function Projects() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$1 },
+          transition: { duration: 0.5, ease: ease$6 },
           className: "label text-secondary mb-4",
           children: "Réalisations"
         }
@@ -2530,7 +2801,7 @@ function Projects() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$1, delay: 0.1 },
+          transition: { duration: 0.6, ease: ease$6, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
           children: content.projects.title
@@ -2540,473 +2811,409 @@ function Projects() {
     /* @__PURE__ */ jsx("div", { children: content.projects.items.map((item, i) => /* @__PURE__ */ jsx(CaseStudyRow, { item, index: i }, item.id)) })
   ] }) });
 }
-function SectionNumber({ index, label }) {
-  const n = String(index).padStart(2, "0");
-  return /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 mb-8", "aria-hidden": "true", children: [
-    /* @__PURE__ */ jsx("span", { className: "label text-muted", children: n }),
-    /* @__PURE__ */ jsx("span", { className: "label text-border", children: "—" }),
-    /* @__PURE__ */ jsx("span", { className: "label text-muted", children: label })
-  ] });
-}
-function AnimatedTitle({ children, as = "h2", className = "", delay = 0 }) {
-  const MotionTag = motion[as] || motion.h2;
-  const words = typeof children === "string" ? children.split(" ") : null;
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
-  return /* @__PURE__ */ jsx(
-    MotionTag,
-    {
-      ref,
-      variants: wordReveal(delay),
-      initial: "hidden",
-      animate: inView ? "show" : "hidden",
-      className,
-      children: words ? words.map((word, i) => /* @__PURE__ */ jsx(
-        motion.span,
-        {
-          variants: wordItem,
-          style: { display: "inline-block", marginRight: i < words.length - 1 ? "0.28em" : "" },
-          children: word
-        },
-        i
-      )) : children
-    }
-  );
-}
-function PlanCard({ plan }) {
-  if (plan.featured) {
-    return /* @__PURE__ */ jsxs(
-      motion.div,
-      {
-        variants: cardItem,
-        whileHover: { y: -5, transition: { duration: 0.2, ease: "easeOut" } },
-        className: "bg-primary text-white rounded-2xl p-8 flex flex-col shadow-card-md",
-        children: [
-          /* @__PURE__ */ jsxs("div", { className: "mb-5", children: [
-            plan.tag && /* @__PURE__ */ jsx("p", { className: "label text-secondary mb-3", children: plan.tag }),
-            /* @__PURE__ */ jsx("h3", { className: "font-archivo font-bold text-2xl tracking-display text-white mb-4 text-balance", children: plan.name })
-          ] }),
-          /* @__PURE__ */ jsx("p", { className: "font-inter text-sm leading-relaxed text-white/65 flex-1 text-pretty", children: plan.body }),
-          /* @__PURE__ */ jsx(
-            motion.a,
-            {
-              href: "#contact",
-              whileTap: { scale: 0.97 },
-              className: "mt-8 inline-block text-center bg-secondary text-white font-inter font-medium text-sm px-6 py-3 rounded-2xl hover:bg-secondary/90 hover:scale-[1.02] transition-all duration-200",
-              children: plan.cta
-            }
-          )
-        ]
-      }
-    );
-  }
-  return /* @__PURE__ */ jsxs(
-    motion.div,
-    {
-      variants: cardItem,
-      whileHover: hoverLift,
-      className: "bg-white border border-border rounded-2xl p-8 flex flex-col shadow-card",
-      children: [
-        /* @__PURE__ */ jsxs("div", { className: "mb-5", children: [
-          plan.tag && /* @__PURE__ */ jsx("p", { className: "label text-muted mb-3", children: plan.tag }),
-          /* @__PURE__ */ jsx("h3", { className: "font-archivo font-bold text-2xl tracking-display text-primary mb-4 text-balance", children: plan.name })
-        ] }),
-        /* @__PURE__ */ jsx("p", { className: "font-inter text-sm leading-relaxed text-muted flex-1 text-pretty", children: plan.body }),
-        /* @__PURE__ */ jsx(
-          motion.a,
-          {
-            href: "#contact",
-            whileTap: { scale: 0.97 },
-            className: "mt-8 inline-block text-center border border-border text-primary font-inter font-medium text-sm px-6 py-3 rounded-2xl hover:border-secondary hover:text-secondary transition-colors duration-200",
-            children: plan.cta
-          }
-        )
-      ]
-    }
-  );
-}
-function Pricing() {
-  const headRef = useRef(null);
-  const headInView = useInView(headRef, { once: true, margin: "-80px 0px" });
-  const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, { once: true, margin: "-80px 0px" });
-  return /* @__PURE__ */ jsx("section", { className: "bg-section py-20 md:py-28", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-6xl px-6", children: [
-    /* @__PURE__ */ jsx(
-      motion.div,
-      {
-        ref: headRef,
-        variants: textReveal(),
-        initial: "hidden",
-        animate: headInView ? "show" : "hidden",
-        children: /* @__PURE__ */ jsx(motion.div, { variants: textLine, children: /* @__PURE__ */ jsx(SectionNumber, { index: 3, label: "Les offres" }) })
-      }
-    ),
-    /* @__PURE__ */ jsx(
-      AnimatedTitle,
-      {
-        as: "h2",
-        className: "font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary text-balance mb-12",
-        delay: 0.05,
-        children: content.pricing.title
-      }
-    ),
-    /* @__PURE__ */ jsx(
-      motion.div,
-      {
-        ref: gridRef,
-        variants: stagger(0.05),
-        initial: "hidden",
-        animate: gridInView ? "show" : "hidden",
-        className: "grid md:grid-cols-3 gap-6 items-start",
-        children: content.pricing.plans.map((plan, i) => /* @__PURE__ */ jsx(PlanCard, { plan }, i))
-      }
-    )
-  ] }) });
-}
+const ease$5 = [0.22, 1, 0.36, 1];
 function Method() {
   const headRef = useRef(null);
   const headInView = useInView(headRef, { once: true, margin: "-80px 0px" });
-  const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, { once: true, margin: "-80px 0px" });
-  return /* @__PURE__ */ jsx("section", { id: "methode", className: "bg-white py-20 md:py-28", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-6xl px-6", children: [
+  const timelineRef = useRef(null);
+  const timelineInView = useInView(timelineRef, { once: true, margin: "-60px 0px" });
+  const { steps } = content.method;
+  return /* @__PURE__ */ jsx("section", { id: "methode", className: "bg-section py-24 md:py-32 overflow-hidden", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-6", children: [
+    /* @__PURE__ */ jsxs("div", { ref: headRef, className: "max-w-2xl mb-16", children: [
+      /* @__PURE__ */ jsx(
+        motion.p,
+        {
+          initial: { opacity: 0, y: 10 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.5, ease: ease$5 },
+          className: "label text-secondary mb-4",
+          children: "Notre méthode"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        motion.h2,
+        {
+          initial: { opacity: 0, y: 14 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.6, ease: ease$5, delay: 0.1 },
+          className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
+          style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
+          children: content.method.title
+        }
+      )
+    ] }),
     /* @__PURE__ */ jsx(
-      motion.div,
+      "div",
       {
-        ref: headRef,
-        variants: textReveal(),
-        initial: "hidden",
-        animate: headInView ? "show" : "hidden",
-        children: /* @__PURE__ */ jsx(motion.div, { variants: textLine, children: /* @__PURE__ */ jsx(SectionNumber, { index: 6, label: "La démarche" }) })
-      }
-    ),
-    /* @__PURE__ */ jsx(
-      AnimatedTitle,
-      {
-        as: "h2",
-        className: "font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary text-balance mb-12",
-        delay: 0.05,
-        children: content.method.title
-      }
-    ),
-    /* @__PURE__ */ jsx(
-      motion.div,
-      {
-        ref: gridRef,
-        variants: stagger(),
-        initial: "hidden",
-        animate: gridInView ? "show" : "hidden",
-        className: "grid sm:grid-cols-2 gap-10 lg:gap-16",
-        children: content.method.steps.map((step, i) => /* @__PURE__ */ jsxs(motion.div, { variants: cardItem, className: "flex gap-6", children: [
+        ref: timelineRef,
+        className: "overflow-x-auto pb-4 -mx-6 px-6",
+        children: /* @__PURE__ */ jsxs("div", { className: "flex min-w-[900px] md:min-w-0 gap-0 relative", children: [
+          /* @__PURE__ */ jsx("div", { className: "absolute h-px bg-border", style: { top: "20px", left: "20px", right: "20px" } }),
           /* @__PURE__ */ jsx(
-            motion.span,
+            motion.div,
             {
-              variants: popIn,
-              className: "font-archivo font-bold text-5xl text-secondary/25 leading-none shrink-0 select-none tabular",
-              children: step.number
+              initial: { scaleX: 0 },
+              animate: timelineInView ? { scaleX: 1 } : { scaleX: 0 },
+              transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
+              className: "absolute h-px bg-secondary origin-left",
+              style: { top: "20px", left: "20px", right: "20px" }
             }
           ),
-          /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("h3", { className: "font-archivo font-bold text-xl tracking-display text-primary mb-2 leading-snug text-balance", children: step.title }),
-            /* @__PURE__ */ jsx("p", { className: "font-inter text-muted leading-relaxed text-pretty max-w-[42ch]", children: step.body })
-          ] })
-        ] }, i))
+          steps.map((step, i) => /* @__PURE__ */ jsxs(
+            motion.div,
+            {
+              initial: { opacity: 0, y: 16 },
+              animate: timelineInView ? { opacity: 1, y: 0 } : {},
+              transition: { duration: 0.5, ease: ease$5, delay: 0.15 + i * 0.08 },
+              className: "flex-1 flex flex-col items-center text-center px-3 relative",
+              children: [
+                /* @__PURE__ */ jsx(
+                  "div",
+                  {
+                    className: `w-10 h-10 rounded-full flex items-center justify-center mb-4 relative z-10 ${i === 0 ? "bg-secondary border-2 border-secondary" : "bg-white border-2 border-border"}`,
+                    children: /* @__PURE__ */ jsx(
+                      "span",
+                      {
+                        className: `font-archivo font-black text-xs leading-none ${i === 0 ? "text-white" : "text-muted"}`,
+                        children: step.number
+                      }
+                    )
+                  }
+                ),
+                /* @__PURE__ */ jsx("h3", { className: "font-archivo font-black text-primary text-sm tracking-display mb-1.5 leading-snug", children: step.title }),
+                /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted leading-relaxed text-pretty max-w-[120px]", children: step.body })
+              ]
+            },
+            i
+          ))
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      motion.p,
+      {
+        initial: { opacity: 0 },
+        animate: timelineInView ? { opacity: 1 } : {},
+        transition: { duration: 0.5, ease: ease$5, delay: 1.2 },
+        className: "font-inter text-xs text-muted mt-10 text-center",
+        children: "De la première discussion jusqu'au déploiement, vous savez toujours où vous en êtes."
       }
     )
   ] }) });
 }
-const posts = [
-  {
-    slug: "pourquoi-excel-ralentit-les-pme",
-    title: "Pourquoi Excel ralentit les PME (et ce que vous pouvez faire)",
-    date: "2026-06-15",
-    readTime: 6,
-    category: "Outils & productivité",
-    excerpt: "Excel est l'outil par défaut de millions de PME françaises. Et pourtant, il est souvent la principale source de perte de temps dans les équipes — pas parce qu'il est mauvais, mais parce qu'il est utilisé pour des tâches pour lesquelles il n'a pas été conçu.",
-    content: [
+function Comparison() {
+  const { comparison } = content;
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px 0px" });
+  const hl = comparison.highlight;
+  return /* @__PURE__ */ jsx("section", { className: "bg-section py-16 md:py-24", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-5xl px-6", children: [
+    /* @__PURE__ */ jsx("h2", { className: "font-archivo font-bold text-2xl md:text-3xl tracking-display text-primary mb-8 text-balance", children: comparison.title }),
+    /* @__PURE__ */ jsx(
+      motion.div,
       {
-        type: "intro",
-        text: "Excel est l'outil par défaut de millions de PME françaises. Flexible, accessible, connu de tous. Et pourtant, dans beaucoup d'entreprises, il est devenu la principale source de perte de temps. Pas parce qu'Excel est mauvais — c'est un outil remarquable pour ce qu'il fait. Mais parce qu'il est utilisé pour des choses pour lesquelles il n'a pas été conçu."
-      },
-      {
-        type: "h2",
-        title: "Le problème des fichiers qui ne sont jamais vraiment partagés",
-        text: `Quand plusieurs personnes travaillent sur le même fichier, la question se pose rapidement : qui a la "bonne" version ? La V4_FINALE.xlsx ? La V4_FINALE_OK_2.xlsx envoyée hier soir ? Les modifications d'une personne n'arrivent pas chez les autres en temps réel. Des heures de travail peuvent se chevaucher, voire s'annuler. La simple question "tu as la dernière version ?" résume à elle seule un problème d'organisation que beaucoup de PME subissent chaque semaine.`
-      },
-      {
-        type: "h2",
-        title: "Une erreur de formule peut coûter très cher",
-        text: "Dans un devis BTP, une cellule mal référencée peut entraîner une sous-estimation de plusieurs milliers d'euros. Dans un tableau de stock, une formule qui ne s'étend pas jusqu'à la dernière ligne fausse l'ensemble des calculs. Excel n'a pas de garde-fous natifs contre ces erreurs. Sans audit régulier des formules, elles peuvent se propager silencieusement pendant des mois. Et contrairement à une base de données, Excel n'a pas de journal des modifications : impossible de savoir qui a changé quoi, et quand."
-      },
-      {
-        type: "h2",
-        title: "Excel ne grandit pas avec votre activité",
-        text: `Dix lignes, c'est parfait. Mille lignes, ça ralentit. Cinquante mille lignes, c'est inutilisable. Au-delà de la performance, Excel ne permet pas de gérer des droits d'accès différenciés : si vous partagez le fichier, vous partagez tout. Pas de notion de "cet utilisateur peut voir mais pas modifier", pas de "ce collaborateur n'a accès qu'à ses données". Ce qui fonctionnait pour une équipe de trois personnes devient un problème de sécurité et de confidentialité à dix.`
-      },
-      {
-        type: "h2",
-        title: "L'absence de tableaux de bord en temps réel",
-        text: "Un tableau Excel est une photo du passé. Pour avoir une vision consolidée de l'activité, il faut souvent ouvrir plusieurs fichiers, copier des données, recalculer des totaux — une demi-journée de travail pour produire un rapport qui sera périmé le lendemain. Les dirigeants qui s'appuient sur des données Excel pour prendre des décisions le font souvent avec des données qui ont déjà plusieurs jours ou semaines de retard."
-      },
-      {
-        type: "h2",
-        title: "Quand faut-il vraiment passer à autre chose ?",
-        text: "Excel reste pertinent pour des analyses ad hoc, des calculs financiers ponctuels, ou des données que vous êtes le seul à utiliser. En revanche, si plusieurs personnes ont besoin du même fichier en même temps, si des erreurs ont commencé à coûter de l'argent, ou si consolider des données prend plus de temps que les analyser — c'est le signe qu'il faut une solution structurée. Pas nécessairement un ERP complet : parfois, une application métier ciblée sur un seul processus suffit pour transformer le quotidien d'une équipe."
-      },
-      {
-        type: "conclusion",
-        text: `La vraie question n'est pas "Excel ou pas Excel" — c'est "est-ce qu'on utilise le bon outil pour le bon usage ?" Si vous vous retrouvez à contourner Excel plus souvent qu'à travailler avec, c'est probablement le moment d'explorer d'autres options.`
+        ref,
+        variants: vFadeUp,
+        initial: "hidden",
+        animate: inView ? "show" : "hidden",
+        className: "overflow-x-auto rounded-2xl border border-border",
+        children: /* @__PURE__ */ jsxs("table", { className: "w-full min-w-[480px] border-collapse text-sm font-inter", children: [
+          /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
+            /* @__PURE__ */ jsx("th", { className: "bg-white text-left px-5 py-4 font-semibold text-muted border-b border-border w-[32%]", children: " " }),
+            comparison.columns.map((col, i) => /* @__PURE__ */ jsxs(
+              "th",
+              {
+                scope: "col",
+                className: [
+                  "px-5 py-4 text-left font-semibold border-b",
+                  i === hl ? "bg-secondary/8 text-secondary border-secondary/25" : "bg-white text-muted border-border"
+                ].join(" "),
+                children: [
+                  col,
+                  i === hl && /* @__PURE__ */ jsx("span", { className: "ml-2 inline-block text-xs font-medium bg-secondary/12 text-secondary rounded-full px-2 py-0.5 align-middle", children: "recommandé" })
+                ]
+              },
+              i
+            ))
+          ] }) }),
+          /* @__PURE__ */ jsx("tbody", { children: comparison.rows.map((row, ri) => /* @__PURE__ */ jsxs("tr", { className: ri % 2 === 0 ? "bg-white" : "bg-section", children: [
+            /* @__PURE__ */ jsx(
+              "th",
+              {
+                scope: "row",
+                className: "px-5 py-3.5 text-left font-medium text-primary border-b border-border",
+                children: row.criteria
+              }
+            ),
+            row.values.map((val, ci) => /* @__PURE__ */ jsx(
+              "td",
+              {
+                className: [
+                  "px-5 py-3.5 border-b border-border",
+                  ci === hl ? "text-primary font-medium bg-secondary/5" : "text-muted",
+                  ri === comparison.rows.length - 1 ? "border-b-0" : ""
+                ].join(" "),
+                children: val
+              },
+              ci
+            ))
+          ] }, ri)) })
+        ] })
       }
-    ]
-  },
-  {
-    slug: "comment-digitaliser-entreprise-btp",
-    title: "Comment digitaliser une entreprise du BTP sans perturber les chantiers",
-    date: "2026-06-22",
-    readTime: 7,
-    category: "BTP & chantier",
-    excerpt: "La digitalisation dans le BTP a mauvaise réputation : des outils compliqués, adoptés sous contrainte, abandonnés trois mois plus tard. Voici comment les entreprises qui réussissent leur transformation numérique s'y prennent — et ce qu'elles évitent.",
-    content: [
-      {
-        type: "intro",
-        text: `La digitalisation dans le BTP a mauvaise réputation. Des logiciels compliqués imposés par la direction, adoptés sous contrainte par des chefs de chantier qui ont "autre chose à faire", abandonnés trois mois plus tard. Et pourtant, les entreprises qui réussissent leur transformation numérique en retirent des bénéfices concrets et durables. La différence tient rarement à la technologie choisie. Elle tient à l'ordre dans lequel les décisions sont prises.`
-      },
-      {
-        type: "h2",
-        title: "Commencer par le problème, pas par l'outil",
-        text: `La première erreur est d'acheter un logiciel pour "faire de la digitalisation". La bonne démarche est d'identifier une friction concrète qui coûte du temps ou de l'argent aujourd'hui, et de chercher comment la réduire. Dans le BTP, les frictions les plus fréquentes sont connues : les rapports terrain qui n'arrivent pas au bureau à temps, le planning que personne n'a en version à jour, les clients qui appellent parce qu'ils ne savent pas où en sont leurs travaux. Commencez par là.`
-      },
-      {
-        type: "h2",
-        title: "Le planning de chantier : le premier levier",
-        text: "Un planning partagé en temps réel est souvent la transformation la plus impactante et la plus rapide à mettre en place. Quand les équipes terrain voient leurs tâches du jour sur leur téléphone — sans appel à 7h du matin pour savoir où aller — et que les modifications faites au bureau se propagent instantanément, le gain de temps est immédiat. La résistance à l'adoption est faible parce que l'utilité est évidente dès le premier jour."
-      },
-      {
-        type: "h2",
-        title: "Les rapports journaliers numériques",
-        text: "Un compagnon qui prend une photo sur son téléphone et ajoute un commentaire en deux minutes, c'est un rapport de chantier. Stocké, horodaté, géolocalisé, accessible depuis le bureau sans attendre la fin de journée. En cas de litige sur un défaut ou une malfaçon, la traçabilité photographique devient une protection concrète. Les entreprises qui ont fait ce passage témoignent d'une réduction significative des conflits de garantie — pas parce qu'il y a moins de problèmes, mais parce que la preuve est disponible."
-      },
-      {
-        type: "h2",
-        title: "La communication avec le client",
-        text: 'Un client qui sait où en sont ses travaux — via un espace de suivi en ligne, avec les photos et le planning prévisionnel — appelle moins souvent pour "avoir des nouvelles". Et quand il y a un retard ou un problème, être proactif dans la communication transforme une source de mécontentement en démonstration de professionnalisme. Les entreprises qui ont mis en place un suivi client numérique rapportent systématiquement une meilleure satisfaction, même sur des chantiers qui ont eu des aléas.'
-      },
-      {
-        type: "h2",
-        title: "L'adoption : le vrai défi",
-        text: "L'outil le plus simple est celui qu'on utilise vraiment. Impliquer les chefs de chantier dans la conception de l'outil — pas pour leur demander leur avis une fois le logiciel acheté, mais pour définir avec eux ce dont ils ont besoin — garantit une adoption bien plus solide qu'une formation obligatoire de deux jours. Les meilleurs déploiements commencent avec un pilote sur un chantier, avec des utilisateurs volontaires, avant de généraliser."
-      },
-      {
-        type: "conclusion",
-        text: "La digitalisation du BTP n'est pas une transformation en un jour. Mais chaque étape bien choisie — un planning partagé, des rapports numériques, un suivi client — améliore concrètement le quotidien des équipes et la relation avec les clients. La clé est de commencer par un problème réel, pas par une technologie."
-      }
-    ]
-  },
-  {
-    slug: "combien-coute-application-metier",
-    title: "Combien coûte une application métier sur mesure ?",
-    date: "2026-07-01",
-    readTime: 8,
-    category: "Budget & investissement",
-    excerpt: "C'est la question que tout dirigeant de PME se pose avant de se lancer. Voici ce qui détermine vraiment le prix d'une application métier sur mesure, les fourchettes réelles, et comment évaluer si l'investissement est rentable pour vous.",
-    content: [
-      {
-        type: "intro",
-        text: `"Combien ça coûte ?" C'est souvent la première question que les dirigeants de PME posent quand ils envisagent de développer une application sur mesure. Et c'est une question légitime — personne ne veut se retrouver avec une facture surprise au bout de six mois. Voici une réponse honnête sur ce qui détermine le prix, et comment évaluer si l'investissement est rentable pour votre situation.`
-      },
-      {
-        type: "h2",
-        title: "Pourquoi il n'y a pas de prix catalogue",
-        text: "Une application métier, c'est comme une maison : le prix dépend de ce qu'on construit, pas d'un tarif standard. Un formulaire de contact coûte quelques centaines d'euros. Un ERP avec module de planification, facturation et interface mobile coûte vingt fois plus. Les variables qui font la différence : le nombre d'écrans et de fonctionnalités, le nombre d'utilisateurs, la complexité des règles métier, les intégrations avec des systèmes existants, et la nécessité ou non d'une application mobile."
-      },
-      {
-        type: "h2",
-        title: "Les facteurs qui font monter le budget",
-        text: "Certains besoins ont un impact significatif sur le coût. Les intégrations avec des systèmes existants (ERP, comptabilité, API partenaires) nécessitent un travail d'audit et de développement spécifique. Une application mobile en plus de la version web représente typiquement 30 à 50 % de travail supplémentaire. La synchronisation hors-ligne (nécessaire pour les équipes terrain sans connexion stable) est techniquement complexe. Les tableaux de bord analytiques avec agrégations de données importantes demandent une architecture soignée. Enfin, les contraintes réglementaires spécifiques — RGPD renforcé, normes sectorielles, conformité financière — ajoutent du temps de conception."
-      },
-      {
-        type: "h2",
-        title: "Les fourchettes réelles",
-        text: "Sans détour : une application simple avec un ou deux workflows principaux et une dizaine d'écrans se développe entre 8 000 et 20 000 €. Une application métier complète — ERP léger, gestion de chantier, CRM avec quelques intégrations — entre 20 000 et 60 000 €. Une plateforme complexe avec architecture multi-tenant, nombreux connecteurs et module d'analyse avancé dépasse les 60 000 €. Ces fourchettes incluent la conception, le développement, les tests et la mise en production. Elles ne correspondent pas à un abonnement mensuel : c'est un investissement ponctuel dont vous êtes propriétaire."
-      },
-      {
-        type: "h2",
-        title: "Comment évaluer la rentabilité",
-        text: "Avant de regarder le coût de développement, calculez le coût du statu quo. Prenez le temps que vos équipes passent sur les tâches que l'application automatiserait, multipliez par le coût horaire, et projetez sur douze mois. Trois personnes qui passent deux heures par jour à consolider des données représentent environ 15 000 à 20 000 € de masse salariale non productive chaque année — sans compter les erreurs, les retards clients et les opportunités manquées. Un outil à 25 000 € amorti sur trois ans revient à 8 300 € par an. Le calcul devient souvent évident."
-      },
-      {
-        type: "h2",
-        title: "Ce qui coûte moins cher que prévu",
-        text: "Travailler avec un développeur indépendant — plutôt qu'une agence avec ses frais de structure, sa marge commerciale et ses chefs de projet — réduit significativement le budget à périmètre identique. Partir d'un MVP bien ciblé (une seule fonctionnalité, une seule équipe utilisatrice) plutôt que de tout vouloir au départ permet de valider rapidement la valeur avant d'investir davantage. Et réutiliser des composants techniques éprouvés — authentification, gestion des fichiers, notifications — évite de réinventer la roue à chaque projet."
-      },
-      {
-        type: "conclusion",
-        text: "Le vrai coût à regarder n'est pas le devis de développement — c'est la différence entre ce que le statu quo vous coûte chaque année et ce que l'outil vous coûterait amorti sur sa durée de vie. Si vous voulez qu'on fasse ce calcul ensemble pour votre situation spécifique, c'est l'objet d'un premier appel de 30 minutes."
-      }
-    ]
-  },
-  {
-    slug: "erp-ou-logiciel-sur-mesure",
-    title: "ERP ou logiciel sur mesure : que choisir pour votre PME ?",
-    date: "2026-07-08",
-    readTime: 7,
-    category: "Stratégie & choix",
-    excerpt: "Odoo, SAP, Sage... le marché des ERP est immense. Alors pourquoi certaines PME font-elles le choix de développer leur propre logiciel plutôt que d'adopter une solution existante ? Ce n'est pas toujours la bonne décision. Voici comment la prendre avec discernement.",
-    content: [
-      {
-        type: "intro",
-        text: "Odoo, SAP Business One, Sage 100, Cegid... le marché des ERP est immense et bien établi. Alors pourquoi certaines PME font-elles le choix de développer leur propre logiciel de gestion plutôt que d'adopter une solution existante ? Ce n'est pas toujours la bonne décision. Et ce guide n'a pas pour vocation de vous convaincre du sur mesure — mais de vous aider à choisir ce qui est vraiment adapté à votre situation."
-      },
-      {
-        type: "h2",
-        title: "Ce que font bien les ERP du marché",
-        text: "Les ERP standard couvrent des processus largement partagés par des milliers d'entreprises : comptabilité générale, gestion des stocks, facturation, gestion des commandes. Ils bénéficient d'années de développement, de mises à jour régulières incluses dans l'abonnement, d'une documentation abondante et d'une communauté d'utilisateurs. Le déploiement sur les fonctionnalités standards est rapide. Pour une PME dont les processus ne sortent pas de l'ordinaire, ils peuvent être parfaitement adaptés."
-      },
-      {
-        type: "h2",
-        title: "Les limites des ERP standard pour certaines PME",
-        text: "Le problème apparaît quand votre activité a une logique qui sort des processus standards. Les ERP sont conçus pour s'adapter à des milliers de cas différents — ce qui signifie qu'ils imposent leur structure à votre activité, pas l'inverse. Le paramétrage peut compenser partiellement cette rigidité, mais il a ses limites. Les modules supplémentaires coûtent souvent plus cher que prévu. Et l'interface, conçue pour être générale, est rarement épurée : vos équipes se retrouvent face à des dizaines d'options dont elles n'utilisent qu'une fraction."
-      },
-      {
-        type: "h2",
-        title: "Quand le sur mesure s'impose",
-        text: "Quelques situations rendent le sur mesure clairement plus pertinent. Quand votre activité a un flux métier non standard — une prestation complexe avec plusieurs phases d'approbation, un cycle de production atypique, une tarification qui ne rentre dans aucune case. Quand vos équipes terrain ont besoin d'une interface ultra-simple, utilisable sur smartphone sans formation. Quand vous avez besoin de vous intégrer à des outils très spécifiques à votre secteur. Et quand votre façon de travailler est un avantage concurrentiel que vous ne souhaitez pas niveler en vous alignant sur le standard d'un éditeur."
-      },
-      {
-        type: "h2",
-        title: "La fausse opposition",
-        text: `Ce n'est pas ERP contre sur mesure — c'est "quels processus méritent d'être standardisés, et lesquels méritent d'être différenciés ?" Une stratégie souvent efficace : garder un ERP standard pour la comptabilité, qui doit respecter des normes précises, et développer sur mesure uniquement pour le cœur de métier, là où votre différenciation opérationnelle se joue. Votre CRM peut être sur mesure pendant que votre comptabilité reste sur Sage. Les deux coexistent via une intégration ciblée.`
-      },
-      {
-        type: "h2",
-        title: "Les questions à se poser avant de décider",
-        text: "Avez-vous documenté votre processus métier actuel ? Si vous ne pouvez pas l'expliquer clairement, aucun outil — ERP ou sur mesure — ne pourra bien le couvrir. Combien de vos équipes utilisent réellement votre logiciel actuel, et sur quelles fonctionnalités ? Si 80 % des utilisateurs n'utilisent que 20 % des fonctions, c'est souvent le signe que l'outil n'est pas adapté. Et quel est le coût mensuel des contournements — exports Excel, saisies manuelles, appels téléphoniques pour compenser ce que le logiciel ne fait pas ?"
-      },
-      {
-        type: "conclusion",
-        text: `Il n'y a pas de réponse universelle. Il y a votre activité, vos processus, vos équipes, et votre budget. Si vous voulez un avis honnête sur votre situation spécifique, un premier échange de 30 minutes suffit généralement pour identifier ce qui vous correspond le mieux — même si la réponse est "un ERP standard est parfait pour vous".`
-      }
-    ]
-  },
-  {
-    slug: "5-signes-creer-propre-logiciel",
-    title: "5 signes qu'il est temps de créer votre propre logiciel métier",
-    date: "2026-07-15",
-    readTime: 5,
-    category: "Outils & productivité",
-    excerpt: "Beaucoup de dirigeants de PME pensent que créer son propre logiciel, c'est réservé aux grandes entreprises. Voici 5 signaux concrets qui indiquent qu'un outil sur mesure serait rentable pour vous dès aujourd'hui.",
-    content: [
-      {
-        type: "intro",
-        text: "Créer son propre logiciel, beaucoup de dirigeants de PME pensent que c'est réservé aux grandes entreprises avec des budgets informatiques conséquents. Ce n'est pas le cas — et cette idée fait manquer à beaucoup d'entreprises un levier de productivité significatif. Voici 5 signaux concrets qui indiquent qu'un outil sur mesure serait rentable pour votre situation."
-      },
-      {
-        type: "numbered",
-        items: [
-          {
-            title: "Vous avez un fichier Excel que personne d'autre ne comprend vraiment",
-            text: "Ce fichier existe dans beaucoup d'entreprises. Il a été créé par quelqu'un de débrouillard, il est devenu indispensable, et aujourd'hui une seule personne sait vraiment comment il fonctionne. Si cette personne part, c'est un risque opérationnel réel. Ce fichier est la preuve d'un besoin métier réel que personne n'a encore adressé correctement — et c'est exactement le point de départ d'une bonne application sur mesure."
-          },
-          {
-            title: 'Vos équipes ont développé des "contournements" devenus la norme',
-            text: "Copier-coller des données entre trois outils pour compléter une tâche. Utiliser WhatsApp pour transmettre des informations qui doivent ensuite être ressaisies ailleurs. Envoyer un email pour confirmer ce qu'un autre logiciel devrait déjà savoir. Chaque contournement est une friction qui coûte du temps chaque jour — et s'accumule sur une année."
-          },
-          {
-            title: "Vous perdez des opportunités par manque de visibilité",
-            text: "Un prospect qui n'a pas été relancé parce que personne n'avait de rappel en place. Une commande retardée parce que le stock n'était pas visible en temps réel. Un client qui n'a pas renouvelé parce qu'aucune alerte n'était programmée. Ces manques de visibilité ont un coût direct sur le chiffre d'affaires."
-          },
-          {
-            title: "Le départ d'une personne emporte la connaissance avec elle",
-            text: `Si l'onboarding d'un nouveau collaborateur dure trois semaines parce qu'il faut lui "expliquer comment ça marche ici", c'est souvent le signe que la connaissance opérationnelle est dans les têtes, pas dans des processus documentés et supportés par un outil. Un bon logiciel métier porte la logique de l'entreprise indépendamment des individus.`
-          },
-          {
-            title: "Vous avez fait le calcul et le statu quo coûte plus cher que le changement",
-            text: `Prenez les heures perdues sur des tâches répétitives, multipliez par le coût horaire chargé, projetez sur douze mois. Ajoutez les erreurs, les retards clients et les opportunités manquées. Comparez à l'amortissement d'une application sur mesure sur trois ans. Si le statu quo coûte plus cher — et c'est souvent le cas — la question n'est plus "est-ce qu'on le fait ?" mais "par où on commence ?".`
-          }
-        ]
-      },
-      {
-        type: "conclusion",
-        text: "Si vous vous reconnaissez dans trois de ces cinq situations, la conversation vaut la peine d'être engagée. Pas nécessairement pour lancer un grand projet — mais pour comprendre quel serait le premier chantier le plus rentable pour vous."
-      }
-    ]
-  }
-];
-function formatDate$2(dateStr) {
-  return new Date(dateStr).toLocaleDateString("fr-FR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  });
+    )
+  ] }) });
 }
-function BlogPreview() {
-  const latest = posts.slice(0, 3);
+const ease$4 = [0.22, 1, 0.36, 1];
+function WhyCustom() {
   const headRef = useRef(null);
   const headInView = useInView(headRef, { once: true, margin: "-80px 0px" });
-  const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, { once: true, margin: "-80px 0px" });
-  return /* @__PURE__ */ jsx("section", { className: "bg-section py-20 md:py-28", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-6xl px-6", children: [
-    /* @__PURE__ */ jsxs("div", { className: "flex items-end justify-between mb-10 gap-4 flex-wrap", children: [
-      /* @__PURE__ */ jsxs(
-        motion.div,
+  return /* @__PURE__ */ jsx("section", { className: "bg-white py-24 md:py-32", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-7xl px-6", children: [
+    /* @__PURE__ */ jsxs("div", { ref: headRef, className: "max-w-2xl mb-12", children: [
+      /* @__PURE__ */ jsx(
+        motion.p,
         {
-          ref: headRef,
-          variants: textReveal(),
-          initial: "hidden",
-          animate: headInView ? "show" : "hidden",
-          children: [
-            /* @__PURE__ */ jsx(motion.p, { variants: textLine, className: "label text-muted mb-2", children: "Blog" }),
-            /* @__PURE__ */ jsx(motion.h2, { variants: textLine, className: "font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary text-balance", children: "Ressources pour les PME" })
-          ]
+          initial: { opacity: 0, y: 10 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.5, ease: ease$4 },
+          className: "label text-secondary mb-4",
+          children: "Pourquoi du sur-mesure"
         }
       ),
       /* @__PURE__ */ jsx(
-        motion.div,
+        motion.h2,
         {
-          initial: { opacity: 0, x: 10 },
-          animate: headInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 },
-          transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
-          children: /* @__PURE__ */ jsx(
-            Link,
+          initial: { opacity: 0, y: 14 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.6, ease: ease$4, delay: 0.1 },
+          className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
+          style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
+          children: "Pourquoi ne pas utiliser un logiciel standard ?"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        motion.p,
+        {
+          initial: { opacity: 0, y: 10 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.5, ease: ease$4, delay: 0.2 },
+          className: "font-inter text-muted leading-relaxed mt-4 max-w-[52ch]",
+          children: "Parce que votre entreprise ne fonctionne pas comme les autres."
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsx(Comparison, {}),
+    /* @__PURE__ */ jsx(
+      motion.p,
+      {
+        ...f(0.3),
+        className: "font-inter text-xs text-muted mt-8 max-w-[56ch]",
+        children: "Nous ne dénigrons pas les ERP du marché — certains sont excellents. Nous vous aidons à choisir ce qui est vraiment adapté à votre situation."
+      }
+    )
+  ] }) });
+}
+const ease$3 = [0.22, 1, 0.36, 1];
+function Item({ q, a, open, onToggle }) {
+  return /* @__PURE__ */ jsxs("div", { className: "border-b border-border last:border-0", children: [
+    /* @__PURE__ */ jsxs(
+      "button",
+      {
+        onClick: onToggle,
+        className: "w-full flex items-center justify-between gap-4 py-5 text-left group",
+        "aria-expanded": open,
+        children: [
+          /* @__PURE__ */ jsx("span", { className: "font-inter font-medium text-primary group-hover:text-secondary transition-colors duration-200 text-sm md:text-base leading-snug", children: q }),
+          /* @__PURE__ */ jsx(
+            motion.span,
             {
-              to: "/blog",
-              className: "font-inter text-sm text-secondary hover:text-secondary/80 transition-colors duration-200",
-              children: "Tous les articles →"
+              animate: { rotate: open ? 45 : 0 },
+              transition: { duration: 0.2, ease: ease$3 },
+              className: "shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center text-muted group-hover:border-secondary group-hover:text-secondary transition-colors duration-200",
+              "aria-hidden": "true",
+              children: /* @__PURE__ */ jsx("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none", children: /* @__PURE__ */ jsx("path", { d: "M5 1v8M1 5h8", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round" }) })
             }
           )
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsx(AnimatePresence, { initial: false, children: open && /* @__PURE__ */ jsx(
+      motion.div,
+      {
+        initial: { height: 0, opacity: 0 },
+        animate: { height: "auto", opacity: 1 },
+        exit: { height: 0, opacity: 0 },
+        transition: { duration: 0.3, ease: ease$3 },
+        className: "overflow-hidden",
+        children: /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-muted leading-relaxed pb-5 max-w-[62ch]", children: a })
+      }
+    ) })
+  ] });
+}
+function FAQ$1() {
+  const [openIndex, setOpenIndex] = useState(0);
+  const headRef = useRef(null);
+  const headInView = useInView(headRef, { once: true, margin: "-80px 0px" });
+  const listRef = useRef(null);
+  const listInView = useInView(listRef, { once: true, margin: "-60px 0px" });
+  return /* @__PURE__ */ jsx("section", { className: "bg-section py-24 md:py-32", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6", children: /* @__PURE__ */ jsxs("div", { className: "grid md:grid-cols-[2fr_3fr] gap-12 lg:gap-20 items-start", children: [
+    /* @__PURE__ */ jsxs("div", { ref: headRef, className: "md:sticky md:top-28", children: [
+      /* @__PURE__ */ jsx(
+        motion.p,
+        {
+          initial: { opacity: 0, y: 10 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.5, ease: ease$3 },
+          className: "label text-secondary mb-4",
+          children: "Questions fréquentes"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        motion.h2,
+        {
+          initial: { opacity: 0, y: 14 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.6, ease: ease$3, delay: 0.1 },
+          className: "font-archivo font-black text-primary tracking-display leading-[1.08] text-balance",
+          style: { fontSize: "clamp(1.75rem, 3vw, 2.5rem)" },
+          children: "Ce que les dirigeants demandent souvent."
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        motion.p,
+        {
+          initial: { opacity: 0, y: 10 },
+          animate: headInView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.5, ease: ease$3, delay: 0.2 },
+          className: "font-inter text-muted leading-relaxed mt-4 text-sm",
+          children: "Des réponses directes, sans jargon."
         }
       )
     ] }),
     /* @__PURE__ */ jsx(
       motion.div,
       {
-        ref: gridRef,
-        variants: stagger(),
-        initial: "hidden",
-        animate: gridInView ? "show" : "hidden",
-        className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-5",
-        children: latest.map((post) => /* @__PURE__ */ jsx(motion.div, { variants: cardItem, whileHover: hoverLift, children: /* @__PURE__ */ jsxs(
-          Link,
+        ref: listRef,
+        initial: { opacity: 0, y: 20 },
+        animate: listInView ? { opacity: 1, y: 0 } : {},
+        transition: { duration: 0.6, ease: ease$3 },
+        className: "bg-white rounded-2xl border border-border px-6 md:px-8",
+        children: content.faq.map((item, i) => /* @__PURE__ */ jsx(
+          Item,
           {
-            to: `/blog/${post.slug}`,
-            className: "flex flex-col h-full bg-white border border-border rounded-2xl p-6 shadow-card hover:border-secondary/40 transition-colors duration-200 group",
-            children: [
-              /* @__PURE__ */ jsx("p", { className: "label text-secondary mb-3", children: post.category }),
-              /* @__PURE__ */ jsx("h3", { className: "font-archivo font-bold text-lg tracking-display text-primary mb-3 leading-snug text-balance flex-1 group-hover:text-secondary transition-colors duration-200", children: post.title }),
-              /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between mt-2 pt-4 border-t border-border", children: [
-                /* @__PURE__ */ jsx("time", { className: "font-inter text-xs text-muted/60", children: formatDate$2(post.date) }),
-                /* @__PURE__ */ jsxs("span", { className: "font-inter text-xs text-muted", children: [
-                  post.readTime,
-                  " min"
-                ] })
-              ] })
-            ]
-          }
-        ) }, post.slug))
+            q: item.q,
+            a: item.a,
+            open: openIndex === i,
+            onToggle: () => setOpenIndex(openIndex === i ? -1 : i)
+          },
+          i
+        ))
       }
     )
-  ] }) });
+  ] }) }) });
 }
-const ease = [0.22, 1, 0.36, 1];
+const ease$2 = [0.22, 1, 0.36, 1];
+function CTAFinal() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px 0px" });
+  return /* @__PURE__ */ jsxs("section", { className: "bg-primary relative overflow-hidden py-28 md:py-36", children: [
+    /* @__PURE__ */ jsx(
+      "div",
+      {
+        "aria-hidden": "true",
+        className: "pointer-events-none absolute inset-0",
+        style: {
+          background: "radial-gradient(ellipse 70% 80% at 50% 110%, rgba(37,99,235,0.18) 0%, transparent 70%)"
+        }
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      "div",
+      {
+        "aria-hidden": "true",
+        className: "pointer-events-none absolute inset-0 opacity-[0.04]",
+        style: {
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 0h40v1H0zM0 0v40h1V0' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat"
+        }
+      }
+    ),
+    /* @__PURE__ */ jsxs("div", { ref, className: "mx-auto max-w-4xl px-6 text-center relative z-10", children: [
+      /* @__PURE__ */ jsx(
+        motion.p,
+        {
+          initial: { opacity: 0, y: 10 },
+          animate: inView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.5, ease: ease$2 },
+          className: "label text-secondary mb-6",
+          children: "Votre prochain logiciel"
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        motion.h2,
+        {
+          initial: { opacity: 0, y: 20 },
+          animate: inView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.7, ease: ease$2, delay: 0.1 },
+          className: "font-archivo font-black text-white tracking-display leading-[1.06] text-balance mb-6",
+          style: { fontSize: "clamp(2.25rem, 5vw, 3.75rem)" },
+          children: "Parlons de votre futur logiciel."
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        motion.p,
+        {
+          initial: { opacity: 0, y: 16 },
+          animate: inView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.6, ease: ease$2, delay: 0.22 },
+          className: "font-inter text-white/60 leading-relaxed text-balance max-w-[52ch] mx-auto mb-10",
+          style: { fontSize: "1.0625rem" },
+          children: "Expliquez-nous comment vous travaillez. Nous imaginons l'application qui fera gagner du temps à vos équipes chaque jour."
+        }
+      ),
+      /* @__PURE__ */ jsxs(
+        motion.div,
+        {
+          initial: { opacity: 0, y: 12 },
+          animate: inView ? { opacity: 1, y: 0 } : {},
+          transition: { duration: 0.5, ease: ease$2, delay: 0.35 },
+          className: "flex flex-col sm:flex-row items-center justify-center gap-3",
+          children: [
+            /* @__PURE__ */ jsxs(
+              motion.a,
+              {
+                href: "/#contact",
+                whileTap: { scale: 0.97 },
+                className: "inline-flex items-center gap-2 bg-secondary text-white font-inter font-semibold text-sm px-8 py-3.5 rounded-xl hover:bg-secondary/90 transition-all duration-200",
+                children: [
+                  "Prendre rendez-vous",
+                  /* @__PURE__ */ jsx("svg", { width: "13", height: "13", viewBox: "0 0 13 13", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2.5 6.5h8M7 2.5l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              Link,
+              {
+                to: "/#realisations",
+                className: "inline-flex items-center gap-2 border border-white/20 text-white font-inter font-medium text-sm px-7 py-3.5 rounded-xl hover:bg-white/8 transition-all duration-200",
+                children: "Découvrir nos réalisations"
+              }
+            )
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        motion.p,
+        {
+          initial: { opacity: 0 },
+          animate: inView ? { opacity: 1 } : {},
+          transition: { duration: 0.5, ease: ease$2, delay: 0.5 },
+          className: "font-inter text-xs text-white/30 mt-6",
+          children: "Échange sans engagement — réponse sous 24h"
+        }
+      )
+    ] })
+  ] });
+}
+const ease$1 = [0.22, 1, 0.36, 1];
 function validate(data) {
   const errors = {};
   if (!data.nom?.trim()) errors.nom = "Requis";
@@ -3066,7 +3273,7 @@ function Contact() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease },
+          transition: { duration: 0.5, ease: ease$1 },
           className: "label text-secondary mb-4",
           children: "Contact"
         }
@@ -3076,7 +3283,7 @@ function Contact() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease, delay: 0.1 },
+          transition: { duration: 0.6, ease: ease$1, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3vw, 2.5rem)" },
           children: content.contact.title
@@ -3087,7 +3294,7 @@ function Contact() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease, delay: 0.2 },
+          transition: { duration: 0.5, ease: ease$1, delay: 0.2 },
           className: "font-inter text-muted mt-4 leading-relaxed text-pretty",
           children: content.contact.body
         }
@@ -3099,7 +3306,7 @@ function Contact() {
         ref: formRef,
         initial: { opacity: 0, y: 20 },
         animate: formInView ? { opacity: 1, y: 0 } : {},
-        transition: { duration: 0.65, ease, delay: 0.15 },
+        transition: { duration: 0.65, ease: ease$1, delay: 0.15 },
         className: "max-w-2xl mx-auto bg-white rounded-2xl border border-border shadow-card-md p-8",
         children: /* @__PURE__ */ jsxs("form", { onSubmit: handleSubmit, noValidate: true, className: "flex flex-col gap-5", children: [
           /* @__PURE__ */ jsxs("div", { className: "grid sm:grid-cols-2 gap-4", children: [
@@ -3143,13 +3350,14 @@ function Contact() {
 function Home() {
   return /* @__PURE__ */ jsxs("main", { children: [
     /* @__PURE__ */ jsx(Hero, {}),
+    /* @__PURE__ */ jsx(TrustPhrase, {}),
     /* @__PURE__ */ jsx(Problems, {}),
-    /* @__PURE__ */ jsx(Solution, {}),
-    /* @__PURE__ */ jsx(BeforeAfter, {}),
+    /* @__PURE__ */ jsx(SoftwareShowcase, {}),
     /* @__PURE__ */ jsx(Projects, {}),
-    /* @__PURE__ */ jsx(Pricing, {}),
     /* @__PURE__ */ jsx(Method, {}),
-    /* @__PURE__ */ jsx(BlogPreview, {}),
+    /* @__PURE__ */ jsx(WhyCustom, {}),
+    /* @__PURE__ */ jsx(FAQ$1, {}),
+    /* @__PURE__ */ jsx(CTAFinal, {}),
     /* @__PURE__ */ jsx(Contact, {})
   ] });
 }
@@ -3350,7 +3558,25 @@ function ProjectSchema({ slug }) {
   const Schema = schemas[slug];
   return Schema ? /* @__PURE__ */ jsx(Schema, {}) : null;
 }
+const ease = [0.22, 1, 0.36, 1];
 const TOTAL = content.projects.items.length;
+function Section$2({ label, children }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px 0px" });
+  return /* @__PURE__ */ jsxs(
+    motion.section,
+    {
+      ref,
+      initial: { opacity: 0, y: 20 },
+      animate: inView ? { opacity: 1, y: 0 } : {},
+      transition: { duration: 0.6, ease },
+      children: [
+        /* @__PURE__ */ jsx("p", { className: "label text-muted/60 mb-4", children: label }),
+        children
+      ]
+    }
+  );
+}
 function ProjectDetail() {
   const { slug } = useParams();
   const item = content.projects.items.find((p) => p.slug === slug);
@@ -3367,114 +3593,139 @@ function ProjectDetail() {
   return /* @__PURE__ */ jsxs("main", { className: "bg-white", children: [
     /* @__PURE__ */ jsx("div", { className: "h-px bg-border" }),
     /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-4xl px-6 pt-20 pb-28 md:pt-28 md:pb-36", children: [
-      /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxs(
         motion.div,
         {
           initial: { opacity: 0 },
           animate: { opacity: 1 },
-          transition: { duration: 0.4, ease: "easeOut" },
-          className: "flex items-center gap-2.5 mb-10",
-          "aria-hidden": "true",
-          children: /* @__PURE__ */ jsxs("span", { className: "label text-muted/60", children: [
-            "Réalisation ",
-            position,
-            " / ",
-            total
-          ] })
+          transition: { duration: 0.4, ease },
+          className: "flex items-center justify-between mb-10",
+          children: [
+            /* @__PURE__ */ jsxs(
+              Link,
+              {
+                to: "/",
+                className: "font-inter text-sm text-muted hover:text-secondary transition-colors duration-200 flex items-center gap-1.5",
+                children: [
+                  /* @__PURE__ */ jsx("svg", { width: "14", height: "14", viewBox: "0 0 14 14", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M11 7H3M6 4l-3 3 3 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }),
+                  "Réalisations"
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxs("span", { className: "label text-muted/40", children: [
+              position,
+              " / ",
+              total
+            ] })
+          ]
         }
       ),
       /* @__PURE__ */ jsxs(
         motion.div,
         {
-          variants: textReveal(),
-          initial: "hidden",
-          animate: "show",
-          className: "mb-10",
+          initial: { opacity: 0, y: 16 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.6, ease, delay: 0.1 },
+          className: "mb-12",
           children: [
-            /* @__PURE__ */ jsx(motion.p, { variants: textLine, className: "label text-muted mb-2", children: item.sector }),
+            /* @__PURE__ */ jsx("p", { className: "label text-secondary mb-3", children: item.sector }),
             /* @__PURE__ */ jsx(
-              motion.h1,
+              "h1",
               {
-                variants: textLine,
-                className: "font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary mb-3 leading-snug text-balance",
+                className: "font-archivo font-black text-primary tracking-display leading-[1.06] text-balance mb-3",
+                style: { fontSize: "clamp(1.875rem, 4vw, 3rem)" },
                 children: item.title
               }
             ),
-            /* @__PURE__ */ jsx(motion.p, { variants: textLine, className: "label text-muted/50", children: item.period })
+            /* @__PURE__ */ jsx("p", { className: "label text-muted/50", children: item.period })
           ]
         }
       ),
-      /* @__PURE__ */ jsx(
-        motion.div,
-        {
-          className: "my-10 border border-border rounded-2xl overflow-hidden",
-          initial: { opacity: 0, scale: 0.98 },
-          animate: { opacity: 1, scale: 1 },
-          transition: { duration: 0.6, ease: "easeOut", delay: 0.15 },
-          children: /* @__PURE__ */ jsx(ProjectSchema, { slug: item.slug })
-        }
-      ),
-      /* @__PURE__ */ jsxs(
-        motion.div,
-        {
-          variants: stagger(0.1),
-          initial: "hidden",
-          animate: "show",
-          className: "flex flex-col gap-12",
-          children: [
-            /* @__PURE__ */ jsxs(motion.section, { variants: fadeUp$1, "aria-labelledby": "section-problem", children: [
-              /* @__PURE__ */ jsx("p", { id: "section-problem", className: "label text-muted/60 mb-3", children: "Le problème" }),
-              /* @__PURE__ */ jsx("p", { className: "font-inter text-text leading-relaxed text-pretty text-lg", children: item.problem })
-            ] }),
-            /* @__PURE__ */ jsx(motion.div, { variants: fadeUp$1, className: "h-px bg-rule" }),
-            /* @__PURE__ */ jsxs(motion.section, { variants: fadeUp$1, "aria-labelledby": "section-delivered", children: [
-              /* @__PURE__ */ jsx("p", { id: "section-delivered", className: "label text-muted/60 mb-3", children: "Ce qui a été mis en place" }),
-              /* @__PURE__ */ jsx("p", { className: "font-inter text-text/80 leading-relaxed text-pretty text-lg", children: item.delivered })
-            ] }),
-            item.result && /* @__PURE__ */ jsxs(Fragment, { children: [
-              /* @__PURE__ */ jsx(motion.div, { variants: fadeUp$1, className: "h-px bg-rule" }),
-              /* @__PURE__ */ jsxs(motion.section, { variants: fadeUp$1, "aria-labelledby": "section-result", children: [
-                /* @__PURE__ */ jsx("p", { id: "section-result", className: "label text-muted/60 mb-3", children: "Le résultat" }),
-                /* @__PURE__ */ jsx("p", { className: "font-inter font-medium text-secondary leading-relaxed text-lg", children: item.result })
-              ] })
-            ] }),
-            item.note && /* @__PURE__ */ jsx(
-              motion.div,
-              {
-                variants: fadeUp$1,
-                className: "bg-secondary/8 border-l-2 border-secondary pl-4 py-3 rounded-r-lg",
-                children: /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-text leading-relaxed text-pretty", children: item.note })
-              }
-            ),
-            /* @__PURE__ */ jsxs(
-              motion.div,
-              {
-                variants: fadeUp$1,
-                className: "pt-4 border-t border-border flex flex-col sm:flex-row items-start sm:items-center gap-6",
-                children: [
-                  /* @__PURE__ */ jsx(
-                    motion.a,
-                    {
-                      href: "/#contact",
-                      whileTap: { scale: 0.97 },
-                      className: "bg-secondary text-white font-inter font-medium text-sm px-6 py-3 rounded-2xl hover:bg-secondary/90 hover:scale-[1.02] transition-all duration-200",
-                      children: "Un projet similaire ? En discuter"
-                    }
-                  ),
-                  /* @__PURE__ */ jsx(
-                    Link,
-                    {
-                      to: "/",
-                      className: "font-inter text-sm text-muted hover:text-secondary transition-colors duration-200",
-                      children: "← Toutes les réalisations"
-                    }
-                  )
-                ]
-              }
-            )
-          ]
-        }
-      )
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-12", children: [
+        item.context && /* @__PURE__ */ jsx(Section$2, { label: "Contexte", children: /* @__PURE__ */ jsx("p", { className: "font-inter text-primary leading-relaxed text-pretty text-lg", children: item.context }) }),
+        /* @__PURE__ */ jsx("div", { className: "h-px bg-border" }),
+        /* @__PURE__ */ jsx(Section$2, { label: "Le problème", children: /* @__PURE__ */ jsx("p", { className: "font-inter text-primary leading-relaxed text-pretty text-lg", children: item.problem }) }),
+        /* @__PURE__ */ jsx("div", { className: "h-px bg-border" }),
+        /* @__PURE__ */ jsxs(Section$2, { label: "Ce qui a été mis en place", children: [
+          /* @__PURE__ */ jsx(
+            motion.div,
+            {
+              initial: { opacity: 0, scale: 0.98 },
+              whileInView: { opacity: 1, scale: 1 },
+              viewport: { once: true, margin: "-40px 0px" },
+              transition: { duration: 0.6, ease, delay: 0.1 },
+              className: "mb-6 border border-border rounded-2xl overflow-hidden",
+              children: /* @__PURE__ */ jsx(ProjectSchema, { slug: item.slug })
+            }
+          ),
+          /* @__PURE__ */ jsx("p", { className: "font-inter text-muted leading-relaxed text-pretty text-lg", children: item.delivered })
+        ] }),
+        item.fonctionnalites && item.fonctionnalites.length > 0 && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx("div", { className: "h-px bg-border" }),
+          /* @__PURE__ */ jsx(Section$2, { label: "Fonctionnalités clés", children: /* @__PURE__ */ jsx("div", { className: "grid sm:grid-cols-2 gap-3", children: item.fonctionnalites.map((feat, i) => /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-3", children: [
+            /* @__PURE__ */ jsx("span", { className: "w-5 h-5 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5", children: /* @__PURE__ */ jsx("svg", { viewBox: "0 0 12 12", fill: "none", className: "w-3 h-3 text-secondary", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6l2.5 2.5L10 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }) }),
+            /* @__PURE__ */ jsx("span", { className: "font-inter text-primary text-sm leading-relaxed", children: feat })
+          ] }, i)) }) })
+        ] }),
+        item.result && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx("div", { className: "h-px bg-border" }),
+          /* @__PURE__ */ jsx(Section$2, { label: "Le résultat", children: /* @__PURE__ */ jsx(
+            "p",
+            {
+              className: "font-archivo font-black text-secondary tracking-tight leading-[1.12] text-balance",
+              style: { fontSize: "clamp(1.5rem, 3vw, 2.25rem)" },
+              children: item.result
+            }
+          ) })
+        ] }),
+        item.note && /* @__PURE__ */ jsx(
+          motion.div,
+          {
+            initial: { opacity: 0, y: 12 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, margin: "-40px 0px" },
+            transition: { duration: 0.5, ease },
+            className: "bg-secondary/6 border-l-2 border-secondary pl-4 py-3 rounded-r-xl",
+            children: /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-primary leading-relaxed text-pretty", children: item.note })
+          }
+        ),
+        item.technologies && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx("div", { className: "h-px bg-border" }),
+          /* @__PURE__ */ jsx(Section$2, { label: "Technologies", children: /* @__PURE__ */ jsx("div", { className: "flex flex-wrap gap-2", children: item.technologies.map((tech, i) => /* @__PURE__ */ jsx("span", { className: "bg-section border border-border rounded-full px-3 py-1 font-inter text-sm text-muted", children: tech }, i)) }) })
+        ] }),
+        /* @__PURE__ */ jsxs(
+          motion.div,
+          {
+            initial: { opacity: 0, y: 12 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, margin: "-40px 0px" },
+            transition: { duration: 0.5, ease },
+            className: "pt-4 border-t border-border flex flex-col sm:flex-row items-start sm:items-center gap-6",
+            children: [
+              /* @__PURE__ */ jsxs(
+                motion.a,
+                {
+                  href: "/#contact",
+                  whileTap: { scale: 0.97 },
+                  className: "inline-flex items-center gap-2 bg-secondary text-white font-inter font-medium text-sm px-6 py-3 rounded-xl hover:bg-secondary/90 hover:scale-[1.02] transition-all duration-200",
+                  children: [
+                    "Un projet similaire ? Parlons-en",
+                    /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsx(
+                Link,
+                {
+                  to: "/",
+                  className: "font-inter text-sm text-muted hover:text-secondary transition-colors duration-200",
+                  children: "← Toutes les réalisations"
+                }
+              )
+            ]
+          }
+        )
+      ] })
     ] }),
     /* @__PURE__ */ jsx(
       "script",
@@ -3696,7 +3947,7 @@ function ServicePage() {
     /* @__PURE__ */ jsx("section", { className: "bg-primary py-20", children: /* @__PURE__ */ jsx("div", { ref: ctaRef, className: "mx-auto max-w-4xl px-6", children: /* @__PURE__ */ jsxs(
       motion.div,
       {
-        variants: fadeUp$1,
+        variants: vFadeUp,
         initial: "hidden",
         animate: ctaInView ? "show" : "hidden",
         className: "text-center",
@@ -3726,6 +3977,223 @@ function ServicePage() {
     ) }) })
   ] });
 }
+const posts = [
+  {
+    slug: "pourquoi-excel-ralentit-les-pme",
+    title: "Pourquoi Excel ralentit votre entreprise (et ce que vous pouvez faire)",
+    date: "2026-06-15",
+    readTime: 6,
+    category: "Outils & productivité",
+    excerpt: "Excel est l'outil par défaut de millions d'entreprises françaises. Et pourtant, il est souvent la principale source de perte de temps dans les équipes — pas parce qu'il est mauvais, mais parce qu'il est utilisé pour des tâches pour lesquelles il n'a pas été conçu.",
+    content: [
+      {
+        type: "intro",
+        text: "Excel est l'outil par défaut de millions d'entreprises françaises. Flexible, accessible, connu de tous. Et pourtant, dans beaucoup d'entreprises, il est devenu la principale source de perte de temps. Pas parce qu'Excel est mauvais — c'est un outil remarquable pour ce qu'il fait. Mais parce qu'il est utilisé pour des choses pour lesquelles il n'a pas été conçu."
+      },
+      {
+        type: "h2",
+        title: "Le problème des fichiers qui ne sont jamais vraiment partagés",
+        text: `Quand plusieurs personnes travaillent sur le même fichier, la question se pose rapidement : qui a la "bonne" version ? La V4_FINALE.xlsx ? La V4_FINALE_OK_2.xlsx envoyée hier soir ? Les modifications d'une personne n'arrivent pas chez les autres en temps réel. Des heures de travail peuvent se chevaucher, voire s'annuler. La simple question "tu as la dernière version ?" résume à elle seule un problème d'organisation que beaucoup d'entreprises subissent chaque semaine.`
+      },
+      {
+        type: "h2",
+        title: "Une erreur de formule peut coûter très cher",
+        text: "Dans un devis BTP, une cellule mal référencée peut entraîner une sous-estimation de plusieurs milliers d'euros. Dans un tableau de stock, une formule qui ne s'étend pas jusqu'à la dernière ligne fausse l'ensemble des calculs. Excel n'a pas de garde-fous natifs contre ces erreurs. Sans audit régulier des formules, elles peuvent se propager silencieusement pendant des mois. Et contrairement à une base de données, Excel n'a pas de journal des modifications : impossible de savoir qui a changé quoi, et quand."
+      },
+      {
+        type: "h2",
+        title: "Excel ne grandit pas avec votre activité",
+        text: `Dix lignes, c'est parfait. Mille lignes, ça ralentit. Cinquante mille lignes, c'est inutilisable. Au-delà de la performance, Excel ne permet pas de gérer des droits d'accès différenciés : si vous partagez le fichier, vous partagez tout. Pas de notion de "cet utilisateur peut voir mais pas modifier", pas de "ce collaborateur n'a accès qu'à ses données". Ce qui fonctionnait pour une équipe de trois personnes devient un problème de sécurité et de confidentialité à dix.`
+      },
+      {
+        type: "h2",
+        title: "L'absence de tableaux de bord en temps réel",
+        text: "Un tableau Excel est une photo du passé. Pour avoir une vision consolidée de l'activité, il faut souvent ouvrir plusieurs fichiers, copier des données, recalculer des totaux — une demi-journée de travail pour produire un rapport qui sera périmé le lendemain. Les dirigeants qui s'appuient sur des données Excel pour prendre des décisions le font souvent avec des données qui ont déjà plusieurs jours ou semaines de retard."
+      },
+      {
+        type: "h2",
+        title: "Quand faut-il vraiment passer à autre chose ?",
+        text: "Excel reste pertinent pour des analyses ad hoc, des calculs financiers ponctuels, ou des données que vous êtes le seul à utiliser. En revanche, si plusieurs personnes ont besoin du même fichier en même temps, si des erreurs ont commencé à coûter de l'argent, ou si consolider des données prend plus de temps que les analyser — c'est le signe qu'il faut une solution structurée. Pas nécessairement un ERP complet : parfois, une application métier ciblée sur un seul processus suffit pour transformer le quotidien d'une équipe."
+      },
+      {
+        type: "conclusion",
+        text: `La vraie question n'est pas "Excel ou pas Excel" — c'est "est-ce qu'on utilise le bon outil pour le bon usage ?" Si vous vous retrouvez à contourner Excel plus souvent qu'à travailler avec, c'est probablement le moment d'explorer d'autres options.`
+      }
+    ]
+  },
+  {
+    slug: "comment-digitaliser-entreprise-btp",
+    title: "Comment digitaliser une entreprise du BTP sans perturber les chantiers",
+    date: "2026-06-22",
+    readTime: 7,
+    category: "BTP & chantier",
+    excerpt: "La digitalisation dans le BTP a mauvaise réputation : des outils compliqués, adoptés sous contrainte, abandonnés trois mois plus tard. Voici comment les entreprises qui réussissent leur transformation numérique s'y prennent — et ce qu'elles évitent.",
+    content: [
+      {
+        type: "intro",
+        text: `La digitalisation dans le BTP a mauvaise réputation. Des logiciels compliqués imposés par la direction, adoptés sous contrainte par des chefs de chantier qui ont "autre chose à faire", abandonnés trois mois plus tard. Et pourtant, les entreprises qui réussissent leur transformation numérique en retirent des bénéfices concrets et durables. La différence tient rarement à la technologie choisie. Elle tient à l'ordre dans lequel les décisions sont prises.`
+      },
+      {
+        type: "h2",
+        title: "Commencer par le problème, pas par l'outil",
+        text: `La première erreur est d'acheter un logiciel pour "faire de la digitalisation". La bonne démarche est d'identifier une friction concrète qui coûte du temps ou de l'argent aujourd'hui, et de chercher comment la réduire. Dans le BTP, les frictions les plus fréquentes sont connues : les rapports terrain qui n'arrivent pas au bureau à temps, le planning que personne n'a en version à jour, les clients qui appellent parce qu'ils ne savent pas où en sont leurs travaux. Commencez par là.`
+      },
+      {
+        type: "h2",
+        title: "Le planning de chantier : le premier levier",
+        text: "Un planning partagé en temps réel est souvent la transformation la plus impactante et la plus rapide à mettre en place. Quand les équipes terrain voient leurs tâches du jour sur leur téléphone — sans appel à 7h du matin pour savoir où aller — et que les modifications faites au bureau se propagent instantanément, le gain de temps est immédiat. La résistance à l'adoption est faible parce que l'utilité est évidente dès le premier jour."
+      },
+      {
+        type: "h2",
+        title: "Les rapports journaliers numériques",
+        text: "Un compagnon qui prend une photo sur son téléphone et ajoute un commentaire en deux minutes, c'est un rapport de chantier. Stocké, horodaté, géolocalisé, accessible depuis le bureau sans attendre la fin de journée. En cas de litige sur un défaut ou une malfaçon, la traçabilité photographique devient une protection concrète. Les entreprises qui ont fait ce passage témoignent d'une réduction significative des conflits de garantie — pas parce qu'il y a moins de problèmes, mais parce que la preuve est disponible."
+      },
+      {
+        type: "h2",
+        title: "La communication avec le client",
+        text: 'Un client qui sait où en sont ses travaux — via un espace de suivi en ligne, avec les photos et le planning prévisionnel — appelle moins souvent pour "avoir des nouvelles". Et quand il y a un retard ou un problème, être proactif dans la communication transforme une source de mécontentement en démonstration de professionnalisme. Les entreprises qui ont mis en place un suivi client numérique rapportent systématiquement une meilleure satisfaction, même sur des chantiers qui ont eu des aléas.'
+      },
+      {
+        type: "h2",
+        title: "L'adoption : le vrai défi",
+        text: "L'outil le plus simple est celui qu'on utilise vraiment. Impliquer les chefs de chantier dans la conception de l'outil — pas pour leur demander leur avis une fois le logiciel acheté, mais pour définir avec eux ce dont ils ont besoin — garantit une adoption bien plus solide qu'une formation obligatoire de deux jours. Les meilleurs déploiements commencent avec un pilote sur un chantier, avec des utilisateurs volontaires, avant de généraliser."
+      },
+      {
+        type: "conclusion",
+        text: "La digitalisation du BTP n'est pas une transformation en un jour. Mais chaque étape bien choisie — un planning partagé, des rapports numériques, un suivi client — améliore concrètement le quotidien des équipes et la relation avec les clients. La clé est de commencer par un problème réel, pas par une technologie."
+      }
+    ]
+  },
+  {
+    slug: "combien-coute-application-metier",
+    title: "Combien coûte une application métier sur mesure ?",
+    date: "2026-07-01",
+    readTime: 8,
+    category: "Budget & investissement",
+    excerpt: "C'est la question que tout dirigeant d'entreprises se pose avant de se lancer. Voici ce qui détermine vraiment le prix d'une application métier sur mesure, les fourchettes réelles, et comment évaluer si l'investissement est rentable pour vous.",
+    content: [
+      {
+        type: "intro",
+        text: `"Combien ça coûte ?" C'est souvent la première question que les dirigeants d'entreprises posent quand ils envisagent de développer une application sur mesure. Et c'est une question légitime — personne ne veut se retrouver avec une facture surprise au bout de six mois. Voici une réponse honnête sur ce qui détermine le prix, et comment évaluer si l'investissement est rentable pour votre situation.`
+      },
+      {
+        type: "h2",
+        title: "Pourquoi il n'y a pas de prix catalogue",
+        text: "Une application métier, c'est comme une maison : le prix dépend de ce qu'on construit, pas d'un tarif standard. Un formulaire de contact coûte quelques centaines d'euros. Un ERP avec module de planification, facturation et interface mobile coûte vingt fois plus. Les variables qui font la différence : le nombre d'écrans et de fonctionnalités, le nombre d'utilisateurs, la complexité des règles métier, les intégrations avec des systèmes existants, et la nécessité ou non d'une application mobile."
+      },
+      {
+        type: "h2",
+        title: "Les facteurs qui font monter le budget",
+        text: "Certains besoins ont un impact significatif sur le coût. Les intégrations avec des systèmes existants (ERP, comptabilité, API partenaires) nécessitent un travail d'audit et de développement spécifique. Une application mobile en plus de la version web représente typiquement 30 à 50 % de travail supplémentaire. La synchronisation hors-ligne (nécessaire pour les équipes terrain sans connexion stable) est techniquement complexe. Les tableaux de bord analytiques avec agrégations de données importantes demandent une architecture soignée. Enfin, les contraintes réglementaires spécifiques — RGPD renforcé, normes sectorielles, conformité financière — ajoutent du temps de conception."
+      },
+      {
+        type: "h2",
+        title: "Les fourchettes réelles",
+        text: "Sans détour : une application simple avec un ou deux workflows principaux et une dizaine d'écrans se développe entre 8 000 et 20 000 €. Une application métier complète — ERP léger, gestion de chantier, CRM avec quelques intégrations — entre 20 000 et 60 000 €. Une plateforme complexe avec architecture multi-tenant, nombreux connecteurs et module d'analyse avancé dépasse les 60 000 €. Ces fourchettes incluent la conception, le développement, les tests et la mise en production. Elles ne correspondent pas à un abonnement mensuel : c'est un investissement ponctuel dont vous êtes propriétaire."
+      },
+      {
+        type: "h2",
+        title: "Comment évaluer la rentabilité",
+        text: "Avant de regarder le coût de développement, calculez le coût du statu quo. Prenez le temps que vos équipes passent sur les tâches que l'application automatiserait, multipliez par le coût horaire, et projetez sur douze mois. Trois personnes qui passent deux heures par jour à consolider des données représentent environ 15 000 à 20 000 € de masse salariale non productive chaque année — sans compter les erreurs, les retards clients et les opportunités manquées. Un outil à 25 000 € amorti sur trois ans revient à 8 300 € par an. Le calcul devient souvent évident."
+      },
+      {
+        type: "h2",
+        title: "Ce qui coûte moins cher que prévu",
+        text: "Travailler avec un développeur indépendant — plutôt qu'une agence avec ses frais de structure, sa marge commerciale et ses chefs de projet — réduit significativement le budget à périmètre identique. Partir d'un MVP bien ciblé (une seule fonctionnalité, une seule équipe utilisatrice) plutôt que de tout vouloir au départ permet de valider rapidement la valeur avant d'investir davantage. Et réutiliser des composants techniques éprouvés — authentification, gestion des fichiers, notifications — évite de réinventer la roue à chaque projet."
+      },
+      {
+        type: "conclusion",
+        text: "Le vrai coût à regarder n'est pas le devis de développement — c'est la différence entre ce que le statu quo vous coûte chaque année et ce que l'outil vous coûterait amorti sur sa durée de vie. Si vous voulez qu'on fasse ce calcul ensemble pour votre situation spécifique, c'est l'objet d'un premier appel de 30 minutes."
+      }
+    ]
+  },
+  {
+    slug: "erp-ou-logiciel-sur-mesure",
+    title: "ERP ou logiciel sur mesure : que choisir pour votre entreprise ?",
+    date: "2026-07-08",
+    readTime: 7,
+    category: "Stratégie & choix",
+    excerpt: "Odoo, SAP, Sage... le marché des ERP est immense. Alors pourquoi certaines entreprises font-elles le choix de développer leur propre logiciel plutôt que d'adopter une solution existante ? Ce n'est pas toujours la bonne décision. Voici comment la prendre avec discernement.",
+    content: [
+      {
+        type: "intro",
+        text: "Odoo, SAP Business One, Sage 100, Cegid... le marché des ERP est immense et bien établi. Alors pourquoi certaines entreprises font-elles le choix de développer leur propre logiciel de gestion plutôt que d'adopter une solution existante ? Ce n'est pas toujours la bonne décision. Et ce guide n'a pas pour vocation de vous convaincre du sur mesure — mais de vous aider à choisir ce qui est vraiment adapté à votre situation."
+      },
+      {
+        type: "h2",
+        title: "Ce que font bien les ERP du marché",
+        text: "Les ERP standard couvrent des processus largement partagés par des milliers d'entreprises : comptabilité générale, gestion des stocks, facturation, gestion des commandes. Ils bénéficient d'années de développement, de mises à jour régulières incluses dans l'abonnement, d'une documentation abondante et d'une communauté d'utilisateurs. Le déploiement sur les fonctionnalités standards est rapide. Pour une entreprise dont les processus ne sortent pas de l'ordinaire, ils peuvent être parfaitement adaptés."
+      },
+      {
+        type: "h2",
+        title: "Les limites des ERP standard pour certaines entreprises",
+        text: "Le problème apparaît quand votre activité a une logique qui sort des processus standards. Les ERP sont conçus pour s'adapter à des milliers de cas différents — ce qui signifie qu'ils imposent leur structure à votre activité, pas l'inverse. Le paramétrage peut compenser partiellement cette rigidité, mais il a ses limites. Les modules supplémentaires coûtent souvent plus cher que prévu. Et l'interface, conçue pour être générale, est rarement épurée : vos équipes se retrouvent face à des dizaines d'options dont elles n'utilisent qu'une fraction."
+      },
+      {
+        type: "h2",
+        title: "Quand le sur mesure s'impose",
+        text: "Quelques situations rendent le sur mesure clairement plus pertinent. Quand votre activité a un flux métier non standard — une prestation complexe avec plusieurs phases d'approbation, un cycle de production atypique, une tarification qui ne rentre dans aucune case. Quand vos équipes terrain ont besoin d'une interface ultra-simple, utilisable sur smartphone sans formation. Quand vous avez besoin de vous intégrer à des outils très spécifiques à votre secteur. Et quand votre façon de travailler est un avantage concurrentiel que vous ne souhaitez pas niveler en vous alignant sur le standard d'un éditeur."
+      },
+      {
+        type: "h2",
+        title: "La fausse opposition",
+        text: `Ce n'est pas ERP contre sur mesure — c'est "quels processus méritent d'être standardisés, et lesquels méritent d'être différenciés ?" Une stratégie souvent efficace : garder un ERP standard pour la comptabilité, qui doit respecter des normes précises, et développer sur mesure uniquement pour le cœur de métier, là où votre différenciation opérationnelle se joue. Votre CRM peut être sur mesure pendant que votre comptabilité reste sur Sage. Les deux coexistent via une intégration ciblée.`
+      },
+      {
+        type: "h2",
+        title: "Les questions à se poser avant de décider",
+        text: "Avez-vous documenté votre processus métier actuel ? Si vous ne pouvez pas l'expliquer clairement, aucun outil — ERP ou sur mesure — ne pourra bien le couvrir. Combien de vos équipes utilisent réellement votre logiciel actuel, et sur quelles fonctionnalités ? Si 80 % des utilisateurs n'utilisent que 20 % des fonctions, c'est souvent le signe que l'outil n'est pas adapté. Et quel est le coût mensuel des contournements — exports Excel, saisies manuelles, appels téléphoniques pour compenser ce que le logiciel ne fait pas ?"
+      },
+      {
+        type: "conclusion",
+        text: `Il n'y a pas de réponse universelle. Il y a votre activité, vos processus, vos équipes, et votre budget. Si vous voulez un avis honnête sur votre situation spécifique, un premier échange de 30 minutes suffit généralement pour identifier ce qui vous correspond le mieux — même si la réponse est "un ERP standard est parfait pour vous".`
+      }
+    ]
+  },
+  {
+    slug: "5-signes-creer-propre-logiciel",
+    title: "5 signes qu'il est temps de créer votre propre logiciel métier",
+    date: "2026-07-15",
+    readTime: 5,
+    category: "Outils & productivité",
+    excerpt: "Beaucoup de dirigeants d'entreprises pensent que créer son propre logiciel, c'est réservé aux grandes entreprises. Voici 5 signaux concrets qui indiquent qu'un outil sur mesure serait rentable pour vous dès aujourd'hui.",
+    content: [
+      {
+        type: "intro",
+        text: "Créer son propre logiciel, beaucoup de dirigeants d'entreprises pensent que c'est réservé aux grandes entreprises avec des budgets informatiques conséquents. Ce n'est pas le cas — et cette idée fait manquer à beaucoup d'entreprises un levier de productivité significatif. Voici 5 signaux concrets qui indiquent qu'un outil sur mesure serait rentable pour votre situation."
+      },
+      {
+        type: "numbered",
+        items: [
+          {
+            title: "Vous avez un fichier Excel que personne d'autre ne comprend vraiment",
+            text: "Ce fichier existe dans beaucoup d'entreprises. Il a été créé par quelqu'un de débrouillard, il est devenu indispensable, et aujourd'hui une seule personne sait vraiment comment il fonctionne. Si cette personne part, c'est un risque opérationnel réel. Ce fichier est la preuve d'un besoin métier réel que personne n'a encore adressé correctement — et c'est exactement le point de départ d'une bonne application sur mesure."
+          },
+          {
+            title: 'Vos équipes ont développé des "contournements" devenus la norme',
+            text: "Copier-coller des données entre trois outils pour compléter une tâche. Utiliser WhatsApp pour transmettre des informations qui doivent ensuite être ressaisies ailleurs. Envoyer un email pour confirmer ce qu'un autre logiciel devrait déjà savoir. Chaque contournement est une friction qui coûte du temps chaque jour — et s'accumule sur une année."
+          },
+          {
+            title: "Vous perdez des opportunités par manque de visibilité",
+            text: "Un prospect qui n'a pas été relancé parce que personne n'avait de rappel en place. Une commande retardée parce que le stock n'était pas visible en temps réel. Un client qui n'a pas renouvelé parce qu'aucune alerte n'était programmée. Ces manques de visibilité ont un coût direct sur le chiffre d'affaires."
+          },
+          {
+            title: "Le départ d'une personne emporte la connaissance avec elle",
+            text: `Si l'onboarding d'un nouveau collaborateur dure trois semaines parce qu'il faut lui "expliquer comment ça marche ici", c'est souvent le signe que la connaissance opérationnelle est dans les têtes, pas dans des processus documentés et supportés par un outil. Un bon logiciel métier porte la logique de l'entreprise indépendamment des individus.`
+          },
+          {
+            title: "Vous avez fait le calcul et le statu quo coûte plus cher que le changement",
+            text: `Prenez les heures perdues sur des tâches répétitives, multipliez par le coût horaire chargé, projetez sur douze mois. Ajoutez les erreurs, les retards clients et les opportunités manquées. Comparez à l'amortissement d'une application sur mesure sur trois ans. Si le statu quo coûte plus cher — et c'est souvent le cas — la question n'est plus "est-ce qu'on le fait ?" mais "par où on commence ?".`
+          }
+        ]
+      },
+      {
+        type: "conclusion",
+        text: "Si vous vous reconnaissez dans trois de ces cinq situations, la conversation vaut la peine d'être engagée. Pas nécessairement pour lancer un grand projet — mais pour comprendre quel serait le premier chantier le plus rentable pour vous."
+      }
+    ]
+  }
+];
 function formatDate$1(dateStr) {
   return new Date(dateStr).toLocaleDateString("fr-FR", {
     day: "numeric",
@@ -3741,7 +4209,7 @@ function BlogIndex() {
   return /* @__PURE__ */ jsxs("main", { children: [
     /* @__PURE__ */ jsx("section", { className: "bg-primary py-24 md:py-32", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-4xl px-6", children: /* @__PURE__ */ jsxs(motion.div, { variants: textReveal(), initial: "hidden", animate: "show", children: [
       /* @__PURE__ */ jsx(motion.p, { variants: textLine, className: "label text-secondary mb-4", children: "Blog" }),
-      /* @__PURE__ */ jsx(motion.h1, { variants: textLine, className: "font-archivo font-bold text-4xl md:text-5xl tracking-display text-white mb-5 leading-tight text-balance max-w-2xl", children: "Ressources pour les PME qui veulent mieux travailler" }),
+      /* @__PURE__ */ jsx(motion.h1, { variants: textLine, className: "font-archivo font-bold text-4xl md:text-5xl tracking-display text-white mb-5 leading-tight text-balance max-w-2xl", children: "Ressources pour les entreprises qui veulent mieux travailler" }),
       /* @__PURE__ */ jsx(motion.p, { variants: textLine, className: "font-inter text-white/60 leading-relaxed text-pretty max-w-[54ch] text-lg", children: "Conseils pratiques, retours d'expérience et guides pour les dirigeants qui cherchent à améliorer leurs outils et leurs processus." })
     ] }) }) }),
     /* @__PURE__ */ jsx("section", { className: "bg-white py-20 md:py-28", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-4xl px-6", children: /* @__PURE__ */ jsx(
@@ -3779,8 +4247,8 @@ function BlogIndex() {
         ) }, post.slug))
       }
     ) }) }),
-    /* @__PURE__ */ jsx("section", { className: "bg-section py-16", children: /* @__PURE__ */ jsx("div", { ref: ctaRef, className: "mx-auto max-w-4xl px-6 text-center", children: /* @__PURE__ */ jsxs(motion.div, { variants: fadeUp$1, initial: "hidden", animate: ctaInView ? "show" : "hidden", children: [
-      /* @__PURE__ */ jsx("h2", { className: "font-archivo font-bold text-2xl tracking-display text-primary mb-3 text-balance", children: "Vous avez un projet dans votre PME ?" }),
+    /* @__PURE__ */ jsx("section", { className: "bg-section py-16", children: /* @__PURE__ */ jsx("div", { ref: ctaRef, className: "mx-auto max-w-4xl px-6 text-center", children: /* @__PURE__ */ jsxs(motion.div, { variants: vFadeUp, initial: "hidden", animate: ctaInView ? "show" : "hidden", children: [
+      /* @__PURE__ */ jsx("h2", { className: "font-archivo font-bold text-2xl tracking-display text-primary mb-3 text-balance", children: "Vous avez un projet pour votre entreprise ?" }),
       /* @__PURE__ */ jsx("p", { className: "font-inter text-muted leading-relaxed mb-6 max-w-[48ch] mx-auto", children: "Décrivez votre besoin. Nous revenons vers vous dans les 48 heures." }),
       /* @__PURE__ */ jsx(
         "a",
@@ -3873,7 +4341,7 @@ function BlogPost() {
           variants: stagger(0.08),
           initial: "hidden",
           animate: "show",
-          children: post.content.map((section, i) => /* @__PURE__ */ jsx(motion.div, { variants: fadeUp$1, children: renderSection(section, i) }, i))
+          children: post.content.map((section, i) => /* @__PURE__ */ jsx(motion.div, { variants: vFadeUp, children: renderSection(section, i) }, i))
         }
       ),
       /* @__PURE__ */ jsxs(
@@ -3885,7 +4353,7 @@ function BlogPost() {
           transition: { duration: 0.7, ease: "easeOut" },
           className: "mt-12 bg-secondary/8 border border-secondary/20 rounded-2xl p-8",
           children: [
-            /* @__PURE__ */ jsx("h2", { className: "font-archivo font-bold text-xl tracking-display text-primary mb-2 leading-snug text-balance", children: "Un projet dans votre PME ?" }),
+            /* @__PURE__ */ jsx("h2", { className: "font-archivo font-bold text-xl tracking-display text-primary mb-2 leading-snug text-balance", children: "Un projet dans votre entreprise ?" }),
             /* @__PURE__ */ jsx("p", { className: "font-inter text-muted leading-relaxed mb-5 max-w-[52ch]", children: "Décrivez votre besoin en quelques lignes. Nous revenons vers vous dans les 48 heures avec un premier avis honnête — sans engagement." }),
             /* @__PURE__ */ jsx(
               motion.a,
@@ -3938,6 +4406,38 @@ function BlogPost() {
     ] }) })
   ] });
 }
+const locations = [
+  {
+    city: "Paris",
+    slug: "paris",
+    region: "Île-de-France",
+    context: "L'Île-de-France concentre des centaines de milliers d'entreprises dans tous les secteurs — commerce, services, BTP, industrie. La concurrence y est forte, et l'efficacité opérationnelle est souvent le facteur différenciant."
+  },
+  {
+    city: "Lyon",
+    slug: "lyon",
+    region: "Auvergne-Rhône-Alpes",
+    context: "Lyon est le deuxième pôle économique français, avec un tissu dense d'entreprises industrielles, de services aux entreprises et de négoce. La région Auvergne-Rhône-Alpes concentre des entreprises avec des besoins métiers souvent très spécifiques."
+  },
+  {
+    city: "Toulouse",
+    slug: "toulouse",
+    region: "Occitanie",
+    context: "Toulouse est le cœur de la filière aéronautique française, mais aussi un pôle de santé, de services numériques et d'agriculture. Les entreprises toulousaines ont des contraintes métiers distinctives qui méritent des outils adaptés."
+  },
+  {
+    city: "Bordeaux",
+    slug: "bordeaux",
+    region: "Nouvelle-Aquitaine",
+    context: "Bordeaux connaît une forte croissance économique depuis dix ans, avec des entreprises dans le négoce, le BTP, le tourisme et les services. La métropole bordelaise est devenue un terrain fertile pour les entreprises en développement."
+  },
+  {
+    city: "Marseille",
+    slug: "marseille",
+    region: "Provence-Alpes-Côte d'Azur",
+    context: "Marseille est un carrefour commercial avec des entreprises dans le transport, la logistique, les services et le BTP. La région PACA concentre des entreprises aux besoins variés, souvent confrontées à des défis de coordination et de visibilité opérationnelle."
+  }
+];
 const SERVICES = [
   { title: "ERP sur mesure", href: "/erp-sur-mesure", body: "Système de gestion intégré calqué sur vos processus réels." },
   { title: "CRM sur mesure", href: "/crm-sur-mesure", body: "Pipeline commercial adapté à votre cycle de vente." },
@@ -3997,7 +4497,7 @@ function LocationPage() {
               location.city
             ] }),
             /* @__PURE__ */ jsxs(motion.p, { variants: textLine, className: "font-inter text-white/60 leading-relaxed text-pretty max-w-[58ch] text-lg mb-8", children: [
-              "Nous créons des logiciels sur mesure pour les PME de ",
+              "Nous créons des logiciels sur mesure pour les entreprises de ",
               location.region,
               " — ERP, CRM, portail client, gestion de chantier et d'intervention. À distance ou en déplacement selon vos besoins."
             ] }),
@@ -4016,7 +4516,7 @@ function LocationPage() {
     /* @__PURE__ */ jsx("section", { className: "bg-section py-16", children: /* @__PURE__ */ jsx("div", { ref: contextRef, className: "mx-auto max-w-4xl px-6", children: /* @__PURE__ */ jsxs(
       motion.div,
       {
-        variants: fadeUp$1,
+        variants: vFadeUp,
         initial: "hidden",
         animate: contextInView ? "show" : "hidden",
         className: "bg-white border border-border rounded-2xl p-8",
@@ -4035,7 +4535,7 @@ function LocationPage() {
           animate: servicesInView ? "show" : "hidden",
           className: "font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary mb-10 text-balance",
           children: [
-            "Ce que nous développons pour les PME de ",
+            "Ce que nous développons pour les entreprises de ",
             location.region
           ]
         }
@@ -4099,7 +4599,7 @@ function LocationPage() {
     /* @__PURE__ */ jsx("section", { className: "bg-primary py-20", children: /* @__PURE__ */ jsx("div", { ref: ctaRef, className: "mx-auto max-w-4xl px-6 text-center", children: /* @__PURE__ */ jsxs(
       motion.div,
       {
-        variants: fadeUp$1,
+        variants: vFadeUp,
         initial: "hidden",
         animate: ctaInView ? "show" : "hidden",
         children: [
@@ -4206,6 +4706,253 @@ function Confirmation() {
     }
   ) }) });
 }
+function MentionsLegales() {
+  return /* @__PURE__ */ jsxs("main", { className: "bg-white min-h-screen", children: [
+    /* @__PURE__ */ jsx("div", { className: "bg-section border-b border-border", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-6 py-16 md:py-20", children: [
+      /* @__PURE__ */ jsxs(
+        Link,
+        {
+          to: "/",
+          className: "font-inter text-sm text-muted hover:text-secondary transition-colors duration-200 inline-flex items-center gap-1.5 mb-6",
+          children: [
+            /* @__PURE__ */ jsx("svg", { width: "14", height: "14", viewBox: "0 0 14 14", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M11 7H3M6 4l-3 3 3 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }),
+            "Retour à l'accueil"
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx("p", { className: "label text-secondary mb-3", children: "Légal" }),
+      /* @__PURE__ */ jsx("h1", { className: "font-archivo font-black text-primary tracking-display leading-[1.06]", style: { fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }, children: "Mentions légales" }),
+      /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-muted mt-3", children: "Dernière mise à jour : juillet 2026" })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-3xl px-6 py-14 md:py-20", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-12", children: [
+      /* @__PURE__ */ jsxs(Section$1, { title: "1. Éditeur du site", children: [
+        /* @__PURE__ */ jsxs("p", { children: [
+          "Le site ",
+          /* @__PURE__ */ jsx("strong", { children: "djexa.fr" }),
+          " est édité par :"
+        ] }),
+        /* @__PURE__ */ jsxs("dl", { className: "mt-4 flex flex-col gap-2", children: [
+          /* @__PURE__ */ jsx(Row, { label: "Dénomination", value: BRAND }),
+          /* @__PURE__ */ jsx(Row, { label: "Forme juridique", value: "Entreprise individuelle (auto-entrepreneur)" }),
+          /* @__PURE__ */ jsx(Row, { label: "SIRET", value: "[À COMPLÉTER]" }),
+          /* @__PURE__ */ jsx(Row, { label: "Siège social", value: "Paris, France" }),
+          /* @__PURE__ */ jsx(Row, { label: "Email", value: "contact@djexa.fr" }),
+          /* @__PURE__ */ jsx(Row, { label: "Directeur de la publication", value: "[Prénom NOM]" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Section$1, { title: "2. Hébergement", children: [
+        /* @__PURE__ */ jsx("p", { children: "Le site est hébergé par :" }),
+        /* @__PURE__ */ jsxs("dl", { className: "mt-4 flex flex-col gap-2", children: [
+          /* @__PURE__ */ jsx(Row, { label: "Hébergeur", value: "Cloudflare, Inc." }),
+          /* @__PURE__ */ jsx(Row, { label: "Adresse", value: "101 Townsend St, San Francisco, CA 94107, États-Unis" }),
+          /* @__PURE__ */ jsx(Row, { label: "Site", value: "cloudflare.com" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Section$1, { title: "3. Propriété intellectuelle", children: [
+        /* @__PURE__ */ jsxs("p", { children: [
+          "L'ensemble du contenu de ce site — textes, visuels, maquettes, code source, logos — est la propriété exclusive de ",
+          BRAND,
+          ", sauf mention contraire."
+        ] }),
+        /* @__PURE__ */ jsxs("p", { className: "mt-3", children: [
+          "Toute reproduction, représentation, modification, publication, adaptation ou exploitation partielle ou totale, par quelque procédé que ce soit, est strictement interdite sans l'autorisation écrite préalable de ",
+          BRAND,
+          "."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Section$1, { title: "4. Responsabilité", children: [
+        /* @__PURE__ */ jsxs("p", { children: [
+          BRAND,
+          " s'efforce de maintenir les informations de ce site exactes et à jour. Toutefois, ",
+          BRAND,
+          " ne saurait être tenu responsable des erreurs ou omissions, ni de tout dommage résultant de l'utilisation des informations présentées."
+        ] }),
+        /* @__PURE__ */ jsxs("p", { className: "mt-3", children: [
+          "Les liens hypertextes vers d'autres sites sont fournis à titre informatif. ",
+          BRAND,
+          " n'assume aucune responsabilité quant au contenu de ces sites tiers."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Section$1, { title: "5. Cookies", children: [
+        /* @__PURE__ */ jsx("p", { children: "Ce site n'utilise pas de cookies publicitaires ou de traceurs tiers à des fins de ciblage. Des cookies techniques strictement nécessaires au fonctionnement du site peuvent être déposés." }),
+        /* @__PURE__ */ jsx("p", { className: "mt-3", children: "Conformément à la réglementation en vigueur, vous pouvez paramétrer votre navigateur pour refuser les cookies. Cela peut affecter le bon fonctionnement de certaines fonctionnalités." })
+      ] }),
+      /* @__PURE__ */ jsx(Section$1, { title: "6. Droit applicable", children: /* @__PURE__ */ jsx("p", { children: "Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents." }) }),
+      /* @__PURE__ */ jsx("div", { className: "border-t border-border pt-8", children: /* @__PURE__ */ jsxs("p", { className: "font-inter text-sm text-muted", children: [
+        "Pour toute question relative aux mentions légales, vous pouvez nous contacter à l'adresse",
+        " ",
+        /* @__PURE__ */ jsx("a", { href: "mailto:contact@djexa.fr", className: "text-secondary hover:underline", children: "contact@djexa.fr" }),
+        "."
+      ] }) })
+    ] }) })
+  ] });
+}
+function Section$1({ title, children }) {
+  return /* @__PURE__ */ jsxs("section", { children: [
+    /* @__PURE__ */ jsx("h2", { className: "font-archivo font-black text-primary text-xl tracking-display mb-4 pb-3 border-b border-border", children: title }),
+    /* @__PURE__ */ jsx("div", { className: "font-inter text-muted leading-relaxed text-sm flex flex-col gap-0", children })
+  ] });
+}
+function Row({ label, value }) {
+  return /* @__PURE__ */ jsxs("div", { className: "flex gap-3", children: [
+    /* @__PURE__ */ jsx("dt", { className: "font-medium text-primary/70 min-w-[160px] shrink-0", children: label }),
+    /* @__PURE__ */ jsx("dd", { className: "text-muted", children: value })
+  ] });
+}
+function PolitiqueConfidentialite() {
+  return /* @__PURE__ */ jsxs("main", { className: "bg-white min-h-screen", children: [
+    /* @__PURE__ */ jsx("div", { className: "bg-section border-b border-border", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl px-6 py-16 md:py-20", children: [
+      /* @__PURE__ */ jsxs(
+        Link,
+        {
+          to: "/",
+          className: "font-inter text-sm text-muted hover:text-secondary transition-colors duration-200 inline-flex items-center gap-1.5 mb-6",
+          children: [
+            /* @__PURE__ */ jsx("svg", { width: "14", height: "14", viewBox: "0 0 14 14", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M11 7H3M6 4l-3 3 3 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }),
+            "Retour à l'accueil"
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx("p", { className: "label text-secondary mb-3", children: "Légal" }),
+      /* @__PURE__ */ jsx("h1", { className: "font-archivo font-black text-primary tracking-display leading-[1.06]", style: { fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }, children: "Politique de confidentialité" }),
+      /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-muted mt-3", children: "Dernière mise à jour : juillet 2026" })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-3xl px-6 py-14 md:py-20", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-12", children: [
+      /* @__PURE__ */ jsxs(Section, { title: "1. Responsable du traitement", children: [
+        /* @__PURE__ */ jsxs("p", { children: [
+          "Les données personnelles collectées sur ce site sont traitées par ",
+          /* @__PURE__ */ jsx("strong", { children: BRAND }),
+          ", entreprise individuelle dont le siège est à Paris, France."
+        ] }),
+        /* @__PURE__ */ jsxs("p", { className: "mt-3", children: [
+          "Contact : ",
+          /* @__PURE__ */ jsx("a", { href: "mailto:contact@djexa.fr", className: "text-secondary hover:underline", children: "contact@djexa.fr" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Section, { title: "2. Données collectées", children: [
+        /* @__PURE__ */ jsx("p", { children: "Lors de l'utilisation du formulaire de contact, les informations suivantes peuvent être collectées :" }),
+        /* @__PURE__ */ jsxs("ul", { className: "mt-4 flex flex-col gap-2 pl-4", children: [
+          /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsx("span", { className: "text-secondary mt-1", children: "–" }),
+            /* @__PURE__ */ jsxs("span", { children: [
+              /* @__PURE__ */ jsx("strong", { children: "Nom" }),
+              " — identification de l'interlocuteur"
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsx("span", { className: "text-secondary mt-1", children: "–" }),
+            /* @__PURE__ */ jsxs("span", { children: [
+              /* @__PURE__ */ jsx("strong", { children: "Adresse email" }),
+              " — pour vous répondre"
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsx("span", { className: "text-secondary mt-1", children: "–" }),
+            /* @__PURE__ */ jsxs("span", { children: [
+              /* @__PURE__ */ jsx("strong", { children: "Numéro de téléphone" }),
+              " — optionnel, pour vous rappeler si nécessaire"
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsx("span", { className: "text-secondary mt-1", children: "–" }),
+            /* @__PURE__ */ jsxs("span", { children: [
+              /* @__PURE__ */ jsx("strong", { children: "Nom de l'entreprise" }),
+              " — optionnel, pour comprendre le contexte de votre demande"
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsx("span", { className: "text-secondary mt-1", children: "–" }),
+            /* @__PURE__ */ jsxs("span", { children: [
+              /* @__PURE__ */ jsx("strong", { children: "Description du besoin" }),
+              " — pour préparer notre échange"
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: "mt-4", children: "Ces données sont transmises de manière sécurisée et ne sont jamais cédées, vendues ou transmises à des tiers." })
+      ] }),
+      /* @__PURE__ */ jsxs(Section, { title: "3. Finalité et base légale", children: [
+        /* @__PURE__ */ jsx("p", { children: "Les données collectées via le formulaire de contact sont utilisées exclusivement dans le but de répondre à votre demande et d'échanger avec vous sur un éventuel projet." }),
+        /* @__PURE__ */ jsxs("p", { className: "mt-3", children: [
+          "La base légale de ce traitement est l'",
+          /* @__PURE__ */ jsx("strong", { children: "intérêt légitime" }),
+          " de ",
+          BRAND,
+          " à répondre aux demandes entrantes (article 6.1.f du RGPD), ainsi que votre ",
+          /* @__PURE__ */ jsx("strong", { children: "consentement" }),
+          " implicite lors de la soumission du formulaire."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Section, { title: "4. Durée de conservation", children: [
+        /* @__PURE__ */ jsxs("p", { children: [
+          "Vos données sont conservées pendant une durée maximale de ",
+          /* @__PURE__ */ jsx("strong", { children: "3 ans" }),
+          " à compter de notre dernier échange, sauf demande de suppression de votre part."
+        ] }),
+        /* @__PURE__ */ jsx("p", { className: "mt-3", children: "Au-delà de ce délai, elles sont supprimées ou anonymisées." })
+      ] }),
+      /* @__PURE__ */ jsxs(Section, { title: "5. Vos droits", children: [
+        /* @__PURE__ */ jsx("p", { children: "Conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679) et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données personnelles :" }),
+        /* @__PURE__ */ jsx("ul", { className: "mt-4 flex flex-col gap-3 pl-4", children: [
+          ["Droit d'accès", "Obtenir une copie des données vous concernant que nous détenons."],
+          ["Droit de rectification", "Corriger des données inexactes ou incomplètes."],
+          ["Droit à l'effacement", "Demander la suppression de vos données (« droit à l'oubli »)."],
+          ["Droit à la portabilité", "Recevoir vos données dans un format structuré et lisible."],
+          ["Droit d'opposition", "Vous opposer au traitement de vos données pour des raisons tenant à votre situation particulière."],
+          ["Droit à la limitation", "Demander le gel temporaire du traitement de vos données."]
+        ].map(([right, desc]) => /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
+          /* @__PURE__ */ jsx("span", { className: "text-secondary mt-0.5", children: "–" }),
+          /* @__PURE__ */ jsxs("span", { children: [
+            /* @__PURE__ */ jsx("strong", { children: right }),
+            " : ",
+            desc
+          ] })
+        ] }, right)) }),
+        /* @__PURE__ */ jsxs("p", { className: "mt-4", children: [
+          "Pour exercer ces droits, contactez-nous à",
+          " ",
+          /* @__PURE__ */ jsx("a", { href: "mailto:contact@djexa.fr", className: "text-secondary hover:underline", children: "contact@djexa.fr" }),
+          ". Nous répondrons dans un délai maximum de ",
+          /* @__PURE__ */ jsx("strong", { children: "30 jours" }),
+          "."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Section, { title: "6. Réclamation auprès de la CNIL", children: [
+        /* @__PURE__ */ jsx("p", { children: "Si vous estimez que le traitement de vos données n'est pas conforme à la réglementation, vous avez le droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) :" }),
+        /* @__PURE__ */ jsxs("dl", { className: "mt-4 flex flex-col gap-2", children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex gap-3", children: [
+            /* @__PURE__ */ jsx("dt", { className: "font-medium text-primary/70 min-w-[80px] shrink-0", children: "Site" }),
+            /* @__PURE__ */ jsx("dd", { children: /* @__PURE__ */ jsx("a", { href: "https://www.cnil.fr", target: "_blank", rel: "noopener noreferrer", className: "text-secondary hover:underline", children: "www.cnil.fr" }) })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "flex gap-3", children: [
+            /* @__PURE__ */ jsx("dt", { className: "font-medium text-primary/70 min-w-[80px] shrink-0", children: "Adresse" }),
+            /* @__PURE__ */ jsx("dd", { children: "3 Place de Fontenoy, TSA 80715 — 75334 Paris Cedex 07" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Section, { title: "7. Cookies et traceurs", children: [
+        /* @__PURE__ */ jsx("p", { children: "Ce site n'utilise pas de cookies publicitaires, de traceurs de réseaux sociaux ou d'outils d'analyse comportementale tiers (Google Analytics, Facebook Pixel, etc.)." }),
+        /* @__PURE__ */ jsx("p", { className: "mt-3", children: "Des cookies techniques strictement nécessaires au fonctionnement du site (session, sécurité) peuvent être déposés. Ces cookies ne nécessitent pas votre consentement au sens de la réglementation en vigueur." })
+      ] }),
+      /* @__PURE__ */ jsx(Section, { title: "8. Sécurité", children: /* @__PURE__ */ jsxs("p", { children: [
+        BRAND,
+        " met en œuvre les mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte ou divulgation. Les données transitent via des connexions HTTPS chiffrées."
+      ] }) }),
+      /* @__PURE__ */ jsx(Section, { title: "9. Modifications", children: /* @__PURE__ */ jsx("p", { children: "Cette politique peut être mise à jour à tout moment pour refléter l'évolution de nos pratiques ou des exigences légales. La date de dernière mise à jour est indiquée en haut de cette page." }) }),
+      /* @__PURE__ */ jsx("div", { className: "border-t border-border pt-8", children: /* @__PURE__ */ jsxs("p", { className: "font-inter text-sm text-muted", children: [
+        "Pour toute question relative à la protection de vos données, contactez-nous à",
+        " ",
+        /* @__PURE__ */ jsx("a", { href: "mailto:contact@djexa.fr", className: "text-secondary hover:underline", children: "contact@djexa.fr" }),
+        "."
+      ] }) })
+    ] }) })
+  ] });
+}
+function Section({ title, children }) {
+  return /* @__PURE__ */ jsxs("section", { children: [
+    /* @__PURE__ */ jsx("h2", { className: "font-archivo font-black text-primary text-xl tracking-display mb-4 pb-3 border-b border-border", children: title }),
+    /* @__PURE__ */ jsx("div", { className: "font-inter text-muted leading-relaxed text-sm", children })
+  ] });
+}
 function AppRoutes() {
   return /* @__PURE__ */ jsxs(Routes, { children: [
     /* @__PURE__ */ jsxs(Route, { element: /* @__PURE__ */ jsx(Layout, {}), children: [
@@ -4213,6 +4960,8 @@ function AppRoutes() {
       /* @__PURE__ */ jsx(Route, { path: "/projets/:slug", element: /* @__PURE__ */ jsx(ProjectDetail, {}) }),
       services.map((s) => /* @__PURE__ */ jsx(Route, { path: `/${s.slug}`, element: /* @__PURE__ */ jsx(ServicePage, {}) }, s.slug)),
       /* @__PURE__ */ jsx(Route, { path: "/confirmation", element: /* @__PURE__ */ jsx(Confirmation, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/mentions-legales", element: /* @__PURE__ */ jsx(MentionsLegales, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/politique-de-confidentialite", element: /* @__PURE__ */ jsx(PolitiqueConfidentialite, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/blog", element: /* @__PURE__ */ jsx(BlogIndex, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/blog/:slug", element: /* @__PURE__ */ jsx(BlogPost, {}) }),
       locations.map((l) => /* @__PURE__ */ jsx(

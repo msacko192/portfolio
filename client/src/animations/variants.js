@@ -7,7 +7,7 @@ export const fadeIn = {
   show:   { opacity: 1, transition: { duration: 0.5, ease } },
 }
 
-export const fadeUp = {
+export const vFadeUp = {
   hidden: { opacity: 0, y: 40 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
 }
@@ -61,27 +61,8 @@ export const popIn = {
   show:   { opacity: 1, scale: 1,   transition: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] } },
 }
 
-export const imageReveal = {
-  hidden: { opacity: 0, scale: 0.95 },
-  show:   { opacity: 1, scale: 1,    transition: { duration: 0.7, ease } },
-}
-
 // ─── Hover / interaction ─────────────────────────────────────────────────────
 export const hoverLift = { y: -6, transition: { duration: 0.2, ease: 'easeOut' } }
-
-export const hoverButton = {
-  scale: 1.03,
-  boxShadow: '0 8px 24px -4px rgba(37, 99, 235, 0.22)',
-  transition: { duration: 0.2 },
-}
-
-export const tapButton = { scale: 0.97, transition: { duration: 0.1 } }
-
-// ─── Continuous animation ────────────────────────────────────────────────────
-export const floatY = {
-  y: [0, -10, 0],
-  transition: { duration: 4, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop' },
-}
 
 // ─── Legacy helper ───────────────────────────────────────────────────────────
 export const t = (delay = 0) => ({ duration: 0.35, ease, delay })

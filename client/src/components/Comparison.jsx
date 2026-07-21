@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { fadeUp } from '../lib/motion'
+import { vFadeUp } from '../lib/motion'
 
 export default function Comparison() {
   const { comparison } = content
@@ -19,7 +19,7 @@ export default function Comparison() {
 
         <motion.div
           ref={ref}
-          variants={fadeUp}
+          variants={vFadeUp}
           initial="hidden"
           animate={inView ? 'show' : 'hidden'}
           className="overflow-x-auto rounded-2xl border border-border"

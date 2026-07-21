@@ -1,68 +1,80 @@
 import { motion } from 'framer-motion'
 import { content } from '../data/content'
+import { f } from '../lib/motion'
 import DashboardMockup from './DashboardMockup'
 
 const ease = [0.22, 1, 0.36, 1]
-
-function fadeUp(delay = 0) {
-  return {
-    initial: { opacity: 0, y: 18 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.65, ease, delay },
-  }
-}
 
 export default function Hero() {
   const { hero } = content
 
   return (
-    <section className="bg-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="relative bg-white overflow-hidden min-h-[100svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-20">
+
+      {/* ── Effets de fond ── */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+
+        {/* Gradient radial centré sur le mockup (côté droit) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 75% 65% at 78% 52%, rgba(37,99,235,0.065) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Grid de lignes ultra-fines */}
+        <div
+          className="absolute inset-0 opacity-[0.28]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 0h40v1H0zM0 0v40h1V0' fill='%23E5E7EB'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── Colonne texte ── */}
           <div className="max-w-xl">
 
             {/* Badge */}
-            <motion.div {...fadeUp(0.15)} className="inline-flex items-center gap-2 bg-secondary/8 border border-secondary/15 text-secondary text-xs font-inter font-medium px-4 py-1.5 rounded-full mb-8">
+            <motion.div
+              {...f(0.1)}
+              className="inline-flex items-center gap-2 bg-secondary/8 border border-secondary/15 text-secondary text-xs font-inter font-medium px-4 py-1.5 rounded-full mb-8"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
               {hero.badge}
             </motion.div>
 
-            {/* Titre principal */}
+            {/* Titre */}
             <h1
-              className="font-archivo font-black text-primary leading-[1.04] tracking-display mb-6"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4.25rem)' }}
+              className="font-archivo font-black leading-[1.05] tracking-display mb-7"
+              style={{ fontSize: 'clamp(2.5rem, 5vw + 0.5rem, 4.25rem)' }}
             >
-              <motion.span {...fadeUp(0.25)} className="block">
-                Votre entreprise
+              <motion.span {...f(0.22)} className="block text-primary">
+                Votre entreprise est unique.
               </motion.span>
-              <motion.span {...fadeUp(0.33)} className="block">
-                est unique.
-              </motion.span>
-              <motion.span {...fadeUp(0.41)} className="block text-secondary">
-                Votre logiciel
-              </motion.span>
-              <motion.span {...fadeUp(0.49)} className="block text-secondary">
-                devrait l'être aussi.
+              <motion.span {...f(0.34)} className="block text-secondary">
+                Votre logiciel devrait l&apos;être aussi.
               </motion.span>
             </h1>
 
             {/* Lede */}
             <motion.p
-              {...fadeUp(0.6)}
-              className="font-inter text-muted leading-[1.75] mb-10 max-w-[42ch]"
+              {...f(0.48)}
+              className="font-inter text-muted leading-[1.8] mb-10 max-w-[44ch] border-l-2 border-secondary/30 pl-4"
               style={{ fontSize: '1.0625rem' }}
             >
               {hero.lede}
             </motion.p>
 
             {/* CTAs */}
-            <motion.div {...fadeUp(0.72)} className="flex flex-wrap gap-3">
+            <motion.div {...f(0.60)} className="flex flex-wrap gap-3 mb-10">
               <motion.a
                 href="#contact"
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-6 py-3 rounded-xl hover:bg-primary/90 hover:scale-[1.02] transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-primary text-white font-inter font-semibold text-sm px-7 py-3.5 rounded-xl hover:bg-secondary transition-all duration-200"
               >
                 {hero.cta1}
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
@@ -72,17 +84,47 @@ export default function Hero() {
               <motion.a
                 href="#realisations"
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 bg-white text-primary border border-border font-inter font-medium text-sm px-6 py-3 rounded-xl hover:bg-section hover:scale-[1.02] transition-all duration-200"
+                className="inline-flex items-center gap-2 text-primary border border-border font-inter font-medium text-sm px-6 py-3.5 rounded-xl hover:bg-section hover:border-secondary/30 transition-all duration-200"
               >
                 {hero.cta2}
               </motion.a>
             </motion.div>
 
+
           </div>
 
-          {/* ── Colonne visuelle — DashboardMockup ── */}
-          <div className="hidden md:block">
-            <DashboardMockup />
+          {/* ── Colonne visuelle ── */}
+          <div className="hidden md:flex items-center justify-center">
+
+            {/* Conteneur du mockup avec effets */}
+            <div className="relative w-full">
+
+              {/* Halo lumineux derrière */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 -z-10"
+                style={{
+                  background: 'radial-gradient(ellipse 85% 70% at 50% 50%, rgba(37,99,235,0.09) 0%, transparent 70%)',
+                  filter: 'blur(32px)',
+                  transform: 'scale(1.15)',
+                }}
+              />
+
+              {/* Mockup incliné */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 16 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, ease, delay: 0.5 }}
+                className="rounded-2xl overflow-hidden border border-border"
+                style={{
+                  transform: 'rotate(1deg) translateY(-4px)',
+                  boxShadow: '0 32px 80px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10)',
+                }}
+              >
+                <DashboardMockup />
+              </motion.div>
+
+            </div>
           </div>
 
         </div>

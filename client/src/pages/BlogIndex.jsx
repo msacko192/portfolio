@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { posts } from '../data/blog'
-import { textReveal, textLine, stagger, cardItem, hoverLift, fadeUp } from '../lib/motion'
+import { textReveal, textLine, stagger, cardItem, hoverLift, vFadeUp } from '../lib/motion'
 
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('fr-FR', {
@@ -26,7 +26,7 @@ export default function BlogIndex() {
           <motion.div variants={textReveal()} initial="hidden" animate="show">
             <motion.p variants={textLine} className="label text-secondary mb-4">Blog</motion.p>
             <motion.h1 variants={textLine} className="font-archivo font-bold text-4xl md:text-5xl tracking-display text-white mb-5 leading-tight text-balance max-w-2xl">
-              Ressources pour les PME qui veulent mieux travailler
+              Ressources pour les entreprises qui veulent mieux travailler
             </motion.h1>
             <motion.p variants={textLine} className="font-inter text-white/60 leading-relaxed text-pretty max-w-[54ch] text-lg">
               Conseils pratiques, retours d'expérience et guides pour les dirigeants qui cherchent à améliorer leurs outils et leurs processus.
@@ -80,9 +80,9 @@ export default function BlogIndex() {
       {/* CTA */}
       <section className="bg-section py-16">
         <div ref={ctaRef} className="mx-auto max-w-4xl px-6 text-center">
-          <motion.div variants={fadeUp} initial="hidden" animate={ctaInView ? 'show' : 'hidden'}>
+          <motion.div variants={vFadeUp} initial="hidden" animate={ctaInView ? 'show' : 'hidden'}>
             <h2 className="font-archivo font-bold text-2xl tracking-display text-primary mb-3 text-balance">
-              Vous avez un projet dans votre PME ?
+              Vous avez un projet pour votre entreprise ?
             </h2>
             <p className="font-inter text-muted leading-relaxed mb-6 max-w-[48ch] mx-auto">
               Décrivez votre besoin. Nous revenons vers vous dans les 48 heures.

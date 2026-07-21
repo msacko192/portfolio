@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DJEXA — Logo Proposals v3 — Orbite en points</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #fff; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.cell {
+  aspect-ratio: 1;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.cell svg {
+  width: 100%;
+  height: 100%;
+  max-width: 80px;
+  max-height: 80px;
+}
+</style>
+</head>
+<body>
+<div class="grid">
+
+<!-- 1. Hexagonal (6 points) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="36" fill="#000"/>
+<circle cx="408" cy="159" r="17" fill="#000"/>
+<circle cx="408" cy="341" r="17" fill="#000"/>
+<circle cx="250" cy="432" r="17" fill="#000"/>
+<circle cx="92" cy="341" r="17" fill="#000"/>
+<circle cx="92" cy="159" r="17" fill="#000"/>
+<circle cx="250" cy="250" r="58" fill="#000"/>
+</svg>
+</div>
+
+<!-- 2. 8 points raffiné (original amélioré) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="36" fill="#000"/>
+<circle cx="379" cy="121" r="17" fill="#000"/>
+<circle cx="432" cy="250" r="17" fill="#000"/>
+<circle cx="379" cy="379" r="17" fill="#000"/>
+<circle cx="250" cy="432" r="17" fill="#000"/>
+<circle cx="121" cy="379" r="17" fill="#000"/>
+<circle cx="68" cy="250" r="17" fill="#000"/>
+<circle cx="121" cy="121" r="17" fill="#000"/>
+<circle cx="250" cy="250" r="58" fill="#000"/>
+</svg>
+</div>
+
+<!-- 3. 10 points -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="34" fill="#000"/>
+<circle cx="357" cy="103" r="15" fill="#000"/>
+<circle cx="423" cy="194" r="15" fill="#000"/>
+<circle cx="423" cy="306" r="15" fill="#000"/>
+<circle cx="357" cy="397" r="15" fill="#000"/>
+<circle cx="250" cy="432" r="15" fill="#000"/>
+<circle cx="143" cy="397" r="15" fill="#000"/>
+<circle cx="77" cy="306" r="15" fill="#000"/>
+<circle cx="77" cy="194" r="15" fill="#000"/>
+<circle cx="143" cy="103" r="15" fill="#000"/>
+<circle cx="250" cy="250" r="56" fill="#000"/>
+</svg>
+</div>
+
+<!-- 4. 12 points -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="32" fill="#000"/>
+<circle cx="341" cy="92" r="13" fill="#000"/>
+<circle cx="408" cy="159" r="13" fill="#000"/>
+<circle cx="432" cy="250" r="13" fill="#000"/>
+<circle cx="408" cy="341" r="13" fill="#000"/>
+<circle cx="341" cy="408" r="13" fill="#000"/>
+<circle cx="250" cy="432" r="13" fill="#000"/>
+<circle cx="159" cy="408" r="13" fill="#000"/>
+<circle cx="92" cy="341" r="13" fill="#000"/>
+<circle cx="68" cy="250" r="13" fill="#000"/>
+<circle cx="92" cy="159" r="13" fill="#000"/>
+<circle cx="159" cy="92" r="13" fill="#000"/>
+<circle cx="250" cy="250" r="54" fill="#000"/>
+</svg>
+</div>
+
+<!-- 5. 16 points fins -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="30" fill="#000"/>
+<circle cx="320" cy="82" r="11" fill="#000"/>
+<circle cx="379" cy="121" r="11" fill="#000"/>
+<circle cx="418" cy="181" r="11" fill="#000"/>
+<circle cx="432" cy="250" r="11" fill="#000"/>
+<circle cx="418" cy="319" r="11" fill="#000"/>
+<circle cx="379" cy="379" r="11" fill="#000"/>
+<circle cx="320" cy="418" r="11" fill="#000"/>
+<circle cx="250" cy="432" r="11" fill="#000"/>
+<circle cx="180" cy="418" r="11" fill="#000"/>
+<circle cx="121" cy="379" r="11" fill="#000"/>
+<circle cx="82" cy="319" r="11" fill="#000"/>
+<circle cx="68" cy="250" r="11" fill="#000"/>
+<circle cx="82" cy="181" r="11" fill="#000"/>
+<circle cx="121" cy="121" r="11" fill="#000"/>
+<circle cx="180" cy="82" r="11" fill="#000"/>
+<circle cx="250" cy="250" r="52" fill="#000"/>
+</svg>
+</div>
+
+<!-- 6. Gradient symétrique (taille croissante vers la planète) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="36" fill="#000"/>
+<circle cx="379" cy="121" r="24" fill="#000"/>
+<circle cx="432" cy="250" r="17" fill="#000"/>
+<circle cx="379" cy="379" r="14" fill="#000"/>
+<circle cx="250" cy="432" r="12" fill="#000"/>
+<circle cx="121" cy="379" r="14" fill="#000"/>
+<circle cx="68" cy="250" r="17" fill="#000"/>
+<circle cx="121" cy="121" r="24" fill="#000"/>
+<circle cx="250" cy="250" r="54" fill="#000"/>
+</svg>
+</div>
+
+<!-- 7. Uniforme (tous identiques, sans planète distincte) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="22" fill="#000"/>
+<circle cx="379" cy="121" r="22" fill="#000"/>
+<circle cx="432" cy="250" r="22" fill="#000"/>
+<circle cx="379" cy="379" r="22" fill="#000"/>
+<circle cx="250" cy="432" r="22" fill="#000"/>
+<circle cx="121" cy="379" r="22" fill="#000"/>
+<circle cx="68" cy="250" r="22" fill="#000"/>
+<circle cx="121" cy="121" r="22" fill="#000"/>
+<circle cx="250" cy="250" r="58" fill="#000"/>
+</svg>
+</div>
+
+<!-- 8. Planète très grosse -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="72" r="52" fill="#000"/>
+<circle cx="379" cy="121" r="13" fill="#000"/>
+<circle cx="432" cy="250" r="13" fill="#000"/>
+<circle cx="379" cy="379" r="13" fill="#000"/>
+<circle cx="250" cy="432" r="13" fill="#000"/>
+<circle cx="121" cy="379" r="13" fill="#000"/>
+<circle cx="68" cy="250" r="13" fill="#000"/>
+<circle cx="121" cy="121" r="13" fill="#000"/>
+<circle cx="250" cy="250" r="50" fill="#000"/>
+</svg>
+</div>
+
+<!-- 9. Planète à droite (3h) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="17" fill="#000"/>
+<circle cx="379" cy="121" r="17" fill="#000"/>
+<circle cx="432" cy="250" r="36" fill="#000"/>
+<circle cx="379" cy="379" r="17" fill="#000"/>
+<circle cx="250" cy="432" r="17" fill="#000"/>
+<circle cx="121" cy="379" r="17" fill="#000"/>
+<circle cx="68" cy="250" r="17" fill="#000"/>
+<circle cx="121" cy="121" r="17" fill="#000"/>
+<circle cx="250" cy="250" r="58" fill="#000"/>
+</svg>
+</div>
+
+<!-- 10. Bi-planètes (Nord + Sud) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="30" fill="#000"/>
+<circle cx="379" cy="121" r="16" fill="#000"/>
+<circle cx="432" cy="250" r="16" fill="#000"/>
+<circle cx="379" cy="379" r="16" fill="#000"/>
+<circle cx="250" cy="432" r="30" fill="#000"/>
+<circle cx="121" cy="379" r="16" fill="#000"/>
+<circle cx="68" cy="250" r="16" fill="#000"/>
+<circle cx="121" cy="121" r="16" fill="#000"/>
+<circle cx="250" cy="250" r="56" fill="#000"/>
+</svg>
+</div>
+
+<!-- 11. Double orbite de points -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<!-- Orbite extérieure r=182 — 8 points -->
+<circle cx="250" cy="68" r="28" fill="#000"/>
+<circle cx="379" cy="121" r="13" fill="#000"/>
+<circle cx="432" cy="250" r="13" fill="#000"/>
+<circle cx="379" cy="379" r="13" fill="#000"/>
+<circle cx="250" cy="432" r="13" fill="#000"/>
+<circle cx="121" cy="379" r="13" fill="#000"/>
+<circle cx="68" cy="250" r="13" fill="#000"/>
+<circle cx="121" cy="121" r="13" fill="#000"/>
+<!-- Orbite intérieure r=110 — 6 points -->
+<circle cx="250" cy="140" r="11" fill="#000"/>
+<circle cx="345" cy="195" r="11" fill="#000"/>
+<circle cx="345" cy="305" r="11" fill="#000"/>
+<circle cx="250" cy="360" r="11" fill="#000"/>
+<circle cx="155" cy="305" r="11" fill="#000"/>
+<circle cx="155" cy="195" r="11" fill="#000"/>
+<!-- Centre -->
+<circle cx="250" cy="250" r="42" fill="#000"/>
+</svg>
+</div>
+
+<!-- 12. Orbite en points sans centre -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="40" fill="#000"/>
+<circle cx="379" cy="121" r="18" fill="#000"/>
+<circle cx="432" cy="250" r="18" fill="#000"/>
+<circle cx="379" cy="379" r="18" fill="#000"/>
+<circle cx="250" cy="432" r="18" fill="#000"/>
+<circle cx="121" cy="379" r="18" fill="#000"/>
+<circle cx="68" cy="250" r="18" fill="#000"/>
+<circle cx="121" cy="121" r="18" fill="#000"/>
+</svg>
+</div>
+
+<!-- 13. Orbite ovale (ellipse verticale de points) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="65" r="34" fill="#000"/>
+<circle cx="349" cy="119" r="16" fill="#000"/>
+<circle cx="390" cy="250" r="16" fill="#000"/>
+<circle cx="349" cy="381" r="16" fill="#000"/>
+<circle cx="250" cy="435" r="16" fill="#000"/>
+<circle cx="151" cy="381" r="16" fill="#000"/>
+<circle cx="110" cy="250" r="16" fill="#000"/>
+<circle cx="151" cy="119" r="16" fill="#000"/>
+<circle cx="250" cy="250" r="54" fill="#000"/>
+</svg>
+</div>
+
+<!-- 14. Demi-orbite (arc de points en haut) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="68" cy="250" r="17" fill="#000"/>
+<circle cx="121" cy="121" r="17" fill="#000"/>
+<circle cx="250" cy="68" r="36" fill="#000"/>
+<circle cx="379" cy="121" r="17" fill="#000"/>
+<circle cx="432" cy="250" r="17" fill="#000"/>
+<circle cx="250" cy="250" r="58" fill="#000"/>
+</svg>
+</div>
+
+<!-- 15. Taille en spirale (croissante dans le sens horaire) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="32" fill="#000"/>
+<circle cx="379" cy="121" r="26" fill="#000"/>
+<circle cx="432" cy="250" r="21" fill="#000"/>
+<circle cx="379" cy="379" r="17" fill="#000"/>
+<circle cx="250" cy="432" r="14" fill="#000"/>
+<circle cx="121" cy="379" r="12" fill="#000"/>
+<circle cx="68" cy="250" r="10" fill="#000"/>
+<circle cx="121" cy="121" r="8" fill="#000"/>
+<circle cx="250" cy="250" r="52" fill="#000"/>
+</svg>
+</div>
+
+<!-- 16. Centre en anneau -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="30" fill="#000"/>
+<circle cx="379" cy="121" r="14" fill="#000"/>
+<circle cx="432" cy="250" r="14" fill="#000"/>
+<circle cx="379" cy="379" r="14" fill="#000"/>
+<circle cx="250" cy="432" r="14" fill="#000"/>
+<circle cx="121" cy="379" r="14" fill="#000"/>
+<circle cx="68" cy="250" r="14" fill="#000"/>
+<circle cx="121" cy="121" r="14" fill="#000"/>
+<circle cx="250" cy="250" r="68" fill="none" stroke="#000" stroke-width="30"/>
+</svg>
+</div>
+
+<!-- 17. 4 points cardinaux seulement -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="68" r="36" fill="#000"/>
+<circle cx="432" cy="250" r="22" fill="#000"/>
+<circle cx="250" cy="432" r="22" fill="#000"/>
+<circle cx="68" cy="250" r="22" fill="#000"/>
+<circle cx="250" cy="250" r="60" fill="#000"/>
+</svg>
+</div>
+
+<!-- 18. Centre géant + micro-points -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="250" r="88" fill="#000"/>
+<circle cx="250" cy="88" r="20" fill="#000"/>
+<circle cx="363" cy="137" r="10" fill="#000"/>
+<circle cx="412" cy="250" r="10" fill="#000"/>
+<circle cx="363" cy="363" r="10" fill="#000"/>
+<circle cx="250" cy="412" r="10" fill="#000"/>
+<circle cx="137" cy="363" r="10" fill="#000"/>
+<circle cx="88" cy="250" r="10" fill="#000"/>
+<circle cx="137" cy="137" r="10" fill="#000"/>
+</svg>
+</div>
+
+<!-- 19. 4 coins diagonaux + centre (pattern X) -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="379" cy="121" r="32" fill="#000"/>
+<circle cx="121" cy="379" r="32" fill="#000"/>
+<circle cx="121" cy="121" r="20" fill="#000"/>
+<circle cx="379" cy="379" r="20" fill="#000"/>
+<circle cx="250" cy="250" r="60" fill="#000"/>
+</svg>
+</div>
+
+<!-- 20. Hybride : points + anneau fin -->
+<div class="cell">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="250" r="182" fill="none" stroke="#000" stroke-width="5"/>
+<circle cx="250" cy="68" r="36" fill="#000"/>
+<circle cx="379" cy="121" r="17" fill="#000"/>
+<circle cx="432" cy="250" r="17" fill="#000"/>
+<circle cx="379" cy="379" r="17" fill="#000"/>
+<circle cx="250" cy="432" r="17" fill="#000"/>
+<circle cx="121" cy="379" r="17" fill="#000"/>
+<circle cx="68" cy="250" r="17" fill="#000"/>
+<circle cx="121" cy="121" r="17" fill="#000"/>
+<circle cx="250" cy="250" r="58" fill="#000"/>
+</svg>
+</div>
+
+</div>
+</body>
+</html>

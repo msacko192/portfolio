@@ -8,6 +8,8 @@ import BlogPost from './pages/BlogPost'
 import LocationPage from './pages/LocationPage'
 import NotFound from './pages/NotFound'
 import Confirmation from './pages/Confirmation'
+import MentionsLegales from './pages/MentionsLegales'
+import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite'
 import { services } from './data/services'
 import { locations } from './data/locations'
 
@@ -25,6 +27,8 @@ export default function AppRoutes() {
 
         {/* Blog */}
         <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
 

@@ -1,9 +1,10 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { SectionNumber } from './SectionMeta'
-import { textReveal, textLine, stagger, cardItem, hoverLift } from '../lib/motion'
+import { stagger, cardItem, hoverLift } from '../lib/motion'
 import { AnimatedTitle } from '../animations/components'
+
+const ease = [0.22, 1, 0.36, 1]
 
 function PlanCard({ plan }) {
   if (plan.featured) {
@@ -64,21 +65,31 @@ export default function Pricing() {
   return (
     <section className="bg-section py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          ref={headRef}
-          variants={textReveal()}
-          initial="hidden"
-          animate={headInView ? 'show' : 'hidden'}
-        >
-          <motion.div variants={textLine}><SectionNumber index={3} label="Les offres" /></motion.div>
-        </motion.div>
-        <AnimatedTitle
-          as="h2"
-          className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary text-balance mb-12"
-          delay={0.05}
-        >
-          {content.pricing.title}
-        </AnimatedTitle>
+        <div ref={headRef}>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={headInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, ease }}
+            className="label text-secondary mb-4"
+          >
+            Les offres
+          </motion.p>
+          <AnimatedTitle
+            as="h2"
+            className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary text-balance"
+            delay={0.05}
+          >
+            {content.pricing.title}
+          </AnimatedTitle>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={headInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, ease, delay: 0.2 }}
+            className="font-inter text-muted mt-3 mb-12"
+          >
+            Sans engagement forcé. Sans surprises.
+          </motion.p>
+        </div>
         <motion.div
           ref={gridRef}
           variants={stagger(0.05)}

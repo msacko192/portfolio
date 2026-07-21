@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { posts } from '../data/blog'
-import { textReveal, textLine, fadeUp, stagger, cardItem, hoverLift } from '../lib/motion'
+import { textReveal, textLine, vFadeUp, stagger, cardItem, hoverLift } from '../lib/motion'
 import Breadcrumb from '../components/Breadcrumb'
 
 function formatDate(dateStr) {
@@ -116,7 +116,7 @@ export default function BlogPost() {
             animate="show"
           >
             {post.content.map((section, i) => (
-              <motion.div key={i} variants={fadeUp}>
+              <motion.div key={i} variants={vFadeUp}>
                 {renderSection(section, i)}
               </motion.div>
             ))}
@@ -131,7 +131,7 @@ export default function BlogPost() {
             className="mt-12 bg-secondary/8 border border-secondary/20 rounded-2xl p-8"
           >
             <h2 className="font-archivo font-bold text-xl tracking-display text-primary mb-2 leading-snug text-balance">
-              Un projet dans votre PME ?
+              Un projet dans votre entreprise ?
             </h2>
             <p className="font-inter text-muted leading-relaxed mb-5 max-w-[52ch]">
               Décrivez votre besoin en quelques lignes. Nous revenons vers vous dans les 48 heures avec un premier avis honnête — sans engagement.

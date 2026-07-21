@@ -19,15 +19,15 @@ export default function BeforeAfter() {
     <section className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-6">
 
-        <h2 className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary mb-10 text-balance">
+        <h2 className="font-archivo font-black text-3xl md:text-4xl tracking-display text-primary mb-10 text-balance">
           {beforeAfter.title}
         </h2>
 
         <div className="grid md:grid-cols-[1fr_1px_1fr] gap-0">
 
           {/* Colonne AVANT */}
-          <div ref={beforeRef} className="bg-[#EAE8E3] rounded-2xl md:rounded-r-none md:rounded-l-2xl p-8 md:p-10">
-            <p className="font-inter text-xs font-semibold tracking-widest uppercase text-[#6E7377] mb-6">
+          <div ref={beforeRef} className="bg-gray-50 rounded-2xl md:rounded-r-none md:rounded-l-2xl p-8 md:p-10">
+            <p className="font-inter text-xs font-semibold tracking-widest uppercase text-muted mb-6">
               Avant
             </p>
             <ul className="flex flex-col gap-4">
@@ -40,21 +40,21 @@ export default function BeforeAfter() {
                   transition={{ duration: 0.4, ease: 'easeOut', delay: i * 0.06 }}
                   className="flex items-start gap-3"
                 >
-                  <span className="mt-[5px] shrink-0 w-3 h-px bg-[#6E7377] inline-block"/>
-                  <span className="font-inter text-sm text-[#6E7377] leading-relaxed">{item}</span>
+                  <span className="mt-[5px] shrink-0 w-3 h-px bg-border inline-block"/>
+                  <span className="font-inter text-sm text-muted leading-relaxed">{item}</span>
                 </motion.li>
               ))}
             </ul>
           </div>
 
-          {/* Séparateur pin (visible md+) */}
+          {/* Séparateur (visible md+) */}
           <div className="hidden md:flex items-center justify-center">
-            <div className="w-px h-full bg-[#0E5C4A] opacity-30"/>
+            <div className="w-px h-full bg-border opacity-60"/>
           </div>
 
           {/* Colonne APRÈS */}
-          <div ref={afterRef} className="bg-white border border-[#DCDAD4] rounded-2xl md:rounded-l-none md:rounded-r-2xl p-8 md:p-10 mt-3 md:mt-0">
-            <p className="font-inter text-xs font-semibold tracking-widest uppercase text-[#0E5C4A] mb-6">
+          <div ref={afterRef} className="bg-white border border-border rounded-2xl md:rounded-l-none md:rounded-r-2xl p-8 md:p-10 mt-3 md:mt-0">
+            <p className="font-inter text-xs font-semibold tracking-widest uppercase text-success mb-6">
               Après
             </p>
             <ul className="flex flex-col gap-4">
@@ -67,7 +67,7 @@ export default function BeforeAfter() {
                   transition={{ duration: 0.4, ease: 'easeOut', delay: i * 0.06 }}
                   className="flex items-start gap-3"
                 >
-                  <span className="mt-[5px] shrink-0 w-1.5 h-1.5 rounded-full bg-[#0E5C4A] inline-block"/>
+                  <span className="mt-[5px] shrink-0 w-1.5 h-1.5 rounded-full bg-success/60 inline-block"/>
                   <span className="font-inter text-sm text-primary leading-relaxed">{item}</span>
                 </motion.li>
               ))}

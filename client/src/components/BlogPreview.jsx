@@ -32,7 +32,7 @@ export default function BlogPreview() {
           >
             <motion.p variants={textLine} className="label text-muted mb-2">Blog</motion.p>
             <motion.h2 variants={textLine} className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary text-balance">
-              Ressources pour les PME
+              Ressources pour les entreprises
             </motion.h2>
           </motion.div>
           <motion.div

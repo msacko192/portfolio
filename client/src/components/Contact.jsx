@@ -2,7 +2,6 @@ import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { textReveal, textLine, fadeUp } from '../lib/motion'
 
 const ease = [0.22, 1, 0.36, 1]
 

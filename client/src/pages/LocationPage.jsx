@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { locations } from '../data/locations'
-import { textReveal, textLine, fadeUp, stagger, cardItem, hoverLift } from '../lib/motion'
+import { textReveal, textLine, vFadeUp, stagger, cardItem, hoverLift } from '../lib/motion'
 import Breadcrumb from '../components/Breadcrumb'
 
 const SERVICES = [
@@ -66,7 +66,7 @@ export default function LocationPage() {
               Développeur applications métier sur mesure à {location.city}
             </motion.h1>
             <motion.p variants={textLine} className="font-inter text-white/60 leading-relaxed text-pretty max-w-[58ch] text-lg mb-8">
-              Nous créons des logiciels sur mesure pour les PME de {location.region} — ERP, CRM, portail client, gestion de chantier et d'intervention. À distance ou en déplacement selon vos besoins.
+              Nous créons des logiciels sur mesure pour les entreprises de {location.region} — ERP, CRM, portail client, gestion de chantier et d'intervention. À distance ou en déplacement selon vos besoins.
             </motion.p>
             <motion.div variants={textLine}>
               <a
@@ -84,7 +84,7 @@ export default function LocationPage() {
       <section className="bg-section py-16">
         <div ref={contextRef} className="mx-auto max-w-4xl px-6">
           <motion.div
-            variants={fadeUp}
+            variants={vFadeUp}
             initial="hidden"
             animate={contextInView ? 'show' : 'hidden'}
             className="bg-white border border-border rounded-2xl p-8"
@@ -106,7 +106,7 @@ export default function LocationPage() {
             animate={servicesInView ? 'show' : 'hidden'}
             className="font-archivo font-bold text-3xl md:text-4xl tracking-display text-primary mb-10 text-balance"
           >
-            Ce que nous développons pour les PME de {location.region}
+            Ce que nous développons pour les entreprises de {location.region}
           </motion.h2>
           <motion.div
             variants={stagger()}
@@ -168,7 +168,7 @@ export default function LocationPage() {
       <section className="bg-primary py-20">
         <div ref={ctaRef} className="mx-auto max-w-4xl px-6 text-center">
           <motion.div
-            variants={fadeUp}
+            variants={vFadeUp}
             initial="hidden"
             animate={ctaInView ? 'show' : 'hidden'}
           >
