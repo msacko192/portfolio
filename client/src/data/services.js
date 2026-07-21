@@ -37,7 +37,7 @@ export const services = [
       },
       {
         q: "Qui s'occupe de la maintenance après le développement ?",
-        a: "Nous proposons un contrat de maintenance évolutive si vous souhaitez faire évoluer l'outil dans le temps. Vous êtes aussi libre de confier la maintenance à un autre développeur — vous restez propriétaire du code source.",
+        a: "Nous proposons un contrat de maintenance évolutive si vous souhaitez faire évoluer l'outil dans le temps. Vous êtes aussi libre de confier la maintenance à un autre développeur — tous les accès vous appartiennent.",
       },
     ],
   },
@@ -109,8 +109,8 @@ export const services = [
         a: "Entre 2 et 5 mois selon la complexité. Nous livrons une première version utilisable rapidement, puis l'outil évolue avec vos retours terrain.",
       },
       {
-        q: "Suis-je propriétaire du code ?",
-        a: "Oui, intégralement. Le code source vous appartient dès la livraison. Vous pouvez le faire évoluer avec nous ou avec n'importe quel autre développeur.",
+        q: "Puis-je faire évoluer l'application avec un autre développeur ?",
+        a: "Oui. Tous les accès sont les vôtres dès la livraison. Vous pouvez faire évoluer l'outil avec nous ou avec n'importe quel autre développeur.",
       },
     ],
   },

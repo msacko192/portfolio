@@ -1,9 +1,8 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { stagger, cardItem, hoverLift } from '../lib/motion'
+import { ease, stagger, cardItem, hoverLift } from '../lib/motion'
 
-const ease = [0.22, 1, 0.36, 1]
 
 const ICONS = [
   'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',

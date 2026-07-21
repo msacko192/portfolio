@@ -354,14 +354,6 @@ export const content = {
       a: "Vous avez une première version utilisable en 4 à 10 semaines. Nous travaillons par itérations courtes — vous voyez l'avancement chaque semaine.",
     },
     {
-      q: 'Qui reste propriétaire du code ?',
-      a: "Vous. Dès le premier commit. Le code source vous appartient intégralement et est hébergé sur votre propre dépôt.",
-    },
-    {
-      q: "Que se passe-t-il si vous n'êtes plus disponibles ?",
-      a: "Votre code est hébergé sur votre propre dépôt GitHub. N'importe quel développeur peut reprendre le projet sans blocage.",
-    },
-    {
       q: 'Faut-il une connaissance technique pour valider ?',
       a: "Non. Nos livrables sont toujours des interfaces testables, pas des spécifications techniques. Vous testez comme un utilisateur, pas comme un développeur.",
     },

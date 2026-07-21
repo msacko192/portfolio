@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
 import { content } from '../data/content'
-import { f } from '../lib/motion'
+import { ease, f } from '../lib/motion'
 import DashboardMockup from './DashboardMockup'
 
-const ease = [0.22, 1, 0.36, 1]
 
 export default function Hero() {
   const { hero } = content
@@ -106,8 +105,8 @@ export default function Hero() {
               </div>
               <div className="w-px h-10 bg-border shrink-0" />
               <div>
-                <p className="font-archivo font-black text-primary text-2xl leading-none">100%</p>
-                <p className="font-inter text-xs text-muted mt-1">Code propriétaire</p>
+                <p className="font-archivo font-black text-primary text-2xl leading-none">24h</p>
+                <p className="font-inter text-xs text-muted mt-1">Délai de réponse</p>
               </div>
             </motion.div>
 

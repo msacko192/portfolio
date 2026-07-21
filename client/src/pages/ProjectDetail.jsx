@@ -2,10 +2,9 @@ import { useRef } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { stagger, cardItem } from '../lib/motion'
+import { ease, stagger, cardItem } from '../lib/motion'
 import { ProjectSchema } from '../components/ProjectSchemas'
 
-const ease = [0.22, 1, 0.36, 1]
 const TOTAL = content.projects.items.length
 
 function Section({ label, children }) {

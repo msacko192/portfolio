@@ -5,10 +5,7 @@ const ITEMS = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
-        <path d="M12 15l-2 5L9 9l11 4-5 2z" />
-        <path d="M9 9L3 6l9-3 3 9-6-3z" opacity="0" />
-        <circle cx="12" cy="8" r="3" />
-        <path d="M5 3l1.5 1.5M3 12H1M5 21l1.5-1.5M12 22v-2M19 21l-1.5-1.5M21 12h2M19 3l-1.5 1.5" opacity="0" />
+        <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
       </svg>
     ),
     stat: '20+',
@@ -17,23 +14,20 @@ const ITEMS = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
+        <circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" />
       </svg>
     ),
-    stat: '100%',
-    label: 'Sur mesure',
+    stat: '4–10',
+    label: 'Semaines de livraison',
   },
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-        <path d="M7 11V7a5 5 0 0110 0v4" />
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" /><path d="M22 4L12 14.01l-3-3" />
       </svg>
     ),
-    stat: null,
-    label: 'Vous restez propriétaire du code',
+    stat: '100%',
+    label: 'Sur mesure',
   },
 ]
 

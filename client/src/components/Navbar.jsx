@@ -2,16 +2,48 @@ import { useState, useEffect, useRef } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { content, BRAND } from '../data/content'
+import { services } from '../data/services'
+import { useScrolled } from '../animations/hooks'
 import Logo from './Logo'
 
-const SERVICE_NAV = [
-  { slug: 'erp-sur-mesure',           icon: '⚙️', title: 'ERP sur mesure',        desc: 'Gestion intégrée personnalisée' },
-  { slug: 'crm-sur-mesure',           icon: '📊', title: 'CRM sur mesure',         desc: 'Pipeline commercial adapté' },
-  { slug: 'portail-client',           icon: '🔗', title: 'Portail client',         desc: 'Espace client en ligne' },
-  { slug: 'automatisation-processus', icon: '⚡', title: 'Automatisation',         desc: 'Tâches manuelles éliminées' },
-  { slug: 'gestion-chantier',         icon: '🏗️', title: 'Gestion de chantier',   desc: 'Planning et suivi terrain' },
-  { slug: 'gestion-intervention',     icon: '🔧', title: 'Gestion interventions',  desc: 'Planification et rapports' },
-]
+const NAV_ICONS = {
+  'erp-sur-mesure': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5" aria-hidden="true">
+      <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
+    </svg>
+  ),
+  'crm-sur-mesure': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5" aria-hidden="true">
+      <path d="M18 20V10M12 20V4M6 20v-6" />
+    </svg>
+  ),
+  'portail-client': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5" aria-hidden="true">
+      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+    </svg>
+  ),
+  'automatisation-processus': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5" aria-hidden="true">
+      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    </svg>
+  ),
+  'gestion-chantier': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5" aria-hidden="true">
+      <path d="M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18zM6 12H4a2 2 0 00-2 2v6a2 2 0 002 2h2M18 9h2a2 2 0 012 2v9a2 2 0 01-2 2h-2" /><path d="M10 6h4M10 10h4M10 14h4M10 18h4" />
+    </svg>
+  ),
+  'gestion-intervention': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5" aria-hidden="true">
+      <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+    </svg>
+  ),
+}
+
+const appsMeta = services.find((s) => s.slug === 'applications-metier')
+const SERVICE_NAV = (appsMeta?.services ?? [])
+  .filter((s) => s.slug !== 'applications-metier')
+  .slice(0, 6)
+  .map((s) => ({ slug: s.slug, title: s.title, desc: s.body.split('.')[0] }))
 
 function ChevronDown({ open }) {
   return (
@@ -51,7 +83,9 @@ function SolutionsDropdown() {
             to={`/${item.slug}`}
             className="flex items-start gap-3 p-4 bg-white hover:bg-section transition-colors duration-150 group"
           >
-            <span className="text-xl shrink-0 mt-0.5">{item.icon}</span>
+            <span className="text-muted group-hover:text-secondary transition-colors duration-150 shrink-0 mt-0.5">
+              {NAV_ICONS[item.slug]}
+            </span>
             <div className="min-w-0">
               <p className="font-inter font-semibold text-sm text-primary group-hover:text-secondary transition-colors duration-150 leading-tight">
                 {item.title}
@@ -78,19 +112,13 @@ function SolutionsDropdown() {
 }
 
 export default function Navbar() {
-  const [scrolled, setScrolled]             = useState(false)
+  const scrolled                            = useScrolled(40)
   const [menuOpen, setMenuOpen]             = useState(false)
   const [solutionsOpen, setSolutionsOpen]   = useState(false)
   const [mobileSolOpen, setMobileSolOpen]   = useState(false)
   const { pathname }                        = useLocation()
   const isHome                              = pathname === '/'
   const dropdownRef                         = useRef(null)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     const handler = (e) => {
@@ -239,7 +267,7 @@ export default function Navbar() {
                     to={`/${item.slug}`}
                     className="flex items-center gap-3 py-2.5 border-b border-border/50 text-muted hover:text-primary transition-colors duration-150"
                   >
-                    <span className="text-base">{item.icon}</span>
+                    <span className="shrink-0">{NAV_ICONS[item.slug]}</span>
                     <span className="font-inter text-base font-medium">{item.title}</span>
                   </Link>
                 ))}

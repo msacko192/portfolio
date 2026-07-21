@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { ease } from '../lib/motion'
 
-const ease = [0.22, 1, 0.36, 1]
 
 export default function CTAFinal() {
   const ref = useRef(null)

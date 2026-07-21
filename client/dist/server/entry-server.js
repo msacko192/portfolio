@@ -1,5 +1,5 @@
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import { motion, AnimatePresence, useInView, MotionConfig } from "framer-motion";
@@ -227,14 +227,6 @@ const content = {
       a: "Vous avez une première version utilisable en 4 à 10 semaines. Nous travaillons par itérations courtes — vous voyez l'avancement chaque semaine."
     },
     {
-      q: "Qui reste propriétaire du code ?",
-      a: "Vous. Dès le premier commit. Le code source vous appartient intégralement et est hébergé sur votre propre dépôt."
-    },
-    {
-      q: "Que se passe-t-il si vous n'êtes plus disponibles ?",
-      a: "Votre code est hébergé sur votre propre dépôt GitHub. N'importe quel développeur peut reprendre le projet sans blocage."
-    },
-    {
       q: "Faut-il une connaissance technique pour valider ?",
       a: "Non. Nos livrables sont toujours des interfaces testables, pas des spécifications techniques. Vous testez comme un utilisateur, pas comme un développeur."
     },
@@ -251,323 +243,6 @@ const content = {
     legal: `© ${(/* @__PURE__ */ new Date()).getFullYear()} ${BRAND}. Tous droits réservés.`
   }
 };
-function Logo() {
-  return /* @__PURE__ */ jsxs("span", { className: "flex items-center gap-2.5", children: [
-    /* @__PURE__ */ jsxs(
-      "svg",
-      {
-        height: "26",
-        viewBox: "44 30 145 140",
-        xmlns: "http://www.w3.org/2000/svg",
-        "aria-hidden": "true",
-        style: { display: "block" },
-        children: [
-          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "36.3", r: "6.3", fill: "currentColor" }),
-          /* @__PURE__ */ jsx("circle", { cx: "157.2", cy: "54.9", r: "8.8", fill: "currentColor" }),
-          /* @__PURE__ */ jsx("circle", { cx: "175.7", cy: "100", r: "13.3", fill: "currentColor" }),
-          /* @__PURE__ */ jsx("circle", { cx: "157.2", cy: "145.2", r: "8.8", fill: "currentColor" }),
-          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "163.7", r: "6.3", fill: "currentColor" }),
-          /* @__PURE__ */ jsx("circle", { cx: "66.9", cy: "145.2", r: "4.6", fill: "currentColor" }),
-          /* @__PURE__ */ jsx("circle", { cx: "48.3", cy: "100", r: "3.5", fill: "currentColor" }),
-          /* @__PURE__ */ jsx("circle", { cx: "66.9", cy: "54.9", r: "4.6", fill: "currentColor" }),
-          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "100", r: "19.6", fill: "currentColor" })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsx("span", { className: "font-archivo font-black text-xl tracking-tight leading-none", children: "DJEXA" })
-  ] });
-}
-const SERVICE_NAV = [
-  { slug: "erp-sur-mesure", icon: "⚙️", title: "ERP sur mesure", desc: "Gestion intégrée personnalisée" },
-  { slug: "crm-sur-mesure", icon: "📊", title: "CRM sur mesure", desc: "Pipeline commercial adapté" },
-  { slug: "portail-client", icon: "🔗", title: "Portail client", desc: "Espace client en ligne" },
-  { slug: "automatisation-processus", icon: "⚡", title: "Automatisation", desc: "Tâches manuelles éliminées" },
-  { slug: "gestion-chantier", icon: "🏗️", title: "Gestion de chantier", desc: "Planning et suivi terrain" },
-  { slug: "gestion-intervention", icon: "🔧", title: "Gestion interventions", desc: "Planification et rapports" }
-];
-function ChevronDown({ open }) {
-  return /* @__PURE__ */ jsx(
-    "svg",
-    {
-      width: "12",
-      height: "12",
-      viewBox: "0 0 12 12",
-      fill: "none",
-      className: `transition-transform duration-200 ${open ? "rotate-180" : ""}`,
-      "aria-hidden": "true",
-      children: /* @__PURE__ */ jsx("path", { d: "M2 4l4 4 4-4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })
-    }
-  );
-}
-function HamburgerIcon({ open }) {
-  return /* @__PURE__ */ jsxs("span", { className: "flex flex-col justify-center items-center w-5 h-5 gap-[5px]", "aria-hidden": "true", children: [
-    /* @__PURE__ */ jsx("span", { className: `block h-px w-5 bg-current transition-all duration-200 origin-center ${open ? "rotate-45 translate-y-[6px]" : ""}` }),
-    /* @__PURE__ */ jsx("span", { className: `block h-px w-5 bg-current transition-all duration-200 ${open ? "opacity-0 scale-x-0" : ""}` }),
-    /* @__PURE__ */ jsx("span", { className: `block h-px w-5 bg-current transition-all duration-200 origin-center ${open ? "-rotate-45 -translate-y-[6px]" : ""}` })
-  ] });
-}
-function SolutionsDropdown() {
-  return /* @__PURE__ */ jsxs(
-    motion.div,
-    {
-      initial: { opacity: 0, y: 8 },
-      animate: { opacity: 1, y: 0 },
-      exit: { opacity: 0, y: 8 },
-      transition: { duration: 0.18, ease: [0.22, 1, 0.36, 1] },
-      className: "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[480px] bg-white border border-border rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.10)] overflow-hidden",
-      children: [
-        /* @__PURE__ */ jsx("div", { className: "grid grid-cols-2 gap-px bg-border", children: SERVICE_NAV.map((item) => /* @__PURE__ */ jsxs(
-          Link,
-          {
-            to: `/${item.slug}`,
-            className: "flex items-start gap-3 p-4 bg-white hover:bg-section transition-colors duration-150 group",
-            children: [
-              /* @__PURE__ */ jsx("span", { className: "text-xl shrink-0 mt-0.5", children: item.icon }),
-              /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
-                /* @__PURE__ */ jsx("p", { className: "font-inter font-semibold text-sm text-primary group-hover:text-secondary transition-colors duration-150 leading-tight", children: item.title }),
-                /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted leading-snug mt-0.5", children: item.desc })
-              ] })
-            ]
-          },
-          item.slug
-        )) }),
-        /* @__PURE__ */ jsxs("div", { className: "px-5 py-3 bg-section border-t border-border flex items-center justify-between", children: [
-          /* @__PURE__ */ jsx("span", { className: "font-inter text-xs text-muted", children: "Studio DJEXA · Applications métier sur mesure" }),
-          /* @__PURE__ */ jsxs(
-            Link,
-            {
-              to: "/applications-metier",
-              className: "font-inter text-xs font-medium text-secondary hover:underline flex items-center gap-1",
-              children: [
-                "Toutes nos solutions",
-                /* @__PURE__ */ jsx("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 5h6M5 2l3 3-3 3", stroke: "currentColor", strokeWidth: "1.4", strokeLinecap: "round", strokeLinejoin: "round" }) })
-              ]
-            }
-          )
-        ] })
-      ]
-    }
-  );
-}
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
-  const [mobileSolOpen, setMobileSolOpen] = useState(false);
-  const { pathname } = useLocation();
-  const isHome = pathname === "/";
-  const dropdownRef = useRef(null);
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  useEffect(() => {
-    const handler = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setSolutionsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-  useEffect(() => {
-    setMenuOpen(false);
-    setSolutionsOpen(false);
-  }, [pathname]);
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-  const showBg = !isHome || scrolled || menuOpen;
-  const headerBg = showBg ? "bg-white/95 backdrop-blur-xl border-b border-border shadow-[0_1px_3px_rgba(0,0,0,0.04)]" : "bg-transparent";
-  const methodeHref = isHome ? "#methode" : "/#methode";
-  const realisationsHref = isHome ? "#realisations" : "/#realisations";
-  const contactHref = isHome ? "#contact" : "/#contact";
-  return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx(
-      motion.header,
-      {
-        initial: { y: -64, opacity: 0 },
-        animate: { y: 0, opacity: 1 },
-        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.1 },
-        className: `fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerBg}`,
-        children: /* @__PURE__ */ jsxs("div", { className: `mx-auto max-w-7xl px-6 flex items-center gap-8 transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`, children: [
-          /* @__PURE__ */ jsx(
-            Link,
-            {
-              to: "/",
-              className: "text-secondary hover:text-secondary/80 transition-colors duration-200 shrink-0",
-              "aria-label": BRAND,
-              children: /* @__PURE__ */ jsx(Logo, {})
-            }
-          ),
-          /* @__PURE__ */ jsxs("nav", { className: "hidden md:flex items-center gap-0.5 flex-1", children: [
-            /* @__PURE__ */ jsxs(
-              "div",
-              {
-                ref: dropdownRef,
-                className: "relative",
-                onMouseEnter: () => setSolutionsOpen(true),
-                onMouseLeave: () => setSolutionsOpen(false),
-                children: [
-                  /* @__PURE__ */ jsxs(
-                    "button",
-                    {
-                      onClick: () => setSolutionsOpen((v) => !v),
-                      className: "inline-flex items-center gap-1.5 font-inter text-sm font-medium text-muted hover:text-primary px-3 py-2 rounded-lg transition-colors duration-150",
-                      "aria-expanded": solutionsOpen,
-                      "aria-haspopup": "true",
-                      children: [
-                        "Solutions",
-                        /* @__PURE__ */ jsx(ChevronDown, { open: solutionsOpen })
-                      ]
-                    }
-                  ),
-                  /* @__PURE__ */ jsx(AnimatePresence, { children: solutionsOpen && /* @__PURE__ */ jsx(SolutionsDropdown, {}) })
-                ]
-              }
-            ),
-            /* @__PURE__ */ jsx(
-              "a",
-              {
-                href: realisationsHref,
-                className: "font-inter text-sm font-medium text-muted hover:text-primary px-3 py-2 rounded-lg transition-colors duration-150",
-                children: "Réalisations"
-              }
-            ),
-            /* @__PURE__ */ jsx(
-              "a",
-              {
-                href: methodeHref,
-                className: "font-inter text-sm font-medium text-muted hover:text-primary px-3 py-2 rounded-lg transition-colors duration-150",
-                children: "Méthode"
-              }
-            ),
-            /* @__PURE__ */ jsx(
-              Link,
-              {
-                to: "/blog",
-                className: "font-inter text-sm font-medium text-muted hover:text-primary px-3 py-2 rounded-lg transition-colors duration-150",
-                children: "Blog"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsx("div", { className: "hidden md:flex items-center gap-3 ml-auto", children: /* @__PURE__ */ jsxs(
-            motion.a,
-            {
-              href: contactHref,
-              whileTap: { scale: 0.97 },
-              className: "inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-secondary hover:scale-[1.02] transition-all duration-200 shrink-0",
-              children: [
-                content.nav.cta,
-                /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
-              ]
-            }
-          ) }),
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              className: "md:hidden p-2 -mr-2 ml-auto text-primary transition-colors duration-200",
-              onClick: () => setMenuOpen((v) => !v),
-              "aria-expanded": menuOpen,
-              "aria-label": menuOpen ? "Fermer le menu" : "Ouvrir le menu",
-              children: /* @__PURE__ */ jsx(HamburgerIcon, { open: menuOpen })
-            }
-          )
-        ] })
-      }
-    ),
-    /* @__PURE__ */ jsxs(
-      "div",
-      {
-        className: `md:hidden fixed inset-0 z-40 bg-white flex flex-col transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`,
-        "aria-hidden": !menuOpen,
-        children: [
-          /* @__PURE__ */ jsx("div", { className: "h-16 shrink-0" }),
-          /* @__PURE__ */ jsxs("nav", { className: "flex-1 flex flex-col px-6 pt-6 pb-12 gap-0 overflow-y-auto", children: [
-            /* @__PURE__ */ jsxs("div", { children: [
-              /* @__PURE__ */ jsxs(
-                "button",
-                {
-                  className: "w-full flex items-center justify-between font-archivo font-bold text-2xl tracking-display text-primary py-4 border-b border-border transition-colors duration-150",
-                  onClick: () => setMobileSolOpen((v) => !v),
-                  "aria-expanded": mobileSolOpen,
-                  children: [
-                    "Solutions",
-                    /* @__PURE__ */ jsx(ChevronDown, { open: mobileSolOpen })
-                  ]
-                }
-              ),
-              mobileSolOpen && /* @__PURE__ */ jsxs("div", { className: "flex flex-col pl-4 py-2 mb-1", children: [
-                SERVICE_NAV.map((item) => /* @__PURE__ */ jsxs(
-                  Link,
-                  {
-                    to: `/${item.slug}`,
-                    className: "flex items-center gap-3 py-2.5 border-b border-border/50 text-muted hover:text-primary transition-colors duration-150",
-                    children: [
-                      /* @__PURE__ */ jsx("span", { className: "text-base", children: item.icon }),
-                      /* @__PURE__ */ jsx("span", { className: "font-inter text-base font-medium", children: item.title })
-                    ]
-                  },
-                  item.slug
-                )),
-                /* @__PURE__ */ jsx(
-                  Link,
-                  {
-                    to: "/applications-metier",
-                    className: "font-inter text-sm text-secondary py-3",
-                    children: "Toutes nos solutions →"
-                  }
-                )
-              ] })
-            ] }),
-            /* @__PURE__ */ jsx(
-              "a",
-              {
-                href: realisationsHref,
-                onClick: () => setMenuOpen(false),
-                className: "font-archivo font-bold text-2xl tracking-display text-primary py-4 border-b border-border transition-colors duration-150",
-                children: "Réalisations"
-              }
-            ),
-            /* @__PURE__ */ jsx(
-              "a",
-              {
-                href: methodeHref,
-                onClick: () => setMenuOpen(false),
-                className: "font-archivo font-bold text-2xl tracking-display text-primary py-4 border-b border-border transition-colors duration-150",
-                children: "Méthode"
-              }
-            ),
-            /* @__PURE__ */ jsx(
-              Link,
-              {
-                to: "/blog",
-                className: "font-archivo font-bold text-2xl tracking-display text-primary py-4 border-b border-border transition-colors duration-150",
-                children: "Blog"
-              }
-            ),
-            /* @__PURE__ */ jsx("div", { className: "mt-8 flex flex-col gap-3", children: /* @__PURE__ */ jsxs(
-              "a",
-              {
-                href: contactHref,
-                onClick: () => setMenuOpen(false),
-                className: "inline-flex items-center justify-center gap-2 bg-primary text-white font-inter font-medium text-sm px-6 py-3.5 rounded-xl hover:bg-primary/90 transition-colors duration-200",
-                children: [
-                  content.nav.cta,
-                  /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
-                ]
-              }
-            ) })
-          ] })
-        ]
-      }
-    )
-  ] });
-}
 const services = [
   {
     slug: "applications-metier",
@@ -604,7 +279,7 @@ const services = [
       },
       {
         q: "Qui s'occupe de la maintenance après le développement ?",
-        a: "Nous proposons un contrat de maintenance évolutive si vous souhaitez faire évoluer l'outil dans le temps. Vous êtes aussi libre de confier la maintenance à un autre développeur — vous restez propriétaire du code source."
+        a: "Nous proposons un contrat de maintenance évolutive si vous souhaitez faire évoluer l'outil dans le temps. Vous êtes aussi libre de confier la maintenance à un autre développeur — tous les accès vous appartiennent."
       }
     ]
   },
@@ -673,8 +348,8 @@ const services = [
         a: "Entre 2 et 5 mois selon la complexité. Nous livrons une première version utilisable rapidement, puis l'outil évolue avec vos retours terrain."
       },
       {
-        q: "Suis-je propriétaire du code ?",
-        a: "Oui, intégralement. Le code source vous appartient dès la livraison. Vous pouvez le faire évoluer avec nous ou avec n'importe quel autre développeur."
+        q: "Puis-je faire évoluer l'application avec un autre développeur ?",
+        a: "Oui. Tous les accès sont les vôtres dès la livraison. Vous pouvez faire évoluer l'outil avec nous ou avec n'importe quel autre développeur."
       }
     ]
   },
@@ -1204,7 +879,372 @@ const services = [
     ]
   }
 ];
-const ease$d = [0.22, 1, 0.36, 1];
+function useScrolled(threshold = 20) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > threshold);
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, [threshold]);
+  return scrolled;
+}
+function Logo() {
+  return /* @__PURE__ */ jsxs("span", { className: "flex items-center gap-2.5", children: [
+    /* @__PURE__ */ jsxs(
+      "svg",
+      {
+        height: "26",
+        viewBox: "44 30 145 140",
+        xmlns: "http://www.w3.org/2000/svg",
+        "aria-hidden": "true",
+        style: { display: "block" },
+        children: [
+          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "36.3", r: "6.3", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "157.2", cy: "54.9", r: "8.8", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "175.7", cy: "100", r: "13.3", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "157.2", cy: "145.2", r: "8.8", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "163.7", r: "6.3", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "66.9", cy: "145.2", r: "4.6", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "48.3", cy: "100", r: "3.5", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "66.9", cy: "54.9", r: "4.6", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "100", r: "19.6", fill: "currentColor" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsx("span", { className: "font-archivo font-black text-xl tracking-tight leading-none", children: "DJEXA" })
+  ] });
+}
+const NAV_ICONS = {
+  "erp-sur-mesure": /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4.5 h-4.5", "aria-hidden": "true", children: [
+    /* @__PURE__ */ jsx("path", { d: "M12 2L2 7l10 5 10-5-10-5z" }),
+    /* @__PURE__ */ jsx("path", { d: "M2 17l10 5 10-5" }),
+    /* @__PURE__ */ jsx("path", { d: "M2 12l10 5 10-5" })
+  ] }),
+  "crm-sur-mesure": /* @__PURE__ */ jsx("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4.5 h-4.5", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M18 20V10M12 20V4M6 20v-6" }) }),
+  "portail-client": /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4.5 h-4.5", "aria-hidden": "true", children: [
+    /* @__PURE__ */ jsx("path", { d: "M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" }),
+    /* @__PURE__ */ jsx("circle", { cx: "9", cy: "7", r: "4" }),
+    /* @__PURE__ */ jsx("path", { d: "M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" })
+  ] }),
+  "automatisation-processus": /* @__PURE__ */ jsx("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4.5 h-4.5", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M13 2L3 14h9l-1 8 10-12h-9l1-8z" }) }),
+  "gestion-chantier": /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4.5 h-4.5", "aria-hidden": "true", children: [
+    /* @__PURE__ */ jsx("path", { d: "M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18zM6 12H4a2 2 0 00-2 2v6a2 2 0 002 2h2M18 9h2a2 2 0 012 2v9a2 2 0 01-2 2h-2" }),
+    /* @__PURE__ */ jsx("path", { d: "M10 6h4M10 10h4M10 14h4M10 18h4" })
+  ] }),
+  "gestion-intervention": /* @__PURE__ */ jsx("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4.5 h-4.5", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" }) })
+};
+const appsMeta = services.find((s) => s.slug === "applications-metier");
+const SERVICE_NAV = (appsMeta?.services ?? []).filter((s) => s.slug !== "applications-metier").slice(0, 6).map((s) => ({ slug: s.slug, title: s.title, desc: s.body.split(".")[0] }));
+function ChevronDown({ open }) {
+  return /* @__PURE__ */ jsx(
+    "svg",
+    {
+      width: "12",
+      height: "12",
+      viewBox: "0 0 12 12",
+      fill: "none",
+      className: `transition-transform duration-200 ${open ? "rotate-180" : ""}`,
+      "aria-hidden": "true",
+      children: /* @__PURE__ */ jsx("path", { d: "M2 4l4 4 4-4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })
+    }
+  );
+}
+function HamburgerIcon({ open }) {
+  return /* @__PURE__ */ jsxs("span", { className: "flex flex-col justify-center items-center w-5 h-5 gap-[5px]", "aria-hidden": "true", children: [
+    /* @__PURE__ */ jsx("span", { className: `block h-px w-5 bg-current transition-all duration-200 origin-center ${open ? "rotate-45 translate-y-[6px]" : ""}` }),
+    /* @__PURE__ */ jsx("span", { className: `block h-px w-5 bg-current transition-all duration-200 ${open ? "opacity-0 scale-x-0" : ""}` }),
+    /* @__PURE__ */ jsx("span", { className: `block h-px w-5 bg-current transition-all duration-200 origin-center ${open ? "-rotate-45 -translate-y-[6px]" : ""}` })
+  ] });
+}
+function SolutionsDropdown() {
+  return /* @__PURE__ */ jsxs(
+    motion.div,
+    {
+      initial: { opacity: 0, y: 8 },
+      animate: { opacity: 1, y: 0 },
+      exit: { opacity: 0, y: 8 },
+      transition: { duration: 0.18, ease: [0.22, 1, 0.36, 1] },
+      className: "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[480px] bg-white border border-border rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.10)] overflow-hidden",
+      children: [
+        /* @__PURE__ */ jsx("div", { className: "grid grid-cols-2 gap-px bg-border", children: SERVICE_NAV.map((item) => /* @__PURE__ */ jsxs(
+          Link,
+          {
+            to: `/${item.slug}`,
+            className: "flex items-start gap-3 p-4 bg-white hover:bg-section transition-colors duration-150 group",
+            children: [
+              /* @__PURE__ */ jsx("span", { className: "text-muted group-hover:text-secondary transition-colors duration-150 shrink-0 mt-0.5", children: NAV_ICONS[item.slug] }),
+              /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
+                /* @__PURE__ */ jsx("p", { className: "font-inter font-semibold text-sm text-primary group-hover:text-secondary transition-colors duration-150 leading-tight", children: item.title }),
+                /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted leading-snug mt-0.5", children: item.desc })
+              ] })
+            ]
+          },
+          item.slug
+        )) }),
+        /* @__PURE__ */ jsxs("div", { className: "px-5 py-3 bg-section border-t border-border flex items-center justify-between", children: [
+          /* @__PURE__ */ jsx("span", { className: "font-inter text-xs text-muted", children: "Studio DJEXA · Applications métier sur mesure" }),
+          /* @__PURE__ */ jsxs(
+            Link,
+            {
+              to: "/applications-metier",
+              className: "font-inter text-xs font-medium text-secondary hover:underline flex items-center gap-1",
+              children: [
+                "Toutes nos solutions",
+                /* @__PURE__ */ jsx("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 5h6M5 2l3 3-3 3", stroke: "currentColor", strokeWidth: "1.4", strokeLinecap: "round", strokeLinejoin: "round" }) })
+              ]
+            }
+          )
+        ] })
+      ]
+    }
+  );
+}
+function Navbar() {
+  const scrolled = useScrolled(40);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [mobileSolOpen, setMobileSolOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const dropdownRef = useRef(null);
+  useEffect(() => {
+    const handler = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setSolutionsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+  useEffect(() => {
+    setMenuOpen(false);
+    setSolutionsOpen(false);
+  }, [pathname]);
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+  const showBg = !isHome || scrolled || menuOpen;
+  const headerBg = showBg ? "bg-white/95 backdrop-blur-xl border-b border-border shadow-[0_1px_3px_rgba(0,0,0,0.04)]" : "bg-transparent";
+  const methodeHref = isHome ? "#methode" : "/#methode";
+  const realisationsHref = isHome ? "#realisations" : "/#realisations";
+  const contactHref = isHome ? "#contact" : "/#contact";
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx(
+      motion.header,
+      {
+        initial: { y: -64, opacity: 0 },
+        animate: { y: 0, opacity: 1 },
+        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.1 },
+        className: `fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerBg}`,
+        children: /* @__PURE__ */ jsxs("div", { className: `mx-auto max-w-7xl px-6 flex items-center gap-8 transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`, children: [
+          /* @__PURE__ */ jsx(
+            Link,
+            {
+              to: "/",
+              className: "text-secondary hover:text-secondary/80 transition-colors duration-200 shrink-0",
+              "aria-label": BRAND,
+              children: /* @__PURE__ */ jsx(Logo, {})
+            }
+          ),
+          /* @__PURE__ */ jsxs("nav", { className: "hidden md:flex items-center gap-0.5 flex-1", children: [
+            /* @__PURE__ */ jsxs(
+              "div",
+              {
+                ref: dropdownRef,
+                className: "relative",
+                onMouseEnter: () => setSolutionsOpen(true),
+                onMouseLeave: () => setSolutionsOpen(false),
+                children: [
+                  /* @__PURE__ */ jsxs(
+                    "button",
+                    {
+                      onClick: () => setSolutionsOpen((v) => !v),
+                      className: "inline-flex items-center gap-1.5 font-inter text-sm font-medium text-muted hover:text-primary px-3 py-2 rounded-lg transition-colors duration-150",
+                      "aria-expanded": solutionsOpen,
+                      "aria-haspopup": "true",
+                      children: [
+                        "Solutions",
+                        /* @__PURE__ */ jsx(ChevronDown, { open: solutionsOpen })
+                      ]
+                    }
+                  ),
+                  /* @__PURE__ */ jsx(AnimatePresence, { children: solutionsOpen && /* @__PURE__ */ jsx(SolutionsDropdown, {}) })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: realisationsHref,
+                className: "font-inter text-sm font-medium text-muted hover:text-primary px-3 py-2 rounded-lg transition-colors duration-150",
+                children: "Réalisations"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: methodeHref,
+                className: "font-inter text-sm font-medium text-muted hover:text-primary px-3 py-2 rounded-lg transition-colors duration-150",
+                children: "Méthode"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              Link,
+              {
+                to: "/blog",
+                className: "font-inter text-sm font-medium text-muted hover:text-primary px-3 py-2 rounded-lg transition-colors duration-150",
+                children: "Blog"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsx("div", { className: "hidden md:flex items-center gap-3 ml-auto", children: /* @__PURE__ */ jsxs(
+            motion.a,
+            {
+              href: contactHref,
+              whileTap: { scale: 0.97 },
+              className: "inline-flex items-center gap-2 bg-primary text-white font-inter font-medium text-sm px-5 py-2.5 rounded-xl hover:bg-secondary hover:scale-[1.02] transition-all duration-200 shrink-0",
+              children: [
+                content.nav.cta,
+                /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
+              ]
+            }
+          ) }),
+          /* @__PURE__ */ jsx(
+            "button",
+            {
+              className: "md:hidden p-2 -mr-2 ml-auto text-primary transition-colors duration-200",
+              onClick: () => setMenuOpen((v) => !v),
+              "aria-expanded": menuOpen,
+              "aria-label": menuOpen ? "Fermer le menu" : "Ouvrir le menu",
+              children: /* @__PURE__ */ jsx(HamburgerIcon, { open: menuOpen })
+            }
+          )
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxs(
+      "div",
+      {
+        className: `md:hidden fixed inset-0 z-40 bg-white flex flex-col transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`,
+        "aria-hidden": !menuOpen,
+        children: [
+          /* @__PURE__ */ jsx("div", { className: "h-16 shrink-0" }),
+          /* @__PURE__ */ jsxs("nav", { className: "flex-1 flex flex-col px-6 pt-6 pb-12 gap-0 overflow-y-auto", children: [
+            /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsxs(
+                "button",
+                {
+                  className: "w-full flex items-center justify-between font-archivo font-bold text-2xl tracking-display text-primary py-4 border-b border-border transition-colors duration-150",
+                  onClick: () => setMobileSolOpen((v) => !v),
+                  "aria-expanded": mobileSolOpen,
+                  children: [
+                    "Solutions",
+                    /* @__PURE__ */ jsx(ChevronDown, { open: mobileSolOpen })
+                  ]
+                }
+              ),
+              mobileSolOpen && /* @__PURE__ */ jsxs("div", { className: "flex flex-col pl-4 py-2 mb-1", children: [
+                SERVICE_NAV.map((item) => /* @__PURE__ */ jsxs(
+                  Link,
+                  {
+                    to: `/${item.slug}`,
+                    className: "flex items-center gap-3 py-2.5 border-b border-border/50 text-muted hover:text-primary transition-colors duration-150",
+                    children: [
+                      /* @__PURE__ */ jsx("span", { className: "shrink-0", children: NAV_ICONS[item.slug] }),
+                      /* @__PURE__ */ jsx("span", { className: "font-inter text-base font-medium", children: item.title })
+                    ]
+                  },
+                  item.slug
+                )),
+                /* @__PURE__ */ jsx(
+                  Link,
+                  {
+                    to: "/applications-metier",
+                    className: "font-inter text-sm text-secondary py-3",
+                    children: "Toutes nos solutions →"
+                  }
+                )
+              ] })
+            ] }),
+            /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: realisationsHref,
+                onClick: () => setMenuOpen(false),
+                className: "font-archivo font-bold text-2xl tracking-display text-primary py-4 border-b border-border transition-colors duration-150",
+                children: "Réalisations"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: methodeHref,
+                onClick: () => setMenuOpen(false),
+                className: "font-archivo font-bold text-2xl tracking-display text-primary py-4 border-b border-border transition-colors duration-150",
+                children: "Méthode"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              Link,
+              {
+                to: "/blog",
+                className: "font-archivo font-bold text-2xl tracking-display text-primary py-4 border-b border-border transition-colors duration-150",
+                children: "Blog"
+              }
+            ),
+            /* @__PURE__ */ jsx("div", { className: "mt-8 flex flex-col gap-3", children: /* @__PURE__ */ jsxs(
+              "a",
+              {
+                href: contactHref,
+                onClick: () => setMenuOpen(false),
+                className: "inline-flex items-center justify-center gap-2 bg-primary text-white font-inter font-medium text-sm px-6 py-3.5 rounded-xl hover:bg-primary/90 transition-colors duration-200",
+                children: [
+                  content.nav.cta,
+                  /* @__PURE__ */ jsx("svg", { width: "12", height: "12", viewBox: "0 0 12 12", fill: "none", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M2 6h8M6 2l4 4-4 4", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) })
+                ]
+              }
+            ) })
+          ] })
+        ]
+      }
+    )
+  ] });
+}
+const ease = [0.22, 1, 0.36, 1];
+const DURATION = {
+  card: 0.25,
+  hero: 0.6
+};
+const vFadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: DURATION.hero, ease } }
+};
+const stagger = (delay = 0) => ({
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
+});
+const textReveal = (delay = 0) => ({
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
+});
+const cardItem = {
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: DURATION.card * 2.5, ease } }
+};
+const textLine = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease } }
+};
+const hoverLift = { y: -6, transition: { duration: 0.2, ease: "easeOut" } };
+const f = (delay = 0, y = 16) => ({
+  initial: { opacity: 0, y },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }
+});
 const SERVICE_LINKS = services.filter((s) => s.slug !== "applications-metier").slice(0, 6).map((s) => ({ label: s.hero.eyebrow || s.meta.title, href: `/${s.slug}` }));
 const PROJECT_LINKS = [
   { label: "Facturation électronique", href: "/projets/facturation-electronique" },
@@ -1252,7 +1292,7 @@ function Footer() {
         ref: taglineRef,
         initial: { opacity: 0, y: 24 },
         animate: taglineInView ? { opacity: 1, y: 0 } : {},
-        transition: { duration: 0.7, ease: ease$d },
+        transition: { duration: 0.7, ease },
         className: "max-w-3xl",
         children: [
           /* @__PURE__ */ jsxs(
@@ -1297,7 +1337,7 @@ function Footer() {
         ref: colsRef,
         initial: { opacity: 0, y: 16 },
         animate: colsInView ? { opacity: 1, y: 0 } : {},
-        transition: { duration: 0.6, ease: ease$d, delay: 0.1 },
+        transition: { duration: 0.6, ease, delay: 0.1 },
         className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-10",
         children: [
           /* @__PURE__ */ jsxs("div", { children: [
@@ -1319,30 +1359,17 @@ function Footer() {
                 children: "contact@djexa.fr"
               }
             ),
-            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3", children: [
-              /* @__PURE__ */ jsx(
-                "a",
-                {
-                  href: "https://linkedin.com",
-                  target: "_blank",
-                  rel: "noopener noreferrer",
-                  "aria-label": "LinkedIn",
-                  className: "text-white/40 hover:text-white transition-colors duration-200",
-                  children: /* @__PURE__ */ jsx("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "currentColor", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" }) })
-                }
-              ),
-              /* @__PURE__ */ jsx(
-                "a",
-                {
-                  href: "https://github.com",
-                  target: "_blank",
-                  rel: "noopener noreferrer",
-                  "aria-label": "GitHub",
-                  className: "text-white/40 hover:text-white transition-colors duration-200",
-                  children: /* @__PURE__ */ jsx("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "currentColor", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" }) })
-                }
-              )
-            ] })
+            /* @__PURE__ */ jsx("div", { className: "flex items-center gap-3", children: /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: "https://www.linkedin.com/company/djexa",
+                target: "_blank",
+                rel: "noopener noreferrer",
+                "aria-label": "DJEXA sur LinkedIn",
+                className: "text-white/40 hover:text-white transition-colors duration-200",
+                children: /* @__PURE__ */ jsx("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "currentColor", "aria-hidden": "true", children: /* @__PURE__ */ jsx("path", { d: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" }) })
+              }
+            ) })
           ] }),
           /* @__PURE__ */ jsx(FooterCol, { title: "Solutions", links: SERVICE_LINKS }),
           /* @__PURE__ */ jsx(FooterCol, { title: "Réalisations", links: PROJECT_LINKS }),
@@ -1377,38 +1404,6 @@ function Layout() {
     /* @__PURE__ */ jsx(Footer, {})
   ] });
 }
-const ease$c = [0.22, 1, 0.36, 1];
-const DURATION = {
-  card: 0.25,
-  hero: 0.6
-};
-const vFadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: DURATION.hero, ease: ease$c } }
-};
-const stagger = (delay = 0) => ({
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
-});
-const textReveal = (delay = 0) => ({
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
-});
-const cardItem = {
-  hidden: { opacity: 0, y: 24, scale: 0.98 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: DURATION.card * 2.5, ease: ease$c } }
-};
-const textLine = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: ease$c } }
-};
-const hoverLift = { y: -6, transition: { duration: 0.2, ease: "easeOut" } };
-const f = (delay = 0, y = 16) => ({
-  initial: { opacity: 0, y },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }
-});
-const ease$b = [0.22, 1, 0.36, 1];
 const SIDEBAR_PRIMARY = [
   { id: "dashboard", label: "Dashboard", active: true, icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
   { id: "commandes", label: "Commandes", active: false, icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
@@ -1506,7 +1501,7 @@ function DashboardMockup() {
       ref,
       initial: { opacity: 0, y: 28, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.65, ease: ease$b },
+      transition: { duration: 0.65, ease },
       className: "w-full rounded-2xl overflow-hidden shadow-card-lg ring-1 ring-black/[0.06] bg-white select-none",
       children: [
         /* @__PURE__ */ jsxs(
@@ -1553,7 +1548,7 @@ function DashboardMockup() {
                   {
                     initial: { opacity: 0, x: -8 },
                     animate: inView ? { opacity: 1, x: 0 } : {},
-                    transition: { delay: 0.55 + i * 0.06, duration: 0.28, ease: ease$b },
+                    transition: { delay: 0.55 + i * 0.06, duration: 0.28, ease },
                     className: `mx-2 flex items-center gap-2 px-2 py-1.5 rounded-lg font-inter font-medium cursor-default transition-colors ${item.active ? "bg-secondary/10 text-secondary" : "text-gray-500"}`,
                     style: { fontSize: "11px" },
                     children: [
@@ -1569,7 +1564,7 @@ function DashboardMockup() {
                   {
                     initial: { opacity: 0, x: -8 },
                     animate: inView ? { opacity: 1, x: 0 } : {},
-                    transition: { delay: 1 + i * 0.06, duration: 0.28, ease: ease$b },
+                    transition: { delay: 1 + i * 0.06, duration: 0.28, ease },
                     className: "mx-2 flex items-center gap-2 px-2 py-1.5 rounded-lg font-inter font-medium text-gray-400 cursor-default",
                     style: { fontSize: "11px" },
                     children: [
@@ -1613,7 +1608,7 @@ function DashboardMockup() {
               {
                 initial: { opacity: 0, y: -6 },
                 animate: inView ? { opacity: 1, y: 0 } : {},
-                transition: { delay: 0.5, duration: 0.3, ease: ease$b },
+                transition: { delay: 0.5, duration: 0.3, ease },
                 className: "flex items-center justify-between mb-3 shrink-0",
                 children: [
                   /* @__PURE__ */ jsxs("div", { children: [
@@ -1639,7 +1634,7 @@ function DashboardMockup() {
               {
                 initial: { opacity: 0, y: 10 },
                 animate: inView ? { opacity: 1, y: 0 } : {},
-                transition: { delay: 0.85 + i * 0.08, duration: 0.35, ease: ease$b },
+                transition: { delay: 0.85 + i * 0.08, duration: 0.35, ease },
                 className: "bg-white border border-gray-100 rounded-xl p-2.5",
                 children: [
                   /* @__PURE__ */ jsx("p", { className: "font-archivo font-bold text-sm text-primary leading-none", children: k.value }),
@@ -1717,7 +1712,7 @@ function DashboardMockup() {
                       {
                         initial: { opacity: 0, x: -6 },
                         animate: inView ? { opacity: 1, x: 0 } : {},
-                        transition: { delay: 1.75 + i * 0.07, duration: 0.25, ease: ease$b },
+                        transition: { delay: 1.75 + i * 0.07, duration: 0.25, ease },
                         className: `flex items-center gap-2 py-1.5 font-inter ${i < ROWS.length - 1 ? "border-b border-gray-50" : ""}`,
                         style: { fontSize: "10px" },
                         children: [
@@ -1762,7 +1757,7 @@ function DashboardMockup() {
                 initial: { opacity: 0, scale: 0.92, y: -4 },
                 animate: { opacity: 1, scale: 1, y: 0 },
                 exit: { opacity: 0, scale: 0.92, y: -4 },
-                transition: { duration: 0.28, ease: ease$b },
+                transition: { duration: 0.28, ease },
                 className: "absolute top-4 right-4 bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.10)] rounded-xl p-3 flex items-start gap-2.5 max-w-[168px]",
                 children: [
                   /* @__PURE__ */ jsx("span", { className: "w-6 h-6 rounded-full bg-success/15 flex items-center justify-center shrink-0 mt-0.5", children: /* @__PURE__ */ jsx("svg", { viewBox: "0 0 16 16", fill: "none", className: "w-3.5 h-3.5 text-success", children: /* @__PURE__ */ jsx("path", { d: "M3 8l3.5 3.5L13 4", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }),
@@ -1790,7 +1785,7 @@ function DashboardMockup() {
                     {
                       initial: { opacity: 0, x: 8 },
                       animate: inView ? { opacity: 1, x: 0 } : {},
-                      transition: { delay: 1 + i * 0.07, duration: 0.22, ease: ease$b },
+                      transition: { delay: 1 + i * 0.07, duration: 0.22, ease },
                       className: "flex items-center gap-1.5",
                       children: [
                         /* @__PURE__ */ jsx("span", { className: "font-inter text-gray-400 w-11 shrink-0 leading-none", style: { fontSize: "9px" }, children: entry.day }),
@@ -1840,7 +1835,6 @@ function DashboardMockup() {
     }
   );
 }
-const ease$a = [0.22, 1, 0.36, 1];
 function Hero() {
   const { hero } = content;
   return /* @__PURE__ */ jsxs("section", { className: "relative bg-white overflow-hidden min-h-[100svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-20", children: [
@@ -1938,8 +1932,8 @@ function Hero() {
               ] }),
               /* @__PURE__ */ jsx("div", { className: "w-px h-10 bg-border shrink-0" }),
               /* @__PURE__ */ jsxs("div", { children: [
-                /* @__PURE__ */ jsx("p", { className: "font-archivo font-black text-primary text-2xl leading-none", children: "100%" }),
-                /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mt-1", children: "Code propriétaire" })
+                /* @__PURE__ */ jsx("p", { className: "font-archivo font-black text-primary text-2xl leading-none", children: "24h" }),
+                /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mt-1", children: "Délai de réponse" })
               ] })
             ]
           }
@@ -1963,7 +1957,7 @@ function Hero() {
           {
             initial: { opacity: 0, scale: 0.95, y: 16 },
             animate: { opacity: 1, scale: 1, y: 0 },
-            transition: { duration: 0.8, ease: ease$a, delay: 0.5 },
+            transition: { duration: 0.8, ease, delay: 0.5 },
             className: "rounded-2xl overflow-hidden border border-border",
             style: {
               transform: "rotate(1deg) translateY(-4px)",
@@ -1979,30 +1973,28 @@ function Hero() {
 const ITEMS = [
   {
     icon: /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4 h-4", "aria-hidden": "true", children: [
-      /* @__PURE__ */ jsx("path", { d: "M12 15l-2 5L9 9l11 4-5 2z" }),
-      /* @__PURE__ */ jsx("path", { d: "M9 9L3 6l9-3 3 9-6-3z", opacity: "0" }),
-      /* @__PURE__ */ jsx("circle", { cx: "12", cy: "8", r: "3" }),
-      /* @__PURE__ */ jsx("path", { d: "M5 3l1.5 1.5M3 12H1M5 21l1.5-1.5M12 22v-2M19 21l-1.5-1.5M21 12h2M19 3l-1.5 1.5", opacity: "0" })
+      /* @__PURE__ */ jsx("path", { d: "M12 2L2 7l10 5 10-5-10-5z" }),
+      /* @__PURE__ */ jsx("path", { d: "M2 17l10 5 10-5" }),
+      /* @__PURE__ */ jsx("path", { d: "M2 12l10 5 10-5" })
     ] }),
     stat: "20+",
     label: "Projets livrés"
   },
   {
     icon: /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4 h-4", "aria-hidden": "true", children: [
-      /* @__PURE__ */ jsx("path", { d: "M12 2L2 7l10 5 10-5-10-5z" }),
-      /* @__PURE__ */ jsx("path", { d: "M2 17l10 5 10-5" }),
-      /* @__PURE__ */ jsx("path", { d: "M2 12l10 5 10-5" })
+      /* @__PURE__ */ jsx("circle", { cx: "12", cy: "12", r: "10" }),
+      /* @__PURE__ */ jsx("path", { d: "M12 8v4l3 3" })
     ] }),
-    stat: "100%",
-    label: "Sur mesure"
+    stat: "4–10",
+    label: "Semaines de livraison"
   },
   {
     icon: /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4 h-4", "aria-hidden": "true", children: [
-      /* @__PURE__ */ jsx("rect", { x: "3", y: "11", width: "18", height: "11", rx: "2", ry: "2" }),
-      /* @__PURE__ */ jsx("path", { d: "M7 11V7a5 5 0 0110 0v4" })
+      /* @__PURE__ */ jsx("path", { d: "M22 11.08V12a10 10 0 11-5.93-9.14" }),
+      /* @__PURE__ */ jsx("path", { d: "M22 4L12 14.01l-3-3" })
     ] }),
-    stat: null,
-    label: "Vous restez propriétaire du code"
+    stat: "100%",
+    label: "Sur mesure"
   }
 ];
 function TrustPhrase() {
@@ -2020,7 +2012,6 @@ function TrustPhrase() {
     i
   )) }) }) });
 }
-const ease$9 = [0.22, 1, 0.36, 1];
 const ICONS = [
   "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z",
   "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
@@ -2039,7 +2030,7 @@ function Problems() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$9 },
+          transition: { duration: 0.5, ease },
           className: "label text-secondary mb-4",
           children: "Le problème"
         }
@@ -2049,7 +2040,7 @@ function Problems() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$9, delay: 0.1 },
+          transition: { duration: 0.6, ease, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
           children: content.problems.title
@@ -2060,7 +2051,7 @@ function Problems() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$9, delay: 0.2 },
+          transition: { duration: 0.5, ease, delay: 0.2 },
           className: "font-inter text-muted mt-4 leading-relaxed",
           children: content.problems.subtitle
         }
@@ -2109,7 +2100,6 @@ function Problems() {
     )
   ] }) });
 }
-const ease$8 = [0.22, 1, 0.36, 1];
 function TitleBar({ label }) {
   return /* @__PURE__ */ jsxs("div", { className: "bg-gray-50 border-b border-gray-100 px-3 py-2 flex items-center gap-2.5 shrink-0", children: [
     /* @__PURE__ */ jsxs("div", { className: "flex gap-1.5 shrink-0", children: [
@@ -2150,7 +2140,7 @@ function SuiviProductionMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$8 },
+      transition: { duration: 0.6, ease },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2181,7 +2171,7 @@ function SuiviProductionMockup() {
             {
               initial: { opacity: 0, y: 10 },
               animate: inView ? { opacity: 1, y: 0 } : {},
-              transition: { delay: 0.45 + ci * 0.1, duration: 0.35, ease: ease$8 },
+              transition: { delay: 0.45 + ci * 0.1, duration: 0.35, ease },
               className: "bg-white rounded-xl border border-gray-100 p-2.5 flex flex-col gap-2",
               children: [
                 /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between mb-0.5", children: [
@@ -2200,7 +2190,7 @@ function SuiviProductionMockup() {
                   {
                     initial: { opacity: 0, y: 6 },
                     animate: inView ? { opacity: 1, y: 0 } : {},
-                    transition: { delay: 0.6 + ci * 0.1 + i * 0.06, duration: 0.28, ease: ease$8 },
+                    transition: { delay: 0.6 + ci * 0.1 + i * 0.06, duration: 0.28, ease },
                     className: "bg-gray-50 border border-gray-100 rounded-lg p-2 flex items-start gap-1.5",
                     children: [
                       col.done && /* @__PURE__ */ jsx("span", { className: "mt-0.5 shrink-0", children: /* @__PURE__ */ jsx("svg", { viewBox: "0 0 12 12", fill: "none", className: "w-3 h-3", style: { color: col.color }, children: /* @__PURE__ */ jsx("path", { d: "M2 6l2.5 2.5L10 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }) }),
@@ -2232,7 +2222,7 @@ function FacturationMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$8 },
+      transition: { duration: 0.6, ease },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2250,7 +2240,7 @@ function FacturationMockup() {
             {
               initial: { opacity: 0, y: -8 },
               animate: inView ? { opacity: 1, y: 0 } : {},
-              transition: { delay: 0.35, duration: 0.35, ease: ease$8 },
+              transition: { delay: 0.35, duration: 0.35, ease },
               className: "flex items-start justify-between mb-5",
               children: [
                 /* @__PURE__ */ jsxs("div", { children: [
@@ -2274,7 +2264,7 @@ function FacturationMockup() {
               {
                 initial: { opacity: 0, x: -8 },
                 animate: inView ? { opacity: 1, x: 0 } : {},
-                transition: { delay: 0.55 + i * 0.1, duration: 0.3, ease: ease$8 },
+                transition: { delay: 0.55 + i * 0.1, duration: 0.3, ease },
                 className: "px-3 py-2 grid grid-cols-[1fr_auto] gap-2 border-t border-gray-100",
                 children: [
                   /* @__PURE__ */ jsx("span", { className: "font-inter text-[11px] text-primary", children: line.label }),
@@ -2303,7 +2293,7 @@ function FacturationMockup() {
               {
                 initial: { opacity: 0, scale: 0.8 },
                 animate: inView ? { opacity: 1, scale: 1 } : {},
-                transition: { delay: 0.9 + i * 0.18, duration: 0.3, ease: ease$8 },
+                transition: { delay: 0.9 + i * 0.18, duration: 0.3, ease },
                 className: `font-inter text-[10px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap ${i === 2 ? "bg-[#10B981]/12 text-[#10B981]" : i === 1 ? "bg-secondary/10 text-secondary" : "bg-gray-100 text-gray-400"}`,
                 children: step
               }
@@ -2344,7 +2334,7 @@ function ERPMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$8 },
+      transition: { duration: 0.6, ease },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2369,7 +2359,7 @@ function ERPMockup() {
                 {
                   initial: { opacity: 0, x: -6 },
                   animate: inView ? { opacity: 1, x: 0 } : {},
-                  transition: { delay: 0.48 + i * 0.07, duration: 0.25, ease: ease$8 },
+                  transition: { delay: 0.48 + i * 0.07, duration: 0.25, ease },
                   className: `mx-1.5 px-2 py-1.5 rounded-lg text-[10px] font-inter font-medium cursor-default mb-0.5 ${i === 0 ? "bg-secondary/10 text-secondary" : "text-gray-500"}`,
                   children: item
                 },
@@ -2383,7 +2373,7 @@ function ERPMockup() {
               {
                 initial: { opacity: 0, y: 8 },
                 animate: inView ? { opacity: 1, y: 0 } : {},
-                transition: { delay: 0.7 + i * 0.1, duration: 0.3, ease: ease$8 },
+                transition: { delay: 0.7 + i * 0.1, duration: 0.3, ease },
                 className: "bg-white border border-gray-100 rounded-xl p-2.5",
                 children: [
                   /* @__PURE__ */ jsx("p", { className: "font-archivo font-bold text-sm text-primary tabular-nums leading-tight", children: k.value }),
@@ -2407,7 +2397,7 @@ function ERPMockup() {
                     {
                       initial: { opacity: 0, x: -6 },
                       animate: inView ? { opacity: 1, x: 0 } : {},
-                      transition: { delay: 1.1 + i * 0.08, duration: 0.28, ease: ease$8 },
+                      transition: { delay: 1.1 + i * 0.08, duration: 0.28, ease },
                       className: `flex items-center justify-between py-1.5 text-[10px] font-inter ${i < ERP_TRANSACTIONS.length - 1 ? "border-b border-gray-50" : ""}`,
                       children: [
                         /* @__PURE__ */ jsx("span", { className: "text-gray-600 truncate mr-2", children: tx.label }),
@@ -2443,7 +2433,7 @@ function CabinetMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$8 },
+      transition: { duration: 0.6, ease },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2470,7 +2460,7 @@ function CabinetMockup() {
                   {
                     initial: { opacity: 0, x: -6 },
                     animate: inView ? { opacity: 1, x: 0 } : {},
-                    transition: { delay: 0.45 + i * 0.07, duration: 0.25, ease: ease$8 },
+                    transition: { delay: 0.45 + i * 0.07, duration: 0.25, ease },
                     className: `mx-1.5 px-2 py-1.5 rounded-lg text-[10px] font-inter cursor-default mb-0.5 ${i === 0 ? "bg-[#10B981]/10 text-[#10B981] font-semibold" : "text-gray-500 hover:bg-white"}`,
                     children: /* @__PURE__ */ jsxs("span", { className: "flex items-center gap-1.5", children: [
                       /* @__PURE__ */ jsx("span", { className: `w-1.5 h-1.5 rounded-full shrink-0 ${i === 0 ? "bg-[#10B981]" : "bg-gray-300"}` }),
@@ -2488,7 +2478,7 @@ function CabinetMockup() {
               {
                 initial: { opacity: 0, y: -6 },
                 animate: inView ? { opacity: 1, y: 0 } : {},
-                transition: { delay: 0.55, duration: 0.3, ease: ease$8 },
+                transition: { delay: 0.55, duration: 0.3, ease },
                 className: "flex items-start justify-between mb-4",
                 children: [
                   /* @__PURE__ */ jsxs("div", { children: [
@@ -2504,7 +2494,7 @@ function CabinetMockup() {
               {
                 initial: { opacity: 0, x: 10 },
                 animate: inView ? { opacity: 1, x: 0 } : {},
-                transition: { delay: 0.7 + i * 0.1, duration: 0.3, ease: ease$8 },
+                transition: { delay: 0.7 + i * 0.1, duration: 0.3, ease },
                 className: "flex items-center justify-between bg-gray-50 rounded-xl border border-gray-100 px-3 py-2.5",
                 children: [
                   /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
@@ -2556,7 +2546,7 @@ function ChantierMockup() {
       ref,
       initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: inView ? { opacity: 1, y: 0, scale: 1 } : {},
-      transition: { duration: 0.6, ease: ease$8 },
+      transition: { duration: 0.6, ease },
       className: "w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/[0.05] bg-white select-none",
       children: [
         /* @__PURE__ */ jsx(
@@ -2574,7 +2564,7 @@ function ChantierMockup() {
             {
               initial: { opacity: 0, y: -6 },
               animate: inView ? { opacity: 1, y: 0 } : {},
-              transition: { delay: 0.35, duration: 0.3, ease: ease$8 },
+              transition: { delay: 0.35, duration: 0.3, ease },
               className: "flex items-start justify-between mb-4",
               children: [
                 /* @__PURE__ */ jsxs("div", { children: [
@@ -2590,7 +2580,7 @@ function ChantierMockup() {
             {
               initial: { scaleX: 0 },
               animate: inView ? { scaleX: 1 } : {},
-              transition: { delay: 0.5, duration: 0.9, ease: ease$8 },
+              transition: { delay: 0.5, duration: 0.9, ease },
               style: { transformOrigin: "left", width: "68%" },
               className: "h-full bg-[#C08A2E] rounded-full"
             }
@@ -2600,7 +2590,7 @@ function ChantierMockup() {
             {
               initial: { opacity: 0, y: 8 },
               animate: inView ? { opacity: 1, y: 0 } : {},
-              transition: { delay: 0.7 + i * 0.09, duration: 0.3, ease: ease$8 },
+              transition: { delay: 0.7 + i * 0.09, duration: 0.3, ease },
               className: "flex flex-col items-center gap-1.5",
               children: [
                 /* @__PURE__ */ jsx("div", { className: `w-7 h-7 rounded-full border-2 flex items-center justify-center ${step.done === true ? "bg-[#10B981]/15 border-[#10B981]" : step.done === null ? "bg-secondary/10 border-secondary" : "bg-gray-50 border-gray-200"}`, children: step.done === true ? /* @__PURE__ */ jsx("svg", { viewBox: "0 0 12 12", fill: "none", className: "w-3.5 h-3.5", style: { color: "#10B981" }, children: /* @__PURE__ */ jsx("path", { d: "M2 6l2.5 2.5L10 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }) }) : step.done === null ? /* @__PURE__ */ jsx("div", { className: "w-2 h-2 rounded-full bg-secondary" }) : /* @__PURE__ */ jsx("div", { className: "w-2 h-2 rounded-full bg-gray-300" }) }),
@@ -2617,7 +2607,7 @@ function ChantierMockup() {
                 {
                   initial: { opacity: 0, scale: 0.7 },
                   animate: inView ? { opacity: 1, scale: 1 } : {},
-                  transition: { delay: 1 + i * 0.07, duration: 0.25, ease: ease$8 },
+                  transition: { delay: 1 + i * 0.07, duration: 0.25, ease },
                   className: "w-6 h-6 rounded-full bg-[#C08A2E]/15 border border-white flex items-center justify-center font-inter text-[9px] font-bold text-[#C08A2E]",
                   children: initial
                 },
@@ -2656,7 +2646,6 @@ function ProjectMockup({ slug }) {
   const Component = mockups[slug];
   return Component ? /* @__PURE__ */ jsx(Component, {}) : null;
 }
-const ease$7 = [0.22, 1, 0.36, 1];
 const TABS = [
   {
     label: "ERP sur mesure",
@@ -2723,7 +2712,7 @@ function SoftwareShowcase() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$7 },
+          transition: { duration: 0.5, ease },
           className: "label text-secondary mb-4",
           children: "Nos logiciels"
         }
@@ -2733,7 +2722,7 @@ function SoftwareShowcase() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$7, delay: 0.1 },
+          transition: { duration: 0.6, ease, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
           children: "Des interfaces conçues pour vos équipes, pas pour des démos."
@@ -2745,7 +2734,7 @@ function SoftwareShowcase() {
       {
         initial: { opacity: 0, y: 12 },
         animate: headInView ? { opacity: 1, y: 0 } : {},
-        transition: { duration: 0.5, ease: ease$7, delay: 0.2 },
+        transition: { duration: 0.5, ease, delay: 0.2 },
         className: "flex gap-1.5 flex-wrap justify-center mb-10",
         children: TABS.map((t, i) => /* @__PURE__ */ jsx(
           "button",
@@ -2764,7 +2753,7 @@ function SoftwareShowcase() {
         initial: { opacity: 0, y: 16 },
         animate: { opacity: 1, y: 0 },
         exit: { opacity: 0, y: -8 },
-        transition: { duration: 0.4, ease: ease$7 },
+        transition: { duration: 0.4, ease },
         className: "grid md:grid-cols-[3fr_2fr] gap-8 lg:gap-12 items-center",
         children: [
           /* @__PURE__ */ jsx("div", { className: "rounded-2xl overflow-hidden border border-border shadow-card-md bg-white min-h-[360px]", children: /* @__PURE__ */ jsx(MockupPanel, { slug: tab.mockupSlug }) }),
@@ -2801,7 +2790,6 @@ function SoftwareShowcase() {
     ) })
   ] }) });
 }
-const ease$6 = [0.22, 1, 0.36, 1];
 function CaseStudyRow({ item, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px 0px" });
@@ -2812,7 +2800,7 @@ function CaseStudyRow({ item, index }) {
       ref,
       initial: { opacity: 0, y: 24 },
       animate: inView ? { opacity: 1, y: 0 } : {},
-      transition: { duration: 0.65, ease: ease$6 },
+      transition: { duration: 0.65, ease },
       className: `grid md:grid-cols-2 gap-10 lg:gap-16 items-center py-14 ${index > 0 ? "border-t border-border" : ""} ${reversed ? "md:[direction:rtl]" : ""}`,
       children: [
         /* @__PURE__ */ jsx("div", { className: `rounded-2xl overflow-hidden border border-border shadow-card-md bg-white min-h-[320px] ${reversed ? "[direction:ltr]" : ""}`, children: /* @__PURE__ */ jsx(ProjectMockup, { slug: item.slug }) }),
@@ -2861,7 +2849,7 @@ function Projects() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$6 },
+          transition: { duration: 0.5, ease },
           className: "label text-secondary mb-4",
           children: "Réalisations"
         }
@@ -2871,7 +2859,7 @@ function Projects() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$6, delay: 0.1 },
+          transition: { duration: 0.6, ease, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
           children: content.projects.title
@@ -2881,7 +2869,6 @@ function Projects() {
     /* @__PURE__ */ jsx("div", { children: content.projects.items.map((item, i) => /* @__PURE__ */ jsx(CaseStudyRow, { item, index: i }, item.id)) })
   ] }) });
 }
-const ease$5 = [0.22, 1, 0.36, 1];
 function Method() {
   const headRef = useRef(null);
   const headInView = useInView(headRef, { once: true, margin: "-80px 0px" });
@@ -2895,7 +2882,7 @@ function Method() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$5 },
+          transition: { duration: 0.5, ease },
           className: "label text-secondary mb-4",
           children: "Notre méthode"
         }
@@ -2905,7 +2892,7 @@ function Method() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$5, delay: 0.1 },
+          transition: { duration: 0.6, ease, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
           children: content.method.title
@@ -2934,7 +2921,7 @@ function Method() {
             {
               initial: { opacity: 0, y: 16 },
               animate: timelineInView ? { opacity: 1, y: 0 } : {},
-              transition: { duration: 0.5, ease: ease$5, delay: 0.15 + i * 0.08 },
+              transition: { duration: 0.5, ease, delay: 0.15 + i * 0.08 },
               className: "flex-1 flex flex-col items-center text-center px-3 relative",
               children: [
                 /* @__PURE__ */ jsx(
@@ -2964,7 +2951,7 @@ function Method() {
       {
         initial: { opacity: 0 },
         animate: timelineInView ? { opacity: 1 } : {},
-        transition: { duration: 0.5, ease: ease$5, delay: 1.2 },
+        transition: { duration: 0.5, ease, delay: 1.2 },
         className: "font-inter text-xs text-muted mt-10 text-center",
         children: "De la première discussion jusqu'au déploiement, vous savez toujours où vous en êtes."
       }
@@ -3029,7 +3016,6 @@ function Comparison() {
     }
   );
 }
-const ease$4 = [0.22, 1, 0.36, 1];
 function WhyCustom() {
   const headRef = useRef(null);
   const headInView = useInView(headRef, { once: true, margin: "-80px 0px" });
@@ -3040,7 +3026,7 @@ function WhyCustom() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$4 },
+          transition: { duration: 0.5, ease },
           className: "label text-secondary mb-4",
           children: "Pourquoi du sur-mesure"
         }
@@ -3050,7 +3036,7 @@ function WhyCustom() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$4, delay: 0.1 },
+          transition: { duration: 0.6, ease, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" },
           children: "Pourquoi ne pas utiliser un logiciel standard ?"
@@ -3061,7 +3047,7 @@ function WhyCustom() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$4, delay: 0.2 },
+          transition: { duration: 0.5, ease, delay: 0.2 },
           className: "font-inter text-muted leading-relaxed mt-4 max-w-[52ch]",
           children: "Parce que votre entreprise ne fonctionne pas comme les autres."
         }
@@ -3078,7 +3064,6 @@ function WhyCustom() {
     )
   ] }) });
 }
-const ease$3 = [0.22, 1, 0.36, 1];
 function Item({ q, a, open, onToggle }) {
   return /* @__PURE__ */ jsxs("div", { className: "border-b border-border last:border-0", children: [
     /* @__PURE__ */ jsxs(
@@ -3093,7 +3078,7 @@ function Item({ q, a, open, onToggle }) {
             motion.span,
             {
               animate: { rotate: open ? 45 : 0 },
-              transition: { duration: 0.2, ease: ease$3 },
+              transition: { duration: 0.2, ease },
               className: "shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center text-muted group-hover:border-secondary group-hover:text-secondary transition-colors duration-200",
               "aria-hidden": "true",
               children: /* @__PURE__ */ jsx("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none", children: /* @__PURE__ */ jsx("path", { d: "M5 1v8M1 5h8", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round" }) })
@@ -3108,7 +3093,7 @@ function Item({ q, a, open, onToggle }) {
         initial: { height: 0, opacity: 0 },
         animate: { height: "auto", opacity: 1 },
         exit: { height: 0, opacity: 0 },
-        transition: { duration: 0.3, ease: ease$3 },
+        transition: { duration: 0.3, ease },
         className: "overflow-hidden",
         children: /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-muted leading-relaxed pb-5 max-w-[62ch]", children: a })
       }
@@ -3128,7 +3113,7 @@ function FAQ$1() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$3 },
+          transition: { duration: 0.5, ease },
           className: "label text-secondary mb-4",
           children: "Questions fréquentes"
         }
@@ -3138,7 +3123,7 @@ function FAQ$1() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$3, delay: 0.1 },
+          transition: { duration: 0.6, ease, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display leading-[1.08] text-balance",
           style: { fontSize: "clamp(1.75rem, 3vw, 2.5rem)" },
           children: "Ce que les dirigeants demandent souvent."
@@ -3149,7 +3134,7 @@ function FAQ$1() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$3, delay: 0.2 },
+          transition: { duration: 0.5, ease, delay: 0.2 },
           className: "font-inter text-muted leading-relaxed mt-4 text-sm",
           children: "Des réponses directes, sans jargon."
         }
@@ -3161,7 +3146,7 @@ function FAQ$1() {
         ref: listRef,
         initial: { opacity: 0, y: 20 },
         animate: listInView ? { opacity: 1, y: 0 } : {},
-        transition: { duration: 0.6, ease: ease$3 },
+        transition: { duration: 0.6, ease },
         className: "bg-white rounded-2xl border border-border px-6 md:px-8",
         children: content.faq.map((item, i) => /* @__PURE__ */ jsx(
           Item,
@@ -3177,7 +3162,6 @@ function FAQ$1() {
     )
   ] }) }) });
 }
-const ease$2 = [0.22, 1, 0.36, 1];
 function CTAFinal() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px 0px" });
@@ -3209,7 +3193,7 @@ function CTAFinal() {
         {
           initial: { opacity: 0, y: 10 },
           animate: inView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$2 },
+          transition: { duration: 0.5, ease },
           className: "label text-secondary mb-6",
           children: "Votre prochain logiciel"
         }
@@ -3219,7 +3203,7 @@ function CTAFinal() {
         {
           initial: { opacity: 0, y: 20 },
           animate: inView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.7, ease: ease$2, delay: 0.1 },
+          transition: { duration: 0.7, ease, delay: 0.1 },
           className: "font-archivo font-black text-white tracking-display leading-[1.06] text-balance mb-6",
           style: { fontSize: "clamp(2.25rem, 5vw, 3.75rem)" },
           children: "Parlons de votre futur logiciel."
@@ -3230,7 +3214,7 @@ function CTAFinal() {
         {
           initial: { opacity: 0, y: 16 },
           animate: inView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$2, delay: 0.22 },
+          transition: { duration: 0.6, ease, delay: 0.22 },
           className: "font-inter text-white/60 leading-relaxed text-balance max-w-[52ch] mx-auto mb-10",
           style: { fontSize: "1.0625rem" },
           children: "Expliquez-nous comment vous travaillez. Nous imaginons l'application qui fera gagner du temps à vos équipes chaque jour."
@@ -3241,7 +3225,7 @@ function CTAFinal() {
         {
           initial: { opacity: 0, y: 12 },
           animate: inView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$2, delay: 0.35 },
+          transition: { duration: 0.5, ease, delay: 0.35 },
           className: "flex flex-col sm:flex-row items-center justify-center gap-3",
           children: [
             /* @__PURE__ */ jsxs(
@@ -3272,7 +3256,7 @@ function CTAFinal() {
         {
           initial: { opacity: 0 },
           animate: inView ? { opacity: 1 } : {},
-          transition: { duration: 0.5, ease: ease$2, delay: 0.5 },
+          transition: { duration: 0.5, ease, delay: 0.5 },
           className: "font-inter text-xs text-white/30 mt-6",
           children: "Échange sans engagement — réponse sous 24h"
         }
@@ -3280,7 +3264,6 @@ function CTAFinal() {
     ] })
   ] });
 }
-const ease$1 = [0.22, 1, 0.36, 1];
 function validate(data) {
   const errors = {};
   if (!data.nom?.trim()) errors.nom = "Requis";
@@ -3320,7 +3303,8 @@ function Contact() {
     setErrors({});
     setStatus("loading");
     try {
-      const res = await fetch("/api/contact", {
+      const apiBase = "";
+      const res = await fetch(`${apiBase}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -3340,7 +3324,7 @@ function Contact() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$1 },
+          transition: { duration: 0.5, ease },
           className: "label text-secondary mb-4",
           children: "Contact"
         }
@@ -3350,7 +3334,7 @@ function Contact() {
         {
           initial: { opacity: 0, y: 14 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.6, ease: ease$1, delay: 0.1 },
+          transition: { duration: 0.6, ease, delay: 0.1 },
           className: "font-archivo font-black text-primary tracking-display text-balance leading-[1.08]",
           style: { fontSize: "clamp(1.75rem, 3vw, 2.5rem)" },
           children: content.contact.title
@@ -3361,7 +3345,7 @@ function Contact() {
         {
           initial: { opacity: 0, y: 10 },
           animate: headInView ? { opacity: 1, y: 0 } : {},
-          transition: { duration: 0.5, ease: ease$1, delay: 0.2 },
+          transition: { duration: 0.5, ease, delay: 0.2 },
           className: "font-inter text-muted mt-4 leading-relaxed text-pretty",
           children: content.contact.body
         }
@@ -3373,7 +3357,7 @@ function Contact() {
         ref: formRef,
         initial: { opacity: 0, y: 20 },
         animate: formInView ? { opacity: 1, y: 0 } : {},
-        transition: { duration: 0.65, ease: ease$1, delay: 0.15 },
+        transition: { duration: 0.65, ease, delay: 0.15 },
         className: "max-w-2xl mx-auto bg-white rounded-2xl border border-border shadow-card-md p-8",
         children: /* @__PURE__ */ jsxs("form", { onSubmit: handleSubmit, noValidate: true, className: "flex flex-col gap-5", children: [
           /* @__PURE__ */ jsxs("div", { className: "grid sm:grid-cols-2 gap-4", children: [
@@ -3625,7 +3609,6 @@ function ProjectSchema({ slug }) {
   const Schema = schemas[slug];
   return Schema ? /* @__PURE__ */ jsx(Schema, {}) : null;
 }
-const ease = [0.22, 1, 0.36, 1];
 const TOTAL = content.projects.items.length;
 function Section$2({ label, children }) {
   const ref = useRef(null);
@@ -4156,7 +4139,7 @@ const posts = [
       {
         type: "h2",
         title: "Les fourchettes réelles",
-        text: "Sans détour : une application simple avec un ou deux workflows principaux et une dizaine d'écrans se développe entre 8 000 et 20 000 €. Une application métier complète — ERP léger, gestion de chantier, CRM avec quelques intégrations — entre 20 000 et 60 000 €. Une plateforme complexe avec architecture multi-tenant, nombreux connecteurs et module d'analyse avancé dépasse les 60 000 €. Ces fourchettes incluent la conception, le développement, les tests et la mise en production. Elles ne correspondent pas à un abonnement mensuel : c'est un investissement ponctuel dont vous êtes propriétaire."
+        text: "Sans détour : une application simple avec un ou deux workflows principaux et une dizaine d'écrans se développe entre 8 000 et 20 000 €. Une application métier complète — ERP léger, gestion de chantier, CRM avec quelques intégrations — entre 20 000 et 60 000 €. Une plateforme complexe avec architecture multi-tenant, nombreux connecteurs et module d'analyse avancé dépasse les 60 000 €. Ces fourchettes incluent la conception, le développement, les tests et la mise en production. Elles ne correspondent pas à un abonnement mensuel : c'est un investissement ponctuel pas un abonnement mensuel."
       },
       {
         type: "h2",
@@ -4815,7 +4798,7 @@ function MentionsLegales() {
       ] }),
       /* @__PURE__ */ jsxs(Section$1, { title: "3. Propriété intellectuelle", children: [
         /* @__PURE__ */ jsxs("p", { children: [
-          "L'ensemble du contenu de ce site — textes, visuels, maquettes, code source, logos — est la propriété exclusive de ",
+          "L'ensemble du contenu de ce site — textes, visuels, maquettes et logos — est la propriété exclusive de ",
           BRAND,
           ", sauf mention contraire."
         ] }),

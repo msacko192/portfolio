@@ -1,10 +1,9 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
-import { stagger, cardItem, hoverLift } from '../lib/motion'
+import { ease, stagger, cardItem, hoverLift } from '../lib/motion'
 import { AnimatedTitle } from '../animations/components'
 
-const ease = [0.22, 1, 0.36, 1]
 
 function PlanCard({ plan }) {
   if (plan.featured) {

@@ -3,9 +3,8 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ProjectMockup } from './ProjectMockups'
 import DashboardMockup from './DashboardMockup'
-import { f } from '../lib/motion'
+import { ease, f } from '../lib/motion'
 
-const ease = [0.22, 1, 0.36, 1]
 
 const TABS = [
   {

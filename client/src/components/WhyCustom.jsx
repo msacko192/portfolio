@@ -1,9 +1,8 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Comparison from './Comparison'
-import { f } from '../lib/motion'
+import { ease, f } from '../lib/motion'
 
-const ease = [0.22, 1, 0.36, 1]
 
 export default function WhyCustom() {
   const headRef = useRef(null)

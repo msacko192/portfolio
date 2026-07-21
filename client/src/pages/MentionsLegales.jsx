@@ -52,7 +52,7 @@ export default function MentionsLegales() {
 
           <Section title="3. Propriété intellectuelle">
             <p>
-              L'ensemble du contenu de ce site — textes, visuels, maquettes, code source, logos — est la propriété exclusive de {BRAND}, sauf mention contraire.
+              L'ensemble du contenu de ce site — textes, visuels, maquettes et logos — est la propriété exclusive de {BRAND}, sauf mention contraire.
             </p>
             <p className="mt-3">
               Toute reproduction, représentation, modification, publication, adaptation ou exploitation partielle ou totale, par quelque procédé que ce soit, est strictement interdite sans l'autorisation écrite préalable de {BRAND}.

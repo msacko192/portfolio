@@ -2,9 +2,9 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
+import { ease } from '../lib/motion'
 import { ProjectMockup } from './ProjectMockups'
 
-const ease = [0.22, 1, 0.36, 1]
 
 function CaseStudyRow({ item, index }) {
   const ref = useRef(null)

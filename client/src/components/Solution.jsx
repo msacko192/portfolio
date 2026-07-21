@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
-import { stagger, cardItem, hoverLift } from '../lib/motion'
+import { ease, stagger, cardItem, hoverLift } from '../lib/motion'
 import { services } from '../data/services'
 
 const ICONS = {
@@ -32,7 +32,6 @@ const SOLUTIONS = services
     body:    BODIES[s.slug],
   }))
 
-const ease = [0.22, 1, 0.36, 1]
 
 export default function Solution() {
   const headRef = useRef(null)

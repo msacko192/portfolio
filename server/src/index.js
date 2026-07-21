@@ -5,10 +5,14 @@ import { cors } from 'hono/cors'
 
 const app = new Hono()
 
+const allowedOrigins = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.split(',').map(o => o.trim())
+  : ['http://localhost:5173']
+
 app.use(
   '/api/*',
   cors({
-    origin: ['http://localhost:5173', 'https://djexa.fr', 'https://www.djexa.fr'],
+    origin: allowedOrigins,
     allowMethods: ['POST', 'OPTIONS'],
     allowHeaders: ['Content-Type'],
   })

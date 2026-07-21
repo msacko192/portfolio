@@ -2,8 +2,8 @@ import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { content } from '../data/content'
+import { ease } from '../lib/motion'
 
-const ease = [0.22, 1, 0.36, 1]
 
 function validate(data) {
   const errors = {}
@@ -55,7 +55,8 @@ export default function Contact() {
     setErrors({})
     setStatus('loading')
     try {
-      const res = await fetch('/api/contact', {
+      const apiBase = import.meta.env.VITE_API_URL ?? ''
+      const res = await fetch(`${apiBase}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

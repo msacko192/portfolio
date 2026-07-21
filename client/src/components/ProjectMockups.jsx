@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ease } from '../lib/motion'
 
-const ease = [0.22, 1, 0.36, 1]
 
 function TitleBar({ label }) {
   return (
