@@ -66,16 +66,13 @@ export default function Problems() {
               whileHover={hoverLift}
               className="bg-white border border-border rounded-2xl p-6 shadow-card cursor-default hover:border-secondary/20 hover:shadow-card-md transition-all duration-200"
             >
-              {/* Icon + Label row */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"
-                       strokeLinecap="round" strokeLinejoin="round"
-                       className="w-5 h-5 text-red-400">
-                    <path d={ICONS[i]} />
-                  </svg>
-                </div>
-                <span className="label text-amber-600/70" style={{ fontSize: '10px' }}>Problème</span>
+              {/* Icon */}
+              <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center mb-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"
+                     strokeLinecap="round" strokeLinejoin="round"
+                     className="w-5 h-5 text-red-400">
+                  <path d={ICONS[i]} />
+                </svg>
               </div>
 
               {/* Title + body */}

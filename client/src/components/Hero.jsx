@@ -63,7 +63,7 @@ export default function Hero() {
             {/* Lede */}
             <motion.p
               {...f(0.48)}
-              className="font-inter text-muted leading-[1.8] mb-10 max-w-[44ch] border-l-2 border-secondary/30 pl-4"
+              className="font-inter text-muted leading-[1.8] mb-10 max-w-[44ch]"
               style={{ fontSize: '1.0625rem' }}
             >
               {hero.lede}
@@ -90,6 +90,26 @@ export default function Hero() {
               </motion.a>
             </motion.div>
 
+            {/* Stats */}
+            <motion.div
+              {...f(0.72)}
+              className="flex items-center gap-6 pt-6 border-t border-border"
+            >
+              <div>
+                <p className="font-archivo font-black text-primary text-2xl leading-none tabular">20+</p>
+                <p className="font-inter text-xs text-muted mt-1">Projets livrés</p>
+              </div>
+              <div className="w-px h-10 bg-border shrink-0" />
+              <div>
+                <p className="font-archivo font-black text-primary text-2xl leading-none tabular">4–10</p>
+                <p className="font-inter text-xs text-muted mt-1">Semaines de livraison</p>
+              </div>
+              <div className="w-px h-10 bg-border shrink-0" />
+              <div>
+                <p className="font-archivo font-black text-primary text-2xl leading-none">100%</p>
+                <p className="font-inter text-xs text-muted mt-1">Code propriétaire</p>
+              </div>
+            </motion.div>
 
           </div>
 

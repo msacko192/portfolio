@@ -1,15 +1,26 @@
 // ─── Easing curve ───────────────────────────────────────────────────────────
 export const ease = [0.22, 1, 0.36, 1]
 
+// ─── Timing system (DJEXA Motion Language) ──────────────────────────────────
+export const DURATION = {
+  micro:   0.15,
+  hover:   0.20,
+  button:  0.22,
+  card:    0.25,
+  section: 0.40,
+  hero:    0.60,
+  page:    0.70,
+}
+
 // ─── Page / section entrances ───────────────────────────────────────────────
 export const fadeIn = {
   hidden: { opacity: 0 },
-  show:   { opacity: 1, transition: { duration: 0.5, ease } },
+  show:   { opacity: 1, transition: { duration: DURATION.section, ease } },
 }
 
 export const vFadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+  hidden: { opacity: 0, y: 24 },
+  show:   { opacity: 1, y: 0, transition: { duration: DURATION.hero, ease } },
 }
 
 export const fadeDown = {
@@ -37,8 +48,8 @@ export const wordReveal = (delay = 0) => ({
 
 // ─── Leaf item variants ───────────────────────────────────────────────────────
 export const cardItem = {
-  hidden: { opacity: 0, y: 40, scale: 0.97 },
-  show:   { opacity: 1, y: 0,  scale: 1,   transition: { duration: 0.65, ease } },
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  show:   { opacity: 1, y: 0,  scale: 1,   transition: { duration: DURATION.card * 2.5, ease } },
 }
 
 export const textLine = {

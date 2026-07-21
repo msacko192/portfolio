@@ -207,7 +207,6 @@ const content = {
     error: "Une erreur s'est produite. Réessayez ou contactez-nous directement."
   },
   comparison: {
-    title: "Excel, logiciel standard, ou application sur mesure ?",
     columns: ["Fichiers Excel", "Logiciel standard", "Application sur mesure"],
     highlight: 2,
     rows: [
@@ -1379,9 +1378,13 @@ function Layout() {
   ] });
 }
 const ease$c = [0.22, 1, 0.36, 1];
+const DURATION = {
+  card: 0.25,
+  hero: 0.6
+};
 const vFadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: ease$c } }
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: DURATION.hero, ease: ease$c } }
 };
 const stagger = (delay = 0) => ({
   hidden: {},
@@ -1392,15 +1395,15 @@ const textReveal = (delay = 0) => ({
   show: { transition: { staggerChildren: 0.1, delayChildren: delay } }
 });
 const cardItem = {
-  hidden: { opacity: 0, y: 40, scale: 0.97 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.65, ease: ease$c } }
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: DURATION.card * 2.5, ease: ease$c } }
 };
 const textLine = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: ease$c } }
 };
 const hoverLift = { y: -6, transition: { duration: 0.2, ease: "easeOut" } };
-const f = (delay = 0, y = 18) => ({
+const f = (delay = 0, y = 16) => ({
   initial: { opacity: 0, y },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }
@@ -1890,7 +1893,7 @@ function Hero() {
           motion.p,
           {
             ...f(0.48),
-            className: "font-inter text-muted leading-[1.8] mb-10 max-w-[44ch] border-l-2 border-secondary/30 pl-4",
+            className: "font-inter text-muted leading-[1.8] mb-10 max-w-[44ch]",
             style: { fontSize: "1.0625rem" },
             children: hero.lede
           }
@@ -1917,7 +1920,30 @@ function Hero() {
               children: hero.cta2
             }
           )
-        ] })
+        ] }),
+        /* @__PURE__ */ jsxs(
+          motion.div,
+          {
+            ...f(0.72),
+            className: "flex items-center gap-6 pt-6 border-t border-border",
+            children: [
+              /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsx("p", { className: "font-archivo font-black text-primary text-2xl leading-none tabular", children: "20+" }),
+                /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mt-1", children: "Projets livrés" })
+              ] }),
+              /* @__PURE__ */ jsx("div", { className: "w-px h-10 bg-border shrink-0" }),
+              /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsx("p", { className: "font-archivo font-black text-primary text-2xl leading-none tabular", children: "4–10" }),
+                /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mt-1", children: "Semaines de livraison" })
+              ] }),
+              /* @__PURE__ */ jsx("div", { className: "w-px h-10 bg-border shrink-0" }),
+              /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsx("p", { className: "font-archivo font-black text-primary text-2xl leading-none", children: "100%" }),
+                /* @__PURE__ */ jsx("p", { className: "font-inter text-xs text-muted mt-1", children: "Code propriétaire" })
+              ] })
+            ]
+          }
+        )
       ] }),
       /* @__PURE__ */ jsx("div", { className: "hidden md:flex items-center justify-center", children: /* @__PURE__ */ jsxs("div", { className: "relative w-full", children: [
         /* @__PURE__ */ jsx(
@@ -1951,18 +1977,43 @@ function Hero() {
   ] });
 }
 const ITEMS = [
-  { icon: "20+", label: "Projets livrés" },
-  { icon: "100%", label: "Sur mesure" },
-  { icon: "©", label: "Vous restez propriétaire du code" }
+  {
+    icon: /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4 h-4", "aria-hidden": "true", children: [
+      /* @__PURE__ */ jsx("path", { d: "M12 15l-2 5L9 9l11 4-5 2z" }),
+      /* @__PURE__ */ jsx("path", { d: "M9 9L3 6l9-3 3 9-6-3z", opacity: "0" }),
+      /* @__PURE__ */ jsx("circle", { cx: "12", cy: "8", r: "3" }),
+      /* @__PURE__ */ jsx("path", { d: "M5 3l1.5 1.5M3 12H1M5 21l1.5-1.5M12 22v-2M19 21l-1.5-1.5M21 12h2M19 3l-1.5 1.5", opacity: "0" })
+    ] }),
+    stat: "20+",
+    label: "Projets livrés"
+  },
+  {
+    icon: /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4 h-4", "aria-hidden": "true", children: [
+      /* @__PURE__ */ jsx("path", { d: "M12 2L2 7l10 5 10-5-10-5z" }),
+      /* @__PURE__ */ jsx("path", { d: "M2 17l10 5 10-5" }),
+      /* @__PURE__ */ jsx("path", { d: "M2 12l10 5 10-5" })
+    ] }),
+    stat: "100%",
+    label: "Sur mesure"
+  },
+  {
+    icon: /* @__PURE__ */ jsxs("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.7", strokeLinecap: "round", strokeLinejoin: "round", className: "w-4 h-4", "aria-hidden": "true", children: [
+      /* @__PURE__ */ jsx("rect", { x: "3", y: "11", width: "18", height: "11", rx: "2", ry: "2" }),
+      /* @__PURE__ */ jsx("path", { d: "M7 11V7a5 5 0 0110 0v4" })
+    ] }),
+    stat: null,
+    label: "Vous restez propriétaire du code"
+  }
 ];
 function TrustPhrase() {
-  return /* @__PURE__ */ jsx("section", { className: "bg-section border-y border-border py-8", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6", children: /* @__PURE__ */ jsx("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-0 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-border w-full", children: ITEMS.map((item, i) => /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsx("section", { className: "bg-section border-y border-border py-8", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6", children: /* @__PURE__ */ jsx("div", { className: "flex flex-col sm:flex-row items-center justify-center divide-y sm:divide-y-0 sm:divide-x divide-border w-full", children: ITEMS.map((item, i) => /* @__PURE__ */ jsxs(
     motion.div,
     {
       ...f(0.1 + i * 0.1),
       className: "flex items-center gap-3 px-8 py-4 sm:py-0 w-full sm:w-auto justify-center",
       children: [
-        /* @__PURE__ */ jsx("span", { className: "font-archivo font-black text-secondary text-lg leading-none", children: item.icon }),
+        /* @__PURE__ */ jsx("span", { className: "text-secondary shrink-0", children: item.icon }),
+        item.stat && /* @__PURE__ */ jsx("span", { className: "font-archivo font-black text-secondary text-lg leading-none", children: item.stat }),
         /* @__PURE__ */ jsx("span", { className: "font-inter text-sm text-muted", children: item.label })
       ]
     },
@@ -2030,22 +2081,19 @@ function Problems() {
             whileHover: hoverLift,
             className: "bg-white border border-border rounded-2xl p-6 shadow-card cursor-default hover:border-secondary/20 hover:shadow-card-md transition-all duration-200",
             children: [
-              /* @__PURE__ */ jsxs("div", { className: "flex items-start justify-between mb-4", children: [
-                /* @__PURE__ */ jsx("div", { className: "w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsx(
-                  "svg",
-                  {
-                    viewBox: "0 0 24 24",
-                    fill: "none",
-                    stroke: "currentColor",
-                    strokeWidth: "1.7",
-                    strokeLinecap: "round",
-                    strokeLinejoin: "round",
-                    className: "w-5 h-5 text-red-400",
-                    children: /* @__PURE__ */ jsx("path", { d: ICONS[i] })
-                  }
-                ) }),
-                /* @__PURE__ */ jsx("span", { className: "label text-amber-600/70", style: { fontSize: "10px" }, children: "Problème" })
-              ] }),
+              /* @__PURE__ */ jsx("div", { className: "w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center mb-4", children: /* @__PURE__ */ jsx(
+                "svg",
+                {
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "1.7",
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  className: "w-5 h-5 text-red-400",
+                  children: /* @__PURE__ */ jsx("path", { d: ICONS[i] })
+                }
+              ) }),
               /* @__PURE__ */ jsx("h3", { className: "font-archivo font-bold text-base tracking-tight text-primary mb-2 text-balance leading-snug", children: card.title }),
               /* @__PURE__ */ jsx("p", { className: "font-inter text-muted text-sm leading-relaxed text-pretty mb-4", children: card.body }),
               /* @__PURE__ */ jsx("div", { className: "h-px bg-border mb-4" }),
@@ -2928,61 +2976,58 @@ function Comparison() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px 0px" });
   const hl = comparison.highlight;
-  return /* @__PURE__ */ jsx("section", { className: "bg-section py-16 md:py-24", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-5xl px-6", children: [
-    /* @__PURE__ */ jsx("h2", { className: "font-archivo font-bold text-2xl md:text-3xl tracking-display text-primary mb-8 text-balance", children: comparison.title }),
-    /* @__PURE__ */ jsx(
-      motion.div,
-      {
-        ref,
-        variants: vFadeUp,
-        initial: "hidden",
-        animate: inView ? "show" : "hidden",
-        className: "overflow-x-auto rounded-2xl border border-border",
-        children: /* @__PURE__ */ jsxs("table", { className: "w-full min-w-[480px] border-collapse text-sm font-inter", children: [
-          /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("th", { className: "bg-white text-left px-5 py-4 font-semibold text-muted border-b border-border w-[32%]", children: " " }),
-            comparison.columns.map((col, i) => /* @__PURE__ */ jsxs(
-              "th",
-              {
-                scope: "col",
-                className: [
-                  "px-5 py-4 text-left font-semibold border-b",
-                  i === hl ? "bg-secondary/8 text-secondary border-secondary/25" : "bg-white text-muted border-border"
-                ].join(" "),
-                children: [
-                  col,
-                  i === hl && /* @__PURE__ */ jsx("span", { className: "ml-2 inline-block text-xs font-medium bg-secondary/12 text-secondary rounded-full px-2 py-0.5 align-middle", children: "recommandé" })
-                ]
-              },
-              i
-            ))
-          ] }) }),
-          /* @__PURE__ */ jsx("tbody", { children: comparison.rows.map((row, ri) => /* @__PURE__ */ jsxs("tr", { className: ri % 2 === 0 ? "bg-white" : "bg-section", children: [
-            /* @__PURE__ */ jsx(
-              "th",
-              {
-                scope: "row",
-                className: "px-5 py-3.5 text-left font-medium text-primary border-b border-border",
-                children: row.criteria
-              }
-            ),
-            row.values.map((val, ci) => /* @__PURE__ */ jsx(
-              "td",
-              {
-                className: [
-                  "px-5 py-3.5 border-b border-border",
-                  ci === hl ? "text-primary font-medium bg-secondary/5" : "text-muted",
-                  ri === comparison.rows.length - 1 ? "border-b-0" : ""
-                ].join(" "),
-                children: val
-              },
-              ci
-            ))
-          ] }, ri)) })
-        ] })
-      }
-    )
-  ] }) });
+  return /* @__PURE__ */ jsx(
+    motion.div,
+    {
+      ref,
+      variants: vFadeUp,
+      initial: "hidden",
+      animate: inView ? "show" : "hidden",
+      className: "overflow-x-auto rounded-2xl border border-border",
+      children: /* @__PURE__ */ jsxs("table", { className: "w-full min-w-[480px] border-collapse text-sm font-inter", children: [
+        /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
+          /* @__PURE__ */ jsx("th", { className: "bg-white text-left px-5 py-4 font-semibold text-muted border-b border-border w-[32%]", children: " " }),
+          comparison.columns.map((col, i) => /* @__PURE__ */ jsxs(
+            "th",
+            {
+              scope: "col",
+              className: [
+                "px-5 py-4 text-left font-semibold border-b",
+                i === hl ? "bg-secondary/8 text-secondary border-secondary/25" : "bg-white text-muted border-border"
+              ].join(" "),
+              children: [
+                col,
+                i === hl && /* @__PURE__ */ jsx("span", { className: "ml-2 inline-block text-xs font-medium bg-secondary/12 text-secondary rounded-full px-2 py-0.5 align-middle", children: "recommandé" })
+              ]
+            },
+            i
+          ))
+        ] }) }),
+        /* @__PURE__ */ jsx("tbody", { children: comparison.rows.map((row, ri) => /* @__PURE__ */ jsxs("tr", { className: ri % 2 === 0 ? "bg-white" : "bg-section", children: [
+          /* @__PURE__ */ jsx(
+            "th",
+            {
+              scope: "row",
+              className: "px-5 py-3.5 text-left font-medium text-primary border-b border-border",
+              children: row.criteria
+            }
+          ),
+          row.values.map((val, ci) => /* @__PURE__ */ jsx(
+            "td",
+            {
+              className: [
+                "px-5 py-3.5 border-b border-border",
+                ci === hl ? "text-primary font-medium bg-secondary/5" : "text-muted",
+                ri === comparison.rows.length - 1 ? "border-b-0" : ""
+              ].join(" "),
+              children: val
+            },
+            ci
+          ))
+        ] }, ri)) })
+      ] })
+    }
+  );
 }
 const ease$4 = [0.22, 1, 0.36, 1];
 function WhyCustom() {
