@@ -3303,8 +3303,7 @@ function Contact() {
     setErrors({});
     setStatus("loading");
     try {
-      const apiBase = "";
-      const res = await fetch(`${apiBase}/api/contact`, {
+      const res = await fetch("https://api.djexa.fr/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
