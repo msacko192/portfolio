@@ -6,7 +6,7 @@ const app = new Hono()
 app.use('/api/*', async (c, next) => {
   const origins = c.env.FRONTEND_URL
     ? c.env.FRONTEND_URL.split(',').map((o) => o.trim())
-    : ['http://localhost:5173']
+    : ['https://www.djexa.fr']
   return cors({
     origin: origins,
     allowMethods: ['POST', 'OPTIONS'],
