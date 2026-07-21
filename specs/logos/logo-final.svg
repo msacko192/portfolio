@@ -1,0 +1,22 @@
+<svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Symbol: Gradient vers droite, orbite r=63.7, centre (112,100) -->
+  <circle cx="112"   cy="36.3"  r="6.3"  fill="#2563EB"/>
+  <circle cx="157.2" cy="54.9"  r="8.8"  fill="#2563EB"/>
+  <circle cx="175.7" cy="100"   r="13.3" fill="#2563EB"/>
+  <circle cx="157.2" cy="145.2" r="8.8"  fill="#2563EB"/>
+  <circle cx="112"   cy="163.7" r="6.3"  fill="#2563EB"/>
+  <circle cx="66.9"  cy="145.2" r="4.6"  fill="#2563EB"/>
+  <circle cx="48.3"  cy="100"   r="3.5"  fill="#2563EB"/>
+  <circle cx="66.9"  cy="54.9"  r="4.6"  fill="#2563EB"/>
+  <circle cx="112"   cy="100"   r="19.6" fill="#2563EB"/>
+  <!-- Wordmark — police de production : Archivo Black -->
+  <text
+    x="210"
+    y="118"
+    font-family="'Archivo Black', 'Arial Black', sans-serif"
+    font-size="68"
+    font-weight="900"
+    letter-spacing="5"
+    fill="#2563EB"
+  >DJEXA</text>
+</svg>

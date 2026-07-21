@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { BRAND, content } from '../data/content'
+import Logo from './Logo'
 import { services } from '../data/services'
 
 const ease = [0.22, 1, 0.36, 1]
@@ -116,9 +117,10 @@ export default function Footer() {
           <div>
             <Link
               to="/"
-              className="font-archivo font-bold text-xl tracking-tight text-white hover:text-white/80 transition-colors duration-200 block mb-3"
+              className="text-white hover:text-white/80 transition-colors duration-200 block mb-3"
+              aria-label={BRAND}
             >
-              {BRAND}<span className="text-secondary">.</span>
+              <Logo />
             </Link>
             <p className="font-inter text-sm text-white/45 leading-relaxed text-pretty max-w-[28ch] mb-5">
               Studio de développement logiciel sur mesure.

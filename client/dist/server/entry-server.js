@@ -1,4 +1,4 @@
-import { jsxs, Fragment, jsx } from "react/jsx-runtime";
+import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { useState, useRef, useEffect } from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
@@ -252,6 +252,32 @@ const content = {
     legal: `© ${(/* @__PURE__ */ new Date()).getFullYear()} ${BRAND}. Tous droits réservés.`
   }
 };
+function Logo() {
+  return /* @__PURE__ */ jsxs("span", { className: "flex items-center gap-2.5", children: [
+    /* @__PURE__ */ jsxs(
+      "svg",
+      {
+        height: "26",
+        viewBox: "44 30 145 140",
+        xmlns: "http://www.w3.org/2000/svg",
+        "aria-hidden": "true",
+        style: { display: "block" },
+        children: [
+          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "36.3", r: "6.3", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "157.2", cy: "54.9", r: "8.8", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "175.7", cy: "100", r: "13.3", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "157.2", cy: "145.2", r: "8.8", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "163.7", r: "6.3", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "66.9", cy: "145.2", r: "4.6", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "48.3", cy: "100", r: "3.5", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "66.9", cy: "54.9", r: "4.6", fill: "currentColor" }),
+          /* @__PURE__ */ jsx("circle", { cx: "112", cy: "100", r: "19.6", fill: "currentColor" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsx("span", { className: "font-archivo font-black text-xl tracking-tight leading-none", children: "DJEXA" })
+  ] });
+}
 const SERVICE_NAV = [
   { slug: "erp-sur-mesure", icon: "⚙️", title: "ERP sur mesure", desc: "Gestion intégrée personnalisée" },
   { slug: "crm-sur-mesure", icon: "📊", title: "CRM sur mesure", desc: "Pipeline commercial adapté" },
@@ -370,15 +396,13 @@ function Navbar() {
         transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.1 },
         className: `fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerBg}`,
         children: /* @__PURE__ */ jsxs("div", { className: `mx-auto max-w-7xl px-6 flex items-center gap-8 transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`, children: [
-          /* @__PURE__ */ jsxs(
+          /* @__PURE__ */ jsx(
             Link,
             {
               to: "/",
-              className: "font-archivo font-black text-xl tracking-tight text-primary hover:text-secondary transition-colors duration-200 shrink-0",
-              children: [
-                BRAND,
-                /* @__PURE__ */ jsx("span", { className: "text-secondary", children: "." })
-              ]
+              className: "text-secondary hover:text-secondary/80 transition-colors duration-200 shrink-0",
+              "aria-label": BRAND,
+              children: /* @__PURE__ */ jsx(Logo, {})
             }
           ),
           /* @__PURE__ */ jsxs("nav", { className: "hidden md:flex items-center gap-0.5 flex-1", children: [
@@ -1278,15 +1302,13 @@ function Footer() {
         className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-10",
         children: [
           /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsxs(
+            /* @__PURE__ */ jsx(
               Link,
               {
                 to: "/",
-                className: "font-archivo font-bold text-xl tracking-tight text-white hover:text-white/80 transition-colors duration-200 block mb-3",
-                children: [
-                  BRAND,
-                  /* @__PURE__ */ jsx("span", { className: "text-secondary", children: "." })
-                ]
+                className: "text-white hover:text-white/80 transition-colors duration-200 block mb-3",
+                "aria-label": BRAND,
+                children: /* @__PURE__ */ jsx(Logo, {})
               }
             ),
             /* @__PURE__ */ jsx("p", { className: "font-inter text-sm text-white/45 leading-relaxed text-pretty max-w-[28ch] mb-5", children: "Studio de développement logiciel sur mesure." }),
@@ -4623,15 +4645,13 @@ function LocationPage() {
 }
 function NotFound() {
   return /* @__PURE__ */ jsxs("div", { className: "min-h-screen bg-white flex flex-col", children: [
-    /* @__PURE__ */ jsx("header", { className: "border-b border-border", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6 h-16 flex items-center", children: /* @__PURE__ */ jsxs(
+    /* @__PURE__ */ jsx("header", { className: "border-b border-border", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6 h-16 flex items-center", children: /* @__PURE__ */ jsx(
       Link,
       {
         to: "/",
-        className: "font-archivo font-bold text-xl tracking-tight text-primary hover:text-secondary transition-colors",
-        children: [
-          BRAND,
-          /* @__PURE__ */ jsx("span", { className: "text-secondary", children: "." })
-        ]
+        className: "text-secondary hover:text-secondary/80 transition-colors",
+        "aria-label": BRAND,
+        children: /* @__PURE__ */ jsx(Logo, {})
       }
     ) }) }),
     /* @__PURE__ */ jsx("main", { className: "flex-1 flex items-center justify-center px-6", children: /* @__PURE__ */ jsxs(
@@ -4737,7 +4757,7 @@ function MentionsLegales() {
           /* @__PURE__ */ jsx(Row, { label: "SIRET", value: "[À COMPLÉTER]" }),
           /* @__PURE__ */ jsx(Row, { label: "Siège social", value: "Paris, France" }),
           /* @__PURE__ */ jsx(Row, { label: "Email", value: "contact@djexa.fr" }),
-          /* @__PURE__ */ jsx(Row, { label: "Directeur de la publication", value: "[Prénom NOM]" })
+          /* @__PURE__ */ jsx(Row, { label: "Directeur de la publication", value: "Madi Diarra" })
         ] })
       ] }),
       /* @__PURE__ */ jsxs(Section$1, { title: "2. Hébergement", children: [

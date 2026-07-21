@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { BRAND } from '../data/content'
 import { textReveal, textLine } from '../lib/motion'
+import Logo from '../components/Logo'
 
 export default function NotFound() {
   return (
@@ -10,9 +11,10 @@ export default function NotFound() {
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center">
           <Link
             to="/"
-            className="font-archivo font-bold text-xl tracking-tight text-primary hover:text-secondary transition-colors"
+            className="text-secondary hover:text-secondary/80 transition-colors"
+            aria-label={BRAND}
           >
-            {BRAND}<span className="text-secondary">.</span>
+            <Logo />
           </Link>
         </div>
       </header>

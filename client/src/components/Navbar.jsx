@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { content, BRAND } from '../data/content'
+import Logo from './Logo'
 
 const SERVICE_NAV = [
   { slug: 'erp-sur-mesure',           icon: '⚙️', title: 'ERP sur mesure',        desc: 'Gestion intégrée personnalisée' },
@@ -132,9 +133,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="font-archivo font-black text-xl tracking-tight text-primary hover:text-secondary transition-colors duration-200 shrink-0"
+            className="text-secondary hover:text-secondary/80 transition-colors duration-200 shrink-0"
+            aria-label={BRAND}
           >
-            {BRAND}<span className="text-secondary">.</span>
+            <Logo />
           </Link>
 
           {/* Nav desktop */}
