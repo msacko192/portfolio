@@ -121,29 +121,38 @@ async function sendEmail(apiKey, { from, to, replyTo, subject, html }) {
 // ── Routes ────────────────────────────────────────────────────────────────────
 
 app.post('/api/contact', async (c) => {
+  console.log('[contact] requête reçue')
+
   let body
   try {
     body = await c.req.json()
-  } catch {
+  } catch (err) {
+    console.error('[contact] JSON invalide :', err.message)
     return c.json({ error: 'Corps JSON invalide' }, 400)
   }
+
+  console.log('[contact] body :', JSON.stringify({ ...body, besoin: body.besoin?.slice(0, 30) }))
 
   const { nom, email, entreprise = '', telephone = '', besoin } = body
 
   if (!nom?.trim() || !besoin?.trim()) {
+    console.error('[contact] champs manquants — nom:', nom, 'besoin:', besoin)
     return c.json({ error: 'Champs requis manquants' }, 400)
   }
   if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    console.error('[contact] email invalide :', email)
     return c.json({ error: 'Adresse email invalide' }, 400)
   }
 
   const apiKey = c.env.RESEND_API_KEY
+  console.log('[contact] RESEND_API_KEY présente :', !!apiKey)
   if (!apiKey) {
-    console.error('RESEND_API_KEY manquante')
+    console.error('[contact] RESEND_API_KEY manquante dans c.env')
     return c.json({ error: 'Configuration serveur manquante' }, 500)
   }
 
   try {
+    console.log('[contact] envoi emails via Resend...')
     await Promise.all([
       sendEmail(apiKey, {
         from: 'DJEXA <noreply@djexa.fr>',
@@ -159,8 +168,9 @@ app.post('/api/contact', async (c) => {
         html: confirmHtml({ nom: nom.trim() }),
       }),
     ])
+    console.log('[contact] emails envoyés avec succès')
   } catch (err) {
-    console.error('Erreur envoi email :', err.message)
+    console.error('[contact] erreur Resend :', err.message)
     return c.json({ error: "Erreur lors de l'envoi des emails" }, 500)
   }
 
