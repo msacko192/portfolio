@@ -2,7 +2,7 @@ import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { useState, useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
-import { motion, AnimatePresence, useInView, MotionConfig } from "framer-motion";
+import { motion, AnimatePresence, useInView, useScroll, useSpring, MotionConfig } from "framer-motion";
 import { useLocation, Link, Outlet, useNavigate, useParams, Navigate, Routes, Route } from "react-router-dom";
 const BRAND = "DJEXA";
 const content = {
@@ -5024,9 +5024,23 @@ function AppRoutes() {
     /* @__PURE__ */ jsx(Route, { path: "*", element: /* @__PURE__ */ jsx(NotFound, {}) })
   ] });
 }
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 300, damping: 40, restDelta: 1e-3 });
+  return /* @__PURE__ */ jsx(
+    motion.div,
+    {
+      className: "fixed top-0 left-0 right-0 h-[2px] bg-secondary origin-left z-[60] pointer-events-none",
+      style: { scaleX }
+    }
+  );
+}
 function render(url) {
   return renderToString(
-    /* @__PURE__ */ jsx(MotionConfig, { reducedMotion: "user", children: /* @__PURE__ */ jsx(StaticRouter, { location: url, children: /* @__PURE__ */ jsx(AppRoutes, {}) }) })
+    /* @__PURE__ */ jsx(MotionConfig, { reducedMotion: "user", children: /* @__PURE__ */ jsxs(StaticRouter, { location: url, children: [
+      /* @__PURE__ */ jsx(ScrollProgress, {}),
+      /* @__PURE__ */ jsx(AppRoutes, {})
+    ] }) })
   );
 }
 export {
