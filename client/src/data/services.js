@@ -16,7 +16,7 @@ export const services = [
     intro: {
       title: 'Ce que nous développons',
       body:
-        "Nous aidons les entreprises à remplacer les fichiers Excel, les saisies manuelles et les outils dispersés par une application unique, fiable et adaptée à leur métier. Chaque projet part de votre réalité terrain, pas d'un cahier des charges standard.",
+        "Nous développons ce que vos outils existants ne font pas : l'espace que vos clients n'ont pas, la connexion entre vos applications, le processus précis que personne n'a prévu pour votre façon de travailler. Chaque projet part de ce qui bloque aujourd'hui.",
     },
     services: [
       { slug: 'erp-sur-mesure', title: 'ERP sur mesure', icon: '⚙️', body: "Un système de gestion intégré calqué sur vos processus réels : achats, stocks, production, facturation." },

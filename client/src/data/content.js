@@ -13,7 +13,7 @@ export const content = {
 
     titleLines: ['Votre entreprise', 'est unique.', 'Votre logiciel', "devrait l’être aussi."],
 
-    lede: "Nous créons des logiciels personnalisés qui automatisent vos processus, améliorent votre organisation et donnent à vos équipes les outils adaptés à leur quotidien.",
+    lede: "Votre logiciel fait presque tout — sauf ce que vos clients attendent. Vos équipes ressaisissent les mêmes informations dans trois outils différents. Et chaque fois que vous avez besoin de quelque chose de précis, la réponse c'est : le logiciel ne sait pas faire ça. On développe ce qui manque.",
 
     cta1: 'Parlons de votre projet',
     cta2: 'Voir nos réalisations',
@@ -34,9 +34,9 @@ export const content = {
         solution: 'Des processus automatisés — votre équipe se concentre sur ce qui compte vraiment.',
       },
       {
-        title: 'Manque de visibilité',
-        body: 'Vous pilotez votre activité sans tableau de bord fiable. Chaque décision se prend dans le flou.',
-        solution: 'Des tableaux de bord temps réel — pilotez avec des chiffres fiables à tout moment.',
+        title: 'Vos clients vous appellent pour savoir où en est leur dossier',
+        body: "Votre logiciel est interne. Votre client, lui, n'y a pas accès. Résultat : des appels, des emails, des relances — pour des informations que vous avez déjà.",
+        solution: "Un espace client en ligne — il consulte l'avancement, valide, télécharge ses documents. Zéro relance.",
       },
       {
         title: 'Logiciels inadaptés',
@@ -300,8 +300,8 @@ export const content = {
   },
 
   contact: {
-    title: 'Parlons de votre projet',
-    body: "Vous avez une idée d'application ou un processus à améliorer ? Échangeons sur votre besoin et voyons comment le digital peut simplifier votre activité.",
+    title: '15 minutes pour identifier votre prochain gain de temps.',
+    body: "Expliquez-nous comment vous travaillez aujourd'hui. Nous vous disons honnêtement si un outil sur mesure peut changer quelque chose — et par où commencer.",
     cta: 'Prendre rendez-vous',
     rgpd: 'Vos données sont utilisées uniquement pour vous recontacter. Elles ne sont ni vendues ni transmises à des tiers, conformément au RGPD.',
     fields: {
@@ -347,7 +347,7 @@ export const content = {
   faq: [
     {
       q: 'Combien coûte une application sur mesure ?',
-      a: "Un premier module ciblé se développe entre 8 000 et 25 000 €. Le périmètre détermine le prix — pas l'envie de facturer plus. Nous vous donnons une estimation honnête dès le premier échange.",
+      a: "Le périmètre détermine le prix. Ce qu'on peut garantir : on commence toujours par un périmètre ciblé, livrable rapidement. Le premier échange permet de chiffrer honnêtement — sans engagement.",
     },
     {
       q: 'En combien de temps le logiciel sera prêt ?',
