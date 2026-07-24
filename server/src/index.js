@@ -60,7 +60,7 @@ function notifHtml({ nom, entreprise, email, telephone, besoin }) {
     </div>
   </td></tr>
   <tr><td style="background:#F8FAFC;padding:16px 32px;border-top:1px solid #E5E7EB;">
-    <p style="margin:0;font-size:12px;color:#9CA3AF;">Envoyé depuis le formulaire de <a href="https://djexa.fr" style="color:#2563EB;text-decoration:none;">djexa.fr</a></p>
+    <p style="margin:0;font-size:12px;color:#9CA3AF;">Envoyé depuis le formulaire de <a href="https://www.djexa.fr" style="color:#2563EB;text-decoration:none;">www.djexa.fr</a></p>
   </td></tr>
 </table>
 </td></tr>
@@ -90,12 +90,12 @@ function confirmHtml({ nom }) {
     <p style="margin:0 0 8px;font-size:15px;color:#374151;line-height:1.65;">Votre message a bien été reçu.</p>
     <p style="margin:0 0 24px;font-size:15px;color:#374151;line-height:1.65;">Nous vous répondrons sous <strong style="color:#111827;">48 heures ouvrées</strong>.</p>
     <div style="background:#F8FAFC;border-radius:10px;padding:16px 20px;margin-bottom:28px;border:1px solid #E5E7EB;text-align:left;">
-      <p style="margin:0;font-size:13px;color:#6B7280;line-height:1.6;">En attendant, découvrez nos <a href="https://djexa.fr/#realisations" style="color:#2563EB;text-decoration:none;font-weight:500;">réalisations</a> et <a href="https://djexa.fr/#methode" style="color:#2563EB;text-decoration:none;font-weight:500;">notre méthode de travail</a>.</p>
+      <p style="margin:0;font-size:13px;color:#6B7280;line-height:1.6;">En attendant, découvrez nos <a href="https://www.djexa.fr/#realisations" style="color:#2563EB;text-decoration:none;font-weight:500;">réalisations</a> et <a href="https://www.djexa.fr/#methode" style="color:#2563EB;text-decoration:none;font-weight:500;">notre méthode de travail</a>.</p>
     </div>
-    <a href="https://djexa.fr" style="display:inline-block;background:#111827;color:#FFFFFF;font-size:13px;font-weight:600;padding:12px 24px;border-radius:8px;text-decoration:none;">Retour au site →</a>
+    <a href="https://www.djexa.fr" style="display:inline-block;background:#111827;color:#FFFFFF;font-size:13px;font-weight:600;padding:12px 24px;border-radius:8px;text-decoration:none;">Retour au site →</a>
   </td></tr>
   <tr><td style="background:#F8FAFC;padding:16px 32px;border-top:1px solid #E5E7EB;text-align:center;">
-    <p style="margin:0;font-size:12px;color:#9CA3AF;">DJEXA — Studio logiciel sur mesure · <a href="https://djexa.fr" style="color:#2563EB;text-decoration:none;">djexa.fr</a></p>
+    <p style="margin:0;font-size:12px;color:#9CA3AF;">DJEXA — Studio logiciel sur mesure · <a href="https://www.djexa.fr" style="color:#2563EB;text-decoration:none;">www.djexa.fr</a></p>
   </td></tr>
 </table>
 </td></tr>
